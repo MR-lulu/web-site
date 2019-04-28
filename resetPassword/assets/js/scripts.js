@@ -18,7 +18,7 @@ jQuery(document).ready(function() {
     
     $('.login-form').on('submit', function(e) {
         //判断元素是否为空
-    	$(this).find('input[type="text"], input[type="password"], textarea').each(function(){
+    	$(this).find('input[type="text"], input[type="password"], input[type="hidden"], textarea').each(function(){
     		if( $(this).val() == "") {
     			e.preventDefault();
     			$(this).addClass('input-error');
