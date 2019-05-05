@@ -1,6 +1,6 @@
 /**
  * 反射对象将对象的属性使用json对应的属性赋值
- * mengyu 2018-06-08 version:V1.0.0.0
+ * lyl 2018-06-08 version:V1.0.0.0
  */
 class HTTPCommunicateManager {
   /**

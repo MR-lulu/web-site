@@ -3,7 +3,7 @@ import { MessageBox } from 'element-ui'
 
 /**
  * 翻译支持国际化的弹出框封装类
- * mengyu 2018-06-06 version:V1.0.0.0
+ * lyl 2018-06-06 version:V1.0.0.0
  * 通过传入json中的key值，经过国际化转换成需要的语言，调用弹出框弹出
  */
 class MessageBoxTranslate {

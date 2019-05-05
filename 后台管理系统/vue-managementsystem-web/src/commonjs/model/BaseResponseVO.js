@@ -2,7 +2,7 @@ import { translate } from '../util/translateUtil'
 
 /**
  * 返回包父类
- * mengyu 2018-06-08 version:V1.0.0.0
+ * lyl 2018-06-08 version:V1.0.0.0
  * 封装获取协议名称、返回码、返回信息、占位符数组等方法
  */
 class BaseResponseVO {

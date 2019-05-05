@@ -8,7 +8,7 @@ class Config {
  * 系统初始化入口地址
  * @type {string}
  */
-Config.enterURL = 'http://172.16.0.108:8000/vue-frontend/'
+Config.enterURL = 'http://114.115.167.76:8080/vue-frontend/'
 /**
  * 浏览器语言与本地语言对应关系Map key：浏览器语言 value：本地语言
  * @type {Map<any, any>}

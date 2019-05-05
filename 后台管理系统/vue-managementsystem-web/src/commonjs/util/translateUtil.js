@@ -1,6 +1,6 @@
 /**
  * 翻译工具
- * mengyu 2018-06-08 version:V1.0.0.0
+ * lyl 2018-06-08 version:V1.0.0.0
  * 传入消息码，args参数获取消息内容（支持国际化）
  */
 import Vue from 'vue'
