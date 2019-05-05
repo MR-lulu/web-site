@@ -187,9 +187,6 @@ class SystemInit {
       this.localStorage.removeItem(this.localStorage.serverResourceVerItem)
       this.localStorage.removeItem(this.localStorage.serverResourceFileItem)
     }
-
-    // 调用languageSet设置当前语言
-    changeLanguage(this.memoryData.lang)
   }
 
   /**
