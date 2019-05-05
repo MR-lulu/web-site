@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/assets/theme/pc/default/framework/css/style.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/framework/common/config.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/framework/pc/App.vue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/locale/lang/framework/EN/element.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/locale/lang/moduleA/EN/element.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/locale/lang/moduleA/EN/header/header.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/locale/lang/moduleA/EN/login/login.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/locale/lang/moduleA/EN/main/main.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/locale/lang/moduleA/EN/map/map.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/locale/lang/moduleA/EN/pc/header/header.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/locale/lang/moduleA/EN/pc/login/login.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/locale/lang/moduleA/EN/pc/map/map.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/locale/lang/moduleA/EN/pc/register/register.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/locale/lang/moduleA/EN/pc/userList/components/addUser.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/locale/lang/moduleA/EN/pc/userList/components/modifyUser.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/locale/lang/moduleA/EN/pc/userList/userList.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/locale/lang/moduleA/EN/register/register.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/locale/lang/moduleA/EN/returncode.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/locale/lang/moduleA/zh_CN/pc/header/header.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/locale/lang/moduleA/zh_CN/pc/login/login.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/locale/lang/moduleA/zh_CN/pc/map/map.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/locale/lang/moduleA/zh_CN/pc/pc.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/locale/lang/moduleA/zh_CN/pc/register/register.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/locale/lang/moduleA/zh_CN/pc/userList/components/addUser.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/locale/lang/moduleA/zh_CN/pc/userList/components/modifyUser.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/locale/lang/moduleA/zh_CN/pc/userList/userList.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/moduleA/pc/components/header/Header.vue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/moduleA/pc/components/home/Home.vue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/moduleA/pc/components/list/components/AddUser.vue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/moduleA/pc/components/list/components/ModifyUser.vue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/router/pc_index.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/store/localstorage/index.js" charset="UTF-8" />
+  </component>
+</project>
