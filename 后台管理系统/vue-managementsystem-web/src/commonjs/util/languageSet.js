@@ -33,20 +33,6 @@ export async function changeLanguage (lang) {
       localResourcePromise = import(`@/locale/lang/${lang}/resources.js`)
     }
 
-    // 从localStorage获取服务端资源文件信息
-    let serverResource = localStorage.getServerResourceFile()
-    let enumInfoPromise = null
-    let returnCodePromise = null
-    // 如果localStorage中没有服务端资源文件信息或者没有当前语言的资源文件信息则下载资源文件
-    if (!serverResource || !serverResource[lang]) {
-      let enterHTTPCommunicate = Vue.prototype.communicateManger.enterHTTPCommunicate
-      // 加载服务端的资源文件
-      // 获取系统使用到的枚举信息
-      let enumFileName = `/${lang}/resource/${Config.enumFileName}`
-      enumInfoPromise = enterHTTPCommunicate.getJson(enumFileName)
-      let returnCodeFileName = `/${lang}/resource/${Config.returnCodeFileName}`
-      returnCodePromise = enterHTTPCommunicate.getJson(returnCodeFileName)
-    }
     if (localResourcePromise) {
       let curLocalResource = await localResourcePromise
       // 当前语言和资源文件转换为Json对象
@@ -60,23 +46,7 @@ export async function changeLanguage (lang) {
       localStorage.setLocalResourceVer(Config.resourceVer)
     }
 
-    if (enumInfoPromise) {
-      let enumResource = await enumInfoPromise
-      console.log(enumResource)
-      let returnCodeResource = await returnCodePromise
-      let curServerResource = Object.assign(enumResource, returnCodeResource)
-      console.log(curServerResource)
-      // 当前语言和资源文件转换为Json对象
-      let curServerResourceJson = JSON.parse(`{"${lang}": ${JSON.stringify(curServerResource)}}`)
-      if (!serverResource) {
-        serverResource = curServerResourceJson
-      } else {
-        Object.assign(serverResource, curServerResourceJson)
-      }
-      localStorage.setServerResourceFile(serverResource)
-      localStorage.setServerResourceVer(Vue.prototype.memoryData.baseInfo.resourceFileVersion)
-    }
-    let resource = Object.assign(localResource[lang], serverResource[lang])
+    let resource = localResource[lang]
     console.log('resource')
     console.log(resource)
     Vue.prototype.i18n.setLocaleMessage(lang, resource)
