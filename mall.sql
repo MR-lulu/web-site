@@ -1,6 +1,6 @@
 drop table if exists common_info;
 CREATE TABLE `common_info` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `common_info_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `bg_url` varchar(100) NOT NULL DEFAULT '' COMMENT '背景图片',
   `status` int(1) NOT NULL DEFAULT '0' COMMENT '状态',
   `server_create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -29,7 +29,7 @@ CREATE TABLE `leave_msg` (
 
 drop table if exists modules;
 CREATE TABLE `modules` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `modules_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `navigation_id` bigint(20) NOT NULL DEFAULT '0',
   `parts_type_id` bigint(20) NOT NULL DEFAULT '0',
   `priority` int(20) NOT NULL DEFAULT '0',
@@ -62,7 +62,7 @@ CREATE TABLE `navigation` (
 
 drop table if exists parts;
 CREATE TABLE `parts` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `parts_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
   `parts_type_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '零件类型',
   `modules_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '所属模块',
@@ -85,7 +85,7 @@ CREATE TABLE `parts` (
 
 drop table if exists parts_type;
 CREATE TABLE `parts_type` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `parts_type_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL DEFAULT '',
   `resource` varchar(100) NOT NULL DEFAULT '',
   `watch` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否可选，1可以，0否',
@@ -100,7 +100,7 @@ CREATE TABLE `parts_type` (
 
 drop table if exists registers_info;
 CREATE TABLE `registers_info` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `registers_info_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL DEFAULT '',
   `contact` varchar(30) NOT NULL DEFAULT '',
   `phone` varchar(20) NOT NULL DEFAULT '',
@@ -152,7 +152,7 @@ CREATE TABLE `web_bottom` (
 
 drop table if exists web_info;
 CREATE TABLE `web_info` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `web_info_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `owner` varchar(20) NOT NULL DEFAULT '' COMMENT '网站所有者',
   `contact` varchar(30) NOT NULL DEFAULT '' COMMENT '联系方式',
   `phone` varchar(20) NOT NULL DEFAULT '',
