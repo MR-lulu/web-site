@@ -8,7 +8,7 @@ CREATE TABLE `common_info` (
   `remarks` varchar(1000) NOT NULL DEFAULT '' COMMENT '备注',
   `extra_1` varchar(100) NOT NULL DEFAULT '' COMMENT '扩展字段1',
   `extra_2` varchar(100) NOT NULL DEFAULT '' COMMENT '扩展字段2',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`common_info_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='公共信息表';
 
 drop table if exists leave_msg;
@@ -40,7 +40,7 @@ CREATE TABLE `modules` (
   `remarks` varchar(1000) NOT NULL DEFAULT '' COMMENT '备注',
   `extra_1` varchar(100) NOT NULL DEFAULT '' COMMENT '扩展字段1',
   `extra_2` varchar(100) NOT NULL DEFAULT '' COMMENT '扩展字段2',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`modules_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='模块表';
 
 drop table if exists navigation;
@@ -80,7 +80,7 @@ CREATE TABLE `parts` (
   `remarks` varchar(1000) NOT NULL DEFAULT '' COMMENT '备注',
   `extra_1` varchar(100) NOT NULL DEFAULT '' COMMENT '扩展字段1',
   `extra_2` varchar(100) NOT NULL DEFAULT '' COMMENT '扩展字段2',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`parts_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='零件表';
 
 drop table if exists parts_type;
@@ -95,7 +95,7 @@ CREATE TABLE `parts_type` (
   `remarks` varchar(1000) NOT NULL DEFAULT '' COMMENT '备注',
   `extra_1` varchar(100) NOT NULL DEFAULT '' COMMENT '扩展字段1',
   `extra_2` varchar(100) NOT NULL DEFAULT '' COMMENT '扩展字段2',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`parts_type_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='零件种类表';
 
 drop table if exists registers_info;
@@ -111,7 +111,7 @@ CREATE TABLE `registers_info` (
   `remarks` varchar(1000) NOT NULL DEFAULT '' COMMENT '备注',
   `extra_1` varchar(100) NOT NULL DEFAULT '' COMMENT '扩展字段1',
   `extra_2` varchar(100) NOT NULL DEFAULT '' COMMENT '扩展字段2',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`registers_info_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='信息登记表';
 
 drop table if exists user;
@@ -167,7 +167,7 @@ CREATE TABLE `web_info` (
   `remarks` varchar(1000) NOT NULL DEFAULT '' COMMENT '备注',
   `extra_1` varchar(100) NOT NULL DEFAULT '' COMMENT '扩展字段1',
   `extra_2` varchar(100) NOT NULL DEFAULT '' COMMENT '扩展字段2',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`web_info_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 drop table if exists web_top;
