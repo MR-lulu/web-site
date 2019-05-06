@@ -9,7 +9,6 @@ import HTTPCommunicate from '@/commonjs/util/HTTPCommunicate.js'
 import LocalStorage from '@/store/localstorage/index.js'
 import store from '@/store/vuex/index.js'
 import BaseInfo from '@/commonjs/model/BaseInfo.js'
-import BaseDictionaryInfo from '@/commonjs/model/BaseDictionaryInfo'
 import { changeLanguage } from '@/commonjs/util/languageSet.js'
 import IntervalInit from './IntervalInit'
 import { ProtocolContent } from '@/protocolConfig/protocolConfig.js'
@@ -65,12 +64,10 @@ class SystemInit {
     Vue.prototype.communicateManger = this.communicateManger
 
     // *生成Promise对象时请求已经发送到服务端，所以使用一下方式服务端并行处理请求数据 */
-    // 初始化Common文件信息
-    let initCommonFileInfoPromise = this.initCommonFileInfo()
+
     // 初始化语言信息
     let initLanguageInfoPromise = this.initLanguageInfo()
-    // 初始化Common文件信息结果
-    await initCommonFileInfoPromise
+
     // 初始化Common文件信息结果
     await initLanguageInfoPromise
 
@@ -138,35 +135,6 @@ class SystemInit {
   }
 
   /**
-   * 初始化Common文件信息
-   * @returns {Promise<void>}
-   */
-  async initCommonFileInfo () {
-    // 从loalstorage中获取Common文件的文件版本
-    let commonVer = this.localStorage.getCommonFileVer()
-    // 如果没有版本信息或者版本信息低于服务器端版本信息
-    if (!commonVer || commonVer < this.memoryData.baseInfo.commonFileVersion) {
-      // 删除localStorage中存储的Common数据
-      this.localStorage.removeItem(this.localStorage.commonFileVerItem)
-      // 删除loalstorage中Common文件的文件版本信息
-      this.localStorage.removeItem(this.localStorage.commonFileItem)
-    }
-
-    // 从loalstorage中获取Common文件信息
-    let baseDictionaryInfo = this.localStorage.getBaseDictionaryInfo()
-    // 如果不存在则获取服务端的Common文件信息
-    if (!baseDictionaryInfo) {
-      baseDictionaryInfo = await this.enterHTTPCommunicate.getObject(Config.commonFileName, BaseDictionaryInfo)
-      // 将Common文件版本存储到loalstorage中
-      this.localStorage.setBaseDictionaryInfo(baseDictionaryInfo)
-    }
-    console.log(baseDictionaryInfo)
-    console.log(baseDictionaryInfo.cardGroup)
-    // 将Common文件信息存放到内存中
-    this.memoryData.baseDictionaryInfo = baseDictionaryInfo
-  }
-
-  /**
    * 初始化语言信息
    * @returns {Promise<void>}
    */
@@ -187,6 +155,9 @@ class SystemInit {
       this.localStorage.removeItem(this.localStorage.serverResourceVerItem)
       this.localStorage.removeItem(this.localStorage.serverResourceFileItem)
     }
+
+    // 调用languageSet设置当前语言
+    await changeLanguage(this.memoryData.lang)
   }
 
   /**
