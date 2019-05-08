@@ -28,7 +28,8 @@ module.exports = {
         alias: {
             'vue$': 'vue/dist/vue.esm.js',
             '@': resolve('src'),
-            'accounting': resolve('src/commonjs/util/accounting.js')
+          'accounting': resolve('src/commonjs/util/accounting.js'),
+          'jquery': 'jquery'
         }
     },
     module: {
@@ -82,10 +83,10 @@ module.exports = {
         tls: 'empty',
         child_process: 'empty'
     },
-    plugins: [
-        new webpack.ProgressPlugin({
-            jQuery: 'jquery',
-            $: 'jquery'
-        })
-    ]
+  plugins: [
+    new webpack.ProvidePlugin({
+      jQuery: "jquery",
+      $: "jquery"
+    })
+  ]
 }
