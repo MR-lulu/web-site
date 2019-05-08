@@ -1,10 +1,6 @@
 jQuery(document).ready(function () {
 
-  /*
-      Fullscreen background
-  */
-  // $.backstretch("./assets/images/loginbackground.jpg");
-  $(".login").backstretch(["./assets/images/loginbackground.jpg", "./assets/images/loginbackground.jpg"], {duration: 4000}); //元素背景，切换现实
+  //元素背景，切换现实
   /*
       Form validation
   */
@@ -12,8 +8,6 @@ jQuery(document).ready(function () {
     $(this).removeClass('input-error');
   });
 
-  //默认隐藏元素
-  $('.errorTips').hide();
 
   $('.login-form').on('submit', function (e) {
     //判断元素是否为空
@@ -36,7 +30,7 @@ jQuery(document).ready(function () {
   });
 
   this.loginTimer = setTimeout(() => {
-    $(".login").backstretch(["./assets/images/loginbackground.jpg", "./assets/images/loginbackground.jpg"], {duration: 500}); //元素背景，切换现实
+    // $(".login").backstretch(["./assets/images/loginbackground.jpg", "./assets/images/loginbackground.jpg"], {duration: 500}); //元素背景，切换现实
     clearInterval(this.loginTimer);
   }, 1000)
 

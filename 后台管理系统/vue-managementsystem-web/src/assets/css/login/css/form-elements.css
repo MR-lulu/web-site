@@ -115,7 +115,3 @@ button.btn:active:focus, button.btn.active:focus {
   background: #de615e;
   color: #fff;
 }
-
-.errorTips {
-  color: red;
-}

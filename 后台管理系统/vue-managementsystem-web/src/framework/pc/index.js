@@ -9,7 +9,7 @@ import store from '@/store/vuex/index.js'
 import SystemInit from '@/framework/common/js/SystemInit.js'
 import $ from 'jquery'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/dist/js/bootstrap.min'
+import 'bootstrap/dist/js/bootstrap.min.js'
 
 
 // 系统初始化类
