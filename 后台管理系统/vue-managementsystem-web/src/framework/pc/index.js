@@ -7,6 +7,11 @@ import App from './App'
 import router from '@/router/pc/index.js'
 import store from '@/store/vuex/index.js'
 import SystemInit from '@/framework/common/js/SystemInit.js'
+import $ from 'jquery'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.min'
+
+
 // 系统初始化类
 let systemInit = new SystemInit()
 

@@ -34,5 +34,5 @@ export default {
 </script>
 
 <style lang="less">
-  @import url('~@/assets/theme/pc/default/framework/css/common');
+  @import url('~@/assets/theme/pc/blue/framework/css/common');
 </style>

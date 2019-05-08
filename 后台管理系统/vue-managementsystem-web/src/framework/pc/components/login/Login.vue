@@ -1,167 +1,475 @@
 <template>
-  <div class="login_page fillcontain">
-    <transition name="form-fade" mode="in-out">
-      <section class="form_contianer form-style" v-show="showLogin">
-        <div class="manage_tip">
-          <p class = "manage_p">{{$t('rs.framework.80100000000')}}<!-- 欢迎登录 --></p>
+  <div class="login">
+    <!--登陆窗口-->
+    <div class="top-content">
+      <div class="inner-bg">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-sm-offset-2 text">
+              <h1><strong>欢 迎 登 陆</strong></h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 form-box">
+              <div class="form-top">
+                <div class="form-top-left">
+                  <h3>Reset to our site</h3>
+                  <p>Enter your new password to reset:</p>
+                </div>
+              </div>
+              <div class="form-bottom">
+                <form role="form" action="" method="post" class="login-form">
+                  <!-- 新密码 -->
+                  <div class="form-group">
+                    <label class="sr-only" for="form-password">password</label>
+                    <input type="password" name="form-password" placeholder="请输入新密码..."
+                           class="form-password form-control"
+                           id="form-password">
+                  </div>
+
+                  <!--  重复输入新密码 -->
+                  <div class="form-group">
+                    <label class="sr-only" for="form-password">repassword</label>
+                    <input type="password" name="form-repassword" placeholder="请重复输入新密码..."
+                           class="form-password form-control" id="form-repassword">
+                  </div>
+
+                  <!-- 隐藏的输入框，可作为一些数据传输 -->
+                  <div>
+                    <input type="hidden" name="userID" id="userID" value="赋值">
+                  </div>
+
+                  <div class="errorTips">
+                    <span>两次密码输入不相同，请重新输入!</span>
+                  </div>
+
+                  <!-- 修改按钮 -->
+                  <button type="submit" class="btn">确认修改</button>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
-        <el-form label-position="right" :model="loginForm" :rules="rules" ref="loginForm">
-          <el-form-item prop="username" :label="$t('rs.framework.80100000001')/* 用户名 */">
-            <el-input v-model="loginForm.username" :placeholder="$t('rs.framework.80100000001')/* 用户名 */"><span></span></el-input>
-          </el-form-item>
-          <el-form-item prop="password" :label="$t('rs.framework.80100000002')/* 密码 */">
-            <el-input type="password" :placeholder="$t('rs.framework.80100000002')/* 密码 */"
-                      v-model="loginForm.password"></el-input>
-          </el-form-item>
-          <el-form-item :label="$t('rs.framework.80100000003')/* 语言 */">
-            <el-select class="login-el-select" v-model="languageValue" @change="changeLanguage">
-              <el-option
-                v-for="item in languageOptions"
-                :key="item.languageID"
-                :label="item.name"
-                :value="item.dirName">
-              </el-option>
-            </el-select>
-          </el-form-item>
-          <el-form-item :label="$t('rs.framework.80100000004')/* 主题 */">
-            <el-select class="login-el-select" v-model="theme" @change="changeThemes">
-              <el-option
-                v-for="(theme,index) in themeOptions" :key="index"
-                :label="$t(theme)"
-                :value="index">
-              </el-option>
-            </el-select>
-          </el-form-item>
-        </el-form>
-        <el-button type="primary" @click="submitForm('loginForm')" style="width: 100%;margin-top: 10px">
-          {{$t('rs.framework.80100000005')}}<!-- 登录 --></el-button>
-        <div class="register_btn"><a @click="register()">{{$t('rs.framework.80100000006')}}<!-- 注册新账号 --></a></div>
-        <p class="tip">{{$t('rs.framework.80100000007')}}<!-- 温馨提示： --></p>
-        <p class="tip">{{$t('rs.framework.80100000008')}}<!-- 未登录过的新用户，自动注册 --></p>
-        <p class="tip">{{$t('rs.framework.80100000009')}}<!-- 注册过的用户可凭账号密码登录 --></p>
-      </section>
-    </transition>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import LogonRequestVO from '@/framework/common/js/model/LogonRequestVO'
-import { setUserID, setSessionID } from '@/store/sessionstorage/index.js'
-import { changeLanguage } from '@/commonjs/util/languageSet.js'
-import Config from '@/framework/common/config/Config.js'
-
-export default {
-  inject: ['reload'],
-  data: function () {
-    return {
-      languageValue: this.memoryData.lang,
-      languageOptions: this.memoryData.langs,
-      themeOptions: Config.theme,
-      theme: this.localStorage.getTheme('default'),
-      loginForm: {
-        username: '',
-        password: ''
-      },
-      rules: {
-        username: [
-          {required: true, message: this.$i18n.t('rs.framework.80101000000')/* 请输入用户名 */, trigger: 'blur'}
-        ],
-        password: [
-          {required: true, message: this.$i18n.t('rs.framework.80101000001')/* 请输入密码 */, trigger: 'blur'}
-        ]
-      },
-      showLogin: true
-    }
-  },
-  methods: {
-    submitForm (formName) {
-      this.$refs[formName].validate((valid) => {
-        if (valid) {
-          let userID = this.loginForm.username
-          var logonRequestVO = new LogonRequestVO(this.ProtocolContent.logon)
-          logonRequestVO.userNO = userID
-          logonRequestVO.password = this.loginForm.password
-          logonRequestVO.authCode = '1'
-          logonRequestVO.deviceID = '1'
-          this.communicateManger.httpCommunicate.getResponseVO(logonRequestVO).then((data) => {
-            if (data.returnCode > 0) {
-              setUserID(userID)
-              setSessionID(data.returnCode)
-              let router = this.$router
-              // this.messageBox.alert('102101', null, function () {
-              router.push('/home/userList')
-              // })
-            }
-          })
+  export default {
+    name: 'Login2',
+    data() {
+      return {
+        commodityMapData: null,
+        loginTimer: null,
+      }
+    },
+    created() {
+    },
+    computed: {
+      // ...mapState(['cmdtyQuotationInfo']),
+    },
+    watch: {
+      commodityMap: function (newVal, oldVal) {
+        if (newVal) {
+          //获取商品信息
+          this.commodityMapData = newVal
         }
-      })
+      }
     },
-    register () {
-      this.$router.push('/register')
-    },
-    /**
-     * 改变语言
-     */
-    changeLanguage: function () {
-      changeLanguage(this.languageValue)
-      this.reload()
-    },
-    /**
-     * 改变主题
-     */
-    changeThemes: function () {
-      // 将主题存储到localStorage
-      this.localStorage.setTheme(this.theme)
-      // 设置主题
-      var style = document.getElementById('pc_style')
-      style.href = `assets/theme/pc/${this.theme}/framework/css/style.css`
-    }
-  },
-  mounted () {
-    // 加载之前先给一个可以登录的用户
-    let _self = this
-    let admin = {
-      username: 'test',
-      password: '111111'
-    }
-    _self.loginForm.username = admin.username
-    _self.loginForm.password = admin.password
+    methods: {}
   }
-}
 </script>
 
-<style lang="less" scoped>
-  @import '~@/assets/theme/pc/default/framework/css/mixin';
+<style>
+  .login {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: #888;
+    line-height: 30px;
+    text-align: center;
+  }
 
-  .form_contianer{
-    .wh(320px, 530px);
-    .ctp();
+  .backgroundimage {
+    width: 90%;
+    margin: 20px auto;
+    background-color: #FFF;
+    padding: 20px;
   }
-  .form-fade-enter-active, .form-fade-leave-active {
-    transition: all 1s;
+
+  body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: #888;
+    line-height: 30px;
+    text-align: center;
   }
-  .form-fade-enter, .form-fade-leave-active {
-    transform: translate3d(0, -50px, 0);
-    opacity: 0;
+
+  strong {
+    font-weight: 500;
   }
-  .login-el-select{
-    width:100%;
+
+  a, a:hover, a:focus {
+    color: #de615e;
+    text-decoration: none;
+    -o-transition: all .3s;
+    -moz-transition: all .3s;
+    -webkit-transition: all .3s;
+    -ms-transition: all .3s;
+    transition: all .3s;
   }
-  .register_btn{
-    text-align: right;
-    color: #007cff;
-    cursor:pointer;
-    font-size: 12px;
+
+  h1, h2 {
     margin-top: 10px;
+    font-size: 38px;
+    font-weight: 100;
+    color: #555;
+    line-height: 50px;
   }
-  .manage_tip{
-    position: absolute;
+
+  h3 {
+    font-size: 22px;
+    font-weight: 300;
+    color: #555;
+    line-height: 30px;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  ::-moz-selection {
+    background: #de615e;
+    color: #fff;
+    text-shadow: none;
+  }
+
+  ::selection {
+    background: #de615e;
+    color: #fff;
+    text-shadow: none;
+  }
+
+
+  .btn-link-1 {
+    display: inline-block;
+    height: 50px;
+    margin: 5px;
+    padding: 16px 20px 0 20px;
+    background: #de615e;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 16px;
+    color: #fff;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+  }
+
+  .btn-link-1:hover, .btn-link-1:focus, .btn-link-1:active {
+    outline: 0;
+    opacity: 0.6;
+    color: #fff;
+  }
+
+  .btn-link-1.btn-link-1-facebook {
+    background: #4862a3;
+  }
+
+  .btn-link-1.btn-link-1-twitter {
+    background: #55acee;
+  }
+
+  .btn-link-1.btn-link-1-google-plus {
+    background: #dd4b39;
+  }
+
+  .btn-link-1 i {
+    padding-right: 5px;
+    vertical-align: middle;
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  .btn-link-2 {
+    display: inline-block;
+    height: 50px;
+    margin: 5px;
+    padding: 15px 20px 0 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #fff;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 16px;
+    color: #fff;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+  }
+
+  .btn-link-2:hover, .btn-link-2:focus,
+  .btn-link-2:active, .btn-link-2:active:focus {
+    outline: 0;
+    opacity: 0.6;
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+  }
+
+
+  /***** Top content *****/
+
+  .inner-bg {
+    padding: 100px 0 170px 0;
+  }
+
+  .top-content .text {
+    color: #fff;
+  }
+
+  .top-content .text h1 {
+    color: #fff;
+  }
+
+  .top-content .description {
+    margin: 20px 0 10px 0;
+  }
+
+  .top-content .description p {
+    opacity: 0.8;
+  }
+
+  .top-content .description a {
+    color: #fff;
+  }
+
+  .top-content .description a:hover,
+  .top-content .description a:focus {
+    border-bottom: 1px dotted #fff;
+  }
+
+  .form-box {
+    margin-top: 35px;
+  }
+
+  .form-top {
+    overflow: hidden;
+    padding: 0 25px 15px 25px;
+    background: #444;
+    background: rgba(0, 0, 0, 0.35);
+    -moz-border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0;
+    text-align: left;
+  }
+
+  .form-top-left {
+    float: left;
+    width: 75%;
+    padding-top: 25px;
+  }
+
+  .form-top-left h3 {
+    margin-top: 0;
+    color: #fff;
+  }
+
+  .form-top-left p {
+    opacity: 0.8;
+    color: #fff;
+  }
+
+  .form-top-right {
+    float: left;
+    width: 25%;
+    padding-top: 5px;
+    font-size: 66px;
+    color: #fff;
+    line-height: 100px;
+    text-align: right;
+    opacity: 0.3;
+  }
+
+  .form-bottom {
+    padding: 25px 25px 30px 25px;
+    background: #444;
+    background: rgba(0, 0, 0, 0.3);
+    -moz-border-radius: 0 0 4px 4px;
+    -webkit-border-radius: 0 0 4px 4px;
+    border-radius: 0 0 4px 4px;
+    text-align: left;
+  }
+
+  .form-bottom form textarea {
+    height: 100px;
+  }
+
+  .form-bottom form button.btn {
     width: 100%;
-    top: -100px;
-    left: 0;
-    p{
-      font-size: 34px;
-    }
   }
+
+  .form-bottom form .input-error {
+    border-color: #de615e;
+  }
+
+  .social-login {
+    margin-top: 35px;
+  }
+
+  .social-login h3 {
+    color: #fff;
+  }
+
+  .social-login-buttons {
+    margin-top: 25px;
+  }
+
+
+  /***** Media queries *****/
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+  }
+
+  @media (max-width: 767px) {
+
+    .inner-bg {
+      padding: 60px 0 110px 0;
+    }
+
+  }
+
+  @media (max-width: 415px) {
+
+    h1, h2 {
+      font-size: 32px;
+    }
+
+  }
+
+  input[type="text"],
+  input[type="password"],
+  textarea,
+  textarea.form-control {
+    height: 50px;
+    margin: 0;
+    padding: 0 20px;
+    vertical-align: middle;
+    background: #fff;
+    border: 3px solid #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 50px;
+    color: #888;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -o-transition: all .3s;
+    -moz-transition: all .3s;
+    -webkit-transition: all .3s;
+    -ms-transition: all .3s;
+    transition: all .3s;
+  }
+
+  textarea,
+  textarea.form-control {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 30px;
+  }
+
+  input[type="text"]:focus,
+  input[type="password"]:focus,
+  textarea:focus,
+  textarea.form-control:focus {
+    outline: 0;
+    background: #fff;
+    border: 3px solid #fff;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  input[type="text"]:-moz-placeholder, input[type="password"]:-moz-placeholder,
+  textarea:-moz-placeholder, textarea.form-control:-moz-placeholder {
+    color: #888;
+  }
+
+  input[type="text"]:-ms-input-placeholder, input[type="password"]:-ms-input-placeholder,
+  textarea:-ms-input-placeholder, textarea.form-control:-ms-input-placeholder {
+    color: #888;
+  }
+
+  input[type="text"]::-webkit-input-placeholder, input[type="password"]::-webkit-input-placeholder,
+  textarea::-webkit-input-placeholder, textarea.form-control::-webkit-input-placeholder {
+    color: #888;
+  }
+
+
+  button.btn {
+    height: 50px;
+    margin: 0;
+    padding: 0 20px;
+    vertical-align: middle;
+    background: #de615e;
+    border: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 50px;
+    color: #fff;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    text-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -o-transition: all .3s;
+    -moz-transition: all .3s;
+    -webkit-transition: all .3s;
+    -ms-transition: all .3s;
+    transition: all .3s;
+  }
+
+  button.btn:hover {
+    opacity: 0.6;
+    color: #fff;
+  }
+
+  button.btn:active {
+    outline: 0;
+    opacity: 0.6;
+    color: #fff;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  button.btn:focus {
+    outline: 0;
+    opacity: 0.6;
+    background: #de615e;
+    color: #fff;
+  }
+
+  button.btn:active:focus, button.btn.active:focus {
+    outline: 0;
+    opacity: 0.6;
+    background: #de615e;
+    color: #fff;
+  }
+
+  .errorTips {
+    color: red;
+  }
+
 
 </style>
