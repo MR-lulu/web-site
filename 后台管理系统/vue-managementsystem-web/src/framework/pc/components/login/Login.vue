@@ -6,7 +6,8 @@
         <div class="container">
           <div class="row">
             <div class="col-sm-8 col-sm-offset-2 text from-index">
-              <h1><strong>欢 迎 登 陆</strong></h1>
+              <!--欢 迎 登 陆-->
+              <h1><strong>{{$t('rs.moduleA.20000000002')}}</strong></h1>
             </div>
           </div>
           <div class="row">
@@ -19,23 +20,34 @@
               </div>
               <div class="form-bottom">
                 <form role="form" action="" method="post" class="login-form">
-                  <!-- 账号 -->
+                  <!--账号-->
                   <div class="form-group">
-                    <label class="sr-only" for="form-password">password</label>
-                    <input type="password" name="form-password" placeholder="请输入账号..."
-                           class="form-password form-control"
-                           id="form-password">
+                    <label class="sr-only" for="form-username">Username</label>
+                    <input type="text" name="form-username" v-model="uaserName"
+                           :placeholder="$t('rs.moduleA.20000000003')/* 请输入用户名... */"
+                           class="form-username form-control" id="form-username"
+                           v-bind:class="{ input_error: isActiveUaserName }" v-on:focus="inputFocus(1)">
+                  </div>
+                  <!--密码-->
+                  <div class="form-group">
+                    <label class="sr-only" for="form-password">Password</label>
+                    <input type="password" name="form-password" v-model="password"
+                           :placeholder="$t('rs.moduleA.20000000004')/* 请输入密码... */"
+                           class="form-password form-control" id="form-password"
+                           v-bind:class="{ input_error: isActivePassword }" v-on:focus="inputFocus(2)">
                   </div>
 
-                  <!--  密码 -->
-                  <div class="form-group">
-                    <label class="sr-only" for="form-password">repassword</label>
-                    <input type="password" name="form-repassword" placeholder="请输入密码..."
-                           class="form-password form-control" id="form-repassword">
+                  <!--验证码-->
+                  <div class="input-group" id="box2">
+                    <input type="text" class="form-control" v-model="inputSecurityCode"
+                           :placeholder="$t('rs.moduleA.20000000005')/* 请输入验证码... */"
+                           v-bind:class="{ input_error: isActiveSecurityCode }" v-on:focus="inputFocus(3)"/>
+                    <span><canvas id="canvas" width="120" height="50"></canvas>
+                    <a href="#" v-on:click="drawPic()">看不清，换一张</a></span>
                   </div>
 
-                  <!-- 修改按钮 -->
-                  <button type="submit" class="btn">登  录</button>
+                  <!--登 陆-->
+                  <button type="submit" class="btn" v-on:click="submitCheck">{{$t('rs.moduleA.20000000001')}}</button>
                 </form>
               </div>
             </div>
@@ -51,15 +63,35 @@
 </template>
 
 <script>
+  import StringUtils from '@/commonjs/util/mall.stringutils.js'
+  import SecurityCodeUtil from '@/commonjs/util/securityCodeUtil.js'
+
+  $(function () {
+    $('.login-form input[type="text"], .login-form input[type="password"], .login-form textarea').on('focus', function () {
+      $(this).removeClass('input-error');
+    });
+  });
   export default {
     name: 'Login2',
     data() {
       return {
         commodityMapData: null,
-        loginTimer: null,
+        securityCodeTimer: null,
+        uaserName: null,
+        password: null,
+        isActiveUaserName: false,
+        isActivePassword: false,
+        isActiveSecurityCode: false,
+        securityCode: null,
+        inputSecurityCode: null,
       }
     },
     created() {
+      // 验证码生成
+      this.securityCodeTimer = setTimeout(() => {
+        this.drawPic();
+        clearInterval(this.securityCodeTimer);
+      }, 100);
     },
     computed: {
       // ...mapState(['cmdtyQuotationInfo']),
@@ -72,7 +104,43 @@
         }
       }
     },
-    methods: {}
+    methods: {
+      //登陆提交数据验证
+      submitCheck: function () {
+        let flag = true;
+        //判断元素是否为空
+        if (StringUtils.isNull(this.uaserName)) {
+          this.isActiveUaserName = true;
+          flag = false;
+        }
+        if (StringUtils.isNull(this.password)) {
+          this.isActivePassword = true;
+          flag = false;
+        }
+        if (StringUtils.isNull(this.inputSecurityCode)) {
+          this.isActiveSecurityCode = true;
+        }
+        if (flag) {
+          // 发送登陆请求
+        }
+      },
+
+      //输入框获取焦点时做出反应
+      inputFocus: function (flag) {
+        if (flag == 1) {
+          this.isActiveUaserName = false;
+        } else if (flag == 2) {
+          this.isActivePassword = false;
+        } else if (flag == 3) {
+          this.isActiveSecurityCode = false;
+        }
+      },
+
+      //安全码生成
+      drawPic: function () {
+        this.securityCode = SecurityCodeUtil.drawPic();
+      }
+    }
   }
 </script>
 
@@ -117,5 +185,9 @@
 
   .login .from-index {
     z-index: 2;
+  }
+
+  .login .canvas {
+
   }
 </style>

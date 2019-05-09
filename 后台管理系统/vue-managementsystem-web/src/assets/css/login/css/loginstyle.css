@@ -210,7 +210,7 @@ img {
   width: 100%;
 }
 
-.form-bottom form .input-error {
+.form-bottom form .input_error {
   border-color: #de615e;
 }
 
