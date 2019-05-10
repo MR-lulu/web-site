@@ -7,18 +7,16 @@
     <!--导航栏-->
     <div class="navigation-bar">
       <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-        <el-menu-item index="1">处理中心</el-menu-item>
-        <el-submenu index="2">
-          <template slot="title">我的工作台</template>
-          <el-menu-item index="2-1">选项1</el-menu-item>
-          <el-menu-item index="2-2">选项2</el-menu-item>
-          <el-menu-item index="2-3">选项3</el-menu-item>
-        </el-submenu>
-        <el-menu-item index="3"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
+        <el-menu-item index="1">网站首页</el-menu-item>
+        <el-menu-item index="2">用户管理</el-menu-item>
+        <el-menu-item index="4">我的网页</el-menu-item>
+        <el-menu-item index="5">系统设置</el-menu-item>
       </el-menu>
     </div>
     <!--退出按钮-->
-    <div class="quit"></div>
+    <div class="quit">
+      <el-button type="danger" round>退出</el-button>
+    </div>
   </div>
 </template>
 
@@ -47,22 +45,29 @@ export default {
 
   .header .logo {
     float: left;
-    width: 400px;
+    width: 30%;
     height: 80px;
   }
 
   .header .navigation-bar {
     float: left;
     height: 80px;
+    width: 50%;
   }
 
   .header .quit {
-
+    float: left;
+    height: 80px;
+    width: 20%;
   }
 
   .header .el-menu--horizontal {
     background-color: #F5F5F5;
     border-bottom: solid 0px #e6e6e6;
     margin-top: 19px;
+  }
+
+  .header .el-button--medium.is-round {
+    margin-top: 20px;
   }
 </style>
