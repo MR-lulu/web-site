@@ -43,11 +43,11 @@
                            :placeholder="$t('rs.moduleA.20000000005')/* 请输入验证码... */"
                            v-bind:class="{ input_error: isActiveSecurityCode }" v-on:focus="inputFocus(3)"/>
                     <span><canvas id="canvas" width="120" height="50"></canvas>
-                    <a href="#" v-on:click="drawPic()">看不清，换一张</a></span>
+                    <a href="#" v-on:click="drawPic()">{{$t('rs.moduleA.20000000006')}}</a></span>  <!--看不清，换一张-->
                   </div>
 
                   <!--登 陆-->
-                  <button type="submit" class="btn" v-on:click="submitCheck">{{$t('rs.moduleA.20000000001')}}</button>
+                  <button type="button" class="btn" v-on:click="submitCheck">{{$t('rs.moduleA.20000000001')}}</button>
                 </form>
               </div>
             </div>
@@ -66,16 +66,10 @@
   import StringUtils from '@/commonjs/util/mall.stringutils.js'
   import SecurityCodeUtil from '@/commonjs/util/securityCodeUtil.js'
 
-  $(function () {
-    $('.login-form input[type="text"], .login-form input[type="password"], .login-form textarea').on('focus', function () {
-      $(this).removeClass('input-error');
-    });
-  });
   export default {
-    name: 'Login2',
+    name: 'Login',
     data() {
       return {
-        commodityMapData: null,
         securityCodeTimer: null,
         uaserName: null,
         password: null,
@@ -96,14 +90,6 @@
     computed: {
       // ...mapState(['cmdtyQuotationInfo']),
     },
-    watch: {
-      commodityMap: function (newVal, oldVal) {
-        if (newVal) {
-          //获取商品信息
-          this.commodityMapData = newVal
-        }
-      }
-    },
     methods: {
       //登陆提交数据验证
       submitCheck: function () {
@@ -117,8 +103,9 @@
           this.isActivePassword = true;
           flag = false;
         }
-        if (StringUtils.isNull(this.inputSecurityCode)) {
+        if (StringUtils.isNull(this.inputSecurityCode) || (this.securityCode.toLowerCase()) != (this.inputSecurityCode.toLowerCase())) {
           this.isActiveSecurityCode = true;
+          flag = false;
         }
         if (flag) {
           // 发送登陆请求
@@ -185,9 +172,5 @@
 
   .login .from-index {
     z-index: 2;
-  }
-
-  .login .canvas {
-
   }
 </style>
