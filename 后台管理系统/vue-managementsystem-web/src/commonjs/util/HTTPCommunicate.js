@@ -25,16 +25,17 @@ class HttpCommunicate {
   /**
    * 通过请求包获取返回包
    * @param requestVO 请求包
+   * @param url 请求地址
    * @returns {Promise<responseVO>}
    */
-  async getResponseVO (requestVO) {
+  async getResponseVO(requestVO, url) {
     // 如果请求包为null则弹出错误信息
     if (!requestVO) {
       throw new Error('传入的参数不正确，请求包不允许为空')
     }
 
     // 通过配置信息获取请求包协议对应的返回包
-    let responseVO = ProtocolConfig[requestVO.PTN].responseVO
+    let responseVO = ProtocolConfig[requestVO.ptn].responseVO
     // 如果返回包为空则弹出错误信息
     if (!responseVO) {
       throw new Error('通过请求包协议没有找到相应的返回包')
@@ -42,11 +43,11 @@ class HttpCommunicate {
 
     try {
       // 调用服务端获取数据
-      let response = await this.axiosObject.post('', requestVO.toString())
+      let response = await this.axiosObject.post(url, requestVO.toString())
       // 将获取的数据通过反射的方式给返回包赋值
       ReflectAssignFromJson.assign(responseVO, response.data)
       // 判断返回包和请求包协议是否一致
-      if (responseVO.protocolName !== requestVO.PTN) {
+      if (responseVO.ptn !== requestVO.ptn) {
         throw new Error('服务端返回的协议内容与请求包不一致')
       }
     } catch (e) {

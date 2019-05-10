@@ -5,39 +5,20 @@ import BaseRequstVO from '@/commonjs/model/BaseRequstVO'
  */
 class LoginRequestVO extends BaseRequstVO {
   /**
-   * 设置用户代码
+   * 设置用户名
    * @param value
    * @constructor
    */
-  set userNO (value) {
-    this.userNOTemp = value
+  set userName(value) {
+    this.userName = value;
   }
 
   /**
-   * 设置密码
+   * 设置用户密码
    * @param value
-   * @constructor
    */
   set password (value) {
-    this.passwordTemp = value
-  }
-
-  /**
-   * 设置推荐码
-   * @param value
-   * @constructor
-   */
-  set authCode (value) {
-    this.authCodeTemp = value
-  }
-
-  /**
-   * 设置设备号
-   * @param value
-   * @constructor
-   */
-  set deviceID (value) {
-    this.deviceIDTemp = value
+    this.password = value;
   }
 }
 

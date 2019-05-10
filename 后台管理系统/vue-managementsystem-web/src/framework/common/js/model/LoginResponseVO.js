@@ -6,11 +6,11 @@ import BaseResponseVO from '@/commonjs/model/BaseResponseVO'
  */
 class LoginResponseVO extends BaseResponseVO {
   /**
-   * 获取用户代码
+   * 获取token
    * @returns {*}
    */
-  get userNO () {
-    return this.RETURNRESULT.UNO
+  get token() {
+    return this.token;
   }
 }
 

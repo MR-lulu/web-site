@@ -42,12 +42,13 @@
                     <input type="text" class="form-control" v-model="inputSecurityCode"
                            :placeholder="$t('rs.moduleA.20000000005')/* 请输入验证码... */"
                            v-bind:class="{ input_error: isActiveSecurityCode }" v-on:focus="inputFocus(3)"/>
-                    <span><canvas id="canvas" width="120" height="50"></canvas>
-                    <a href="#" v-on:click="drawPic()">{{$t('rs.moduleA.20000000006')}}</a></span>  <!--看不清，换一张-->
+                    <span><canvas id="canvas" width="120" height="50" v-on:click="drawPic()"></canvas></span>
+                    <!--忘记密码？-->
+                    <span class="forget-password" v-on:click="forgetPassword()"><a href="#">{{$t('rs.moduleA.20000000007')}}</a></span>
                   </div>
 
                   <!--登 陆-->
-                  <button type="button" class="btn" v-on:click="submitCheck">{{$t('rs.moduleA.20000000001')}}</button>
+                  <button type="button" class="btn" v-on:click="loginSubmit">{{$t('rs.moduleA.20000000001')}}</button>
                 </form>
               </div>
             </div>
@@ -65,6 +66,9 @@
 <script>
   import StringUtils from '@/commonjs/util/mall.stringutils.js'
   import SecurityCodeUtil from '@/commonjs/util/securityCodeUtil.js'
+  import MD5 from '@/commonjs/util/mall.md5.js'
+  import LoginRequestVO from '@/framework/common/js/model/LoginRequestVO.js'
+  import {setToken} from '@/store/sessionstorage/index.js'
 
   export default {
     name: 'Login',
@@ -92,7 +96,7 @@
     },
     methods: {
       //登陆提交数据验证
-      submitCheck: function () {
+      loginSubmit: function () {
         let flag = true;
         //判断元素是否为空
         if (StringUtils.isNull(this.uaserName)) {
@@ -109,6 +113,40 @@
         }
         if (flag) {
           // 发送登陆请求
+          // 密码MD5 加密
+          let loginRequestVO = new LoginRequestVO(this.ProtocolContent.login);
+          loginRequestVO.uaserName = this.uaserName;
+          loginRequestVO.password = MD5.md5(this.password);
+
+          this.communicateManger.httpCommunicate.getResponseVO(loginRequestVO, "/admin/login").then((LoginResponseVO) => {
+            if (LoginResponseVO.status == 1000) {
+              // setUserID(LogonResponseVO.result.U)
+              // setSessionID(LogonResponseVO.result.RETCODE)
+              // setToken(this.logonVO.name)
+              // setlogonInfo(JSON.stringify(LogonResponseVO))
+              // setlogonType(this.logonVO.lt)
+              // this.$store.commit('setloginInfo', LogonResponseVO);
+              // this.$router.push('/tradepage')
+            } else {
+              // if (LogonResponseVO.returnCode === '-102190010009' || LogonResponseVO.returnCode === '-102190010010' || LogonResponseVO.returnCode === '-102190010011') {
+              //   this.ret = translate('returnCode.' + LogonResponseVO.returnCode, LogonResponseVO.args)
+              //   this.dialogVisible = true
+              // } else {
+              //   this.messageBox.error('returnCode.' + LogonResponseVO.returnCode, '', LogonResponseVO.args)
+              //   sessionStorage.clear();
+              //   setTimeout(() => {
+              //     // window.location.href = Config.logoHrefUrl
+              //   }, 2000)
+              // }
+            }
+          }).catch(() => {
+            // this.messageBox.error('staticText.10001006003')
+            // clearInterval(this.tradeTimer)
+            // setTimeout(() => {
+            //   // window.location.href = Config.logoHrefUrl
+            // }, 2000)
+
+          })
         }
       },
 
@@ -126,7 +164,12 @@
       //安全码生成
       drawPic: function () {
         this.securityCode = SecurityCodeUtil.drawPic();
-      }
+      },
+
+      // 忘记密码
+      forgetPassword: function () {
+        // 发送请求，通知服务器
+      },
     }
   }
 </script>
@@ -172,5 +215,11 @@
 
   .login .from-index {
     z-index: 2;
+  }
+
+  .login .forget-password {
+    width: 30%;
+    line-height: 50px;
+    padding-left: 5%;
   }
 </style>

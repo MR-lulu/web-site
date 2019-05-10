@@ -10,14 +10,19 @@ var store = new Vuex.Store({
   modules: {
     style: {
       state: {
-        theme: null
+        theme: null,  //主题
+        loginInfo: null, //登录信息
       },
       // 定义改变store中属性的方法
       mutations: {
         // 修改风格方法，并存储到localStorage中
         changeTheme: (state, theme) => {
           state.theme = theme
-        }
+        },
+        // 修改用户登录信息
+        setloginInfo: (state, loginInfo) => {
+          state.loginInfo = loginInfo
+        },
       }
     }
   }
