@@ -489,4 +489,5 @@ stringutils.dayUpdate = function (date, num) {
   return stringutils.formatDate(temp)
 };
 
+
 export default stringutils;

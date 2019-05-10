@@ -3,7 +3,7 @@ import BaseRequstVO from '@/commonjs/model/BaseRequstVO'
 /**
  * 登录协议请求包
  */
-class LogonRequestVO extends BaseRequstVO {
+class LoginRequestVO extends BaseRequstVO {
   /**
    * 设置用户代码
    * @param value
@@ -40,4 +40,5 @@ class LogonRequestVO extends BaseRequstVO {
     this.deviceIDTemp = value
   }
 }
-export default LogonRequestVO
+
+export default LoginRequestVO
