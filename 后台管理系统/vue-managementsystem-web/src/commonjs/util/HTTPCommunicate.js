@@ -106,6 +106,32 @@ class HttpCommunicate {
     }
     return obj
   }
+
+  /**
+   *  将json内容转换为目标对象返回
+   *  @param filename 文件名称
+   *  @param clazz 目标对象类
+   *  @returns {Promise<*>} 目标对象
+   */
+  getJsonObject(json, clazz) {
+    if (!json) {
+      throw new Error('传入的参数不正确，json不允许为空')
+    }
+
+    if (!clazz) {
+      throw new Error('传入的参数不正确，目标对象类不允许为空')
+    }
+    let obj = null
+    if (json) {
+      // 获取传入类的实例化对象
+      obj = Reflect.construct(clazz, [])
+      if (obj) {
+        // 通过反射给对象赋值
+        ReflectAssignFromJson.assign(obj, json)
+      }
+    }
+    return obj
+  }
 }
 
 export default HttpCommunicate

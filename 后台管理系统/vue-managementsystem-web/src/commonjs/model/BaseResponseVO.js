@@ -1,5 +1,3 @@
-import { translate } from '../util/translateUtil'
-
 /**
  * 返回包父类
  * lyl 2018-06-08 version:V1.0.0.0
@@ -10,46 +8,32 @@ class BaseResponseVO {
    * 获取协议名称
    * @returns {*}
    */
-  get protocolName () {
-    return this.PTN
+  get ptn() {
+    return this.ptn;
   }
 
   /**
-   * 获取业务返回码
-   * @returns {*}
+   * 获取返回消息
+   * @return {*}
    */
-  get result () {
-    return this.RETURNRESULT.RESULT
+  get msg() {
+    return this.msg;
   }
 
   /**
-   * 获取信息返回码
-   * @returns {*}
+   * 获取返回状态
+   * @return {*}
    */
-  get returnCode () {
-    return this.RETURNRESULT.RETCODE
+  get status() {
+    return this.status;
   }
 
   /**
-   * 获取信息返回字符串的占位符数组
-   * @returns {*} 获取信息返回字符串的占位符数组
+   * 获取返回消息ID
+   * @return {*}
    */
-  get args () {
-    // 服务端返回的args是以|分割的字符串
-    let argsStr = this.RETURNRESULT.ARGS
-    let args = null
-    if (!argsStr) {
-      args = argsStr.split('|')
-    }
-    return args
-  }
-
-  /**
-   * 获取返回的信息内容
-   * @returns {*}
-   */
-  get returnMessage () {
-    return translate(this.returnCode, this.args)
+  get msgId() {
+    return this.msgId;
   }
 }
 

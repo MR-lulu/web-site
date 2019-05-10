@@ -8,7 +8,7 @@ class Config {
  * 系统初始化入口地址
  * @type {string}
  */
-Config.enterURL = 'http://114.115.167.76:8080/vue-frontend/'
+Config.enterURL = 'http://114.115.167.76:8085/'
 /**
  * 浏览器语言与本地语言对应关系Map key：浏览器语言 value：本地语言
  * @type {Map<any, any>}
@@ -17,30 +17,6 @@ Config.browserLangTOLang = new Map([
   ['zh-CN', 'zh-CN'],
   ['EN', 'en-US']
 ])
-
-/**
- * 系统启动入口文件名称
- * @type {string}
- */
-Config.enterFileName = 'index.json'
-
-/**
- * 系统需要的公用信息文件名称
- * @type {string}
- */
-Config.commonFileName = 'common.json'
-
-/**
- * 系统需要的枚举文件名称
- * @type {string}
- */
-Config.enumFileName = 'enum.json'
-
-/**
- * 服务端返回码文件名称
- * @type {string}
- */
-Config.returnCodeFileName = 'returnCode.json'
 
 /**
  * 资源文件版本号
@@ -56,5 +32,40 @@ Config.theme = {
   'default': 'rs.framework.80100000014',
   'blue': 'rs.framework.80100000015'
 }
+
+Config.initCinfig = {
+  "eu": [
+    "http://114.115.167.76:8080/vue-frontend/httpServlet",
+    "http://114.115.167.76:8080/vue-frontend/httpServlet"
+  ],
+  "hqurl": [
+    "http://114.115.167.76:8080/vue-frontend/httpServlet"
+  ],
+  "ss": "1",
+  "mu": "https://www.baidu.com/%s/index.html",
+  "tz": {
+    "tz": "Asia/Shanghai",
+    "s": "GMT+08:00"
+  },
+  "lt": [
+    {
+      "id": "1",
+      "n": "English",
+      "t": "en-US",
+      "zf": "en-us",
+      "lc": "L10000"
+    },
+    {
+      "id": "2",
+      "n": "简体中文",
+      "t": "zh-CN",
+      "zf": "zh-cn",
+      "lc": "L10001"
+    }
+  ],
+  "cv": "20180605001",
+  "rv": "20180605001"
+}
+
 
 export default Config

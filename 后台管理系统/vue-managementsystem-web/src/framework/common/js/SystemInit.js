@@ -12,6 +12,7 @@ import BaseInfo from '@/commonjs/model/BaseInfo.js'
 import { changeLanguage } from '@/commonjs/util/languageSet.js'
 import IntervalInit from './IntervalInit'
 import { ProtocolContent } from '@/protocolConfig/protocolConfig.js'
+import $ from 'jquery'
 
 /**
  * 系统初始化类
@@ -85,7 +86,8 @@ class SystemInit {
    * @returns {Promise<boolean>}
    */
   async initBaseInfo () {
-    let baseInfo = await this.enterHTTPCommunicate.getObject(Config.enterFileName, BaseInfo)
+    //let baseInfo = await this.enterHTTPCommunicate.getObject(Config.enterFileName, BaseInfo)
+    let baseInfo = this.enterHTTPCommunicate.getJsonObject(Config.initCinfig, BaseInfo)
     console.log(baseInfo)
     if (!baseInfo) {
       return false

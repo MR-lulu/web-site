@@ -1,4 +1,4 @@
-import { getUserID, getSessionID } from '@/store/sessionstorage/index.js'
+import {getToken} from '@/store/sessionstorage/index.js'
 
 /**
  * 请求包父类
@@ -6,10 +6,15 @@ import { getUserID, getSessionID } from '@/store/sessionstorage/index.js'
  *  存储针对用户信息、协议名等
  */
 class BaseRequstVO {
-  constructor (protocolName) {
-    this.U = getUserID()
-    this.SI = getSessionID()
-    this.PTN = protocolName
+  constructor(ptn) {
+    /**
+     * token
+     */
+    this.token = getToken();
+    /**
+     * 协议名
+     */
+    this.ptn = ptn
   }
 
   toString () {
