@@ -7,15 +7,23 @@
     <!--导航栏-->
     <div class="navigation-bar">
       <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-        <el-menu-item index="1">网站首页</el-menu-item>
-        <el-menu-item index="2">用户管理</el-menu-item>
-        <el-menu-item index="4">我的网页</el-menu-item>
-        <el-menu-item index="5">系统设置</el-menu-item>
+        <!--网站首页-->
+        <el-menu-item index="1">{{$t('rs.moduleA.20000000008')}}</el-menu-item>
+        <!--用户管理-->
+        <el-menu-item index="2">{{$t('rs.moduleA.20000000009')}}</el-menu-item>
+        <!--我的网页-->
+        <el-menu-item index="4">{{$t('rs.moduleA.20000000010')}}</el-menu-item>
+        <!--系统设置-->
+        <el-menu-item index="5">{{$t('rs.moduleA.20000000011')}}</el-menu-item>
       </el-menu>
+    </div>
+    <!--账号-->
+    <div class="account-display">
+      <span>{{$t('rs.moduleA.20000000012')}}:1852489324754</span>
     </div>
     <!--退出按钮-->
     <div class="quit">
-      <el-button type="danger" round>退出</el-button>
+      <el-button type="danger" round>{{$t('rs.moduleA.20000000013')}}</el-button>
     </div>
   </div>
 </template>
@@ -26,9 +34,13 @@ export default {
   name: 'Header',
   data () {
     return {
+      activeIndex: '1',
     }
   },
   methods: {
+    handleSelect(key, keyPath) {
+      console.log(key, keyPath);
+    },
   }
 }
 </script>
@@ -45,7 +57,7 @@ export default {
 
   .header .logo {
     float: left;
-    width: 30%;
+    width: 20%;
     height: 80px;
   }
 
@@ -58,7 +70,7 @@ export default {
   .header .quit {
     float: left;
     height: 80px;
-    width: 20%;
+    width: 10%;
   }
 
   .header .el-menu--horizontal {
@@ -69,5 +81,16 @@ export default {
 
   .header .el-button--medium.is-round {
     margin-top: 20px;
+  }
+
+  .header .el-menu--horizontal > .el-menu-item.is-active {
+    color: #4169E1;
+  }
+
+  .header .account-display {
+    float: left;
+    height: 80px;
+    width: 20%;
+    line-height: 80px;
   }
 </style>

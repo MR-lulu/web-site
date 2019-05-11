@@ -5,6 +5,12 @@ class Config {
 }
 
 /**
+ * 网站标题
+ * @type {string}
+ */
+Config.pcTitle = '后台管理系统'
+
+/**
  * 系统初始化入口地址
  * @type {string}
  */
