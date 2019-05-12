@@ -13,7 +13,7 @@
           <el-input v-model="formDate.navigationSequence" placeholder="请输入显示序号"></el-input>
         </el-form-item>
         <el-form-item label="导航备注" prop="navigationRemark">
-          <el-input v-model="formDate.navigationRemark" placeholder="请输入导航备注"></el-input>
+          <el-input v-model="formDate.navigationRemark" type="textarea" placeholder="请输入导航备注"></el-input>
         </el-form-item>
       </el-form>
       <!--按钮-->

@@ -3,7 +3,7 @@ let Home = resolve => require(['@/moduleA/pc/components/home/Home.vue'], resolve
 let WebsiteHomePage = resolve => require(['@/moduleA/pc/components/home/factory/WebsiteHomePage.vue'], resolve)
 let UserManage = resolve => require(['@/moduleA/pc/components/home/factory/UserManage.vue'], resolve)
 
-let ModuleDetail = resolve => require(['@/moduleA/pc/components/home/forms/module/ModuleDetail.vue'], resolve)
+let PartsDisplay = resolve => require(['@/moduleA/pc/components/home/forms/module/PartsDisplay.vue'], resolve)
 
 export const ModuleARouterMap = [
   {
@@ -26,8 +26,8 @@ export const ModuleARouterMap = [
   },
 
   {
-    path: '/moduleDetail',
-    component: ModuleDetail
+    path: '/partsDisplay',
+    component: PartsDisplay
   }
 
 ]

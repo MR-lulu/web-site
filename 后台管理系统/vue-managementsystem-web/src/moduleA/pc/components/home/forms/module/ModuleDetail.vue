@@ -12,6 +12,9 @@
         <el-form-item label="显示序号" prop="moduleSequence">
           <el-input v-model="formDate.moduleSequence" placeholder="请输入显示序号"></el-input>
         </el-form-item>
+        <el-form-item label="模块备注" prop="moduleRemark">
+          <el-input v-model="formDate.moduleRemark" type="textarea" placeholder="请输入模块备注"></el-input>
+        </el-form-item>
         <el-form-item label="模块状态">
           <el-radio-group v-model="formDate.status">
             <el-radio label="有效"></el-radio>
@@ -23,9 +26,6 @@
         </el-form-item>
         <el-form-item label="修改时间" prop="updateTime">
           <el-input v-model="formDate.updateTime" disabled></el-input>
-        </el-form-item>
-        <el-form-item label="模块备注" prop="moduleRemark">
-          <el-input v-model="formDate.moduleRemark" type="textarea" placeholder="请输入模块备注"></el-input>
         </el-form-item>
       </el-form>
       <!--按钮-->

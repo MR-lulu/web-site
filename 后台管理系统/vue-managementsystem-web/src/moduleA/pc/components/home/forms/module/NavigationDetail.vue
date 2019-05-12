@@ -15,6 +15,9 @@
         <el-form-item label="模块个数" prop="moduleCount">
           <el-input v-model="formDate.moduleCount" disabled></el-input>
         </el-form-item>
+        <el-form-item label="导航备注" prop="navigationRemark">
+          <el-input v-model="formDate.navigationRemark" placeholder="请输入导航备注"></el-input>
+        </el-form-item>
         <el-form-item label="导航状态">
           <el-radio-group v-model="formDate.status">
             <el-radio label="有效"></el-radio>
@@ -26,9 +29,6 @@
         </el-form-item>
         <el-form-item label="修改时间" prop="updateTime">
           <el-input v-model="formDate.updateTime" disabled></el-input>
-        </el-form-item>
-        <el-form-item label="导航备注" prop="navigationRemark">
-          <el-input v-model="formDate.navigationRemark" placeholder="请输入导航备注"></el-input>
         </el-form-item>
       </el-form>
       <!--按钮-->
