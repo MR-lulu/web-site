@@ -14,7 +14,7 @@ Config.pcTitle = '后台管理系统'
  * 系统初始化入口地址
  * @type {string}
  */
-Config.enterURL = 'http://114.115.167.76:8085'
+Config.enterURL = 'http://114.115.167.76:8085/mall'
 /**
  * 浏览器语言与本地语言对应关系Map key：浏览器语言 value：本地语言
  * @type {Map<any, any>}

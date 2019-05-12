@@ -791,4 +791,17 @@ tools.mergeJSON = function (jsonArrays) {
   return json
 }
 
+tools.isPhone = function (s) {
+  if (this.isEmpty(s)) {
+    return false;
+  }
+
+  var patrn = /^1[3-578]\d{9}$/;
+  if (patrn.exec(s)) {
+    return true;
+  }
+
+  return false;
+};
+
 export default tools;
