@@ -23,10 +23,10 @@
                   <!--账号-->
                   <div class="form-group">
                     <label class="sr-only" for="form-username">Username</label>
-                    <input type="text" name="form-username" v-model="uaserName"
+                    <input type="text" name="form-username" v-model="userName"
                            :placeholder="$t('rs.moduleA.20000000003')/* 请输入用户名... */"
                            class="form-username form-control" id="form-username"
-                           v-bind:class="{ input_error: isActiveUaserName }" v-on:focus="inputFocus(1)">
+                           v-bind:class="{ input_error: isActiveUserName }" v-on:focus="inputFocus(1)">
                   </div>
                   <!--密码-->
                   <div class="form-group">
@@ -66,18 +66,18 @@
 <script>
   import StringUtils from '@/commonjs/util/mall.stringutils.js'
   import SecurityCodeUtil from '@/commonjs/util/securityCodeUtil.js'
-  import MD5 from '@/commonjs/util/mall.md5.js'
+  import md5 from 'js-md5';
   import LoginRequestVO from '@/framework/common/js/model/LoginRequestVO.js'
-  import {setToken} from '@/store/sessionstorage/index.js'
+  import {setUserID, setToken} from '@/store/sessionstorage/index.js'
 
   export default {
     name: 'Login',
     data() {
       return {
         securityCodeTimer: null,
-        uaserName: null,
+        userName: null,
         password: null,
-        isActiveUaserName: false,
+        isActiveUserName: false,
         isActivePassword: false,
         isActiveSecurityCode: false,
         securityCode: null,
@@ -99,8 +99,8 @@
       loginSubmit: function () {
         let flag = true;
         //判断元素是否为空
-        if (StringUtils.isNull(this.uaserName)) {
-          this.isActiveUaserName = true;
+        if (StringUtils.isNull(this.userName)) {
+          this.isActiveUserName = true;
           flag = false;
         }
         if (StringUtils.isNull(this.password)) {
@@ -115,37 +115,27 @@
           // 发送登陆请求
           // 密码MD5 加密
           let loginRequestVO = new LoginRequestVO(this.ProtocolContent.login);
-          loginRequestVO.uaserName = this.uaserName;
-          loginRequestVO.password = MD5.md5(this.password);
+          loginRequestVO.userName = this.userName;
+          loginRequestVO.password = md5.hex(this.password);
 
           this.communicateManger.httpCommunicate.getResponseVO(loginRequestVO, "/admin/login").then((LoginResponseVO) => {
-            if (LoginResponseVO.status == 1000) {
-              // setUserID(LogonResponseVO.result.U)
-              // setSessionID(LogonResponseVO.result.RETCODE)
-              // setToken(this.logonVO.name)
-              // setlogonInfo(JSON.stringify(LogonResponseVO))
-              // setlogonType(this.logonVO.lt)
-              // this.$store.commit('setloginInfo', LogonResponseVO);
-              // this.$router.push('/tradepage')
+            if (LoginResponseVO.getStatus == 1000) {
+              setUserID(LoginResponseVO.getUser.userId);
+              setToken(LoginResponseVO.getToken);
+              this.$store.commit('setloginInfo', LoginResponseVO.getUser);
+              this.$router.push('/home');
             } else {
-              // if (LogonResponseVO.returnCode === '-102190010009' || LogonResponseVO.returnCode === '-102190010010' || LogonResponseVO.returnCode === '-102190010011') {
-              //   this.ret = translate('returnCode.' + LogonResponseVO.returnCode, LogonResponseVO.args)
-              //   this.dialogVisible = true
-              // } else {
-              //   this.messageBox.error('returnCode.' + LogonResponseVO.returnCode, '', LogonResponseVO.args)
-              //   sessionStorage.clear();
-              //   setTimeout(() => {
-              //     // window.location.href = Config.logoHrefUrl
-              //   }, 2000)
-              // }
-            }
+                this.messageBox.error(LoginResponseVO.getMsg)
+                sessionStorage.clear();
+                setTimeout(() => {
+                  this.$router.push('/');
+                }, 2000)
+              }
           }).catch(() => {
-            // this.messageBox.error('staticText.10001006003')
-            // clearInterval(this.tradeTimer)
-            // setTimeout(() => {
-            //   // window.location.href = Config.logoHrefUrl
-            // }, 2000)
-
+            this.messageBox.error('staticText.10001006003')
+            setTimeout(() => {
+              this.$router.push('/');
+            }, 2000)
           })
         }
       },

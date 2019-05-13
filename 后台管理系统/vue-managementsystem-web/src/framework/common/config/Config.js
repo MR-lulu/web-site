@@ -41,14 +41,14 @@ Config.theme = {
 
 Config.initCinfig = {
   "eu": [
-    "http://114.115.167.76:8080/vue-frontend/httpServlet",
-    "http://114.115.167.76:8080/vue-frontend/httpServlet"
+    "http://114.115.167.76:8085/mall",
+    "http://114.115.167.76:8085/mall"
   ],
   "hqurl": [
-    "http://114.115.167.76:8080/vue-frontend/httpServlet"
+    "http://114.115.167.76:8085/mall"
   ],
   "ss": "1",
-  "mu": "https://www.baidu.com/%s/index.html",
+  "mu": "http://114.115.167.76:8085/mall",
   "tz": {
     "tz": "Asia/Shanghai",
     "s": "GMT+08:00"

@@ -5,7 +5,7 @@ import LoginResponseVO from '@/framework/common/js/model/LoginResponseVO.js'
  * @type
  */
 export const FrameWorkProtocolContent = {
-  logon: 'login',
+  login: 'login',
 }
 /**
  * 框架协议配置协议名称以及返回包对象

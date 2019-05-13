@@ -9,7 +9,7 @@ class LoginRequestVO extends BaseRequstVO {
    * @param value
    * @constructor
    */
-  set userName(value) {
+  set setUserName(value) {
     this.userName = value;
   }
 
@@ -17,7 +17,7 @@ class LoginRequestVO extends BaseRequstVO {
    * 设置用户密码
    * @param value
    */
-  set password (value) {
+  set setPassword(value) {
     this.password = value;
   }
 }
