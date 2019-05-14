@@ -2,7 +2,7 @@
   <div class="header">
     <!--logo 图片-->
     <div class="logo">
-      <img src="@/assets/logo.png">
+      <img :src="logoUrl">
     </div>
     <!--导航栏-->
     <div class="navigation-bar">
@@ -19,27 +19,74 @@
     </div>
     <!--账号-->
     <div class="account-display">
-      <span>{{$t('rs.moduleA.20000000012')}}:1852489324754</span>
+      <span>{{$t('rs.moduleA.20000000012')}}:</span>
+      <span class="user-name">{{userName}}</span>
     </div>
     <!--退出按钮-->
     <div class="quit">
-      <el-button type="danger" round>{{$t('rs.moduleA.20000000013')}}</el-button>
+      <el-button type="danger" round v-on:click="quit">{{$t('rs.moduleA.20000000013')}}</el-button>
     </div>
   </div>
 </template>
 
 <script>
-
+  import {getToken, getLoginUserInfo, setToken, setLoginUserInfo, setUserID} from '@/store/sessionstorage/index.js'
+  import WebTopRequestVO from '@/moduleA/common/js/model/WebTopRequestVO.js'
+  import Tools from '@/commonjs/util/mall.tools.js'
 export default {
   name: 'Header',
   data () {
     return {
       activeIndex: '1',
+      userName: '',
+      webTopList: [],
+      logoUrl: ''
     }
   },
+  created() {
+    // 获取用户名
+    this.userName = JSON.parse(getLoginUserInfo()).username;
+    // 初始化获取页头信息
+    this.getWebTop();
+  },
   methods: {
+    // 导航栏选择点击事件
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
+    },
+
+    // 退出登录
+    quit: function () {
+      this.messageBox.confirm(this.$t('rs.staticText.30000000003'), this.$t('rs.staticText.30000000008'), () => {
+      }, () => {
+        // 确定
+        // 清除用户信息
+        sessionStorage.clear();
+        this.$router.push('/');
+      }, () => {
+        // 取消
+      });
+    },
+
+    // 获取表头信息
+    getWebTop: function () {
+      let webTopRequestVO = new WebTopRequestVO(this.ProtocolContent.webtop);
+      this.communicateManger.httpCommunicate.getResponseVO(webTopRequestVO, "/webTop/query/list").then((WebTopResponseVO) => {
+        if (WebTopResponseVO.getStatus == 1000) {
+          this.webTopList = WebTopResponseVO.resultList
+          if (Tools.isNull(this.webTopList)) {
+            // 使用默认的logo
+            this.logoUrl = '../../../assets/logo.png';
+          } else {
+            // 默认使用第一条数据的logo
+            this.logoUrl = this.webTopList[0].logoUrl;
+          }
+        } else {
+          this.messageBox.error(WebTopResponseVO.getMsg)
+        }
+      }).catch(() => {
+        this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
+      })
     },
   }
 }
@@ -59,6 +106,10 @@ export default {
     float: left;
     width: 20%;
     height: 80px;
+  }
+
+  .header .account-display .user-name {
+    margin-left: 5px;
   }
 
   .header .navigation-bar {
