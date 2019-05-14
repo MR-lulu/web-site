@@ -132,7 +132,7 @@
                 }, 2000)
               }
           }).catch(() => {
-            this.messageBox.error('staticText.10001006003')
+            this.messageBox.error(this.$t('rs.staticText.30000000001'))
             setTimeout(() => {
               this.$router.push('/');
             }, 2000)
@@ -143,7 +143,7 @@
       //输入框获取焦点时做出反应
       inputFocus: function (flag) {
         if (flag == 1) {
-          this.isActiveUaserName = false;
+          this.isActiveUserName = false;
         } else if (flag == 2) {
           this.isActivePassword = false;
         } else if (flag == 3) {
