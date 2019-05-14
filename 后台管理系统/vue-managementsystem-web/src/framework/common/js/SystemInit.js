@@ -88,7 +88,6 @@ class SystemInit {
   async initBaseInfo () {
     //let baseInfo = await this.enterHTTPCommunicate.getObject(Config.enterFileName, BaseInfo)
     let baseInfo = this.enterHTTPCommunicate.getJsonObject(Config.initCinfig, BaseInfo)
-    console.log(baseInfo)
     if (!baseInfo) {
       return false
     }

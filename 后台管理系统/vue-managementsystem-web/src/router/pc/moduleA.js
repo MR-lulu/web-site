@@ -10,18 +10,26 @@ export const ModuleARouterMap = [
     path: '/home',
     component: Home,
     meta: {
-      requireAuth: false,    //访问改地址，是否需要登录权限
+      requireAuth: true,    //访问改地址，是否需要登录权限
       title: Config.pcTitle
     },
     children: [
       {
         path: 'websiteHomePage',    // 网站首页
-        component: WebsiteHomePage
+        component: WebsiteHomePage,
+        meta: {
+          requireAuth: true,    //访问改地址，是否需要登录权限
+          title: Config.pcTitle
+        }
       },
       {
         path: 'userManage',    // 用户管理
-        component: UserManage
-      }
+        component: UserManage,
+        meta: {
+          requireAuth: true,    //访问改地址，是否需要登录权限
+          title: Config.pcTitle
+        }
+      },
     ]
   },
 

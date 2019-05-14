@@ -68,7 +68,7 @@
   import SecurityCodeUtil from '@/commonjs/util/securityCodeUtil.js'
   import md5 from 'js-md5';
   import LoginRequestVO from '@/framework/common/js/model/LoginRequestVO.js'
-  import {setUserID, setToken} from '@/store/sessionstorage/index.js'
+  import {setUserID, setToken, setLoginUserInfo, getLoginUserInfo} from '@/store/sessionstorage/index.js'
 
   export default {
     name: 'Login',
@@ -90,9 +90,6 @@
         this.drawPic();
         clearInterval(this.securityCodeTimer);
       }, 100);
-    },
-    computed: {
-      // ...mapState(['cmdtyQuotationInfo']),
     },
     methods: {
       //登陆提交数据验证
@@ -123,19 +120,20 @@
               setUserID(LoginResponseVO.getUser.userId);
               setToken(LoginResponseVO.getToken);
               this.$store.commit('setloginInfo', LoginResponseVO.getUser);
-              this.$router.push('/home');
+              setLoginUserInfo(JSON.stringify(LoginResponseVO.getUser));
+              this.$router.push('/home/websiteHomePage');
             } else {
                 this.messageBox.error(LoginResponseVO.getMsg)
                 sessionStorage.clear();
                 setTimeout(() => {
                   this.$router.push('/');
-                }, 2000)
+                }, 2000);
               }
           }).catch(() => {
-            this.messageBox.error(this.$t('rs.staticText.30000000001'))
+            this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
             setTimeout(() => {
               this.$router.push('/');
-            }, 2000)
+            }, 2000);
           })
         }
       },

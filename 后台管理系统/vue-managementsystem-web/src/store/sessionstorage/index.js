@@ -4,6 +4,8 @@ const userIDItem = 'userIDItem'
 const sessionIDItem = 'sessionIDItem'
 // 定义token的存储key值
 const tokenItem = 'tokenItem'
+// 定义loginUserInfo的存储key值
+const loginUserInfoItem = 'loginUserInfoItem'
 
 /**
  * 存储用户代码
@@ -51,4 +53,20 @@ export function setToken(value) {
  */
 export function getToken() {
   return window.sessionStorage.getItem(tokenItem)
+}
+
+/**
+ * 存储loginUserInfo
+ * @param value loginUserInfo
+ */
+export function setLoginUserInfo(value) {
+  window.sessionStorage.setItem(loginUserInfoItem, value)
+}
+
+/**
+ * 获取loginUserInfo
+ * @returns string | null
+ */
+export function getLoginUserInfo() {
+  return window.sessionStorage.getItem(loginUserInfoItem)
 }

@@ -4,6 +4,7 @@ import {ModuleARouterMap} from './moduleA.js'
 import {FrameworkRouterMap} from './framework.js'
 import {getUserID} from '@/store/sessionstorage/index.js'
 import Tools from '@/commonjs/util/mall.tools.js'
+import {MessageBox} from 'element-ui'
 
 Vue.use(Router)
 
@@ -26,6 +27,7 @@ router.beforeEach((to, from, next) => {
     if (!Tools.isNull(getUserID())) {
       next()
     } else {
+      MessageBox.alert('权限不足，请登录使用');
       next({
         path: '/',
         query: {redirect: to.fullPath} // 将跳转的路由path作为参数，登录成功后跳转到该路由
