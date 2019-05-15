@@ -18,10 +18,10 @@
         :row-class-name="tableRowClassName"
         @selection-change="handleSelectionChange">
         <el-table-column type="selection"></el-table-column>
-        <el-table-column prop="id" label="编号"></el-table-column>
+        <el-table-column prop="id" label="编号" sortable></el-table-column>
         <el-table-column prop="name" label="用户"></el-table-column>
         <el-table-column prop="address" label="留言内容"></el-table-column>
-        <el-table-column prop="address" label="创建时间"></el-table-column>
+        <el-table-column prop="address" label="创建时间" sortable></el-table-column>
         <el-table-column prop="address" label="操作"></el-table-column>
       </el-table>
     </div>
