@@ -127,9 +127,7 @@
         this.$refs[formName].validate((valid) => {
           if (valid) {
             if (!Tools.isNull(this.formData.newPassword) && getUserPasswordbyMd5() != md5.hex(this.formData.password)) {
-              this.messageBox.error(this.$t('rs.staticText.30000000021'), this.$t('rs.staticText.30000000022'), () => {  // 输入的旧密码错误  错误
-              }, () => {
-              });
+              this.messageBox.error(this.$t('rs.staticText.30000000021'));
               return false;
             } else {
               this.messageBox.confirm(this.$t('rs.staticText.30000000020'), this.$t('rs.staticText.30000000008'), () => {  //您确认要修改用户信息吗? 提示
@@ -163,7 +161,7 @@
           if (UpdateUserInfoResponseVO.getStatus == 1000 && UpdateUserInfoResponseVO.getResultCode > 0) {
             this.messageBox.success(UpdateUserInfoResponseVO.getMsg);
             // 重新获取数据
-            //_that.getUserInfo();
+            _that.getUserInfo();
           } else {
             this.messageBox.error(UpdateUserInfoResponseVO.getMsg);
           }
@@ -175,7 +173,7 @@
       // 根据用户ID获取用户信息
       getUserInfo: function () {
         let userInfoRequestVO = new UserInfoRequestVO(this.ProtocolContent.userInfo);
-        this.communicateManger.httpCommunicate.getResponseVO(userInfoRequestVO, "/user/query/detail/" + userInfoRequestVO.userId).then((UserInfoResponseVO) => {
+        this.communicateManger.httpCommunicate.getResponseVO(userInfoRequestVO, "/user/query/detail/" + this.userInfo.userId).then((UserInfoResponseVO) => {
           if (UserInfoResponseVO.getStatus == 1000) {
             this.$store.commit('setloginInfo', UserInfoResponseVO.getUser);
             setLoginUserInfo(JSON.stringify(UserInfoResponseVO.getUser));

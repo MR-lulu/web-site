@@ -6,6 +6,8 @@ import RegistersInfoDeleteListResponseVO from "../moduleA/common/js/model/Regist
 import LeaveMsgDeleteListResponseVO from "../moduleA/common/js/model/LeaveMsgDeleteListResponseVO";
 import UpdateUserInfoResponseVO from "../moduleA/common/js/model/UpdateUserInfoResponseVO";
 import UserInfoResponseVO from "../moduleA/common/js/model/UserInfoResponseVO";
+import UserInfoListResponseVO from "../moduleA/common/js/model/UserInfoListResponseVO";
+import ResetUserPasswordResponseVO from "../moduleA/common/js/model/ResetUserPasswordResponseVO";
 
 
 
@@ -22,6 +24,8 @@ export const ModuleAProtocolContent = {
   leaveMsgDelete: 'leaveMsgDelete',
   updateUserInfo: 'updateUserInfo',
   userInfo: 'userInfo',
+  userInfoList: 'userInfoList',
+  resetUserPassword: 'resetUserPassword',
 }
 /**
  * 模块A协议配置协议名称以及返回包对象
@@ -36,4 +40,6 @@ export const ModuleAProtocolConfig = {
   'leaveMsgDelete': {name: 'leaveMsgDelete', responseVO: new LeaveMsgDeleteListResponseVO()},  // 删除用户留言信息
   'updateUserInfo': {name: 'updateUserInfo', responseVO: new UpdateUserInfoResponseVO()},  // 修改用户信息
   'userInfo': {name: 'userInfo', responseVO: new UserInfoResponseVO()},  // 获取用户信息
+  'userInfoList': {name: 'userInfoList', responseVO: new UserInfoListResponseVO()},  // 批量获取用户信息
+  'resetUserPassword': {name: 'resetUserPassword', responseVO: new ResetUserPasswordResponseVO()},  // 批量重置用户密码
 }

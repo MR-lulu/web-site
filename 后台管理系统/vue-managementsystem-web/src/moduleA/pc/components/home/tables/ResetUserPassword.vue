@@ -4,10 +4,12 @@
     <div class="top">
       <!--重置密码按钮-->
       <div class="reset-btn">
-        <el-button type="danger">重置密码</el-button>
+        <!--重置密码-->
+        <el-button type="danger" v-on:click="resetUserPasswordList">{{$t('rs.moduleA.20000000046')}}</el-button>
       </div>
       <!--表名称-->
-      <div class="table-name"><span>管理员信息表</span></div>
+      <!--管理员信息表-->
+      <div class="table-name"><span>{{$t('rs.moduleA.20000000051')}}</span></div>
     </div>
     <!--表格内容-->
     <div class="user-table">
@@ -16,67 +18,167 @@
         style="width: 100%"
         height="500"
         :row-class-name="tableRowClassName"
-        @selection-change="handleSelectionChange">
+        @selection-change="handleSelectionChange"
+        :default-sort="{prop: 'serverCreateTime', order: 'descending'}">
         <el-table-column type="selection"></el-table-column>
-        <el-table-column prop="id" label="编号"></el-table-column>
-        <el-table-column prop="name" label="账号"></el-table-column>
-        <el-table-column prop="address" label="手机号"></el-table-column>
-        <el-table-column prop="address" label="邮箱"></el-table-column>
-        <el-table-column prop="address" label="类型"></el-table-column>
-        <el-table-column prop="address" label="创建时间"></el-table-column>
-        <el-table-column prop="address" label="修改时间"></el-table-column>
+        <el-table-column prop="userId" width="100" :label="$t('rs.moduleA.20000000021')  /*编号*/" sortable :show-overflow-tooltip="true"></el-table-column>
+        <el-table-column prop="username" :label="$t('rs.moduleA.20000000012')  /*账号*/" :show-overflow-tooltip="true"></el-table-column>
+        <el-table-column prop="phone" :label="$t('rs.moduleA.20000000047') /*手机号*/" :show-overflow-tooltip="true"></el-table-column>
+        <el-table-column prop="mail" :label="$t('rs.moduleA.20000000048') /*邮箱*/" :show-overflow-tooltip="true"></el-table-column>
+        <el-table-column prop="level" :label="$t('rs.moduleA.20000000049') /*类型*/" sortable :show-overflow-tooltip="true">
+          <template slot-scope="scope">
+            <span v-if="scope.row.level==1">{{ $t('rs.moduleA.20000000052') }}</span>
+            <span v-if="scope.row.level==2">{{ $t('rs.moduleA.20000000053') }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="serverCreateTime" :label="$t('rs.moduleA.20000000027') /*创建时间*/" sortable
+                         :show-overflow-tooltip="true" :formatter="dateFormat"></el-table-column>
+        <el-table-column prop="serverUpdateTime" :label="$t('rs.moduleA.20000000050') /*修改时间*/" sortable
+                         :show-overflow-tooltip="true" :formatter="dateFormat"></el-table-column>
+        <el-table-column prop="" width="100" :label="$t('rs.moduleA.20000000028') /*操作*/">
+          <template slot-scope="scope">
+            <i class="el-icon-edit" v-on:click="resetUserPasswordOne(scope.$index, scope.row)"></i>
+          </template>
+        </el-table-column>
       </el-table>
     </div>
     <!--分页-->
     <div class="page">
       <el-pagination
-        @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
-        :current-page="currentPage4"
-        :page-sizes="[100, 200, 300, 400]"
-        :page-size="100"
+        @size-change="handleSizeChange"
+        :current-page="page"
+        :page-sizes="[5, 10, 20, 50, 100, 1000]"
+        :page-size="rows"
         layout="total, sizes, prev, pager, next, jumper"
-        :total="400">
+        :total="total">
       </el-pagination>
     </div>
   </div>
 </template>
 
 <script>
-  export default {
+  import UserInfoListRequestVO from '@/moduleA/common/js/model/UserInfoListRequestVO.js'
+  import ResetUserPasswordRequestVO from '@/moduleA/common/js/model/ResetUserPasswordRequestVO.js'
+  import Tools from '@/commonjs/util/mall.tools.js'
 
+  export default {
     name: "ResetUserPassword",
     data() {
       return {
         tableData: [],
+        total: 0,  // 总的条数
+        page: 0,  // 当前页
+        rows: 0,  // 每页大小
         multipleSelection: [],
-        currentPage1: 5,
-        currentPage2: 5,
-        currentPage3: 5,
-        currentPage4: 4
+        subUserList: [],
+        // 默认重置目标密码
+        newPassword: '111111',
       }
     },
-    create() {
-
+    created() {
+      // 初始化表格数据
+      this.getUserInfo();
     },
 
     methods: {
+      //时间格式化
+      dateFormat: function (row, column, cellValue, index) {
+        return Tools.formatDate(new Date(cellValue), 'yyyy-MM-dd HH:mm:ss');
+      },
+      // 表格动态新增样式class
       tableRowClassName({row, rowIndex}) {
         if (rowIndex % 2 === 1) {
           return 'warning-row';
         }
         return '';
       },
+      handleSizeChange(val) {
+        this.rows = val;
+        this.getUserInfo();
+      },
       handleSelectionChange(val) {
         this.multipleSelection = val;
       },
-      handleSizeChange(val) {
-        console.log(`每页 ${val} 条`);
-      },
       handleCurrentChange(val) {
-        console.log(`当前页: ${val}`);
-      }
-    }
+        this.page = val;
+        this.getUserInfo();
+      },
+
+      // 获取留言信息
+      getUserInfo: function () {
+        let userInfoListRequestVO = new UserInfoListRequestVO(this.ProtocolContent.userInfoList);
+        userInfoListRequestVO.page = this.page;
+        userInfoListRequestVO.rows = this.rows;
+        this.communicateManger.httpCommunicate.getResponseVO(userInfoListRequestVO, "/user/query/page").then((UserInfoListResponseVO) => {
+          if (UserInfoListResponseVO.getStatus == 1000) {
+            this.tableData = UserInfoListResponseVO.resultList;
+            this.total = UserInfoListResponseVO.getTotal;
+            this.page = UserInfoListResponseVO.getPage;
+            this.rows = UserInfoListResponseVO.getRows;
+          } else {
+            this.messageBox.error(UserInfoListResponseVO.getMsg);
+          }
+        }).catch(() => {
+          this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
+        })
+      },
+
+      // 批量重置密码
+      resetUserPasswordList: function () {
+        this.messageBox.confirm(this.$t('rs.staticText.30000000024'), this.$t('rs.staticText.30000000008'), () => {
+        }, () => {
+          // 确定
+          this.subUserList = new Array();
+          for (let item of this.multipleSelection) {
+           let resetObject = {
+             id: '',
+             password: ''
+           };
+            resetObject.id = item.userId;
+            resetObject.password = this.newPassword;
+            this.subUserList.push(resetObject);
+          }
+          this.resetPassword();
+        }, () => {
+          // 取消
+        });
+      },
+
+      // 单个重置
+      resetUserPasswordOne: function (index, row) {
+        this.messageBox.confirm(this.$t('rs.staticText.30000000024'), this.$t('rs.staticText.30000000008'), () => {
+        }, () => {
+          // 确定
+          this.subUserList = new Array();
+          let resetObject = {
+            id: '',
+            password: ''
+          };
+          resetObject.id = row.userId;
+          resetObject.password = this.newPassword;
+          this.subUserList.push(resetObject);
+          this.resetPassword();
+        }, () => {
+          // 取消
+        });
+      },
+
+      // 重置用户密码
+      resetPassword: function () {
+        let resetUserPasswordRequestVO = new ResetUserPasswordRequestVO(this.ProtocolContent.resetUserPassword);
+        resetUserPasswordRequestVO.subUserList = this.subUserList;
+        this.communicateManger.httpCommunicate.getResponseVO(resetUserPasswordRequestVO, "/user/modifyList").then((ResetUserPasswordResponseVO) => {
+          if (ResetUserPasswordResponseVO.getStatus == 1000 && ResetUserPasswordResponseVO.getResultCode > 0) {
+            this.messageBox.success(ResetUserPasswordResponseVO.getMsg);
+          } else {
+            this.messageBox.error(ResetUserPasswordResponseVO.getMsg);
+          }
+        }).catch(() => {
+          this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
+        })
+      },
+    },
   }
 </script>
 

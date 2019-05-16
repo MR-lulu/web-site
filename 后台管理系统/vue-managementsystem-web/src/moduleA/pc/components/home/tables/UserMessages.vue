@@ -65,7 +65,8 @@
         multipleSelection: [],
         ids: []
       }
-    }, created() {
+    },
+    created() {
       // 初始化表格数据
       this.getLeaveMsgInfo();
     },
