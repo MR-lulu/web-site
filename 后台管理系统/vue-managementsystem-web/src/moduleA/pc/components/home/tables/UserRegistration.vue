@@ -21,7 +21,7 @@
         @selection-change="handleSelectionChange"
         :default-sort="{prop: 'serverCreateTime', order: 'descending'}">
         <el-table-column type="selection"></el-table-column>
-        <el-table-column prop="registersInfoId" :label="$t('rs.moduleA.20000000021')  /*编号*/" sortable
+        <el-table-column prop="registersInfoId" width="100" :label="$t('rs.moduleA.20000000021')  /*编号*/" sortable
                          :show-overflow-tooltip="true"></el-table-column>
         <el-table-column prop="name" :label="$t('rs.moduleA.20000000022') /*客户名称*/"
                          :show-overflow-tooltip="true"></el-table-column>
@@ -35,7 +35,7 @@
                          :show-overflow-tooltip="true"></el-table-column>
         <el-table-column prop="serverCreateTime" :label="$t('rs.moduleA.20000000027') /*创建时间*/" sortable
                          :show-overflow-tooltip="true" :formatter="dateFormat"></el-table-column>
-        <el-table-column prop="addres6" :label="$t('rs.moduleA.20000000028') /*操作*/">
+        <el-table-column prop="" width="100" :label="$t('rs.moduleA.20000000028') /*操作*/">
           <template slot-scope="scope">
             <i class="el-icon-delete" v-on:click="deleteOne(scope.$index, scope.row)"></i>
           </template>
@@ -59,6 +59,7 @@
 
 <script>
   import RegistersInfoRequestVO from '@/moduleA/common/js/model/RegistersInfoRequestVO.js'
+  import RegistersInfoDeleteListRequestVO from '@/moduleA/common/js/model/RegistersInfoDeleteListRequestVO.js'
   import Tools from '@/commonjs/util/mall.tools.js'
 
   export default {
@@ -97,7 +98,6 @@
       },
       handleSelectionChange(val) {
         this.multipleSelection = val;
-        this.delete(1);
       },
       handleCurrentChange(val) {
         this.page = val;
@@ -116,7 +116,7 @@
             this.page = RegistersInfoResponseVO.getPage;
             this.rows = RegistersInfoResponseVO.getRows;
           } else {
-            this.messageBox.error(RegistersInfoResponseVO.getMsg)
+            this.messageBox.error(RegistersInfoResponseVO.getMsg);
           }
         }).catch(() => {
           this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
@@ -125,24 +125,49 @@
 
       // 批量删除
       deleteList: function () {
-        this.ids = new Array();
-        for (let item of this.multipleSelection) {
-          this.ids.push(item.registersInfoId);
-        }
-        this.delete();
+        this.messageBox.confirm(this.$t('rs.staticText.30000000010'), this.$t('rs.staticText.30000000008'), () => {
+        }, () => {
+          // 确定
+          this.ids = new Array();
+          for (let item of this.multipleSelection) {
+            this.ids.push(item.registersInfoId);
+          }
+          this.delete();
+        }, () => {
+          // 取消
+        });
       },
 
       // 单个删除
       deleteOne: function (index, row) {
-        this.ids = new Array();
-        this.ids.push(row.registersInfoId);
-        this.delete();
+        this.messageBox.confirm(this.$t('rs.staticText.30000000010'), this.$t('rs.staticText.30000000008'), () => {
+        }, () => {
+          // 确定
+          this.ids = new Array();
+          this.ids.push(row.registersInfoId);
+          this.delete();
+        }, () => {
+          // 取消
+        });
       },
 
       // 删除用户信息
       delete: function () {
-        console.log(this.ids);
-      }
+        let registersInfoDeleteListRequestVO = new RegistersInfoDeleteListRequestVO(this.ProtocolContent.registersInfoDelete);
+        registersInfoDeleteListRequestVO.ids = this.ids;
+        let _that = this;
+        this.communicateManger.httpCommunicate.getResponseVO(registersInfoDeleteListRequestVO, "/registersInfo/delete/list").then((RegistersInfoDeleteListResponseVO) => {
+          if (RegistersInfoDeleteListResponseVO.getStatus == 1000 && RegistersInfoDeleteListResponseVO.getResultCode >= 0) {
+            this.messageBox.success(RegistersInfoDeleteListResponseVO.getMsg);
+            // 重新获取数据
+            _that.getRegistersInfo();
+          } else {
+            this.messageBox.error(RegistersInfoDeleteListResponseVO.getMsg);
+          }
+        }).catch(() => {
+          this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
+        })
+      },
     },
   }
 </script>

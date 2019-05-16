@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="492d3b0c-15a7-4f67-a572-0f6fb20c52fc" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+    <list default="true" id="492d3b0c-15a7-4f67-a572-0f6fb20c52fc" name="Default" comment="完善页头页尾功能">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles" afterDir="true" />
+      <change afterPath="$PROJECT_DIR$/src/moduleA/common/js/model/LeaveMsgDeleteListRequestVO.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/moduleA/common/js/model/LeaveMsgDeleteListResponseVO.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/moduleA/common/js/model/RegistersInfoDeleteListRequestVO.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/moduleA/common/js/model/RegistersInfoDeleteListResponseVO.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commonjs/model/BaseResponseVO.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/commonjs/model/BaseResponseVO.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commonjs/util/HTTPCommunicate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/commonjs/util/HTTPCommunicate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commonjs/util/securityCodeUtil.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/commonjs/util/securityCodeUtil.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/framework/common/config/Config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/common/config/Config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/framework/common/js/model/LoginRequestVO.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/common/js/model/LoginRequestVO.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/framework/common/js/model/LoginResponseVO.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/common/js/model/LoginResponseVO.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/framework/pc/components/login/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/pc/components/login/Login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/protocolConfig/framework.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/protocolConfig/framework.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/locale/lang/zh-CN/moduleA.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/locale/lang/zh-CN/moduleA.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/locale/lang/zh-CN/staticText.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/locale/lang/zh-CN/staticText.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/moduleA/pc/components/home/tables/UserMessages.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/moduleA/pc/components/home/tables/UserMessages.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/moduleA/pc/components/home/tables/UserRegistration.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/moduleA/pc/components/home/tables/UserRegistration.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/protocolConfig/moduleA.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/protocolConfig/moduleA.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,80 +29,55 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LoginRequestVO.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/framework/common/js/model/LoginRequestVO.js">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/tables/UserRegistration.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="20" column="17" lean-forward="true" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseRequstVO.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/commonjs/model/BaseRequstVO.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginResponseVO.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/framework/common/js/model/LoginResponseVO.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="19" column="13" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="framework.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/protocolConfig/framework.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Login.vue" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/framework/pc/components/login/Login.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="134" column="45" selection-start-line="134" selection-start-column="35" selection-end-line="134" selection-end-column="45" />
+            <state relative-caret-position="325">
+              <caret line="37" column="45" selection-start-line="37" selection-start-column="45" selection-end-line="37" selection-end-column="45" />
               <folding>
-                <element signature="e#2976#3037#0" expanded="true" />
+                <element signature="n#style#0;n#el-table#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="e#2635#2723#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/store/sessionstorage/index.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/tables/UserMessages.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="11" column="25" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HTTPCommunicate.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/commonjs/util/HTTPCommunicate.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="45" column="61" selection-start-line="45" selection-start-column="61" selection-end-line="45" selection-end-column="61" />
+            <state relative-caret-position="400">
+              <caret line="25" column="44" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="44" />
               <folding>
-                <element signature="e#0#65#0" expanded="true" />
+                <element signature="n#style#0;n#el-table#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="e#1983#2071#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Config.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/framework/common/config/Config.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/LeaveMsgResponseVO.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="50" column="40" selection-start-line="50" selection-start-column="40" selection-end-line="50" selection-end-column="40" />
+            <state relative-caret-position="50">
+              <caret line="2" column="24" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/LeaveMsgDeleteListRequestVO.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="12" column="42" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/locale/lang/zh-CN/moduleA.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="31" column="14" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -116,20 +90,13 @@
         <option value="vue file" />
         <option value="CSS File" />
         <option value="VUEFile" />
-        <option value="JavaScript File" />
         <option value="Vue Single File Component" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>user</find>
-      <find>dialogFormVisible</find>
-      <find>handleSave</find>
-      <find>date</find>
-      <find>formInline</find>
-      <find>getLanguage</find>
-      <find>loadLanguage</find>
       <find>setLanguage</find>
       <find>/zh_CN/pc/resources.js</find>
       <find>form_contianer</find>
@@ -150,9 +117,16 @@
       <find>index</find>
       <find>initLanguageInfo</find>
       <find>communicateManger</find>
+      <find>mengyu</find>
       <find>enterURL</find>
-      <find>top-content</find>
-      <find>ProtocolConfig</find>
+      <find>changeLanguage</find>
+      <find>80100000005</find>
+      <find>input-error</find>
+      <find>enterFileName</find>
+      <find>handleSelect</find>
+      <find>imageUrl</find>
+      <find>messageBox</find>
+      <find>formatDate</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -162,6 +136,7 @@
       <replace>../assets/images/</replace>
       <replace>../images/</replace>
       <replace>components</replace>
+      <replace>lyl</replace>
     </replaceStrings>
     <dirStrings>
       <dir>D:\work\vue-front\src\demo\pc</dir>
@@ -184,63 +159,59 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/locale/lang/moduleA/EN/pc/main/main.js" />
-        <option value="$PROJECT_DIR$/src/locale/lang/moduleA/EN/pc/pc.js" />
-        <option value="$PROJECT_DIR$/src/locale/lang/moduleA/zh_CN/pc/pc.js" />
-        <option value="$PROJECT_DIR$/src/locale/lang/moduleA/EN/resources.js" />
-        <option value="$PROJECT_DIR$/src/locale/lang/moduleA/EN/pc/header/header.js" />
-        <option value="$PROJECT_DIR$/src/locale/lang/moduleA/zh_CN/pc/header/header.js" />
-        <option value="$PROJECT_DIR$/src/locale/lang/moduleA/zh_CN/pc/userList/components/userAdd.js" />
-        <option value="$PROJECT_DIR$/src/locale/lang/moduleA/zh_CN/pc/userList/userList.js" />
-        <option value="$PROJECT_DIR$/src/locale/lang/moduleA/EN/pc/userList/userList.js" />
+        <option value="$PROJECT_DIR$/src/router/pc/framework.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/chart/PartsTypeChart.vue" />
         <option value="$PROJECT_DIR$/src/framework/pc/index.js" />
-        <option value="$PROJECT_DIR$/src/commonjs/model/HTTPCommunicateManager.js" />
-        <option value="$PROJECT_DIR$/src/locale/lang/moduleA/EN/pc/userList/components/addUser.js" />
-        <option value="$PROJECT_DIR$/src/locale/lang/moduleA/zh_CN/pc/userList/components/addUser.js" />
-        <option value="$PROJECT_DIR$/src/locale/lang/moduleA/EN/pc/userList/components/modifyUser.js" />
-        <option value="$PROJECT_DIR$/src/locale/lang/moduleA/zh_CN/pc/userList/components/modifyUser.js" />
-        <option value="$PROJECT_DIR$/src/assets/theme/pc/default/framework/css/style.css" />
-        <option value="$PROJECT_DIR$/src/locale/lang/moduleA/EN/returncode.js" />
-        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/UserListResponseVO.js" />
-        <option value="$PROJECT_DIR$/src/locale/lang/moduleA/zh_CN/resources.js" />
-        <option value="$PROJECT_DIR$/src/moduleA/pc/components/list/components/ModifyUser.vue" />
-        <option value="$PROJECT_DIR$/src/locale/lang/moduleA/zh_CN/pc/login/login.js" />
-        <option value="$PROJECT_DIR$/src/locale/lang/moduleA/EN/pc/login/login.js" />
-        <option value="$PROJECT_DIR$/src/locale/lang/moduleA/zh_CN/pc/register/register.js" />
-        <option value="$PROJECT_DIR$/src/locale/lang/moduleA/EN/pc/register/register.js" />
-        <option value="$PROJECT_DIR$/src/framework/pc/components/register/Register.vue" />
-        <option value="$PROJECT_DIR$/src/moduleA/pc/components/list/UserList.vue" />
-        <option value="$PROJECT_DIR$/src/moduleA/pc/components/list/components/AddUser.vue" />
-        <option value="$PROJECT_DIR$/src/moduleA/pc/components/header/Header.vue" />
-        <option value="$PROJECT_DIR$/src/commonjs/model/BaseRequstVO.js" />
-        <option value="$PROJECT_DIR$/build/webpack.base.conf.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/table/UserRegistration.vue" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/factory/WebsiteHomepage.vue" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/factory/WebsiteHomePage.vue" />
         <option value="$PROJECT_DIR$/src/framework/pc/App.vue" />
-        <option value="$PROJECT_DIR$/config/index.js" />
-        <option value="$PROJECT_DIR$/src/store/localstorage/index.js" />
-        <option value="$PROJECT_DIR$/src/framework/common/js/SystemInit.js" />
-        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/NavigationAdd.vue" />
-        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/PartsAdd.vue" />
-        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/PartsDetail.vue" />
-        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/ModuleDetail.vue" />
-        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/NavigationDetail.vue" />
-        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/WebsiteInfo.vue" />
-        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/common/BackgroundimgAdd.vue" />
-        <option value="$PROJECT_DIR$/src/router/pc/moduleA.js" />
-        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/PartsDisplay.vue" />
-        <option value="$PROJECT_DIR$/src/commonjs/util/securityCodeUtil.js" />
-        <option value="$PROJECT_DIR$/src/protocolConfig/framework.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/Home.vue" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/charts/PartsTypeChart.vue" />
         <option value="$PROJECT_DIR$/src/framework/common/config/Config.js" />
-        <option value="$PROJECT_DIR$/src/framework/common/js/model/LoginRequestVO.js" />
-        <option value="$PROJECT_DIR$/src/commonjs/model/BaseResponseVO.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/factory/UserManage.vue" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/tables/ResetUserPassword.vue" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/UpdateUserInfo.vue" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/trees/WebModuleTree.vue" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/IndexPage.vue" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/FooterPage.vue" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/Navigation.vue" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/NavigationDetail.vue" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/NavigationAdd.vue" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/ModuleAdd.vue" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/ModuleDetail.vue" />
         <option value="$PROJECT_DIR$/src/framework/common/js/model/LoginResponseVO.js" />
         <option value="$PROJECT_DIR$/src/commonjs/util/HTTPCommunicate.js" />
+        <option value="$PROJECT_DIR$/src/locale/lang/zh-CN/resources.js" />
+        <option value="$PROJECT_DIR$/src/router/pc/moduleA.js" />
+        <option value="$PROJECT_DIR$/src/router/pc/index.js" />
+        <option value="$PROJECT_DIR$/src/store/sessionstorage/index.js" />
+        <option value="$PROJECT_DIR$/src/framework/common/js/SystemInit.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/WebTopRequestVO.js" />
         <option value="$PROJECT_DIR$/src/framework/pc/components/login/Login.vue" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/WebButtomRequestVO.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/WebButtomResponseVO.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/WebTopResponseVO.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/footer/Footer.vue" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/header/Header.vue" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/PartsRequestVO.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/PartsResponseVO.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/RegistersInfoRequestVO.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/RegistersInfoResponseVO.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/LeaveMsgRequestVO.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/LeaveMsgResponseVO.js" />
+        <option value="$PROJECT_DIR$/src/commonjs/util/mall.tools.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/RegistersInfoDeleteListRequestVO.js" />
+        <option value="$PROJECT_DIR$/src/locale/lang/zh-CN/staticText.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/RegistersInfoDeleteListResponseVO.js" />
+        <option value="$PROJECT_DIR$/src/locale/lang/zh-CN/moduleA.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/LeaveMsgDeleteListRequestVO.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/LeaveMsgDeleteListResponseVO.js" />
+        <option value="$PROJECT_DIR$/src/protocolConfig/moduleA.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/tables/UserMessages.vue" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/tables/UserRegistration.vue" />
       </list>
     </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
-    <package-json value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -248,316 +219,359 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/node_modules" />
-  </component>
-  <component name="NodePackageJsonFileManager">
-    <packageJsonPaths>
-      <path value="$PROJECT_DIR$/package.json" />
-    </packageJsonPaths>
-  </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2" />
-    <option name="y" value="12" />
-    <option name="width" value="1327" />
-    <option name="height" value="677" />
+    <option name="x" value="27" />
+    <option name="y" value="38" />
+    <option name="width" value="1659" />
+    <option name="height" value="1015" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+    <ConfirmationsSetting value="2" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="Scope" currentSubView="Project Files" proportions="" version="1">
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files">
+      <pane id="ProjectPane">
+        <subPane>
           <expand>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="assets" type="cbb8eebc:String" user="assets" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="assets" type="cbb8eebc:String" user="assets" />
-              <item name="css" type="cbb8eebc:String" user="css" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="assets" type="cbb8eebc:String" user="assets" />
-              <item name="css" type="cbb8eebc:String" user="css" />
-              <item name="login" type="cbb8eebc:String" user="login" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="login" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="assets" type="cbb8eebc:String" user="assets" />
-              <item name="css" type="cbb8eebc:String" user="css" />
-              <item name="login" type="cbb8eebc:String" user="login" />
-              <item name="css" type="cbb8eebc:String" user="css" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="login" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="assets" type="cbb8eebc:String" user="assets" />
-              <item name="images" type="cbb8eebc:String" user="images" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="theme" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="assets" type="cbb8eebc:String" user="assets" />
-              <item name="theme" type="cbb8eebc:String" user="theme" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="theme" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="assets" type="cbb8eebc:String" user="assets" />
-              <item name="theme" type="cbb8eebc:String" user="theme" />
-              <item name="pc" type="cbb8eebc:String" user="pc" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="commonjs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="commonjs" type="cbb8eebc:String" user="commonjs" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="commonjs" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="commonjs" type="cbb8eebc:String" user="commonjs" />
-              <item name="model" type="cbb8eebc:String" user="model" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="commonjs" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="commonjs" type="cbb8eebc:String" user="commonjs" />
-              <item name="util" type="cbb8eebc:String" user="util" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="framework" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="framework" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="common" type="cbb8eebc:String" user="common" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="framework" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="common" type="cbb8eebc:String" user="common" />
-              <item name="config" type="cbb8eebc:String" user="config" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="framework" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="common" type="cbb8eebc:String" user="common" />
-              <item name="js" type="cbb8eebc:String" user="js" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="framework" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="common" type="cbb8eebc:String" user="common" />
-              <item name="js" type="cbb8eebc:String" user="js" />
-              <item name="model" type="cbb8eebc:String" user="model" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="framework" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="pc" type="cbb8eebc:String" user="pc" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="framework" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="pc" type="cbb8eebc:String" user="pc" />
-              <item name="components" type="cbb8eebc:String" user="components" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="framework" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="login" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="pc" type="cbb8eebc:String" user="pc" />
-              <item name="components" type="cbb8eebc:String" user="components" />
-              <item name="login" type="cbb8eebc:String" user="login" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="locale" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="locale" type="cbb8eebc:String" user="locale" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="locale" type="462c0819:PsiDirectoryNode" />
+              <item name="lang" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="moduleA" type="cbb8eebc:String" user="moduleA" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="locale" type="462c0819:PsiDirectoryNode" />
+              <item name="lang" type="462c0819:PsiDirectoryNode" />
+              <item name="zh-CN" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="moduleA" type="cbb8eebc:String" user="moduleA" />
-              <item name="pc" type="cbb8eebc:String" user="pc" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="moduleA" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="moduleA" type="cbb8eebc:String" user="moduleA" />
-              <item name="pc" type="cbb8eebc:String" user="pc" />
-              <item name="components" type="cbb8eebc:String" user="components" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="moduleA" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="moduleA" type="cbb8eebc:String" user="moduleA" />
-              <item name="pc" type="cbb8eebc:String" user="pc" />
-              <item name="components" type="cbb8eebc:String" user="components" />
-              <item name="footer" type="cbb8eebc:String" user="footer" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="moduleA" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="moduleA" type="cbb8eebc:String" user="moduleA" />
-              <item name="pc" type="cbb8eebc:String" user="pc" />
-              <item name="components" type="cbb8eebc:String" user="components" />
-              <item name="header" type="cbb8eebc:String" user="header" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="moduleA" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="moduleA" type="cbb8eebc:String" user="moduleA" />
-              <item name="pc" type="cbb8eebc:String" user="pc" />
-              <item name="components" type="cbb8eebc:String" user="components" />
-              <item name="home" type="cbb8eebc:String" user="home" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="moduleA" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="moduleA" type="cbb8eebc:String" user="moduleA" />
-              <item name="pc" type="cbb8eebc:String" user="pc" />
-              <item name="components" type="cbb8eebc:String" user="components" />
-              <item name="home" type="cbb8eebc:String" user="home" />
-              <item name="factory" type="cbb8eebc:String" user="factory" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="moduleA" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="moduleA" type="cbb8eebc:String" user="moduleA" />
-              <item name="pc" type="cbb8eebc:String" user="pc" />
-              <item name="components" type="cbb8eebc:String" user="components" />
-              <item name="home" type="cbb8eebc:String" user="home" />
-              <item name="forms" type="cbb8eebc:String" user="forms" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="moduleA" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="footer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="moduleA" type="cbb8eebc:String" user="moduleA" />
-              <item name="pc" type="cbb8eebc:String" user="pc" />
-              <item name="components" type="cbb8eebc:String" user="components" />
-              <item name="home" type="cbb8eebc:String" user="home" />
-              <item name="forms" type="cbb8eebc:String" user="forms" />
-              <item name="common" type="cbb8eebc:String" user="common" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="moduleA" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="header" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="moduleA" type="cbb8eebc:String" user="moduleA" />
-              <item name="pc" type="cbb8eebc:String" user="pc" />
-              <item name="components" type="cbb8eebc:String" user="components" />
-              <item name="home" type="cbb8eebc:String" user="home" />
-              <item name="forms" type="cbb8eebc:String" user="forms" />
-              <item name="module" type="cbb8eebc:String" user="module" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="moduleA" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="protocolConfig" type="cbb8eebc:String" user="protocolConfig" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="moduleA" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+              <item name="factory" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="router" type="cbb8eebc:String" user="router" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="moduleA" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+              <item name="forms" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="router" type="cbb8eebc:String" user="router" />
-              <item name="pc" type="cbb8eebc:String" user="pc" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="moduleA" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+              <item name="forms" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="store" type="cbb8eebc:String" user="store" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="moduleA" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+              <item name="forms" type="462c0819:PsiDirectoryNode" />
+              <item name="module" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="store" type="cbb8eebc:String" user="store" />
-              <item name="sessionstorage" type="cbb8eebc:String" user="sessionstorage" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="moduleA" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+              <item name="tables" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-managementsystem-web" type="cbb8eebc:String" user="vue-managementsystem-web" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="store" type="cbb8eebc:String" user="store" />
-              <item name="vuex" type="cbb8eebc:String" user="vuex" />
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="protocolConfig" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="router" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="router" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+              <item name="localstorage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+              <item name="sessionstorage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+              <item name="vuex" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
+      </pane>
+      <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
             <path>
@@ -573,14 +587,35 @@
               <item name="vue-managementsystem-web" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="commonjs" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="assets" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="vue-managementsystem-web" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="assets" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="images" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="vue-managementsystem-web" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="assets" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="theme" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="vue-managementsystem-web" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="assets" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="theme" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="pc" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="vue-managementsystem-web" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="commonjs" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="model" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="vue-managementsystem-web" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -594,6 +629,38 @@
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="framework" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="vue-managementsystem-web" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="framework" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="common" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="vue-managementsystem-web" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="framework" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="common" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="config" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="vue-managementsystem-web" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="framework" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="common" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="js" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="vue-managementsystem-web" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="framework" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="common" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="js" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="model" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="vue-managementsystem-web" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -636,6 +703,14 @@
               <item name="vue-managementsystem-web" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="locale" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="lang" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="zh-CN" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="vue-managementsystem-web" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="moduleA" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
@@ -667,6 +742,43 @@
               <item name="moduleA" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="pc" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="components" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="vue-managementsystem-web" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="moduleA" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="pc" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="components" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="footer" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="vue-managementsystem-web" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="moduleA" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="pc" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="components" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="header" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="vue-managementsystem-web" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="moduleA" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="pc" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="components" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="home" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="vue-managementsystem-web" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="moduleA" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="pc" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="components" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="home" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="charts" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="vue-managementsystem-web" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -718,7 +830,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -739,21 +850,22 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
     <property name="standardjs.codestyle.accepted" value="true" />
+    <property name="ts.external.directory.path" value="D:\WebStorm 2018.3.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\web\vue-managementsystem-web\src" />
-      <recent name="E:\我的项目\vue-managementsystem-web\config" />
-      <recent name="E:\我的项目\vue-managementsystem-web\build" />
-      <recent name="D:\work\meng\pc-demo\src\locale\lang\moduleA\EN\pc\userList" />
-      <recent name="D:\work\meng\pc-demo\src\locale\lang\moduleA\EN\pc" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\work\meng\pc-demo\src\framework\common" />
-      <recent name="D:\work\meng\pc-demo\src\store\vuex" />
-      <recent name="C:\Users\my\Desktop\VUE前端框架\demo-front\src\demo\common\js\model\list" />
-      <recent name="C:\Users\my\Desktop\VUE前端框架\demo-front\src\demo\pc\components\list" />
-      <recent name="C:\Users\my\Desktop\VUE前端框架\demo-front\src\demo\pc\components\register" />
+      <recent name="E:\我的项目\vue-managementsystem-web\src\assets\images" />
+      <recent name="E:\我的项目\vue-managementsystem-web\src\assets" />
+      <recent name="E:\我的项目\vue-managementsystem-web\src\staticconfig" />
+      <recent name="E:\我的项目\vue-managementsystem-web\src\commonjs\util" />
+      <recent name="E:\我的项目\vue-managementsystem-web\src\assets\css" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\我的项目\vue-managementsystem-web\src\locale\lang\en-US" />
+      <recent name="E:\我的项目\vue-managementsystem-web\src\locale\lang\zh-CN" />
+      <recent name="E:\我的项目\vue-managementsystem-web\src\commonjs\util" />
+      <recent name="E:\我的项目\vue-managementsystem-web\src\assets\css" />
+      <recent name="E:\我的项目\vue-managementsystem-web\src\assets\js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -775,11 +887,12 @@
       </EXTENSION>
       <method v="2" />
     </configuration>
-    <configuration default="true" type="js.build_tools.grunt" factoryName="Grunt.js">
+    <configuration default="true" type="js.build_tools.grunt">
       <node-interpreter value="project" />
       <envs />
+      <method v="2" />
     </configuration>
-    <configuration name="vue-managementsystem-web" type="js.build_tools.npm" factoryName="npm">
+    <configuration name="vue-managementsystem-web" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
@@ -787,6 +900,7 @@
       </scripts>
       <node-interpreter value="project" />
       <envs />
+      <method v="2" />
     </configuration>
     <list>
       <item itemvalue="npm.vue-managementsystem-web" />
@@ -800,16 +914,16 @@
     <option name="myMappingRoots">
       <list>
         <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\web\vue-managementsystem-web" />
-          <option name="myCopyRoot" value="E:\web\vue-managementsystem-web" />
+          <option name="myVcsRoot" value="E:\我的项目\vue-managementsystem-web" />
+          <option name="myCopyRoot" value="E:\我的项目\vue-managementsystem-web" />
         </SvnCopyRootSimple>
       </list>
     </option>
     <option name="myMoreRealMappingRoots">
       <list>
         <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\web\vue-managementsystem-web" />
-          <option name="myCopyRoot" value="E:\web\vue-managementsystem-web" />
+          <option name="myVcsRoot" value="E:\我的项目\vue-managementsystem-web" />
+          <option name="myCopyRoot" value="E:\我的项目\vue-managementsystem-web" />
         </SvnCopyRootSimple>
       </list>
     </option>
@@ -845,10 +959,9 @@
       <workItem from="1528789654272" duration="14670000" />
       <workItem from="1528806673547" duration="2115000" />
       <workItem from="1528850125313" duration="27082000" />
-      <workItem from="1557026404447" duration="15443000" />
-      <workItem from="1557147767282" duration="787000" />
-      <workItem from="1557148704347" duration="26808000" />
-      <workItem from="1557756482295" duration="4523000" />
+      <workItem from="1557026404447" duration="26403000" />
+      <workItem from="1557134857574" duration="12063000" />
+      <workItem from="1557297541117" duration="156329000" />
     </task>
     <task id="LOCAL-00001">
       <created>1557050387256</created>
@@ -857,25 +970,179 @@
       <option name="project" value="LOCAL" />
       <updated>1557050387256</updated>
     </task>
-    <task id="LOCAL-00002" summary="登录界面开发">
-      <created>1557331524051</created>
+    <task id="LOCAL-00002">
+      <created>1557059818601</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1557331524052</updated>
+      <updated>1557059818601</updated>
     </task>
-    <task id="LOCAL-00003" summary="模块界面开发">
-      <created>1557669654827</created>
+    <task id="LOCAL-00003">
+      <created>1557061556790</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1557669654827</updated>
+      <updated>1557061556790</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004">
+      <created>1557127727316</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1557127727327</updated>
+    </task>
+    <task id="LOCAL-00005">
+      <created>1557127792662</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1557127792662</updated>
+    </task>
+    <task id="LOCAL-00006" summary="新增样式文件">
+      <created>1557131172073</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1557131172073</updated>
+    </task>
+    <task id="LOCAL-00007" summary="修改登陆界面">
+      <created>1557317098188</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1557317098188</updated>
+    </task>
+    <task id="LOCAL-00008" summary="修改登陆界面">
+      <created>1557318131072</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1557318131072</updated>
+    </task>
+    <task id="LOCAL-00009" summary="修改登陆界面">
+      <created>1557318932412</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1557318932412</updated>
+    </task>
+    <task id="LOCAL-00010" summary="删除login.js">
+      <created>1557369838660</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1557369838660</updated>
+    </task>
+    <task id="LOCAL-00011" summary="新增js 工具类">
+      <created>1557372072106</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1557372072106</updated>
+    </task>
+    <task id="LOCAL-00012" summary="提交安全码js工具包">
+      <created>1557386022931</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1557386022931</updated>
+    </task>
+    <task id="LOCAL-00013" summary="修改登陆界面">
+      <created>1557403509632</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1557403509632</updated>
+    </task>
+    <task id="LOCAL-00014" summary="修改登陆界面">
+      <created>1557457641172</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1557457641172</updated>
+    </task>
+    <task id="LOCAL-00015" summary="去除手机端">
+      <created>1557458396627</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1557458396627</updated>
+    </task>
+    <task id="LOCAL-00016" summary="新增index.json">
+      <created>1557469413198</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1557469413198</updated>
+    </task>
+    <task id="LOCAL-00017" summary="去掉从服务器获取配置的功能">
+      <created>1557471927656</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1557471927656</updated>
+    </task>
+    <task id="LOCAL-00018">
+      <created>1557478329175</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1557478329175</updated>
+    </task>
+    <task id="LOCAL-00019">
+      <created>1557482398262</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1557482398262</updated>
+    </task>
+    <task id="LOCAL-00020">
+      <created>1557485342900</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1557485342900</updated>
+    </task>
+    <task id="LOCAL-00021" summary="新增网站首页">
+      <created>1557566590966</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1557566590966</updated>
+    </task>
+    <task id="LOCAL-00022" summary="新增我的网页">
+      <created>1557649414653</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1557649414653</updated>
+    </task>
+    <task id="LOCAL-00023">
+      <created>1557746317408</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1557746317433</updated>
+    </task>
+    <task id="LOCAL-00024" summary="登陆界面完成">
+      <created>1557805151052</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1557805151052</updated>
+    </task>
+    <task id="LOCAL-00025" summary="完成用户登记表功能">
+      <created>1557927798695</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1557927798696</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="415238000" />
+    <option name="totallyTimeSpent" value="574562000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -887,41 +1154,50 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2" y="12" width="1327" height="677" extended-state="1" />
+    <frame x="27" y="38" width="1659" height="1015" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4838275" visible="true" weight="0.23196276" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49578503" weight="0.32627866" />
-      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5021075" side_tool="true" weight="0.1969697" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32978722" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.22037037" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4838275" visible="true" weight="0.18198642" />
+      <window_info id="Structure" order="1" weight="0.24973656" />
       <window_info id="npm" order="2" sideWeight="0.5112903" side_tool="true" weight="0.24973656" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.24973656" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49578503" weight="0.35" />
       <window_info id="Favorites" order="3" sideWeight="0.5161725" side_tool="true" weight="0.24973656" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49525815" weight="0.3275463" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.18346547" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="TypeScript" order="12" sideWeight="0.49789253" weight="0.32900432" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49578503" weight="0.32841328" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5036145" side_tool="true" weight="0.2804428" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3296433" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49638554" weight="0.2800926" />
+      <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="TypeScript" order="11" sideWeight="0.49789253" weight="0.32900432" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3296433" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" order="8" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49525815" weight="0.32804233" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="登录界面开发" />
-    <MESSAGE value="模块界面开发" />
-    <option name="LAST_COMMIT_MESSAGE" value="模块界面开发" />
+    <MESSAGE value="新增样式文件" />
+    <MESSAGE value="删除login.js" />
+    <MESSAGE value="新增js 工具类" />
+    <MESSAGE value="提交安全码js工具包" />
+    <MESSAGE value="修改登陆界面" />
+    <MESSAGE value="去除手机端" />
+    <MESSAGE value="新增index.json" />
+    <MESSAGE value="去掉从服务器获取配置的功能" />
+    <MESSAGE value="新增网站首页" />
+    <MESSAGE value="新增我的网页" />
+    <MESSAGE value="登陆界面完成" />
+    <MESSAGE value="完善页头页尾功能" />
+    <MESSAGE value="完成用户登记表功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成用户登记表功能" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -930,346 +1206,399 @@
           <url>file://$PROJECT_DIR$/src/locale/lang/moduleA/zh_CN/pc/map/map.js</url>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/moduleA/pc/components/header/Header.vue</url>
-          <line>43</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/build/webpack.prod.conf.js">
+    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/factory/UserManage.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="67" column="32" lean-forward="true" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/webpack.base.conf.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1000">
-          <caret line="40" column="14" lean-forward="true" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/framework/common/js/IntervalInit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="13" column="26" lean-forward="true" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/locale/lang/zh-CN/moduleA.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/locale/lang/zh-CN/resources.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/commonjs/model/MemoryData.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
-          <caret line="32" selection-start-line="32" selection-end-line="34" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/localstorage/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1538">
-          <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/commonjs/model/BaseInfo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/list/UserList.vue" />
-    <entry file="file://$PROJECT_DIR$/src/commonjs/model/HTTPCommunicateManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/commonjs/util/ReflectAssignFromJson.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/framework/common/js/SystemInit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1478">
-          <caret line="133" column="4" selection-start-line="133" selection-start-column="4" selection-end-line="133" selection-end-column="15" />
+        <state relative-caret-position="227">
+          <caret line="18" column="21" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="21" />
           <folding>
-            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#237#325#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/theme/pc/blue/framework/css/common.less">
+    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/tables/ResetUserPassword.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1987" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/theme/pc/blue/framework/css/element-variables.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2400" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/loginstyle.css" />
-    <entry file="file://$PROJECT_DIR$/src/assets/theme/pc/blue/framework/css/mixin.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" selection-end-column="9" />
+        <state relative-caret-position="502">
+          <caret line="88" column="30" selection-start-line="84" selection-start-column="3" selection-end-line="88" selection-end-column="30" />
+          <folding>
+            <element signature="n#style#0;n#el-table#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/postcss-import/lib/resolve-id.js">
+    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/trees/WebModuleTree.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/framework/pc/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/framework/pc/App.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/framework/pc/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="70" selection-start-line="5" selection-start-column="70" selection-end-line="5" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/css/login/css/loginstyle.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3175">
-          <caret line="127" column="12" selection-start-line="127" selection-start-column="1" selection-end-line="127" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/css/login/css/form-elements.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="116" column="1" selection-start-line="116" selection-start-column="1" selection-end-line="116" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/js/login.js" />
-    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/ModuleDetail.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/NavigationDetail.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/ModuleAdd.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="25" column="10" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="25" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/IndexPage.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2825">
-          <caret line="125" column="18" lean-forward="true" selection-start-line="125" selection-start-column="18" selection-end-line="125" selection-end-column="18" />
+        <state relative-caret-position="552">
+          <caret line="100" column="30" selection-start-line="100" selection-start-column="30" selection-end-line="100" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/FooterPage.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="21" column="43" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="43" />
+        <state relative-caret-position="-1723">
+          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/IndexPage.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="84" column="6" selection-start-line="36" selection-start-column="4" selection-end-line="84" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/UpdateUserInfo.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="24" column="23" lean-forward="true" selection-start-line="22" selection-start-column="8" selection-end-line="24" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/WebsiteInfo.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1150">
-          <caret line="98" column="7" selection-start-line="98" selection-start-column="7" selection-end-line="98" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/PartsAdd.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="157" column="3" lean-forward="true" selection-start-line="121" selection-start-column="2" selection-end-line="157" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/common/BackgroundimgAdd.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="1" column="31" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
+        <state relative-caret-position="377">
+          <caret line="146" selection-start-line="146" selection-end-line="148" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/NavigationAdd.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="80" selection-start-line="80" selection-end-line="82" selection-end-column="3" />
+        <state relative-caret-position="500">
+          <caret line="80" column="1" selection-start-line="80" selection-start-column="1" selection-end-line="82" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/PartsDetail.vue">
+    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/ModuleAdd.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="39" column="66" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="66" />
+        <state relative-caret-position="475">
+          <caret line="19" column="23" selection-start-line="5" selection-start-column="8" selection-end-line="19" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/router/pc/moduleA.js">
+    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/NavigationDetail.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="81" selection-start-line="5" selection-start-column="81" selection-end-line="5" selection-end-column="81" />
+        <state relative-caret-position="625">
+          <caret line="25" column="23" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/PartsDisplay.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="60" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/protocolConfig/moduleA.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/commonjs/util/securityCodeUtil.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="46" column="27" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/commonjs/util/mall.md5.js">
+    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/ModuleDetail.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="7" selection-start-column="4" selection-end-column="7" />
+          <caret line="48" column="24" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/protocolConfig/protocolConfig.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="2" column="13" lean-forward="true" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#82#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/locale/lang/en-US/staticText.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/protocolConfig/framework.js">
+    <entry file="file://$PROJECT_DIR$/src/framework/pc/components/error/404.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/framework/common/config/Config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="50" column="40" selection-start-line="50" selection-start-column="40" selection-end-line="50" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/framework/common/js/model/LoginRequestVO.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="20" column="17" lean-forward="true" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/sessionstorage/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="11" column="25" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/vuex/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="22" column="20" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/commonjs/model/BaseRequstVO.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/commonjs/model/BaseResponseVO.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="34" column="10" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+        <state relative-caret-position="25">
+          <caret line="1" column="29" lean-forward="true" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/commonjs/util/HTTPCommunicate.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="45" column="61" selection-start-line="45" selection-start-column="61" selection-end-line="45" selection-end-column="61" />
+        <state relative-caret-position="300">
+          <caret line="45" column="45" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="45" />
           <folding>
             <element signature="e#0#65#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/locale/lang/zh-CN/resources.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="15" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/framework/common/js/IntervalInit.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/framework/pc/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="16" selection-start-line="16" selection-end-line="16" selection-end-column="32" />
+          <folding>
+            <element signature="e#168#189#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/router/pc/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="29" column="37" lean-forward="true" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/vuex/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/framework/common/js/SystemInit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="569">
+          <caret line="106" column="14" selection-start-line="106" selection-start-column="14" selection-end-line="106" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/commonjs/model/BaseRequstVO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="20" column="25" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/sessionstorage/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="13" column="25" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/framework/common/js/model/LoginResponseVO.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="13" />
+        <state relative-caret-position="-98">
+          <caret selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/protocolConfig/framework.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="14" column="70" lean-forward="true" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/WebTopRequestVO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="5" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/WebTopResponseVO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/commonjs/model/BaseResponseVO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="27" column="23" lean-forward="true" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/router/pc/moduleA.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="9" selection-start-line="9" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/WebButtomRequestVO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/WebButtomResponseVO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="129" column="3" lean-forward="true" selection-start-line="83" selection-start-column="2" selection-end-line="129" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/framework/common/js/model/LoginRequestVO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/Home.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="28" selection-start-line="28" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/footer/Footer.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="47" column="2" selection-start-line="47" selection-start-column="2" selection-end-line="48" selection-end-column="51" />
+          <folding>
+            <element signature="e#1508#1588#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/RegistersInfoRequestVO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="28" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/commonjs/util/mall.tools.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="818" column="6" selection-start-line="818" selection-start-column="6" selection-end-line="818" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/PartsRequestVO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/RegistersInfoResponseVO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="41" column="19" selection-start-line="41" selection-start-column="6" selection-end-line="41" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/PartsResponseVO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="16" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/framework/pc/components/login/Login.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="134" column="45" selection-start-line="134" selection-start-column="35" selection-end-line="134" selection-end-column="45" />
+        <state relative-caret-position="645">
+          <caret line="132" column="90" selection-start-line="132" selection-start-column="90" selection-end-line="132" selection-end-column="90" />
           <folding>
-            <element signature="e#2976#3037#0" expanded="true" />
+            <element signature="e#2974#3035#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/header/Header.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="66" column="13" selection-start-line="66" selection-start-column="7" selection-end-line="66" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/commonjs/util/MessageBoxTranslate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="625">
+          <caret line="43" column="9" selection-start-line="43" selection-start-column="2" selection-end-line="43" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/locale/lang/zh-CN/staticText.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/LeaveMsgRequestVO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="23" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/RegistersInfoDeleteListRequestVO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="13" lean-forward="true" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/RegistersInfoDeleteListResponseVO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="39" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/LeaveMsgResponseVO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/LeaveMsgDeleteListRequestVO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="12" column="42" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/LeaveMsgDeleteListResponseVO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="12" column="43" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/protocolConfig/moduleA.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="19" column="16" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#76#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/locale/lang/zh-CN/moduleA.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="31" column="14" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/tables/UserMessages.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="25" column="44" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="44" />
+          <folding>
+            <element signature="n#style#0;n#el-table#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#1983#2071#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/tables/UserRegistration.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="37" column="45" selection-start-line="37" selection-start-column="45" selection-end-line="37" selection-end-column="45" />
+          <folding>
+            <element signature="n#style#0;n#el-table#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#2635#2723#0" expanded="true" />
           </folding>
         </state>
       </provider>
