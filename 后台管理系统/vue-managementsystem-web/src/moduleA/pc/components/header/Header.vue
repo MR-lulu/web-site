@@ -8,13 +8,13 @@
     <div class="navigation-bar">
       <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
         <!--网站首页-->
-        <el-menu-item index="1">{{$t('rs.moduleA.20000000008')}}</el-menu-item>
+        <el-menu-item index="webSiteHomePage">{{$t('rs.moduleA.20000000008')}}</el-menu-item>
         <!--用户管理-->
-        <el-menu-item index="2">{{$t('rs.moduleA.20000000009')}}</el-menu-item>
+        <el-menu-item index="userManage">{{$t('rs.moduleA.20000000009')}}</el-menu-item>
         <!--我的网页-->
-        <el-menu-item index="4">{{$t('rs.moduleA.20000000010')}}</el-menu-item>
+        <el-menu-item index="myWebSite">{{$t('rs.moduleA.20000000010')}}</el-menu-item>
         <!--系统设置-->
-        <el-menu-item index="5">{{$t('rs.moduleA.20000000011')}}</el-menu-item>
+        <el-menu-item index="systemSet">{{$t('rs.moduleA.20000000011')}}</el-menu-item>
       </el-menu>
     </div>
     <!--账号-->
@@ -52,7 +52,27 @@ export default {
   methods: {
     // 导航栏选择点击事件
     handleSelect(key, keyPath) {
-      console.log(key, keyPath);
+      switch (key) {
+        case 'webSiteHomePage': {
+          this.$router.push('websiteHomePage');
+          break;
+        }
+        case 'userManage': {
+          this.$router.push('userManage');
+          break;
+        }
+        case 'myWebSite': {
+          this.$router.push('myWebSite');
+          break;
+        }
+        case 'systemSet': {
+          this.$router.push('systemSet');
+          break;
+        }
+        default : {
+          this.$router.push('websiteHomePage');
+        }
+      }
     },
 
     // 退出登录

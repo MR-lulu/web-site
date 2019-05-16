@@ -157,7 +157,7 @@
         registersInfoDeleteListRequestVO.ids = this.ids;
         let _that = this;
         this.communicateManger.httpCommunicate.getResponseVO(registersInfoDeleteListRequestVO, "/registersInfo/delete/list").then((RegistersInfoDeleteListResponseVO) => {
-          if (RegistersInfoDeleteListResponseVO.getStatus == 1000 && RegistersInfoDeleteListResponseVO.getResultCode >= 0) {
+          if (RegistersInfoDeleteListResponseVO.getStatus == 1000 && RegistersInfoDeleteListResponseVO.getResultCode > 0) {
             this.messageBox.success(RegistersInfoDeleteListResponseVO.getMsg);
             // 重新获取数据
             _that.getRegistersInfo();

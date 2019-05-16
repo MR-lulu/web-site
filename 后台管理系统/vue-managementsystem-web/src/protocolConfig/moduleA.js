@@ -4,6 +4,8 @@ import RegistersInfoResponseVO from '@/moduleA/common/js/model/RegistersInfoResp
 import LeaveMsgResponseVO from '@/moduleA/common/js/model/LeaveMsgResponseVO.js'
 import RegistersInfoDeleteListResponseVO from "../moduleA/common/js/model/RegistersInfoDeleteListResponseVO";
 import LeaveMsgDeleteListResponseVO from "../moduleA/common/js/model/LeaveMsgDeleteListResponseVO";
+import UpdateUserInfoResponseVO from "../moduleA/common/js/model/UpdateUserInfoResponseVO";
+import UserInfoResponseVO from "../moduleA/common/js/model/UserInfoResponseVO";
 
 
 
@@ -18,7 +20,8 @@ export const ModuleAProtocolContent = {
   registersInfoDelete: 'registersInfoDelete',
   leaveMsg: 'leaveMsg',
   leaveMsgDelete: 'leaveMsgDelete',
-
+  updateUserInfo: 'updateUserInfo',
+  userInfo: 'userInfo',
 }
 /**
  * 模块A协议配置协议名称以及返回包对象
@@ -31,4 +34,6 @@ export const ModuleAProtocolConfig = {
   'registersInfoDelete': {name: 'registersInfoDelete', responseVO: new RegistersInfoDeleteListResponseVO()},  // 删除用户留言信息
   'leaveMsg': {name: 'leaveMsg', responseVO: new LeaveMsgResponseVO()},  // 获取用户留言信息
   'leaveMsgDelete': {name: 'leaveMsgDelete', responseVO: new LeaveMsgDeleteListResponseVO()},  // 删除用户留言信息
+  'updateUserInfo': {name: 'updateUserInfo', responseVO: new UpdateUserInfoResponseVO()},  // 修改用户信息
+  'userInfo': {name: 'userInfo', responseVO: new UserInfoResponseVO()},  // 获取用户信息
 }

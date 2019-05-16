@@ -68,7 +68,13 @@
   import SecurityCodeUtil from '@/commonjs/util/securityCodeUtil.js'
   import md5 from 'js-md5';
   import LoginRequestVO from '@/framework/common/js/model/LoginRequestVO.js'
-  import {setUserID, setToken, setLoginUserInfo, getLoginUserInfo} from '@/store/sessionstorage/index.js'
+  import {
+    setUserID,
+    setToken,
+    setLoginUserInfo,
+    getLoginUserInfo,
+    setUserPasswordbyMd5
+  } from '@/store/sessionstorage/index.js'
 
   export default {
     name: 'Login',
@@ -121,6 +127,7 @@
               setToken(LoginResponseVO.getToken);
               this.$store.commit('setloginInfo', LoginResponseVO.getUser);
               setLoginUserInfo(JSON.stringify(LoginResponseVO.getUser));
+              setUserPasswordbyMd5(loginRequestVO.password);
               this.$router.push('/home/websiteHomePage');
             } else {
                 this.messageBox.error(LoginResponseVO.getMsg)

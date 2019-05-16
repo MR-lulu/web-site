@@ -147,7 +147,7 @@
         leaveMsgDeleteListRequestVO.ids = this.ids;
         let _that = this;
         this.communicateManger.httpCommunicate.getResponseVO(leaveMsgDeleteListRequestVO, "/leaveMsg/delete/list").then((LeaveMsgDeleteListResponseVO) => {
-          if (LeaveMsgDeleteListResponseVO.getStatus == 1000 && LeaveMsgDeleteListResponseVO.getResultCode >= 0) {
+          if (LeaveMsgDeleteListResponseVO.getStatus == 1000 && LeaveMsgDeleteListResponseVO.getResultCode > 0) {
             this.messageBox.success(LeaveMsgDeleteListResponseVO.getMsg);
             // 重新获取数据
             _that.getLeaveMsgInfo();
