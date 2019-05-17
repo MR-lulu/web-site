@@ -14,7 +14,12 @@
         <!--我的网页-->
         <el-menu-item index="myWebSite">{{$t('rs.moduleA.20000000010')}}</el-menu-item>
         <!--系统设置-->
-        <el-menu-item index="systemSet">{{$t('rs.moduleA.20000000011')}}</el-menu-item>
+        <!--<el-menu-item index="systemSet">{{$t('rs.moduleA.20000000011')}}</el-menu-item>-->
+        <el-submenu index="systemSet">
+          <template slot="title">{{$t('rs.moduleA.20000000011')}}</template>
+          <!--零件种类-->
+          <el-menu-item index="partsType">{{$t('rs.moduleA.20000000054')}}</el-menu-item>
+        </el-submenu>
       </el-menu>
     </div>
     <!--账号-->

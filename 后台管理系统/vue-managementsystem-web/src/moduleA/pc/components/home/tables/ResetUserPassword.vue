@@ -61,6 +61,7 @@
   import UserInfoListRequestVO from '@/moduleA/common/js/model/UserInfoListRequestVO.js'
   import ResetUserPasswordRequestVO from '@/moduleA/common/js/model/ResetUserPasswordRequestVO.js'
   import Tools from '@/commonjs/util/mall.tools.js'
+  import md5 from 'js-md5';
 
   export default {
     name: "ResetUserPassword",
@@ -126,41 +127,59 @@
 
       // 批量重置密码
       resetUserPasswordList: function () {
-        this.messageBox.confirm(this.$t('rs.staticText.30000000024'), this.$t('rs.staticText.30000000008'), () => {
-        }, () => {
-          // 确定
-          this.subUserList = new Array();
-          for (let item of this.multipleSelection) {
-           let resetObject = {
-             id: '',
-             password: ''
-           };
-            resetObject.id = item.userId;
-            resetObject.password = this.newPassword;
-            this.subUserList.push(resetObject);
-          }
-          this.resetPassword();
-        }, () => {
-          // 取消
-        });
-      },
-
-      // 单个重置
-      resetUserPasswordOne: function (index, row) {
-        this.messageBox.confirm(this.$t('rs.staticText.30000000024'), this.$t('rs.staticText.30000000008'), () => {
-        }, () => {
-          // 确定
-          this.subUserList = new Array();
+        this.subUserList = new Array();
+        for (let item of this.multipleSelection) {
           let resetObject = {
             id: '',
             password: ''
           };
-          resetObject.id = row.userId;
+          resetObject.id = item.userId;
           resetObject.password = this.newPassword;
           this.subUserList.push(resetObject);
-          this.resetPassword();
-        }, () => {
-          // 取消
+        }
+        this.getNewPassword();
+      },
+
+      // 单个重置
+      resetUserPasswordOne: function (index, row) {
+        this.subUserList = new Array();
+        let resetObject = {
+          id: '',
+          password: ''
+        };
+        resetObject.id = row.userId;
+        resetObject.password = this.newPassword;
+        this.subUserList.push(resetObject);
+        this.getNewPassword();
+      },
+
+      // 获取新密码
+      getNewPassword: function () {
+        this.$prompt(this.$t('rs.staticText.30000000018'), this.$t('rs.staticText.30000000008'), {
+          confirmButtonText: this.$t('rs.staticText.30000000004'),
+          cancelButtonText: this.$t('rs.staticText.30000000005'),
+          inputPattern: /^$|^(\w){6,20}$/,
+          inputErrorMessage: this.$t('rs.staticText.30000000017'),
+          inputPlaceholder: this.$t('rs.staticText.30000000025')
+        }).then(({value}) => {
+          // 如果输入为空，则使用默认的密码重置，否则使用输入的
+          if (Tools.isNull(value)) {
+            for (let item of this.subUserList) {
+              item.password = md5.hex(item.password);
+            }
+          } else {
+            for (let item of this.subUserList) {
+              item.password = md5.hex(value);
+            }
+          }
+          this.messageBox.confirm(this.$t('rs.staticText.30000000024'), this.$t('rs.staticText.30000000008'), () => {
+          }, () => {
+            // 确定
+            this.resetPassword();
+          }, () => {
+            // 取消
+          });
+        }).catch(() => {
         });
       },
 
