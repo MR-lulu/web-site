@@ -70,8 +70,13 @@ export default {
           this.$router.push('myWebSite');
           break;
         }
-        case 'systemSet': {
-          this.$router.push('systemSet');
+        case 'partsType': {
+          this.$router.push({
+            path: 'systemSet',
+            query: {
+              component: 'partsType'
+            }
+          });
           break;
         }
         default : {

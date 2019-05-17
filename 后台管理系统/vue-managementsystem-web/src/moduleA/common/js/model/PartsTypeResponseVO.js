@@ -3,8 +3,8 @@ import BaseResponseVO from '@/commonjs/model/BaseResponseVO'
 class PartsTypeResponseVO extends BaseResponseVO {
   constructor() {
     super()
-    // 设置resultListType对应的类型为Parts
-    this.RESULTLISTType = LeaveMsg;
+    // 设置resultListType对应的类型为PartsType
+    this.RESULTLISTType = PartsType;
   }
 
   /**
@@ -57,19 +57,19 @@ class PartsType {
   }
 
   /**
-   * 获取用户ID
+   * 获取零件资源
    * @return {*}
    */
-  get getUserId() {
-    return this.userId;
+  get getResource() {
+    return this.resource;
   }
 
   /**
-   * 获取用户IP
+   * 获取零件可见状态
    * @return {*}
    */
-  get getUserIp() {
-    return this.userIp;
+  get getWatch() {
+    return this.watch;
   }
 
   /**

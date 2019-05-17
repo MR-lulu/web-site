@@ -52,7 +52,7 @@
 </template>
 
 <script>
-  import UserInfoListRequestVO from '@/moduleA/common/js/model/UserInfoListRequestVO.js'
+  import PartsTypeRequestVO from '@/moduleA/common/js/model/PartsTypeRequestVO.js'
   import Tools from '@/commonjs/util/mall.tools.js'
 
   export default {
@@ -68,7 +68,7 @@
     },
     created() {
       // 初始化表格数据
-      //this.getUserInfo();
+      this.getPartsTypeInfo();
     },
 
     methods: {
@@ -85,29 +85,29 @@
       },
       handleSizeChange(val) {
         this.rows = val;
-        this.getUserInfo();
+        this.getPartsTypeInfo();
       },
       handleSelectionChange(val) {
         this.multipleSelection = val;
       },
       handleCurrentChange(val) {
         this.page = val;
-        this.getUserInfo();
+        this.getPartsTypeInfo();
       },
 
-      // 获取留言信息
-      getUserInfo: function () {
-        let userInfoListRequestVO = new UserInfoListRequestVO(this.ProtocolContent.userInfoList);
-        userInfoListRequestVO.page = this.page;
-        userInfoListRequestVO.rows = this.rows;
-        this.communicateManger.httpCommunicate.getResponseVO(userInfoListRequestVO, "/user/query/page").then((UserInfoListResponseVO) => {
-          if (UserInfoListResponseVO.getStatus == 1000) {
-            this.tableData = UserInfoListResponseVO.resultList;
-            this.total = UserInfoListResponseVO.getTotal;
-            this.page = UserInfoListResponseVO.getPage;
-            this.rows = UserInfoListResponseVO.getRows;
+      // 获取零件种类信息
+      getPartsTypeInfo: function () {
+        let partsTypeRequestVO = new PartsTypeRequestVO(this.ProtocolContent.partsType);
+        partsTypeRequestVO.page = this.page;
+        partsTypeRequestVO.rows = this.rows;
+        this.communicateManger.httpCommunicate.getResponseVO(partsTypeRequestVO, "/partsType/query/page").then((PartsTypeResponseVO) => {
+          if (PartsTypeResponseVO.getStatus == 1000) {
+            this.tableData = PartsTypeResponseVO.resultList;
+            this.total = PartsTypeResponseVO.getTotal;
+            this.page = PartsTypeResponseVO.getPage;
+            this.rows = PartsTypeResponseVO.getRows;
           } else {
-            this.messageBox.error(UserInfoListResponseVO.getMsg);
+            this.messageBox.error(PartsTypeResponseVO.getMsg);
           }
         }).catch(() => {
           this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
@@ -134,23 +134,13 @@
   .parts-display .top {
   }
 
-  .parts-display .reset-btn {
-    float: left;
-    height: 50px;
-    width: 20%;
-    text-align: left;
-    padding-left: 4%;
-    padding-top: 7px;
-  }
-
   .parts-display .table-name {
-    width: 80%;
+    width: 100%;
     height: 50px;
     float: left;
-    text-align: left;
+    text-align: center;
     line-height: 50px;
     font-size: 18px;
-    padding-left: 25%;
   }
 
   .parts-display .el-table .warning-row {

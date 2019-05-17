@@ -2,7 +2,7 @@
   <div class="websiteHomePage">
     <!--零件点击量图表组件-->
     <div>
-      <PartsTypeChart></PartsTypeChart>
+      <PartsChart></PartsChart>
     </div>
     <!--用户登记信息组件-->
     <div>
@@ -16,14 +16,14 @@
 </template>
 
 <script>
-  import PartsTypeChart from '@/moduleA/pc/components/home/charts/PartsTypeChart.vue'
+  import PartsChart from '@/moduleA/pc/components/home/charts/PartsChart.vue'
   import UserRegistration from '@/moduleA/pc/components/home/tables/UserRegistration.vue'
   import UserMessages from '@/moduleA/pc/components/home/tables/UserMessages.vue'
 
   export default {
     name: "WebsiteHomePage",
     components: {
-      PartsTypeChart,
+      PartsChart,
       UserRegistration,
       UserMessages
     },

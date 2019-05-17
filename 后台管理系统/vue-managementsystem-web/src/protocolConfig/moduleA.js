@@ -8,6 +8,7 @@ import UpdateUserInfoResponseVO from "../moduleA/common/js/model/UpdateUserInfoR
 import UserInfoResponseVO from "../moduleA/common/js/model/UserInfoResponseVO";
 import UserInfoListResponseVO from "../moduleA/common/js/model/UserInfoListResponseVO";
 import ResetUserPasswordResponseVO from "../moduleA/common/js/model/ResetUserPasswordResponseVO";
+import PartsTypeResponseVO from "../moduleA/common/js/model/PartsTypeResponseVO";
 
 
 
@@ -26,6 +27,8 @@ export const ModuleAProtocolContent = {
   userInfo: 'userInfo',
   userInfoList: 'userInfoList',
   resetUserPassword: 'resetUserPassword',
+  partsType: 'partsType',
+
 }
 /**
  * 模块A协议配置协议名称以及返回包对象
@@ -42,4 +45,6 @@ export const ModuleAProtocolConfig = {
   'userInfo': {name: 'userInfo', responseVO: new UserInfoResponseVO()},  // 获取用户信息
   'userInfoList': {name: 'userInfoList', responseVO: new UserInfoListResponseVO()},  // 批量获取用户信息
   'resetUserPassword': {name: 'resetUserPassword', responseVO: new ResetUserPasswordResponseVO()},  // 批量重置用户密码
+  'partsType': {name: 'partsType', responseVO: new PartsTypeResponseVO()},  // 获取零件种类信息
+
 }

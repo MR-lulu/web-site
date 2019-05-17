@@ -1,5 +1,5 @@
 <template>
-  <div class="partsTypeChart">
+  <div class="partsChart">
     <!--图标-->
     <div id="myChart" class="myChart-display"></div>
   </div>
@@ -7,7 +7,7 @@
 
 <script>
   export default {
-    name: "PartsTypeChart",
+    name: "PartsChart",
     data() {
       return {
         screenWidth: document.body.clientWidth,   // 这里是给到了一个默认值,浏览器窗口大小 （这个很重要）
@@ -141,7 +141,7 @@
 </script>
 
 <style>
-  .partsTypeChart {
+  .partsChart {
     width: 90%;
     margin: 0 auto;
     margin-top: 5%;
@@ -149,7 +149,7 @@
     background-color: #F0FFF0;
   }
 
-  .partsTypeChart .myChart-display {
+  .partsChart .myChart-display {
     margin: 0 auto;
   }
 </style>
