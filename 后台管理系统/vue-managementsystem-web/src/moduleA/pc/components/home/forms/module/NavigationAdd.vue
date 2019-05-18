@@ -75,7 +75,6 @@
 
 <style scoped>
   .navigation-add {
-
   }
 
   .navigation-add .form-1 .el-button {

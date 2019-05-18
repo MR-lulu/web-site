@@ -3,7 +3,9 @@
     <el-tree
       :data="treeData"
       :props="defaultProps"
+      :highlight-current="true"
       node-key="id"
+      ref="tree"
       default-expand-all
       :expand-on-click-node="false"
       :render-content="renderContent">
@@ -64,33 +66,51 @@
     },
 
     methods: {
-      append(data) {
-        const newChild = {id: id++, label: 'testtest', children: []};
-        if (!data.children) {
-          this.$set(data, 'children', []);
-        }
-        data.children.push(newChild);
-      },
-
+      // 新增节点
       renderContent(h, {node, data, store}) {
-        return (
-          < div
+        return ( < div
       class
-        = "ico" >
-          < span >
-          < span > {node.label} < /span>
-          < /span>
-          < span >
-          < i
-      class
-        = "el-icon-circle-plus-outline"
+        = "ico" > < span > < span
         on - click = {()
       =>
-        this.append(data)
+        this.handleNodeLableClick(data)
+      }>
+        {
+          node.label
+        }
+      <
+        /span>< /s
+        pan > < span
+        on - click = {()
+      =>
+        this.handleNodeAddClick(data)
       }> <
-        /i>
-        < /span>
-        < /div>);
+        i
+      class
+        = "el-icon-circle-plus-outline" > < /i> </s
+        pan > < /div>);
+      },
+      setCheckedNodes() {
+        this.$refs.tree.setCheckedNodes([{
+          id: 5,
+          label: '二级 2-1'
+        }, {
+          id: 9,
+          label: '三级 1-1-1'
+        }]);
+      },
+      setCheckedKeys() {
+        this.$refs.tree.setCheckedKeys([3]);
+      },
+      // 节点文本点击事件
+      handleNodeLableClick(data) {
+        console.log('a');
+        console.log(data);
+      },
+      // 节点添加点击事件
+      handleNodeAddClick(data) {
+        console.log('b');
+        console.log(data);
       }
     }
   }
@@ -98,8 +118,13 @@
 
 <style>
   .webModuleTree {
-    border: 1px solid #ebeef5;
-    background-color: #F0FFF0;
+  }
+
+  .webModuleTree .el-tree {
+    background: #373d41;
+    color: #FFFFFF;
+    padding-top: 10%;
+    padding-bottom: 10%;
   }
 
   .webModuleTree .ico {
@@ -112,5 +137,25 @@
 
   .webModuleTree .ico span {
     margin-left: 1%;
+  }
+
+  .webModuleTree .el-tree--highlight-current .el-tree-node.is-current > .el-tree-node__content {
+    background-color: #FFD700;
+  }
+
+  .webModuleTree .el-tree-node__content {
+    height: 35px;
+  }
+
+  .webModuleTree .el-icon-circle-plus-outline:before {
+    padding-left: 60%;
+  }
+
+  .webModuleTree .el-icon-caret-right:before {
+    color: #FFD700;
+  }
+
+  .webModuleTree .el-tree-node__content:hover {
+    background-color: #ccc;
   }
 </style>

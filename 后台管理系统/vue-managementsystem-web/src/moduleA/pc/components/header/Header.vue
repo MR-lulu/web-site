@@ -24,8 +24,12 @@
     </div>
     <!--账号-->
     <div class="account-display">
-      <span>{{$t('rs.moduleA.20000000012')}}:</span>
-      <span class="user-name">{{userName}}</span>
+      <div class="round_png"><img src="../../../../assets/images/administrator.png"></div>
+
+      <div class="account">
+        <span class="user-name">{{userName}}</span>
+      </div>
+
     </div>
     <!--退出按钮-->
     <div class="quit">
@@ -173,5 +177,23 @@ export default {
     height: 80px;
     width: 20%;
     line-height: 80px;
+  }
+
+  .header .account-display .round_png {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    float: left;
+    margin-top: 8%;
+  }
+
+  .header .account-display .account {
+    float: left;
+    margin-left: 5%;
+    padding-top: 4%;
   }
 </style>
