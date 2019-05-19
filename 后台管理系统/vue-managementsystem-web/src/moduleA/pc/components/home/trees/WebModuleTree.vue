@@ -68,27 +68,7 @@
     methods: {
       // 新增节点
       renderContent(h, {node, data, store}) {
-        return ( < div
-      class
-        = "ico" > < span > < span
-        on - click = {()
-      =>
-        this.handleNodeLableClick(data)
-      }>
-        {
-          node.label
-        }
-      <
-        /span>< /s
-        pan > < span
-        on - click = {()
-      =>
-        this.handleNodeAddClick(data)
-      }> <
-        i
-      class
-        = "el-icon-circle-plus-outline" > < /i> </s
-        pan > < /div>);
+        return (<div class = "ico"> <span> <span on-click = {()=>this.handleNodeLableClick(data)}>{node.label}</span></span> <span on-click = {()=>this.handleNodeAddClick(data)}> <i class = "el-icon-circle-plus-outline"> </i> </span> </div>);
       },
       setCheckedNodes() {
         this.$refs.tree.setCheckedNodes([{
