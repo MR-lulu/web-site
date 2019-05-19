@@ -1,6 +1,6 @@
-import BaseRequstVO from '@/commonjs/model/BaseRequstVO'
+import BaseResponseVO from '@/commonjs/model/BaseResponseVO'
 
-class PartsRequestVO extends BaseRequstVO {
+class PartsRequestVO extends BaseResponseVO {
 }
 
 export default PartsRequestVO

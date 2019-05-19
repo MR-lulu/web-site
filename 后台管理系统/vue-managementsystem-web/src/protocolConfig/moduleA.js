@@ -9,6 +9,10 @@ import UserInfoResponseVO from "../moduleA/common/js/model/UserInfoResponseVO";
 import UserInfoListResponseVO from "../moduleA/common/js/model/UserInfoListResponseVO";
 import ResetUserPasswordResponseVO from "../moduleA/common/js/model/ResetUserPasswordResponseVO";
 import PartsTypeResponseVO from "../moduleA/common/js/model/PartsTypeResponseVO";
+import NavigationAddOrModifyResponseVO from "../moduleA/common/js/model/NavigationAddOrModifyResponseVO";
+import NavigationDeleteResponseVO from "../moduleA/common/js/model/NavigationDeleteResponseVO";
+
+
 
 
 
@@ -28,6 +32,8 @@ export const ModuleAProtocolContent = {
   userInfoList: 'userInfoList',
   resetUserPassword: 'resetUserPassword',
   partsType: 'partsType',
+  navigationAddOrModify: 'navigationAddOrModify',
+  navigationDelete: 'navigationDelete',
 
 }
 /**
@@ -46,5 +52,7 @@ export const ModuleAProtocolConfig = {
   'userInfoList': {name: 'userInfoList', responseVO: new UserInfoListResponseVO()},  // 批量获取用户信息
   'resetUserPassword': {name: 'resetUserPassword', responseVO: new ResetUserPasswordResponseVO()},  // 批量重置用户密码
   'partsType': {name: 'partsType', responseVO: new PartsTypeResponseVO()},  // 获取零件种类信息
+  'navigationAddOrModify': {name: 'navigationAddOrModify', responseVO: new NavigationAddOrModifyResponseVO()},  // 添加或修改导航
+  'navigationDelete': {name: 'navigationDelete', responseVO: new NavigationDeleteResponseVO()},  // 删除导航
 
 }

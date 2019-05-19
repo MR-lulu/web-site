@@ -1,6 +1,6 @@
 import BaseResponseVO from '@/commonjs/model/BaseResponseVO'
 
-class PartsResponseVO extends BaseResponseVO {
+class PartsRequestVO extends BaseResponseVO {
   constructor() {
     super()
     // 设置resultListType对应的类型为Parts
@@ -193,4 +193,4 @@ class Parts {
   }
 }
 
-export default PartsResponseVO
+export default PartsRequestVO

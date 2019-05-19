@@ -12,7 +12,25 @@
         <!--右边展示组件-->
         <div class="box-right">
           <!--导航添加-->
-          <NavigationAdd></NavigationAdd>
+          <NavigationAdd v-if="isRouterAlive == 'NavigationAdd'"></NavigationAdd>
+          <!--导航详情-->
+          <NavigationDetail v-else-if="isRouterAlive == 'NavigationDetail'"></NavigationDetail>
+          <!--模块添加-->
+          <ModuleAdd v-else-if="isRouterAlive == 'ModuleAdd'"></ModuleAdd>
+          <!--模块详情-->
+          <ModuleDetail v-else-if="isRouterAlive == 'ModuleDetail'"></ModuleDetail>
+          <!--零件添加-->
+          <PartsAdd v-else-if="isRouterAlive == 'PartsAdd'"></PartsAdd>
+          <!--零件详情-->
+          <PartsDetail v-else-if="isRouterAlive == 'PartsDetail'"></PartsDetail>
+          <!--页首-->
+          <IndexPage v-else-if="isRouterAlive == 'IndexPage'"></IndexPage>
+          <!--页尾-->
+          <FooterPage v-else-if="isRouterAlive == 'FooterPage'"></FooterPage>
+          <!--网站信息-->
+          <WebsiteInfo v-else-if="isRouterAlive == 'WebsiteInfo'"></WebsiteInfo>
+          <!--网站背景图片-->
+          <BackgroundimgAdd v-else="isRouterAlive == 'BackgroundimgAdd'"></BackgroundimgAdd>
         </div>
       </el-main>
     </el-container>
@@ -30,6 +48,7 @@
   import IndexPage from '@/moduleA/pc/components/home/forms/module/IndexPage.vue'
   import FooterPage from '@/moduleA/pc/components/home/forms/module/FooterPage.vue'
   import WebsiteInfo from '@/moduleA/pc/components/home/forms/module/WebsiteInfo.vue'
+  import BackgroundimgAdd from '@/moduleA/pc/components/home/forms/common/BackgroundimgAdd.vue'
 
   export default {
     name: "MyWebSite",
@@ -43,10 +62,13 @@
       PartsDetail,
       IndexPage,
       FooterPage,
-      WebsiteInfo
+      WebsiteInfo,
+      BackgroundimgAdd
     },
     data() {
-      return {}
+      return {
+        isRouterAlive: 'NavigationDetail'
+      }
     },
 
     created() {
@@ -65,7 +87,6 @@
   }
 
   .myWebSite .box-left {
-
   }
 
   .myWebSite .box-right {
@@ -85,6 +106,7 @@
   .myWebSite .el-aside {
     border-right: 1px solid #FFD700;
     box-shadow: 10px 10px 5px #888888;
+    background: #373d41;
   }
 
   .myWebSite .el-main {
