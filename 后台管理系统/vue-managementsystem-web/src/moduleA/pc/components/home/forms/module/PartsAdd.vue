@@ -112,7 +112,7 @@
           if (valid) {
             this.messageBox.confirm(this.$t('rs.staticText.30000000034'), this.$t('rs.staticText.30000000008'), () => {  //您确认要添加零件吗？ 提示
             }, () => {
-              // 添加导航
+              // 添加零件
               this.addParts();
             }, () => {
               // 取消
