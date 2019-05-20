@@ -2,84 +2,169 @@
   <div class="moduleDetail">
     <div class="form-1">
       <!--表单内容-->
-      <el-form :model="formDate" :rules="rules" ref="formDate" label-width="100px" class="demo-ruleForm">
-        <el-form-item label="模块类型" prop="moduleType">
-          <el-input v-model="formDate.moduleType" disabled></el-input>
+      <el-form :model="formData" :rules="rules" ref="formData" label-width="100px" class="demo-ruleForm">
+        <el-form-item :label="$t('rs.moduleA.20000000078') /*模块类型*/" prop="partsTypeId">
+          <el-input v-model="formData.partsTypeName" disabled></el-input>
         </el-form-item>
-        <el-form-item label="模块名称" prop="moduleName">
-          <el-input v-model="formDate.moduleName" placeholder="请输入模块名称"></el-input>
+        <el-form-item :label="$t('rs.moduleA.20000000080') /*模块名称*/" prop="name">
+          <el-input v-model="formData.name" :placeholder="$t('rs.moduleA.20000000081') /*请输入模块名称*/"></el-input>
         </el-form-item>
-        <el-form-item label="显示序号" prop="moduleSequence">
-          <el-input v-model="formDate.moduleSequence" placeholder="请输入显示序号"></el-input>
+        <el-form-item :label="$t('rs.moduleA.20000000065') /*显示序号*/" prop="priority">
+          <el-input v-model="formData.priority" :placeholder="$t('rs.moduleA.20000000066') /*请输入显示序号*/"></el-input>
         </el-form-item>
-        <el-form-item label="模块备注" prop="moduleRemark">
-          <el-input v-model="formDate.moduleRemark" type="textarea" placeholder="请输入模块备注"></el-input>
-        </el-form-item>
-        <el-form-item label="模块状态">
-          <el-radio-group v-model="formDate.status">
-            <el-radio label="有效"></el-radio>
-            <el-radio label="无效"></el-radio>
+        <el-form-item :label="$t('rs.moduleA.20000000084') /*模块状态*/">
+          <el-radio-group v-model="formData.status">
+            <!--正常-->
+            <el-radio :label="1">{{$t('rs.moduleA.20000000059')}}</el-radio>
+            <!--废弃-->
+            <el-radio :label="2">{{$t('rs.moduleA.20000000060')}}</el-radio>
           </el-radio-group>
         </el-form-item>
-        <el-form-item label="创建时间" prop="createTime">
-          <el-input v-model="formDate.createTime" disabled></el-input>
+        <el-form-item :label="$t('rs.moduleA.20000000082') /*模块备注*/" prop="remarks">
+          <el-input v-model="formData.remarks" type="textarea"
+                    :placeholder="$t('rs.moduleA.20000000083') /*请输入模块备注*/"></el-input>
         </el-form-item>
-        <el-form-item label="修改时间" prop="updateTime">
-          <el-input v-model="formDate.updateTime" disabled></el-input>
+        <el-form-item :label="$t('rs.moduleA.20000000027') /*创建时间*/" prop="serverCreateTime">
+          <el-input v-model="formData.serverCreateTime" disabled></el-input>
+        </el-form-item>
+        <el-form-item :label="$t('rs.moduleA.20000000050') /*修改时间*/" prop="serverUpdateTime">
+          <el-input v-model="formData.serverUpdateTime" disabled></el-input>
         </el-form-item>
       </el-form>
       <!--按钮-->
       <div class="btn">
-        <el-button type="primary" @click="submitForm('formDate')">修改</el-button>
-        <el-button type="danger" @click="deleteForm('formDate')">删除</el-button>
+        <!--修改-->
+        <el-button type="primary" @click="submitForm('formData')">{{$t('rs.moduleA.20000000044')}}</el-button>
+        <!--删除-->
+        <el-button type="danger" @click="deleteForm">{{$t('rs.moduleA.20000000019')}}</el-button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+  import PartsTypeByIdRequestVO from '@/moduleA/common/js/model/PartsTypeByIdRequestVO.js'
+  import ModuleDeleteRequestVO from '@/moduleA/common/js/model/ModuleDeleteRequestVO.js'
+  import ModuleAddOrModifyRequestVO from '@/moduleA/common/js/model/ModuleAddOrModifyRequestVO.js'
+  import Tools from '@/commonjs/util/mall.tools.js'
+
   export default {
     name: "ModuleDetail",
     data() {
       return {
-        formDate: {
-          moduleSequence: '',
-          moduleName: '',
-          moduleRemark: '',
-          moduleType: ''
-
+        partsTypeName: '',
+        formData: {
+          priority: '',
+          name: '',
+          remarks: '',
+          partsTypeId: '',
+          status: '',
+          serverCreateTime: '',
+          serverUpdateTime: '',
+          navigationId: '',
+          modulesId: '',
         },
         rules: {
-          moduleSequence: [
-            {required: true, message: '请输入显示序号', trigger: 'blur'}
+          priority: [
+            {required: true, message: this.$t('rs.moduleA.20000000066'), trigger: 'blur'}
           ],
-          moduleName: [
-            {required: true, message: '请输入模块名称', trigger: 'blur'}
+          name: [
+            {required: true, message: this.$t('rs.moduleA.20000000081'), trigger: 'blur'}
           ],
-          moduleRemark: [
-            {required: false, message: '请输入模块备注', trigger: 'blur'}
+          remarks: [
+            {required: false, message: this.$t('rs.moduleA.20000000083'), trigger: 'blur'}
+          ],
+          partsTypeName: [
+            {required: true, message: this.$t('rs.moduleA.20000000079'), trigger: 'blur'}
           ]
         }
       }
     },
-
-    create() {
-
+    created() {
+      // 获取当前模块信息
+      this.getModuleDetail();
+      // 获取零件种类信息
+      if (!Tools.isNull(this.formData.partsTypeId)) {
+        this.getPartsTypeById();
+      }
     },
-
     methods: {
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            alert('submit!');
+            this.messageBox.confirm(this.$t('rs.staticText.30000000026'), this.$t('rs.staticText.30000000008'), () => {  //您确认要修改模块吗？ 提示
+            }, () => {
+              // 修改模块
+              this.updateModule();
+            }, () => {
+              // 取消
+            });
           } else {
-            console.log('error submit!!');
             return false;
           }
         });
       },
-      deleteForm(formName) {
-        this.$refs[formName].resetFields();
+
+      // 修改模块
+      updateModule: function () {
+        let moduleAddOrModifyRequestVO = new ModuleAddOrModifyRequestVO(this.ProtocolContent.moduleAddOrModify);
+        moduleAddOrModifyRequestVO.name = this.formData.name;
+        moduleAddOrModifyRequestVO.priority = this.formData.priority;
+        moduleAddOrModifyRequestVO.remarks = this.formData.remarks;
+        this.communicateManger.httpCommunicate.getResponseVO(moduleAddOrModifyRequestVO, "/modules/addOrModify").then((ModuleAddOrModifyResponseVO) => {
+          if (ModuleAddOrModifyResponseVO.getStatus == 1000 && ModuleAddOrModifyResponseVO.getResultCode > 0) {
+            this.messageBox.success(ModuleAddOrModifyResponseVO.getMsg);
+          } else {
+            this.messageBox.error(ModuleAddOrModifyResponseVO.getMsg);
+          }
+        }).catch(() => {
+          this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
+        })
+      },
+
+      // 删除模块
+      deleteForm() {
+        this.messageBox.confirm(this.$t('rs.staticText.30000000029'), this.$t('rs.staticText.30000000008'), () => {  //您确认要删除模块吗？ 提示
+        }, () => {
+          // 删除模块
+          this.deleteModule();
+        }, () => {
+          // 取消
+        });
+      },
+
+      // 删除模块
+      deleteModule() {
+        let moduleDeleteRequestVO = new ModuleDeleteRequestVO(this.ProtocolContent.moduleDelete);
+        moduleDeleteRequestVO.id = this.formData.modulesId;
+        this.communicateManger.httpCommunicate.getResponseVO(moduleDeleteRequestVO, "/modules/delete/" + moduleDeleteRequestVO.id).then((ModuleDeleteResponseVO) => {
+          if (ModuleDeleteResponseVO.getStatus == 1000 && ModuleDeleteResponseVO.getResultCode > 0) {
+            this.messageBox.success(ModuleDeleteResponseVO.getMsg);
+          } else {
+            this.messageBox.error(ModuleDeleteResponseVO.getMsg);
+          }
+        }).catch(() => {
+          this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
+        })
+      },
+
+      // 获取模块信息
+      getModuleDetail: function () {
+      },
+
+      // 根据id获取零件种类
+      getPartsTypeById: function () {
+        let partsTypeByIdRequestVO = new PartsTypeByIdRequestVO(this.ProtocolContent.partsTypeById);
+        partsTypeByIdRequestVO.id = this.formData.partsTypeId;
+        this.communicateManger.httpCommunicate.getResponseVO(partsTypeByIdRequestVO, "/partsType/query/detail/" + partsTypeByIdRequestVO.id).then((PartsTypeByIdResponseVO) => {
+          if (PartsTypeByIdResponseVO.getStatus == 1000) {
+            this.formData.partsTypeName = PartsTypeByIdResponseVO.getName;
+          } else {
+            this.messageBox.error(PartsTypeByIdResponseVO.getMsg);
+          }
+        }).catch(() => {
+          this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
+        })
       }
     },
   }
@@ -91,5 +176,9 @@
 
   .moduleDetail .form-1 .el-button {
     width: 120px;
+  }
+
+  .moduleDetail .el-radio-group {
+    float: left;
   }
 </style>

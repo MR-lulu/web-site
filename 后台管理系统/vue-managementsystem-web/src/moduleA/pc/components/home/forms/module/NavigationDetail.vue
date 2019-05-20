@@ -39,8 +39,10 @@
       </el-form>
       <!--按钮-->
       <div class="btn">
-        <el-button type="primary" @click="submitForm('formData')">修改</el-button>
-        <el-button type="danger" @click="deleteForm">删除</el-button>
+        <!--修改-->
+        <el-button type="primary" @click="submitForm('formData')">{{$t('rs.moduleA.20000000044')}}</el-button>
+        <!--删除-->
+        <el-button type="danger" @click="deleteForm">{{$t('rs.moduleA.20000000019')}}</el-button>
       </div>
     </div>
   </div>
@@ -85,7 +87,7 @@
         }
       };
     },
-    create() {
+    created() {
 
     },
     methods: {
@@ -93,9 +95,9 @@
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            this.messageBox.confirm(this.$t('rs.staticText.30000000026'), this.$t('rs.staticText.30000000008'), () => {  //您确认要添加导航吗？ 提示
+            this.messageBox.confirm(this.$t('rs.staticText.30000000031'), this.$t('rs.staticText.30000000008'), () => {  //您确认要修改导航吗？ 提示
             }, () => {
-              // 添加导航
+              // 修改导航
               this.updateNavigation();
             }, () => {
               // 取消
@@ -157,7 +159,6 @@
 
       // 获取导航信息
       getNavigationDetail: function () {
-
       }
     }
   }
@@ -182,4 +183,7 @@
     width: 120px;
   }
 
+  .navigationDetail .el-radio-group {
+    float: left;
+  }
 </style>

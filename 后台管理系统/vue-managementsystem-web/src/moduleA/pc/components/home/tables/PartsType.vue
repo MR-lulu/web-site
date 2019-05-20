@@ -27,6 +27,14 @@
             <span v-if="scope.row.status==2">{{ $t('rs.moduleA.20000000060') }}</span>
           </template>
         </el-table-column>
+        <el-table-column prop="watch" :label="$t('rs.moduleA.20000000075') /*可选性*/" :show-overflow-tooltip="true">
+          <template slot-scope="scope">
+            <!--可选-->
+            <span v-if="scope.row.watch==1">{{ $t('rs.moduleA.20000000076') }}</span>
+            <!--不可选-->
+            <span v-if="scope.row.watch==2">{{ $t('rs.moduleA.20000000077') }}</span>
+          </template>
+        </el-table-column>
         <el-table-column prop="serverCreateTime" :label="$t('rs.moduleA.20000000027') /*创建时间*/" sortable
                          :show-overflow-tooltip="true" :formatter="dateFormat"></el-table-column>
         <el-table-column prop="" width="100" :label="$t('rs.moduleA.20000000028') /*操作*/">

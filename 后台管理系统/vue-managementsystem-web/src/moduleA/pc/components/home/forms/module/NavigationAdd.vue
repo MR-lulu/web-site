@@ -89,6 +89,7 @@
         navigationAddOrModifyRequestVO.priority = this.formData.priority;
         navigationAddOrModifyRequestVO.remarks = this.formData.remarks;
         navigationAddOrModifyRequestVO.site = this.formData.site;
+        navigationAddOrModifyRequestVO.status = 1;
 
         this.communicateManger.httpCommunicate.getResponseVO(navigationAddOrModifyRequestVO, "/navigation/addOrModify").then((NavigationAddOrModifyResponseVO) => {
           if (NavigationAddOrModifyResponseVO.getStatus == 1000 && NavigationAddOrModifyResponseVO.getResultCode > 0) {

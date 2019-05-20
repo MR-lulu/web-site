@@ -67,7 +67,7 @@
     },
     data() {
       return {
-        isRouterAlive: 'NavigationDetail'
+        isRouterAlive: 'PartsAdd'
       }
     },
 

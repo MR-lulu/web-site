@@ -11,6 +11,18 @@ class Config {
 Config.pcTitle = '后台管理系统'
 
 /**
+ * 上传图片大小不能超过2M
+ * @type {number}
+ */
+Config.uploadImgSize = 2
+
+/**
+ * 图片上传地址
+ * @type {string}
+ */
+Config.uploadImgUrl = 'http://114.115.167.76:8085/mall/file/upload'
+
+/**
  * 系统初始化入口地址
  * @type {string}
  */

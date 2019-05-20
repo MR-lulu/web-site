@@ -1,118 +1,180 @@
 <template>
   <div class="parts-add">
     <div class="form-1">
-      <!--图片上传-->
-      <div class="img-upload">
-        <el-upload
-          class="avatar-uploader"
-          action="https://jsonplaceholder.typicode.com/posts/"
-          :show-file-list="false"
-          :on-success="handleAvatarSuccess"
-          :before-upload="beforeAvatarUpload">
-          <img v-if="imageUrl" :src="imageUrl" class="avatar">
-          <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-        </el-upload>
-      </div>
       <!--表单内容-->
-      <el-form :model="formDate" :rules="rules" ref="formDate" label-width="100px" class="demo-ruleForm">
-        <el-form-item label="零件种类" prop="partsType">
-          <el-input v-model="formDate.partsType" disabled></el-input>
+      <el-form :model="formData" :rules="rules" ref="formData" label-width="100px" class="demo-ruleForm">
+        <!--图片上传-->
+        <el-form-item :label="$t('rs.moduleA.20000000085') /*图片上传*/">
+          <el-upload
+            class="avatar-uploader"
+            :action="uploadImgUrl"
+            accept="image/jpeg,image/gif,image/png"
+            :show-file-list="false"
+            :on-success="uploadSuccess"
+            :on-error="uploadError"
+            :before-upload="beforeAvatarUpload">
+            <img v-if="imageUrl" :src="imageUrl" class="avatar">
+            <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+          </el-upload>
         </el-form-item>
-        <el-form-item label="零件名称" prop="partsName">
-          <el-input v-model="formDate.partsName" placeholder="请输入零件名称"></el-input>
+
+        <el-form-item :label="$t('rs.moduleA.20000000054') /*零件种类*/" prop="partsTypeId">
+          <el-input v-model="formData.partsTypeId" disabled></el-input>
         </el-form-item>
-        <el-form-item label="零件序号" prop="partsSequence">
-          <el-input v-model="formDate.partsSequence" placeholder="请输入零件序号"></el-input>
+        <el-form-item :label="$t('rs.moduleA.20000000086') /*零件名称*/" prop="name">
+          <el-input v-model="formData.name" :placeholder="$t('rs.moduleA.20000000087') /*请输入零件名称*/"></el-input>
         </el-form-item>
-        <el-form-item label="零件标题" prop="partsTitle">
-          <el-input v-model="formDate.partsTitle" placeholder="请输入零件标题"></el-input>
+        <el-form-item :label="$t('rs.moduleA.20000000088') /*零件序号*/" prop="priority">
+          <el-input v-model="formData.priority" :placeholder="$t('rs.moduleA.20000000089') /*请输入零件序号*/"></el-input>
         </el-form-item>
-        <el-form-item label="零件链接" prop="partsLink">
-          <el-input v-model="formDate.partsLink" placeholder="请输入零件链接"></el-input>
+        <el-form-item :label="$t('rs.moduleA.20000000090') /*零件标题*/" prop="title">
+          <el-input v-model="formData.title" :placeholder="$t('rs.moduleA.20000000091') /*请输入零件标题*/"></el-input>
         </el-form-item>
-        <el-form-item label="零件内容" prop="partsContent">
-          <el-input v-model="formDate.partsContent" type="textarea" placeholder="请输入零件内容"></el-input>
+        <el-form-item :label="$t('rs.moduleA.20000000092') /*零件链接*/" prop="hyperlinks">
+          <el-input v-model="formData.hyperlinks" :placeholder="$t('rs.moduleA.20000000093') /*请输入零件链接*/"></el-input>
         </el-form-item>
-        <el-form-item label="其它信息" prop="partsOtherMsg">
-          <el-input v-model="formDate.partsOtherMsg" type="textarea" placeholder="请输入其它信息"></el-input>
+        <el-form-item :label="$t('rs.moduleA.20000000094') /*零件内容*/" prop="txt">
+          <el-input v-model="formData.txt" type="textarea"
+                    :placeholder="$t('rs.moduleA.20000000095') /*请输入零件内容*/"></el-input>
         </el-form-item>
-        <el-form-item label="零件备注" prop="partsRemark">
-          <el-input v-model="formDate.partsRemark" type="textarea" placeholder="请输入零件备注"></el-input>
+        <el-form-item :label="$t('rs.moduleA.20000000096') /*其它信息*/" prop="other">
+          <el-input v-model="formData.other" type="textarea"
+                    :placeholder="$t('rs.moduleA.20000000097') /*请输入其它信息*/"></el-input>
+        </el-form-item>
+        <el-form-item :label="$t('rs.moduleA.20000000098') /*零件备注*/" prop="remarks">
+          <el-input v-model="formData.remarks" type="textarea"
+                    :placeholder="$t('rs.moduleA.20000000099') /*请输入零件备注*/"></el-input>
         </el-form-item>
       </el-form>
       <!--按钮-->
       <div class="btn">
-        <el-button type="primary" @click="submitForm('formDate')">添加</el-button>
+        <!--添加-->
+        <el-button type="primary" @click="submitForm('formData')">{{$t('rs.moduleA.20000000070')}}</el-button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+  import Config from '@/framework/common/config/Config.js'
+  import PartAddOrModifyRequestVO from '@/moduleA/common/js/model/PartAddOrModifyRequestVO.js'
+
   export default {
     name: "PartsAdd",
     data() {
       return {
+        // 图片上传地址
+        uploadImgUrl: '',
         imageUrl: '',
-        formDate: {
-          partsType: '',
-          partsName: '',
-          partsSequence: '',
-          partsTitle: '',
-          partsLink: '',
-          partsContent: '',
-          partsOtherMsg: '',
-          partsRemark: ''
+        formData: {
+          partsTypeId: '',
+          modulesId: '',
+          name: '',
+          priority: '',
+          title: '',
+          hyperlinks: '',
+          txt: '',
+          other: '',
+          remarks: ''
         },
         rules: {
-          partsName: [
-            {required: true, message: '请输入零件名称', trigger: 'blur'}
+          name: [
+            {required: true, message: this.$t('rs.moduleA.20000000087'), trigger: 'blur'}
           ],
-          partsSequence: [
-            {required: true, message: '请输入零件序号', trigger: 'blur'}
+          priority: [
+            {required: true, message: this.$t('rs.moduleA.20000000089'), trigger: 'blur'}
           ],
-          partsTitle: [
-            {required: true, message: '请输入零件标题', trigger: 'blur'}
+          title: [
+            {required: true, message: this.$t('rs.moduleA.20000000091'), trigger: 'blur'}
           ],
-          partsLink: [
-            {required: true, message: '请输入零件链接', trigger: 'blur'}
+          hyperlinks: [
+            {required: false, message: this.$t('rs.moduleA.20000000093'), trigger: 'blur'}
           ],
-          partsContent: [
-            {required: true, message: '请输入零件内容', trigger: 'blur'}
+          txt: [
+            {required: false, message: this.$t('rs.moduleA.20000000095'), trigger: 'blur'}
+          ],
+          other: [
+            {required: false, message: this.$t('rs.moduleA.20000000097'), trigger: 'blur'}
+          ],
+          remarks: [
+            {required: false, message: this.$t('rs.moduleA.20000000099'), trigger: 'blur'}
           ]
         }
       }
     },
-
-    create() {
-
+    created() {
+      // 初始化图片上传地址
+      this.uploadImgUrl = Config.uploadImgUrl;
     },
-
     methods: {
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            alert('submit!');
+            this.messageBox.confirm(this.$t('rs.staticText.30000000034'), this.$t('rs.staticText.30000000008'), () => {  //您确认要添加零件吗？ 提示
+            }, () => {
+              // 添加导航
+              this.addParts();
+            }, () => {
+              // 取消
+            });
           } else {
-            console.log('error submit!!');
             return false;
           }
         });
       },
-      handleAvatarSuccess(res, file) {
+
+      // 上传成功
+      uploadSuccess(response, file, fileList) {
+        console.log(response);
+        console.log(file);
+        console.log(fileList);
         this.imageUrl = URL.createObjectURL(file.raw);
       },
-      beforeAvatarUpload(file) {
-        const isJPG = file.type === 'image/jpeg';
-        const isLt2M = file.size / 1024 / 1024 < 2;
 
+      // 上传失败
+      uploadError: function (err, file, fileList) {
+        console.log(err);
+        console.log(file);
+        console.log(fileList);
+      },
+
+      // 图片上传之前操作
+      beforeAvatarUpload(file) {
+        const isJPG = file.type === ('image/jpeg' || 'image/png' || 'image/gif' || 'image/ico');
+        const isLt2M = (file.size / 1024 / 1024) < Config.uploadImgSize;
         if (!isJPG) {
-          this.$message.error('上传头像图片只能是 JPG 格式!');
+          this.$message.error(this.$t('rs.staticText.30000000032') + 'jpeg, png, gif, ico');  //上传图片的格式只能是:
         }
         if (!isLt2M) {
-          this.$message.error('上传头像图片大小不能超过 2MB!');
+          this.$message.error(this.$t('rs.staticText.30000000033') + Config.uploadImgSize + 'M');  // 上传头像图片大小不能超过:
         }
         return isJPG && isLt2M;
+      },
+
+      // 添加零件
+      addParts: function () {
+        let partAddOrModifyRequestVO = new PartAddOrModifyRequestVO(this.ProtocolContent.partAddOrModify);
+        partAddOrModifyRequestVO.name = this.formData.name;
+        partAddOrModifyRequestVO.imageUrl = this.imageUrl;
+        partAddOrModifyRequestVO.priority = this.formData.priority;
+        partAddOrModifyRequestVO.remarks = this.formData.remarks;
+        partAddOrModifyRequestVO.title = this.formData.title;
+        partAddOrModifyRequestVO.hyperlinks = this.formData.hyperlinks;
+        partAddOrModifyRequestVO.txt = this.formData.txt;
+        partAddOrModifyRequestVO.other = this.formData.other;
+        partAddOrModifyRequestVO.partsTypeId = this.formData.partsTypeId;
+        partAddOrModifyRequestVO.modulesId = this.formData.modulesId;
+        partAddOrModifyRequestVO.status = 1;
+
+        this.communicateManger.httpCommunicate.getResponseVO(partAddOrModifyRequestVO, "/parts/addOrModify").then((PartAddOrModifyResponseVO) => {
+          if (PartAddOrModifyResponseVO.getStatus == 1000 && PartAddOrModifyResponseVO.getResultCode > 0) {
+            this.messageBox.success(PartAddOrModifyResponseVO.getMsg);
+          } else {
+            this.messageBox.error(PartAddOrModifyResponseVO.getMsg);
+          }
+        }).catch(() => {
+          this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
+        })
       }
     },
   }
@@ -132,6 +194,8 @@
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    width: 200px;
+    height: 200px;
   }
 
   .parts-add .avatar-uploader .el-upload:hover {
@@ -148,8 +212,8 @@
   }
 
   .parts-add .avatar {
-    width: 178px;
-    height: 178px;
+    width: 200px;
+    height: 200px;
     display: block;
   }
 

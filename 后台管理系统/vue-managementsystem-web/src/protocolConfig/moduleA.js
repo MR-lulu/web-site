@@ -11,9 +11,11 @@ import ResetUserPasswordResponseVO from "../moduleA/common/js/model/ResetUserPas
 import PartsTypeResponseVO from "../moduleA/common/js/model/PartsTypeResponseVO";
 import NavigationAddOrModifyResponseVO from "../moduleA/common/js/model/NavigationAddOrModifyResponseVO";
 import NavigationDeleteResponseVO from "../moduleA/common/js/model/NavigationDeleteResponseVO";
-
-
-
+import PartsTypeListResponseVO from "../moduleA/common/js/model/PartsTypeListResponseVO";
+import ModuleAddOrModifyResponseVO from "../moduleA/common/js/model/ModuleAddOrModifyResponseVO";
+import PartsTypeByIdResponseVO from "../moduleA/common/js/model/PartsTypeByIdResponseVO";
+import ModuleDeleteResponseVO from "../moduleA/common/js/model/ModuleDeleteResponseVO";
+import PartAddOrModifyResponseVO from "../moduleA/common/js/model/PartAddOrModifyResponseVO";
 
 
 /**
@@ -34,6 +36,11 @@ export const ModuleAProtocolContent = {
   partsType: 'partsType',
   navigationAddOrModify: 'navigationAddOrModify',
   navigationDelete: 'navigationDelete',
+  partsTypeList: 'partsTypeList',
+  moduleAddOrModify: 'moduleAddOrModify',
+  partsTypeById: 'partsTypeById',
+  moduleDelete: 'moduleDelete',
+  partAddOrModify: 'partAddOrModify',
 
 }
 /**
@@ -54,5 +61,10 @@ export const ModuleAProtocolConfig = {
   'partsType': {name: 'partsType', responseVO: new PartsTypeResponseVO()},  // 获取零件种类信息
   'navigationAddOrModify': {name: 'navigationAddOrModify', responseVO: new NavigationAddOrModifyResponseVO()},  // 添加或修改导航
   'navigationDelete': {name: 'navigationDelete', responseVO: new NavigationDeleteResponseVO()},  // 删除导航
+  'partsTypeList': {name: 'partsTypeList', responseVO: new PartsTypeListResponseVO()},  // 获取零件种类列表
+  'moduleAddOrModify': {name: 'moduleAddOrModify', responseVO: new ModuleAddOrModifyResponseVO()},  // 添加或修改模块
+  'partsTypeById': {name: 'partsTypeById', responseVO: new PartsTypeByIdResponseVO()},  // 根据ID获取零件种类
+  'moduleDelete': {name: 'moduleDelete', responseVO: new ModuleDeleteResponseVO()},  // 删除模块
+  'partAddOrModify': {name: 'partAddOrModify', responseVO: new PartAddOrModifyResponseVO()},  // 添加或修改零件
 
 }
