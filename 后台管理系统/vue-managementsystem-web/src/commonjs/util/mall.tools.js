@@ -790,18 +790,33 @@ tools.mergeJSON = function (jsonArrays) {
   return json
 }
 
+/**
+ * 手机号验证
+ * @param s
+ * @return {boolean}
+ */
 tools.isPhone = function (s) {
   if (this.isEmpty(s)) {
     return false;
   }
-
   var patrn = /^1[3-578]\d{9}$/;
   if (patrn.exec(s)) {
     return true;
   }
-
   return false;
 };
+
+/**
+ * 验证固定电话
+ * @param val
+ * @return {boolean}
+ */
+tools.isTelphone = function (val){
+  if(/^(\(\d{3,4}\)|\d{3,4}-|\s)?\d{7,14}$/.test(val)){
+    return true;
+  }
+  return false;
+}
 
 /**************************************时间格式化处理************************************/
 /**

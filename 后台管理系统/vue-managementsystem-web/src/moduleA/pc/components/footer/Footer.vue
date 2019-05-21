@@ -28,13 +28,13 @@
       <div class="about">{{$t('rs.moduleA.20000000016')}}: <span>{{about}}</span></div>
 
       <!--第2层-->
-      <div class="box-2">
-        <!--友情链接-->
-        <div class="cell"><a href="#">{{$t('rs.moduleA.20000000017')}}</a></div>
-        <div class="cell"><a href="http://www.ccb.com/" target="_blank">建设银行</a></div>
-        <div class="cell"><a href="https://www.taobao.com/" target="_blank">淘宝网</a></div>
-        <div class="cell"><a href="http://www.icbc.com.cn/icbc/" target="_blank">工商银行</a></div>
-      </div>
+      <!--<div class="box-2">-->
+        <!--&lt;!&ndash;友情链接&ndash;&gt;-->
+        <!--<div class="cell"><a href="#">{{$t('rs.moduleA.20000000017')}}</a></div>-->
+        <!--<div class="cell"><a href="http://www.ccb.com/" target="_blank">建设银行</a></div>-->
+        <!--<div class="cell"><a href="https://www.taobao.com/" target="_blank">淘宝网</a></div>-->
+        <!--<div class="cell"><a href="http://www.icbc.com.cn/icbc/" target="_blank">工商银行</a></div>-->
+      <!--</div>-->
       <!--第3层-->
       <div class="box-3">
         <img src="@/assets/images/beian.png">
@@ -123,6 +123,7 @@
 
   .footer .footer-box .box-1 span {
     padding-left: 2%;
+    line-height: 30px;
   }
 
   .footer .footer-box .box-1 .left {

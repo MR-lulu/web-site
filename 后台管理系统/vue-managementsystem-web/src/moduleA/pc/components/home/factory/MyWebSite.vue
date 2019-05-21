@@ -24,9 +24,9 @@
           <!--零件详情-->
           <PartsDetail v-else-if="isRouterAlive == 'PartsDetail'"></PartsDetail>
           <!--页首-->
-          <IndexPage v-else-if="isRouterAlive == 'IndexPage'"></IndexPage>
+          <WebTop v-else-if="isRouterAlive == 'WebTop'"></WebTop>
           <!--页尾-->
-          <FooterPage v-else-if="isRouterAlive == 'FooterPage'"></FooterPage>
+          <WebBottom v-else-if="isRouterAlive == 'WebBottom'"></WebBottom>
           <!--网站信息-->
           <WebsiteInfo v-else-if="isRouterAlive == 'WebsiteInfo'"></WebsiteInfo>
           <!--网站背景图片-->
@@ -45,8 +45,8 @@
   import ModuleDetail from '@/moduleA/pc/components/home/forms/module/ModuleDetail.vue'
   import PartsAdd from '@/moduleA/pc/components/home/forms/module/PartsAdd.vue'
   import PartsDetail from '@/moduleA/pc/components/home/forms/module/PartsDetail.vue'
-  import IndexPage from '@/moduleA/pc/components/home/forms/module/IndexPage.vue'
-  import FooterPage from '@/moduleA/pc/components/home/forms/module/FooterPage.vue'
+  import WebTop from '@/moduleA/pc/components/home/forms/module/WebTop.vue'
+  import WebBottom from '@/moduleA/pc/components/home/forms/module/WebBottom.vue'
   import WebsiteInfo from '@/moduleA/pc/components/home/forms/module/WebsiteInfo.vue'
   import BackgroundimgAdd from '@/moduleA/pc/components/home/forms/common/BackgroundimgAdd.vue'
 
@@ -60,14 +60,14 @@
       ModuleDetail,
       PartsAdd,
       PartsDetail,
-      IndexPage,
-      FooterPage,
+      WebTop,
+      WebBottom,
       WebsiteInfo,
       BackgroundimgAdd
     },
     data() {
       return {
-        isRouterAlive: 'PartsAdd'
+        isRouterAlive: 'BackgroundimgAdd'
       }
     },
 

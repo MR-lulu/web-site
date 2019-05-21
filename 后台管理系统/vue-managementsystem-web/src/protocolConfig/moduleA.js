@@ -16,6 +16,11 @@ import ModuleAddOrModifyResponseVO from "../moduleA/common/js/model/ModuleAddOrM
 import PartsTypeByIdResponseVO from "../moduleA/common/js/model/PartsTypeByIdResponseVO";
 import ModuleDeleteResponseVO from "../moduleA/common/js/model/ModuleDeleteResponseVO";
 import PartAddOrModifyResponseVO from "../moduleA/common/js/model/PartAddOrModifyResponseVO";
+import PartsDeleteResponseVO from "../moduleA/common/js/model/PartsDeleteResponseVO";
+import WebTopAddOrModifyResponseVO from "../moduleA/common/js/model/WebTopAddOrModifyResponseVO";
+import WebBottomAddOrModifyResponseVO from "../moduleA/common/js/model/WebBottomAddOrModifyResponseVO";
+import WebSiteInfoAddOrModifyResponseVO from "../moduleA/common/js/model/WebSiteInfoAddOrModifyResponseVO";
+import BackgroundimgAddOrModifyResponseVO from "../moduleA/common/js/model/BackgroundimgAddOrModifyResponseVO";
 
 
 /**
@@ -41,6 +46,11 @@ export const ModuleAProtocolContent = {
   partsTypeById: 'partsTypeById',
   moduleDelete: 'moduleDelete',
   partAddOrModify: 'partAddOrModify',
+  partsDelete: 'partsDelete',
+  webTopAddOrModify: 'webTopAddOrModify',
+  webBottomAddOrModify: 'webBottomAddOrModify',
+  webSiteInfoAddOrModify: 'webSiteInfoAddOrModify',
+  backgroundimgAddOrModify: 'backgroundimgAddOrModify',
 
 }
 /**
@@ -66,5 +76,10 @@ export const ModuleAProtocolConfig = {
   'partsTypeById': {name: 'partsTypeById', responseVO: new PartsTypeByIdResponseVO()},  // 根据ID获取零件种类
   'moduleDelete': {name: 'moduleDelete', responseVO: new ModuleDeleteResponseVO()},  // 删除模块
   'partAddOrModify': {name: 'partAddOrModify', responseVO: new PartAddOrModifyResponseVO()},  // 添加或修改零件
+  'partsDelete': {name: 'partsDelete', responseVO: new PartsDeleteResponseVO()},  // 删除零件
+  'webTopAddOrModify': {name: 'webTopAddOrModify', responseVO: new WebTopAddOrModifyResponseVO()},  // 添加或修改页头
+  'webBottomAddOrModify': {name: 'webBottomAddOrModify', responseVO: new WebBottomAddOrModifyResponseVO()},  // 添加或修改页尾
+  'webSiteInfoAddOrModify': {name: 'webSiteInfoAddOrModify', responseVO: new WebSiteInfoAddOrModifyResponseVO()},  // 添加或修改网站信息
+  'backgroundimgAddOrModify': {name: 'backgroundimgAddOrModify', responseVO: new BackgroundimgAddOrModifyResponseVO()},  // 添加或修改网站背景图片
 
 }

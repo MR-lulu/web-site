@@ -15,6 +15,7 @@
             :before-upload="beforeAvatarUpload">
             <img v-if="imageUrl" :src="imageUrl" class="avatar">
             <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+            <div class="el-upload__tip" slot="tip">{{$t('rs.staticText.30000000032') + 'jpeg, png, gif, ico'}}，{{$t('rs.staticText.30000000033') + uploadImgSize + 'M'}}</div>
           </el-upload>
         </el-form-item>
 
@@ -65,6 +66,8 @@
       return {
         // 图片上传地址
         uploadImgUrl: '',
+        // 图片上传大小限制
+        uploadImgSize: '',
         imageUrl: '',
         formData: {
           partsTypeId: '',
@@ -105,6 +108,8 @@
     created() {
       // 初始化图片上传地址
       this.uploadImgUrl = Config.uploadImgUrl;
+      // 初始化图片上传大小限制
+      this.uploadImgSize = Config.uploadImgSize;
     },
     methods: {
       submitForm(formName) {
