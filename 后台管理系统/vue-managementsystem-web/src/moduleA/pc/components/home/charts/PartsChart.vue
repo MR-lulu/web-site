@@ -1,6 +1,6 @@
 <template>
   <div class="partsChart">
-    <!--图标-->
+    <!--图表-->
     <div id="myChart" class="myChart-display"></div>
   </div>
 </template>
@@ -11,7 +11,7 @@
     data() {
       return {
         screenWidth: document.body.clientWidth,   // 这里是给到了一个默认值,浏览器窗口大小 （这个很重要）
-        myChart: []  //图表实例，多个
+        myChart: null,  //图表实例
       }
     },
     created() {
@@ -34,9 +34,7 @@
       screenWidth(val) {
         this.screenWidth = val
         // 销毁图标实例
-        for (let i = 0; i < this.myChart.length; i++) {
-          this.myChart[i].dispose();
-        }
+        this.myChart.dispose();
         // 初始化图表数据
         this.echartDataInit()
       }
@@ -47,11 +45,10 @@
       echartDataInit: function () {
         let dataAxis = ['点0010101019', '击', '柱', '子', '或', '者', '两', '指', '在', '触', '屏', '上', '滑', '动', '能', '够', '自', '动', '缩', '放'];
         let data = [220, 182, 191, 234, 290, 330, 310, 123, 442, 321, 90, 149, 210, 122, 133, 334, 198, 123, 125, 220];
-        // 循环输出多张图表
-        for (let i = 0; i < 1; i++) {
-          this.myChart[i] = this.drawLine(dataAxis, data, '零件点击量统计图-' + i);
-        }
+        this.myChart = this.drawLine(dataAxis, data, '零件点击量统计图');
       },
+
+      // 绘制图表
       drawLine(dataAxis, data, title) {
         //echart图初始化
         let container = document.getElementById('myChart');
