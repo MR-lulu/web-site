@@ -137,6 +137,9 @@
           resetObject.password = this.newPassword;
           this.subUserList.push(resetObject);
         }
+        if (Tools.isNull(this.subUserList)) {
+          return;
+        }
         this.getNewPassword();
       },
 

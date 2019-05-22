@@ -125,13 +125,16 @@
 
       // 批量删除
       deleteList: function () {
+        this.ids = new Array();
+        for (let item of this.multipleSelection) {
+          this.ids.push(item.registersInfoId);
+        }
+        if (Tools.isNull(this.ids)) {
+          return;
+        }
         this.messageBox.confirm(this.$t('rs.staticText.30000000010'), this.$t('rs.staticText.30000000008'), () => {
         }, () => {
           // 确定
-          this.ids = new Array();
-          for (let item of this.multipleSelection) {
-            this.ids.push(item.registersInfoId);
-          }
           this.delete();
         }, () => {
           // 取消

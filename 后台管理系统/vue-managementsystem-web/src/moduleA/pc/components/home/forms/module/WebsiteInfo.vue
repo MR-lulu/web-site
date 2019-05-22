@@ -108,7 +108,7 @@
           ],
           webAddress: [
             {required: true, message: this.$t('rs.moduleA.20000000130'), trigger: 'change'},
-            {pattern: /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/|www\.)(([A-Za-z0-9-~]+)\.)+([A-Za-z0-9-~\/])+$/, message: this.$t('rs.staticText.30000000042')}
+            {pattern: /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\*\+,;=.]+$/, message: this.$t('rs.staticText.30000000042')}
           ],
           mail: [
             {type: 'email', required: true, message: this.$t('rs.staticText.30000000013'), trigger: 'change'}

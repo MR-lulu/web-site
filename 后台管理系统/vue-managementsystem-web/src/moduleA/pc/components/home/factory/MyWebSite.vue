@@ -50,6 +50,8 @@
   import WebsiteInfo from '@/moduleA/pc/components/home/forms/module/WebsiteInfo.vue'
   import BackgroundimgAdd from '@/moduleA/pc/components/home/forms/common/BackgroundimgAdd.vue'
 
+  import { mapState } from 'vuex'
+
   export default {
     name: "MyWebSite",
     components: {
@@ -67,15 +69,59 @@
     },
     data() {
       return {
-        isRouterAlive: 'BackgroundimgAdd'
+        isRouterAlive: 'BackgroundimgAdd',
+        webModuleTreeClickTypeNew: null,
+        webModuleTree1New: null
       }
     },
 
-    created() {
-
+    computed: {
+      ...mapState(['webModuleTreeClickType', 'webModuleTree']),
     },
 
-    methods: {}
+    created() {
+    },
+
+    methods: {
+    },
+
+    watch: {
+      webModuleTreeClickType: function (newValue, oldValue) {
+        if (newValue) {
+          this.webModuleTreeClickTypeNew = newValue;
+          if (this.webModuleTreeClickTypeNew.clickType == 'add') {
+            // 点击添加按钮
+            if (this.webModuleTreeClickTypeNew.level == 1) {
+              // 添加导航
+              this.isRouterAlive = 'NavigationAdd';
+            }else if(this.webModuleTreeClickTypeNew.level == 2) {
+              // 添加模块
+            }else if(this.webModuleTreeClickTypeNew.level == 3) {
+              // 添加零件
+            }else{
+
+            }
+          }else if(this.webModuleTreeClickTypeNew.clickType == 'display') {
+            // 点击display查看明细按钮
+            if (this.webModuleTreeClickTypeNew.level == 1) {
+              // 查看导航
+            }else if(this.webModuleTreeClickTypeNew.level == 2) {
+              // 查看模块
+            }else if(this.webModuleTreeClickTypeNew.level == 3) {
+              // 查看零件
+            }else{
+            }
+          }else {
+            // 其它
+          }
+        }
+      },
+      webModuleTree: function (newValue, oldValue) {
+        if (newValue) {
+          this.webModuleTree1New = newValue;
+        }
+      }
+    },
   }
 </script>
 

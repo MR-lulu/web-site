@@ -45,7 +45,8 @@
         },
         rules: {
           navigationUrl: [
-            {required: true, message: this.$t('rs.moduleA.20000000064'), trigger: 'blur'}
+            {required: true, message: this.$t('rs.moduleA.20000000064'), trigger: 'blur'},
+            {pattern: /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\*\+,;=.]+$/, message: this.$t('rs.staticText.30000000042')}
           ],
           name: [
             {required: true, message: this.$t('rs.moduleA.20000000062'), trigger: 'blur'}
@@ -94,6 +95,10 @@
         this.communicateManger.httpCommunicate.getResponseVO(navigationAddOrModifyRequestVO, "/navigation/addOrModify").then((NavigationAddOrModifyResponseVO) => {
           if (NavigationAddOrModifyResponseVO.getStatus == 1000 && NavigationAddOrModifyResponseVO.getResultCode > 0) {
             this.messageBox.success(NavigationAddOrModifyResponseVO.getMsg);
+            // 重置表单
+            this.$refs.formData.resetFields();
+            // 通知更新树
+            this.$store.commit('setUpdateWebModuleTreeFlag', Math.ceil(Math.random() * 10000));
           } else {
             this.messageBox.error(NavigationAddOrModifyResponseVO.getMsg);
           }

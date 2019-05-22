@@ -21,6 +21,7 @@ import WebTopAddOrModifyResponseVO from "../moduleA/common/js/model/WebTopAddOrM
 import WebBottomAddOrModifyResponseVO from "../moduleA/common/js/model/WebBottomAddOrModifyResponseVO";
 import WebSiteInfoAddOrModifyResponseVO from "../moduleA/common/js/model/WebSiteInfoAddOrModifyResponseVO";
 import BackgroundimgAddOrModifyResponseVO from "../moduleA/common/js/model/BackgroundimgAddOrModifyResponseVO";
+import WebModuleTreeResponseVO from "../moduleA/common/js/model/WebModuleTreeResponseVO";
 
 
 /**
@@ -51,6 +52,7 @@ export const ModuleAProtocolContent = {
   webBottomAddOrModify: 'webBottomAddOrModify',
   webSiteInfoAddOrModify: 'webSiteInfoAddOrModify',
   backgroundimgAddOrModify: 'backgroundimgAddOrModify',
+  webModuleTree: 'webModuleTree',
 
 }
 /**
@@ -81,5 +83,6 @@ export const ModuleAProtocolConfig = {
   'webBottomAddOrModify': {name: 'webBottomAddOrModify', responseVO: new WebBottomAddOrModifyResponseVO()},  // 添加或修改页尾
   'webSiteInfoAddOrModify': {name: 'webSiteInfoAddOrModify', responseVO: new WebSiteInfoAddOrModifyResponseVO()},  // 添加或修改网站信息
   'backgroundimgAddOrModify': {name: 'backgroundimgAddOrModify', responseVO: new BackgroundimgAddOrModifyResponseVO()},  // 添加或修改网站背景图片
+  'webModuleTree': {name: 'webModuleTree', responseVO: new WebModuleTreeResponseVO()},  // 获取网站组件
 
 }
