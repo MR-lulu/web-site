@@ -20,7 +20,7 @@
         </el-form-item>
 
         <el-form-item :label="$t('rs.moduleA.20000000054') /*零件种类*/" prop="partsTypeId">
-          <el-input v-model="formData.partsTypeId" disabled></el-input>
+          <el-input v-model="partsTypeName" disabled></el-input>
         </el-form-item>
         <el-form-item :label="$t('rs.moduleA.20000000086') /*零件名称*/" prop="name">
           <el-input v-model="formData.name" :placeholder="$t('rs.moduleA.20000000087') /*请输入零件名称*/"></el-input>
@@ -59,6 +59,9 @@
 <script>
   import Config from '@/framework/common/config/Config.js'
   import PartAddOrModifyRequestVO from '@/moduleA/common/js/model/PartAddOrModifyRequestVO.js'
+  import PartsTypeByIdRequestVO from '@/moduleA/common/js/model/PartsTypeByIdRequestVO.js'
+  import ModulesByIdRequestVO from '@/moduleA/common/js/model/ModulesByIdRequestVO.js'
+  import { mapState } from 'vuex'
 
   export default {
     name: "PartsAdd",
@@ -69,9 +72,11 @@
         // 图片上传大小限制
         uploadImgSize: '',
         imageUrl: '',
+        // 零件类型名称
+        partsTypeName: '',
+        // 零件类型id
+        partsTypeId: '',
         formData: {
-          partsTypeId: '',
-          modulesId: '',
           name: '',
           priority: '',
           title: '',
@@ -91,7 +96,8 @@
             {required: true, message: this.$t('rs.moduleA.20000000091'), trigger: 'blur'}
           ],
           hyperlinks: [
-            {required: false, message: this.$t('rs.moduleA.20000000093'), trigger: 'blur'}
+            {required: false, message: this.$t('rs.moduleA.20000000093'), trigger: 'change'},
+            {pattern: /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\*\+,;=.]+$/, message: this.$t('rs.staticText.30000000044')}
           ],
           txt: [
             {required: false, message: this.$t('rs.moduleA.20000000095'), trigger: 'blur'}
@@ -105,12 +111,29 @@
         }
       }
     },
+
+    computed: {
+      ...mapState(['webModuleTreeClickType']),
+    },
+
     created() {
       // 初始化图片上传地址
       this.uploadImgUrl = Config.uploadImgUrl;
       // 初始化图片上传大小限制
       this.uploadImgSize = Config.uploadImgSize;
+      // 根据id获取模块明细，最终是为了获取零件类型名称
+      this.getModulesById();
     },
+
+    watch: {
+      webModuleTreeClickType: function (newValue, oldValue) {
+        if (newValue) {
+          // 根据id获取模块明细，最终是为了获取零件类型名称
+          this.getModulesById();
+        }
+      }
+    },
+
     methods: {
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
@@ -130,17 +153,12 @@
 
       // 上传成功
       uploadSuccess(response, file, fileList) {
-        console.log(response);
-        console.log(file);
-        console.log(fileList);
-        this.imageUrl = URL.createObjectURL(file.raw);
+        this.imageUrl = response.data;
       },
 
       // 上传失败
       uploadError: function (err, file, fileList) {
-        console.log(err);
-        console.log(file);
-        console.log(fileList);
+        this.$message.error(this.$t('rs.staticText.30000000045'));  // 图片上传失败, 请重新上传
       },
 
       // 图片上传之前操作
@@ -156,6 +174,39 @@
         return isJPG && isLt2M;
       },
 
+      // 根据id获取零件明细
+      getPartsTypeById: function (id) {
+        let partsTypeByIdRequestVO = new PartsTypeByIdRequestVO(this.ProtocolContent.partsTypeById);
+        partsTypeByIdRequestVO.id = id
+        this.communicateManger.httpCommunicate.getResponseVO(partsTypeByIdRequestVO, "/partsType/query/detail/" + partsTypeByIdRequestVO.id).then((PartsTypeByIdResponseVO) => {
+          if (PartsTypeByIdResponseVO.getStatus == 1000) {
+            this.partsTypeName = PartsTypeByIdResponseVO.data.name;
+          } else {
+            this.messageBox.error(PartsTypeByIdResponseVO.getMsg);
+          }
+        }).catch(() => {
+          this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
+        })
+      },
+
+      // 根据id获取模块明细
+      getModulesById: function () {
+        let modulesByIdRequestVO = new ModulesByIdRequestVO(this.ProtocolContent.modulesById);
+        modulesByIdRequestVO.id = this.webModuleTreeClickType.modulesId;
+        let _that = this;
+        this.communicateManger.httpCommunicate.getResponseVO(modulesByIdRequestVO, "/modules/query/detail/"+ modulesByIdRequestVO.id).then((ModulesByIdResponseVO) => {
+          if (ModulesByIdResponseVO.getStatus == 1000) {
+            // 根据id获取零件明细
+            this.partsTypeId = ModulesByIdResponseVO.data.partsTypeId;
+            _that.getPartsTypeById(ModulesByIdResponseVO.data.partsTypeId);
+          } else {
+            this.messageBox.error(ModulesByIdResponseVO.getMsg);
+          }
+        }).catch(() => {
+          this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
+        })
+      },
+
       // 添加零件
       addParts: function () {
         let partAddOrModifyRequestVO = new PartAddOrModifyRequestVO(this.ProtocolContent.partAddOrModify);
@@ -167,20 +218,25 @@
         partAddOrModifyRequestVO.hyperlinks = this.formData.hyperlinks;
         partAddOrModifyRequestVO.txt = this.formData.txt;
         partAddOrModifyRequestVO.other = this.formData.other;
-        partAddOrModifyRequestVO.partsTypeId = this.formData.partsTypeId;
-        partAddOrModifyRequestVO.modulesId = this.formData.modulesId;
+        partAddOrModifyRequestVO.partsTypeId = this.partsTypeId;
+        partAddOrModifyRequestVO.modulesId = this.webModuleTreeClickType.modulesId;
         partAddOrModifyRequestVO.status = 1;
 
         this.communicateManger.httpCommunicate.getResponseVO(partAddOrModifyRequestVO, "/parts/addOrModify").then((PartAddOrModifyResponseVO) => {
           if (PartAddOrModifyResponseVO.getStatus == 1000 && PartAddOrModifyResponseVO.getResultCode > 0) {
             this.messageBox.success(PartAddOrModifyResponseVO.getMsg);
+            // 重置表单
+            this.$refs.formData.resetFields();
+            this.imageUrl = '';
+            // 通知更新树
+            this.$store.commit('setUpdateWebModuleTreeFlag', Math.ceil(Math.random() * 10000));
           } else {
             this.messageBox.error(PartAddOrModifyResponseVO.getMsg);
           }
         }).catch(() => {
           this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
         })
-      }
+      },
     },
   }
 </script>

@@ -1,6 +1,6 @@
 import BaseResponseVO from '@/commonjs/model/BaseResponseVO'
 
-class PartsTypeByIdResponseVO extends BaseResponseVO {
+class ModulesByIdResponseVO extends BaseResponseVO {
   /**
    * 获取对象
    * @param
@@ -10,4 +10,4 @@ class PartsTypeByIdResponseVO extends BaseResponseVO {
   }
 }
 
-export default PartsTypeByIdResponseVO
+export default ModulesByIdResponseVO

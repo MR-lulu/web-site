@@ -33,11 +33,12 @@
           object: '',  // 对象
         },
         webModuleTree: null, // 组件树所有数据
+        modulesArray: null,  // 模块数组(临时)
+        partsArray: null,  // 零件数组(临时)
         treeData: [{
           id: 0,
           label: '系统-1',
-          children: [
-          ]
+          children: []
         }],
         defaultProps: {
           children: 'children',
@@ -67,7 +68,7 @@
     methods: {
       // 新增节点
       renderContent(h, {node, data, store}) {
-        if (node.level >= 3) {
+        if (node.level >= 4 || node.data.id < 0) {
           return (<div class = "ico"> <span> <span on-click = {()=>this.handleNodeLableClick(data, node)}>{node.label}</span></span> </div>);
         }else {
           return (<div class = "ico"> <span> <span on-click = {()=>this.handleNodeLableClick(data, node)}>{node.label}</span></span> <span on-click = {()=>this.handleNodeAddClick(data, node)}> <i class = "el-icon-circle-plus-outline"> </i> </span> </div>);
@@ -77,21 +78,33 @@
 
       // 节点文本点击事件
       handleNodeLableClick(data, node) {
-        console.log(1);
-        console.log(node);
-        console.log(data);
+        // console.log(1);
+        // console.log(node);
+        // console.log(data);
       },
       // 节点添加点击事件
       handleNodeAddClick(data, node) {
-        console.log(2);
-        console.log(node);
-        console.log(data);
+        this.$store.commit('setWebModuleTreeClickType', null);
+        // console.log(2);
+        // console.log(node);
+        // console.log(data);
         this.webModuleTreeClickType.clickType = 'add';
         this.webModuleTreeClickType.level = node.level;
         this.webModuleTreeClickType.navigationId = 0;
         this.webModuleTreeClickType.modulesId = 0;
         this.webModuleTreeClickType.partsId = 0;
         this.webModuleTreeClickType.object = null;
+
+        if (this.webModuleTreeClickType.level == 1) {
+          // 添加导航
+        }else if(this.webModuleTreeClickType.level == 2) {
+          // 添加模块
+          this.webModuleTreeClickType.navigationId = node.data.id;
+        } else if(this.webModuleTreeClickType.level == 3){
+          // 添加零件
+          this.webModuleTreeClickType.navigationId = node.parent.data.id
+          this.webModuleTreeClickType.modulesId = node.data.id;
+        }
         this.$store.commit('setWebModuleTreeClickType', this.webModuleTreeClickType);
       },
 
@@ -104,11 +117,63 @@
               // 将组件树信息放到vux管理
               this.webModuleTree = WebModuleTreeResponseVO.resultList
               this.$store.commit('setWebModuleTree', this.webModuleTree);
-
               // 树数据展示格式转换
-              let json = JSON.parse(JSON.stringify(WebModuleTreeResponseVO.getNavigationDtoList).replace(/navigationDtoList/g,"children").replace(/modulesDtoList/g,"children").replace(/partsDtoList/g,"children"));
-              console.log(json);
-              this.treeData.children.push(WebModuleTreeResponseVO.getNavigationDtoList);
+              this.treeData[0].children = new Array();
+              for (let i = 0; i < WebModuleTreeResponseVO.getNavigationDtoList.length; i++) {
+                let navigation = WebModuleTreeResponseVO.getNavigationDtoList[i];
+                this.modulesArray = new Array();
+                if ('modulesDtoList' in navigation && navigation.modulesDtoList.length > 0) {
+                  // 如果导航包含模块
+                  let modules = navigation.modulesDtoList;
+                  for (let j = 0; j < modules.length; j++) {
+                    let module = modules[j];
+                    this.partsArray = new Array();
+                    if ('partsDtoList' in module && module.partsDtoList.length > 0) {
+                      // 如果模块包含零件
+                      let parts = module.partsDtoList;
+                      for (let k = 0; k < parts.length; k++) {
+                        let part = parts[k];
+                        part.label = parts[k].name;
+                        part.id = parts[k].partsId;
+                        this.partsArray.push(part);
+                      }
+                    }
+                    // 删除属性
+                    delete module.partsDtoList;
+                    module.label = modules[j].name;
+                    module.id = modules[j].modulesId;
+                    module.children = this.partsArray;
+                    this.modulesArray.push(module);
+                  }
+                }
+                // 删除属性
+                delete navigation.modulesDtoList;
+                navigation.label = WebModuleTreeResponseVO.getNavigationDtoList[i].name;
+                navigation.id = WebModuleTreeResponseVO.getNavigationDtoList[i].navigationId;
+                navigation.children = this.modulesArray;
+                this.treeData[0].children.push(navigation);
+              }
+            }
+            if (!Tools.isNull(WebModuleTreeResponseVO.getWebTop)) {
+              // 添加页头
+              let webTop = WebModuleTreeResponseVO.getWebTop;
+              webTop.label = '页头信息';
+              webTop.id = -1;
+              this.treeData[0].children.push(webTop);
+            }
+            if (!Tools.isNull(WebModuleTreeResponseVO.getWebBottom)) {
+              // 添加页尾
+              let webBottom = WebModuleTreeResponseVO.getWebBottom;
+              webBottom.label = '页尾信息';
+              webBottom.id = -2;
+              this.treeData[0].children.push(webBottom);
+            }
+            if (!Tools.isNull(WebModuleTreeResponseVO.getWebInfo)) {
+              // 添加网站信息
+              let webInfo = WebModuleTreeResponseVO.getWebInfo;
+              webInfo.label = '网站信息';
+              webInfo.id = -3;
+              this.treeData[0].children.push(webInfo);
             }
           } else {
             this.messageBox.error(WebModuleTreeResponseVO.getMsg);

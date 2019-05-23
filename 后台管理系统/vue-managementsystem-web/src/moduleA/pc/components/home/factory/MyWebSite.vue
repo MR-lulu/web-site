@@ -49,7 +49,6 @@
   import WebBottom from '@/moduleA/pc/components/home/forms/module/WebBottom.vue'
   import WebsiteInfo from '@/moduleA/pc/components/home/forms/module/WebsiteInfo.vue'
   import BackgroundimgAdd from '@/moduleA/pc/components/home/forms/common/BackgroundimgAdd.vue'
-
   import { mapState } from 'vuex'
 
   export default {
@@ -79,14 +78,9 @@
       ...mapState(['webModuleTreeClickType', 'webModuleTree']),
     },
 
-    created() {
-    },
-
-    methods: {
-    },
-
     watch: {
       webModuleTreeClickType: function (newValue, oldValue) {
+        console.log(newValue);
         if (newValue) {
           this.webModuleTreeClickTypeNew = newValue;
           if (this.webModuleTreeClickTypeNew.clickType == 'add') {
@@ -96,10 +90,11 @@
               this.isRouterAlive = 'NavigationAdd';
             }else if(this.webModuleTreeClickTypeNew.level == 2) {
               // 添加模块
+              this.isRouterAlive = 'ModuleAdd'
             }else if(this.webModuleTreeClickTypeNew.level == 3) {
               // 添加零件
+              this.isRouterAlive = 'PartsAdd'
             }else{
-
             }
           }else if(this.webModuleTreeClickTypeNew.clickType == 'display') {
             // 点击display查看明细按钮

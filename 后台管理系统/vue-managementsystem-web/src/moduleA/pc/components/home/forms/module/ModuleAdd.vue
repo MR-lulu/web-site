@@ -32,7 +32,7 @@
 <script>
   import PartsTypeListRequestVO from '@/moduleA/common/js/model/PartsTypeListRequestVO.js'
   import ModuleAddOrModifyRequestVO from '@/moduleA/common/js/model/ModuleAddOrModifyRequestVO.js'
-  import Tools from '@/commonjs/util/mall.tools.js'
+  import { mapState } from 'vuex'
 
   export default {
     name: "ModuleAdd",
@@ -45,8 +45,6 @@
           remarks: '',
           partsTypeId: []
         },
-        // 导航ID
-        navigationId: '',
         rules: {
           priority: [
             {required: true, message: this.$t('rs.moduleA.20000000066'), trigger: 'blur'}
@@ -63,12 +61,15 @@
         }
       }
     },
+    computed: {
+      ...mapState(['webModuleTreeClickType']),
+    },
+
     created() {
       // 获取零件类型
       this.getPartsTypeList();
-      // 获取导航ID
-
     },
+
     methods: {
       // 表单提交，添加模块
       submitForm(formName) {
@@ -92,7 +93,7 @@
         this.communicateManger.httpCommunicate.getResponseVO(partsTypeListRequestVO, "/partsType/query/list").then((PartsTypeListResponseVO) => {
           if (PartsTypeListResponseVO.getStatus == 1000) {
             this.partsTypeList = new Array();
-            this.partsTypeList = PartsTypeListResponseVO.resultList;
+            this.partsTypeList = PartsTypeListResponseVO.resultList.filter(item => (item.status != 2 && item.watch != 2));
           } else {
             this.messageBox.error(PartsTypeListResponseVO.getMsg);
           }
@@ -109,11 +110,15 @@
         moduleAddOrModifyRequestVO.priority = this.formData.priority;
         moduleAddOrModifyRequestVO.remarks = this.formData.remarks;
         moduleAddOrModifyRequestVO.status = 1;
-        moduleAddOrModifyRequestVO.navigationId = this.navigationId;
+        moduleAddOrModifyRequestVO.navigationId = this.webModuleTreeClickType.navigationId;
 
         this.communicateManger.httpCommunicate.getResponseVO(moduleAddOrModifyRequestVO, "/modules/addOrModify").then((ModuleAddOrModifyResponseVO) => {
           if (ModuleAddOrModifyResponseVO.getStatus == 1000 && ModuleAddOrModifyResponseVO.getResultCode > 0) {
             this.messageBox.success(ModuleAddOrModifyResponseVO.getMsg);
+            // 重置表单
+            this.$refs.formData.resetFields();
+            // 通知更新树
+            this.$store.commit('setUpdateWebModuleTreeFlag', Math.ceil(Math.random() * 10000));
           } else {
             this.messageBox.error(ModuleAddOrModifyResponseVO.getMsg);
           }
