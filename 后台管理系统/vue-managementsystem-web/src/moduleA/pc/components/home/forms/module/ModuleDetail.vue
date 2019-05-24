@@ -3,8 +3,8 @@
     <div class="form-1">
       <!--表单内容-->
       <el-form :model="formData" :rules="rules" ref="formData" label-width="100px" class="demo-ruleForm">
-        <el-form-item :label="$t('rs.moduleA.20000000078') /*模块类型*/" prop="partsTypeId">
-          <el-input v-model="formData.partsTypeName" disabled></el-input>
+        <el-form-item :label="$t('rs.moduleA.20000000146') /*零件类型*/">
+          <el-input v-model="partsTypeName" disabled></el-input>
         </el-form-item>
         <el-form-item :label="$t('rs.moduleA.20000000080') /*模块名称*/" prop="name">
           <el-input v-model="formData.name" :placeholder="$t('rs.moduleA.20000000081') /*请输入模块名称*/"></el-input>
@@ -25,10 +25,10 @@
                     :placeholder="$t('rs.moduleA.20000000083') /*请输入模块备注*/"></el-input>
         </el-form-item>
         <el-form-item :label="$t('rs.moduleA.20000000027') /*创建时间*/" prop="serverCreateTime">
-          <el-input v-model="formData.serverCreateTime" disabled></el-input>
+          <el-date-picker type="date" v-model="formData.serverCreateTime" format="yyyy-MM-dd HH:mm:ss" disabled></el-date-picker>
         </el-form-item>
         <el-form-item :label="$t('rs.moduleA.20000000050') /*修改时间*/" prop="serverUpdateTime">
-          <el-input v-model="formData.serverUpdateTime" disabled></el-input>
+          <el-date-picker type="date" v-model="formData.serverUpdateTime" format="yyyy-MM-dd HH:mm:ss" disabled></el-date-picker>
         </el-form-item>
       </el-form>
       <!--按钮-->
@@ -47,11 +47,21 @@
   import ModuleDeleteRequestVO from '@/moduleA/common/js/model/ModuleDeleteRequestVO.js'
   import ModuleAddOrModifyRequestVO from '@/moduleA/common/js/model/ModuleAddOrModifyRequestVO.js'
   import Tools from '@/commonjs/util/mall.tools.js'
+  import { mapState } from 'vuex'
 
   export default {
     name: "ModuleDetail",
     data() {
       return {
+        webModuleTreeClickTypeNew: {
+          clickType: '',  // 点击类型，display为文本点击，add为添加点击
+          level: 0,  // 节点水平
+          navigationId: '',  // 导航id
+          modulesId: '',  // 模块id
+          partsId: '',  // 零件id
+          object: '',  // 对象
+          flag: '',  // 点击文本标记
+        },
         partsTypeName: '',
         formData: {
           priority: '',
@@ -73,26 +83,39 @@
           ],
           remarks: [
             {required: false, message: this.$t('rs.moduleA.20000000083'), trigger: 'blur'}
-          ],
-          partsTypeName: [
-            {required: true, message: this.$t('rs.moduleA.20000000079'), trigger: 'blur'}
           ]
         }
       }
     },
+
+    computed: {
+      ...mapState(['webModuleTreeClickType']),
+    },
+
     created() {
-      // 获取当前模块信息
-      this.getModuleDetail();
-      // 获取零件种类信息
-      if (!Tools.isNull(this.formData.partsTypeId)) {
-        this.getPartsTypeById();
+      // 初始化formData
+      if (!Tools.isNull(this.webModuleTreeClickType.object)) {
+        this.formData = this.webModuleTreeClickType.object;
+      }
+      // 根据id获取零件类型名称
+      this.getPartsTypeById();
+    },
+
+    watch: {
+      webModuleTreeClickType: function (newValue, oldValue) {
+        if (newValue) {
+          this.formData = this.webModuleTreeClickType.object;
+          // 根据id获取零件类型名称
+          this.getPartsTypeById();
+        }
       }
     },
+
     methods: {
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            this.messageBox.confirm(this.$t('rs.staticText.30000000026'), this.$t('rs.staticText.30000000008'), () => {  //您确认要修改模块吗？ 提示
+            this.messageBox.confirm(this.$t('rs.staticText.30000000030'), this.$t('rs.staticText.30000000008'), () => {  //您确认要修改模块吗？ 提示
             }, () => {
               // 修改模块
               this.updateModule();
@@ -111,9 +134,14 @@
         moduleAddOrModifyRequestVO.name = this.formData.name;
         moduleAddOrModifyRequestVO.priority = this.formData.priority;
         moduleAddOrModifyRequestVO.remarks = this.formData.remarks;
+        moduleAddOrModifyRequestVO.status = this.formData.status;
+        moduleAddOrModifyRequestVO.modulesId = this.formData.modulesId;
+
         this.communicateManger.httpCommunicate.getResponseVO(moduleAddOrModifyRequestVO, "/modules/addOrModify").then((ModuleAddOrModifyResponseVO) => {
           if (ModuleAddOrModifyResponseVO.getStatus == 1000 && ModuleAddOrModifyResponseVO.getResultCode > 0) {
             this.messageBox.success(ModuleAddOrModifyResponseVO.getMsg);
+            // 通知更新树
+            this.$store.commit('setUpdateWebModuleTreeFlag', Math.ceil(Math.random() * 10000));
           } else {
             this.messageBox.error(ModuleAddOrModifyResponseVO.getMsg);
           }
@@ -140,6 +168,13 @@
         this.communicateManger.httpCommunicate.getResponseVO(moduleDeleteRequestVO, "/modules/delete/" + moduleDeleteRequestVO.id).then((ModuleDeleteResponseVO) => {
           if (ModuleDeleteResponseVO.getStatus == 1000 && ModuleDeleteResponseVO.getResultCode > 0) {
             this.messageBox.success(ModuleDeleteResponseVO.getMsg);
+            // 通知更新树
+            this.$store.commit('setUpdateWebModuleTreeFlag', Math.ceil(Math.random() * 10000));
+            this.$store.commit('setWebModuleTreeClickType', null);
+            this.webModuleTreeClickTypeNew.clickType = 'add';
+            this.webModuleTreeClickTypeNew.level = 2;
+            this.webModuleTreeClickTypeNew.navigationId =  this.formData.navigationId;
+            this.$store.commit('setWebModuleTreeClickType', this.webModuleTreeClickTypeNew);
           } else {
             this.messageBox.error(ModuleDeleteResponseVO.getMsg);
           }
@@ -148,17 +183,13 @@
         })
       },
 
-      // 获取模块信息
-      getModuleDetail: function () {
-      },
-
       // 根据id获取零件种类
       getPartsTypeById: function () {
         let partsTypeByIdRequestVO = new PartsTypeByIdRequestVO(this.ProtocolContent.partsTypeById);
         partsTypeByIdRequestVO.id = this.formData.partsTypeId;
         this.communicateManger.httpCommunicate.getResponseVO(partsTypeByIdRequestVO, "/partsType/query/detail/" + partsTypeByIdRequestVO.id).then((PartsTypeByIdResponseVO) => {
           if (PartsTypeByIdResponseVO.getStatus == 1000) {
-            this.formData.partsTypeName = PartsTypeByIdResponseVO.getName;
+            this.partsTypeName = PartsTypeByIdResponseVO.data.name;
           } else {
             this.messageBox.error(PartsTypeByIdResponseVO.getMsg);
           }
@@ -179,6 +210,11 @@
   }
 
   .moduleDetail .el-radio-group {
+    float: left;
+  }
+
+  .moduleDetail .el-date-editor.el-input, .el-date-editor.el-input__inner {
+    /* width: 50%; */
     float: left;
   }
 </style>

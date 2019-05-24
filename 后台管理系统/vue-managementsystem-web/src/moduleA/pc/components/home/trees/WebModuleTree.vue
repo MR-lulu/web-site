@@ -16,6 +16,7 @@
 
 <script>
   import WebModuleTreeRequestVO from '@/moduleA/common/js/model/WebModuleTreeRequestVO.js'
+  import CommonInfoRequestVO from '@/moduleA/common/js/model/CommonInfoRequestVO.js'
   import { mapState } from 'vuex'
   import Tools from '@/commonjs/util/mall.tools.js'
 
@@ -23,7 +24,6 @@
     name: "WebModuleTree",
     data() {
       return {
-        t:'',
         webModuleTreeClickType: {
           clickType: '',  // 点击类型，display为文本点击，add为添加点击
           level: 0,  // 节点水平
@@ -31,10 +31,12 @@
           modulesId: '',  // 模块id
           partsId: '',  // 零件id
           object: '',  // 对象
+          flag: '',  // 点击文本标记
         },
         webModuleTree: null, // 组件树所有数据
         modulesArray: null,  // 模块数组(临时)
         partsArray: null,  // 零件数组(临时)
+        commonInfoArray: null,  // 公共信息
         treeData: [{
           id: 0,
           label: '系统-1',
@@ -54,6 +56,8 @@
     created() {
       // 获取数据树信息
       this.getWebModuleTree();
+      // 获取公共信息
+      this.getCommonInfo();
     },
 
     watch: {
@@ -68,7 +72,7 @@
     methods: {
       // 新增节点
       renderContent(h, {node, data, store}) {
-        if (node.level >= 4 || node.data.id < 0) {
+        if (node.level >= 4 || node.data.id < 0 || node.parent.data.id < 0) {
           return (<div class = "ico"> <span> <span on-click = {()=>this.handleNodeLableClick(data, node)}>{node.label}</span></span> </div>);
         }else {
           return (<div class = "ico"> <span> <span on-click = {()=>this.handleNodeLableClick(data, node)}>{node.label}</span></span> <span on-click = {()=>this.handleNodeAddClick(data, node)}> <i class = "el-icon-circle-plus-outline"> </i> </span> </div>);
@@ -78,16 +82,48 @@
 
       // 节点文本点击事件
       handleNodeLableClick(data, node) {
-        // console.log(1);
-        // console.log(node);
-        // console.log(data);
+        this.$store.commit('setWebModuleTreeClickType', null);
+        this.webModuleTreeClickType.clickType = 'display';
+        this.webModuleTreeClickType.level = node.level;
+        this.webModuleTreeClickType.object = node.data;
+        this.webModuleTreeClickType.flag = '';
+
+        if (this.webModuleTreeClickType.level == 2) {
+          // 点击第二层树节点文本
+          if ('navigationId' in this.webModuleTreeClickType.object) {
+            // 点击导航
+            this.webModuleTreeClickType.flag = 'navigation';
+          }else if ('webTopId' in this.webModuleTreeClickType.object) {
+            // 点击页头信息
+            this.webModuleTreeClickType.flag = 'webTop';
+          }else if ('webBottomId' in this.webModuleTreeClickType.object) {
+            // 点击页尾信息
+            this.webModuleTreeClickType.flag = 'webBottom';
+          }else if ('webInfoId' in this.webModuleTreeClickType.object) {
+            // 点击网站信息
+            this.webModuleTreeClickType.flag = 'webInfo';
+          }else {
+            // 点击公共信息
+          }
+        }else if (this.webModuleTreeClickType.level == 3) {
+          // 点击第三层树节点文本
+          if ('modulesId' in this.webModuleTreeClickType.object) {
+            // 点击模块信息
+            this.webModuleTreeClickType.flag = 'modules';
+          }else {
+            // 点击公共信息
+            this.webModuleTreeClickType.flag = 'commonInfo';
+          }
+        }else if (this.webModuleTreeClickType.level == 4) {
+          // 点击零件文本信息
+          this.webModuleTreeClickType.flag = 'parts';
+        }
+
+        this.$store.commit('setWebModuleTreeClickType', this.webModuleTreeClickType);
       },
       // 节点添加点击事件
       handleNodeAddClick(data, node) {
         this.$store.commit('setWebModuleTreeClickType', null);
-        // console.log(2);
-        // console.log(node);
-        // console.log(data);
         this.webModuleTreeClickType.clickType = 'add';
         this.webModuleTreeClickType.level = node.level;
         this.webModuleTreeClickType.navigationId = 0;
@@ -102,7 +138,6 @@
           this.webModuleTreeClickType.navigationId = node.data.id;
         } else if(this.webModuleTreeClickType.level == 3){
           // 添加零件
-          this.webModuleTreeClickType.navigationId = node.parent.data.id
           this.webModuleTreeClickType.modulesId = node.data.id;
         }
         this.$store.commit('setWebModuleTreeClickType', this.webModuleTreeClickType);
@@ -157,26 +192,56 @@
             if (!Tools.isNull(WebModuleTreeResponseVO.getWebTop)) {
               // 添加页头
               let webTop = WebModuleTreeResponseVO.getWebTop;
-              webTop.label = '页头信息';
+              webTop.label = this.$t('rs.moduleA.20000000141'); //页头信息
               webTop.id = -1;
               this.treeData[0].children.push(webTop);
             }
             if (!Tools.isNull(WebModuleTreeResponseVO.getWebBottom)) {
               // 添加页尾
               let webBottom = WebModuleTreeResponseVO.getWebBottom;
-              webBottom.label = '页尾信息';
+              webBottom.label = this.$t('rs.moduleA.20000000142'); //页尾信息
               webBottom.id = -2;
               this.treeData[0].children.push(webBottom);
             }
             if (!Tools.isNull(WebModuleTreeResponseVO.getWebInfo)) {
               // 添加网站信息
               let webInfo = WebModuleTreeResponseVO.getWebInfo;
-              webInfo.label = '网站信息';
+              webInfo.label = this.$t('rs.moduleA.20000000143'); //网站信息
               webInfo.id = -3;
               this.treeData[0].children.push(webInfo);
             }
           } else {
             this.messageBox.error(WebModuleTreeResponseVO.getMsg);
+          }
+        }).catch(() => {
+          this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
+        })
+      },
+      
+      // 获取公共信息
+      getCommonInfo: function () {
+        let commonInfoRequestVO = new CommonInfoRequestVO(this.ProtocolContent.commonInfo);
+        this.communicateManger.httpCommunicate.getResponseVO(commonInfoRequestVO, "/commonInfo/query/list").then((CommonInfoResponseVO) => {
+          if (CommonInfoResponseVO.getStatus == 1000) {
+            if (!Tools.isNull(CommonInfoResponseVO.resultList)) {
+              this.commonInfoArray = new Array();
+              for (let i = 0; i < CommonInfoResponseVO.resultList.length; i++) {
+                let commonInfo = CommonInfoResponseVO.resultList[i];
+                commonInfo.id = CommonInfoResponseVO.resultList[i].commonInfoId;
+                commonInfo.label = this.$t('rs.moduleA.20000000145'); //背景图片
+                this.commonInfoArray.push(commonInfo);
+              }
+              if (!Tools.isNull(this.commonInfoArray)) {
+                let object = new Object;
+                object.id = -4;
+                object.label = this.$t('rs.moduleA.20000000144'); //公共信息
+                object.children = this.commonInfoArray;
+                // 添加公共信息
+                this.treeData[0].children.push(object);
+              }
+            }
+          } else {
+            this.messageBox.error(CommonInfoResponseVO.getMsg);
           }
         }).catch(() => {
           this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服

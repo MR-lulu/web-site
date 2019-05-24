@@ -23,6 +23,7 @@ import WebSiteInfoAddOrModifyResponseVO from "../moduleA/common/js/model/WebSite
 import BackgroundimgAddOrModifyResponseVO from "../moduleA/common/js/model/BackgroundimgAddOrModifyResponseVO";
 import WebModuleTreeResponseVO from "../moduleA/common/js/model/WebModuleTreeResponseVO";
 import ModulesByIdResponseVO from "../moduleA/common/js/model/ModulesByIdResponseVO";
+import CommonInfoResponseVO from "../moduleA/common/js/model/CommonInfoResponseVO";
 
 
 /**
@@ -55,6 +56,7 @@ export const ModuleAProtocolContent = {
   backgroundimgAddOrModify: 'backgroundimgAddOrModify',
   webModuleTree: 'webModuleTree',
   modulesById: 'modulesById',
+  commonInfo: 'commonInfo',
 
 }
 /**
@@ -87,5 +89,6 @@ export const ModuleAProtocolConfig = {
   'backgroundimgAddOrModify': {name: 'backgroundimgAddOrModify', responseVO: new BackgroundimgAddOrModifyResponseVO()},  // 添加或修改网站背景图片
   'webModuleTree': {name: 'webModuleTree', responseVO: new WebModuleTreeResponseVO()},  // 获取网站组件
   'modulesById': {name: 'modulesById', responseVO: new ModulesByIdResponseVO()},  // 获取模块
+  'commonInfo': {name: 'commonInfo', responseVO: new CommonInfoResponseVO()},  // 获取公共信息
 
 }

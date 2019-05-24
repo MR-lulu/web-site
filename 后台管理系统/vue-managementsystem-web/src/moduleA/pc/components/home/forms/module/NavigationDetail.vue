@@ -31,10 +31,10 @@
                     :placeholder="$t('rs.moduleA.20000000069') /*请输入导航备注*/"></el-input>
         </el-form-item>
         <el-form-item :label="$t('rs.moduleA.20000000027') /*创建时间*/" prop="serverCreateTime">
-          <el-input v-model="formData.serverCreateTime" disabled></el-input>
+          <el-date-picker type="date" v-model="formData.serverCreateTime" format="yyyy-MM-dd HH:mm:ss" disabled></el-date-picker>
         </el-form-item>
         <el-form-item :label="$t('rs.moduleA.20000000050') /*修改时间*/" prop="serverUpdateTime">
-          <el-input v-model="formData.serverUpdateTime" disabled></el-input>
+          <el-date-picker type="date" v-model="formData.serverUpdateTime" format="yyyy-MM-dd HH:mm:ss" disabled></el-date-picker>
         </el-form-item>
       </el-form>
       <!--按钮-->
@@ -51,11 +51,22 @@
 <script>
   import NavigationAddOrModifyRequestVO from '@/moduleA/common/js/model/NavigationAddOrModifyRequestVO.js'
   import NavigationDeleteRequestVO from '@/moduleA/common/js/model/NavigationDeleteRequestVO.js'
+  import Tools from '@/commonjs/util/mall.tools.js'
+  import { mapState } from 'vuex'
 
   export default {
     name: "NavigationDetail",
     data() {
       return {
+        webModuleTreeClickTypeNew: {
+          clickType: '',  // 点击类型，display为文本点击，add为添加点击
+          level: 0,  // 节点水平
+          navigationId: '',  // 导航id
+          modulesId: '',  // 模块id
+          partsId: '',  // 零件id
+          object: '',  // 对象
+          flag: '',  // 点击文本标记
+        },
         formData: {
           navigationUrl: '',
           name: '',
@@ -87,9 +98,26 @@
         }
       };
     },
-    created() {
 
+    computed: {
+      ...mapState(['webModuleTreeClickType']),
     },
+
+    created() {
+      // 初始化formData
+      if (!Tools.isNull(this.webModuleTreeClickType.object)) {
+        this.formData = this.webModuleTreeClickType.object;
+      }
+    },
+
+    watch: {
+      webModuleTreeClickType: function (newValue, oldValue) {
+        if (newValue) {
+          this.formData = this.webModuleTreeClickType.object;
+        }
+      }
+    },
+
     methods: {
       // 修改导航
       submitForm(formName) {
@@ -133,6 +161,8 @@
         this.communicateManger.httpCommunicate.getResponseVO(navigationAddOrModifyRequestVO, "/navigation/addOrModify").then((NavigationAddOrModifyResponseVO) => {
           if (NavigationAddOrModifyResponseVO.getStatus == 1000 && NavigationAddOrModifyResponseVO.getResultCode > 0) {
             this.messageBox.success(NavigationAddOrModifyResponseVO.getMsg);
+            // 通知更新树
+            this.$store.commit('setUpdateWebModuleTreeFlag', Math.ceil(Math.random() * 10000));
           } else {
             this.messageBox.error(NavigationAddOrModifyResponseVO.getMsg);
           }
@@ -149,6 +179,12 @@
         this.communicateManger.httpCommunicate.getResponseVO(navigationDeleteRequestVO, "/navigation/delete/" + navigationDeleteRequestVO.id).then((NavigationDeleteResponseVO) => {
           if (NavigationDeleteResponseVO.getStatus == 1000 && NavigationDeleteResponseVO.getResultCode > 0) {
             this.messageBox.success(NavigationDeleteResponseVO.getMsg);
+            // 通知更新树
+            this.$store.commit('setUpdateWebModuleTreeFlag', Math.ceil(Math.random() * 10000));
+            this.$store.commit('setWebModuleTreeClickType', null);
+            this.webModuleTreeClickTypeNew.clickType = 'add';
+            this.webModuleTreeClickTypeNew.level = 1;
+            this.$store.commit('setWebModuleTreeClickType', this.webModuleTreeClickTypeNew);
           } else {
             this.messageBox.error(NavigationDeleteResponseVO.getMsg);
           }
@@ -156,10 +192,6 @@
           this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
         })
       },
-
-      // 获取导航信息
-      getNavigationDetail: function () {
-      }
     }
   }
 </script>
@@ -184,6 +216,11 @@
   }
 
   .navigationDetail .el-radio-group {
+    float: left;
+  }
+
+  .navigationDetail .el-date-editor.el-input, .el-date-editor.el-input__inner {
+    /* width: 50%; */
     float: left;
   }
 </style>

@@ -80,7 +80,6 @@
 
     watch: {
       webModuleTreeClickType: function (newValue, oldValue) {
-        console.log(newValue);
         if (newValue) {
           this.webModuleTreeClickTypeNew = newValue;
           if (this.webModuleTreeClickTypeNew.clickType == 'add') {
@@ -98,16 +97,32 @@
             }
           }else if(this.webModuleTreeClickTypeNew.clickType == 'display') {
             // 点击display查看明细按钮
-            if (this.webModuleTreeClickTypeNew.level == 1) {
-              // 查看导航
-            }else if(this.webModuleTreeClickTypeNew.level == 2) {
-              // 查看模块
+            if (this.webModuleTreeClickTypeNew.level == 2) {
+              if (this.webModuleTreeClickTypeNew.flag == 'navigation') {
+                // 查看导航
+                this.isRouterAlive = 'NavigationDetail'
+              }else if (this.webModuleTreeClickTypeNew.flag == 'webTop') {
+                // 查看页头信息
+                this.isRouterAlive = 'WebTop'
+              }else if (this.webModuleTreeClickTypeNew.flag == 'webBottom') {
+                // 查看页尾信息
+                this.isRouterAlive = 'WebBottom'
+              }else if (this.webModuleTreeClickTypeNew.flag == 'webInfo') {
+                // 查看网站信息
+                this.isRouterAlive = 'WebsiteInfo'
+              }
             }else if(this.webModuleTreeClickTypeNew.level == 3) {
+              if (this.webModuleTreeClickTypeNew.flag == 'modules') {
+                // 查看模块
+                this.isRouterAlive = 'ModuleDetail'
+              }else if (this.webModuleTreeClickTypeNew.flag == 'commonInfo'){
+                // 查看公共信息
+                this.isRouterAlive = 'BackgroundimgAdd'
+              }
+            }else if(this.webModuleTreeClickTypeNew.level == 4) {
               // 查看零件
-            }else{
+              this.isRouterAlive = 'PartsDetail'
             }
-          }else {
-            // 其它
           }
         }
       },
