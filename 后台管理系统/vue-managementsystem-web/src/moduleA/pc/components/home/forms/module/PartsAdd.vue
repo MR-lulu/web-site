@@ -8,7 +8,7 @@
           <el-upload
             class="avatar-uploader"
             :action="uploadImgUrl"
-            accept="image/jpeg,image/gif,image/png"
+            accept="image/png,image/gif,image/jpg,image/jpeg,image/ico"
             :show-file-list="false"
             :on-success="uploadSuccess"
             :on-error="uploadError"
@@ -163,7 +163,7 @@
 
       // 图片上传之前操作
       beforeAvatarUpload(file) {
-        const isJPG = file.type === ('image/jpeg' || 'image/png' || 'image/gif' || 'image/ico');
+        const isJPG = (file.type === 'image/png' || file.type === 'image/gif' || file.type === 'image/jpg' || file.type === 'image/jpeg' || file.type === 'image/ico');
         const isLt2M = (file.size / 1024 / 1024) < Config.uploadImgSize;
         if (!isJPG) {
           this.$message.error(this.$t('rs.staticText.30000000032') + 'jpeg, png, gif, ico');  //上传图片的格式只能是:

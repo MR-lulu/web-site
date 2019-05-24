@@ -8,18 +8,18 @@
           <el-upload
             class="avatar-uploader"
             :action="uploadImgUrl"
-            accept="image/jpeg,image/gif,image/png"
+            accept="image/png,image/gif,image/jpg,image/jpeg,image/ico"
             :show-file-list="false"
             :on-success="uploadSuccess"
             :on-error="uploadError"
             :before-upload="beforeAvatarUpload">
-            <img v-if="imageUrl" :src="imageUrl" class="avatar">
+            <img v-if="formData.logoUrl" :src="formData.logoUrl" class="avatar">
             <i v-else class="el-icon-plus avatar-uploader-icon"></i>
             <div class="el-upload__tip" slot="tip">{{$t('rs.staticText.30000000032') + 'jpeg, png, gif, ico'}}，{{$t('rs.staticText.30000000033') + uploadImgSize + 'M'}}</div>
           </el-upload>
         </el-form-item>
 
-        <el-form-item :label="$t('rs.moduleA.20000000098') /*导航总数*/" prop="navCount">
+        <el-form-item :label="$t('rs.moduleA.20000000147') /*导航总数*/" prop="navCount">
           <el-input v-model="formData.navCount" disabled></el-input>
         </el-form-item>
         <el-form-item :label="$t('rs.moduleA.20000000102') /*网站名称*/" prop="webName">
@@ -32,7 +32,7 @@
           <el-input v-model="formData.remarks" type="textarea"
                     :placeholder="$t('rs.moduleA.20000000107') /*请输入页头备注*/"></el-input>
         </el-form-item>
-        <el-form-item :label="$t('rs.moduleA.20000000100') /*页头状态*/">
+        <el-form-item :label="$t('rs.moduleA.20000000101') /*页头状态*/">
           <el-radio-group v-model="formData.status">
             <!--正常-->
             <el-radio :label="1" disabled>{{$t('rs.moduleA.20000000059')}}</el-radio>
@@ -41,10 +41,10 @@
           </el-radio-group>
         </el-form-item>
         <el-form-item :label="$t('rs.moduleA.20000000027') /*创建时间*/" prop="serverCreateTime">
-          <el-input v-model="formData.serverCreateTime" disabled></el-input>
+          <el-date-picker type="date" v-model="formData.serverCreateTime" format="yyyy-MM-dd HH:mm:ss" disabled></el-date-picker>
         </el-form-item>
         <el-form-item :label="$t('rs.moduleA.20000000050') /*修改时间*/" prop="serverUpdateTime">
-          <el-input v-model="formData.serverUpdateTime" disabled></el-input>
+          <el-date-picker type="date" v-model="formData.serverUpdateTime" format="yyyy-MM-dd HH:mm:ss" disabled></el-date-picker>
         </el-form-item>
       </el-form>
       <!--按钮-->
@@ -58,6 +58,8 @@
 <script>
   import Config from '@/framework/common/config/Config.js'
   import WebTopAddOrModifyRequestVO from '@/moduleA/common/js/model/WebTopAddOrModifyRequestVO.js'
+  import Tools from '@/commonjs/util/mall.tools.js'
+  import { mapState } from 'vuex'
 
   export default {
     name: "WebTop",
@@ -67,8 +69,8 @@
         uploadImgUrl: '',
         // 图片上传大小限制
         uploadImgSize: '',
-        imageUrl: '',
         formData: {
+          logoUrl: '',
           phone: '',
           webName: '',
           navCount: '',
@@ -88,11 +90,27 @@
       }
     },
 
+    computed: {
+      ...mapState(['webModuleTreeClickType']),
+    },
+
     created() {
       // 初始化图片上传地址
       this.uploadImgUrl = Config.uploadImgUrl;
       // 初始化图片上传大小限制
       this.uploadImgSize = Config.uploadImgSize;
+      // 初始化formData
+      if (!Tools.isNull(this.webModuleTreeClickType.object)) {
+        this.formData = this.webModuleTreeClickType.object;
+      }
+    },
+
+    watch: {
+      webModuleTreeClickType: function (newValue, oldValue) {
+        if (newValue) {
+          this.formData = this.webModuleTreeClickType.object;
+        }
+      }
     },
 
     methods: {
@@ -113,22 +131,17 @@
       },
       // 上传成功
       uploadSuccess(response, file, fileList) {
-        console.log(response);
-        console.log(file);
-        console.log(fileList);
-        this.imageUrl = URL.createObjectURL(file.raw);
+        this.formData.logoUrl = response.data;
       },
 
       // 上传失败
       uploadError: function (err, file, fileList) {
-        console.log(err);
-        console.log(file);
-        console.log(fileList);
+        this.$message.error(this.$t('rs.staticText.30000000045'));  // 图片上传失败, 请重新上传
       },
 
       // 图片上传之前操作
       beforeAvatarUpload(file) {
-        const isJPG = file.type === ('image/jpeg' || 'image/png' || 'image/gif' || 'image/ico');
+        const isJPG = (file.type === 'image/png' || file.type === 'image/gif' || file.type === 'image/jpg' || file.type === 'image/jpeg' || file.type === 'image/ico');
         const isLt2M = (file.size / 1024 / 1024) < Config.uploadImgSize;
         if (!isJPG) {
           this.$message.error(this.$t('rs.staticText.30000000032') + 'jpeg, png, gif, ico');  //上传图片的格式只能是:
@@ -136,7 +149,7 @@
         if (!isLt2M) {
           this.$message.error(this.$t('rs.staticText.30000000033') + Config.uploadImgSize + 'M');  // 上传头像图片大小不能超过:
         }
-        return isJPG && isLt2M;
+        return  isLt2M;
       },
 
       // 修改页头
@@ -151,6 +164,8 @@
         this.communicateManger.httpCommunicate.getResponseVO(webTopAddOrModifyRequestVO, "/webTop/addOrModify").then((WebTopAddOrModifyResponseVO) => {
           if (WebTopAddOrModifyResponseVO.getStatus == 1000 && WebTopAddOrModifyResponseVO.getResultCode > 0) {
             this.messageBox.success(WebTopAddOrModifyResponseVO.getMsg);
+            // 通知更新树
+            this.$store.commit('setUpdateWebModuleTreeFlag', Math.ceil(Math.random() * 10000));
           } else {
             this.messageBox.error(WebTopAddOrModifyResponseVO.getMsg);
           }
@@ -187,15 +202,15 @@
   .webTop .avatar-uploader-icon {
     font-size: 28px;
     color: #8c939d;
-    width: 178px;
-    height: 178px;
-    line-height: 178px;
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
     text-align: center;
   }
 
   .webTop .avatar {
-    width: 178px;
-    height: 178px;
+    width: 200px;
+    height: 200px;
     display: block;
   }
 
@@ -207,5 +222,9 @@
     float: left;
     padding-top: 10px;
   }
-  
+
+  .webTop .el-date-editor.el-input, .el-date-editor.el-input__inner {
+    /* width: 50%; */
+    float: left;
+  }
 </style>

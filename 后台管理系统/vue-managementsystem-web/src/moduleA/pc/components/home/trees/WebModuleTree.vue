@@ -19,11 +19,13 @@
   import CommonInfoRequestVO from '@/moduleA/common/js/model/CommonInfoRequestVO.js'
   import { mapState } from 'vuex'
   import Tools from '@/commonjs/util/mall.tools.js'
+  import {getLoginUserInfo} from '@/store/sessionstorage/index.js'
 
   export default {
     name: "WebModuleTree",
     data() {
       return {
+        userLevel: '',  // 用户等级
         webModuleTreeClickType: {
           clickType: '',  // 点击类型，display为文本点击，add为添加点击
           level: 0,  // 节点水平
@@ -54,6 +56,8 @@
     },
 
     created() {
+      // 获取用户等级，是否是超级管理员
+      this.userLevel = JSON.parse(getLoginUserInfo()).level;
       // 获取数据树信息
       this.getWebModuleTree();
       // 获取公共信息
@@ -72,7 +76,7 @@
     methods: {
       // 新增节点
       renderContent(h, {node, data, store}) {
-        if (node.level >= 4 || node.data.id < 0 || node.parent.data.id < 0) {
+        if (node.level >= 4 || node.data.id < 0 || node.parent.data.id < 0 || this.userLevel != 1) {
           return (<div class = "ico"> <span> <span on-click = {()=>this.handleNodeLableClick(data, node)}>{node.label}</span></span> </div>);
         }else {
           return (<div class = "ico"> <span> <span on-click = {()=>this.handleNodeLableClick(data, node)}>{node.label}</span></span> <span on-click = {()=>this.handleNodeAddClick(data, node)}> <i class = "el-icon-circle-plus-outline"> </i> </span> </div>);
@@ -217,7 +221,7 @@
           this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
         })
       },
-      
+
       // 获取公共信息
       getCommonInfo: function () {
         let commonInfoRequestVO = new CommonInfoRequestVO(this.ProtocolContent.commonInfo);

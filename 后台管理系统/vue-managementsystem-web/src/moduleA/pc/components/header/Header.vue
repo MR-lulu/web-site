@@ -42,88 +42,89 @@
   import {getToken, getLoginUserInfo, setToken, setLoginUserInfo, setUserID} from '@/store/sessionstorage/index.js'
   import WebTopRequestVO from '@/moduleA/common/js/model/WebTopRequestVO.js'
   import Tools from '@/commonjs/util/mall.tools.js'
-export default {
-  name: 'Header',
-  data () {
-    return {
-      activeIndex: '1',
-      userName: '',
-      webTopList: [],
-      logoUrl: ''
-    }
-  },
-  created() {
-    // 获取用户名
-    this.userName = JSON.parse(getLoginUserInfo()).username;
-    // 初始化获取页头信息
-    this.getWebTop();
-  },
-  methods: {
-    // 导航栏选择点击事件
-    handleSelect(key, keyPath) {
-      switch (key) {
-        case 'webSiteHomePage': {
-          this.$router.push('websiteHomePage');
-          break;
-        }
-        case 'userManage': {
-          this.$router.push('userManage');
-          break;
-        }
-        case 'myWebSite': {
-          this.$router.push('myWebSite');
-          break;
-        }
-        case 'partsType': {
-          this.$router.push({
-            path: 'systemSet',
-            query: {
-              component: 'partsType'
-            }
-          });
-          break;
-        }
-        default : {
-          this.$router.push('websiteHomePage');
-        }
+
+  export default {
+    name: 'Header',
+    data() {
+      return {
+        activeIndex: '1',
+        userName: '',
+        webTopList: [],
+        logoUrl: ''
       }
     },
-
-    // 退出登录
-    quit: function () {
-      this.messageBox.confirm(this.$t('rs.staticText.30000000003'), this.$t('rs.staticText.30000000008'), () => {
-      }, () => {
-        // 确定
-        // 清除用户信息
-        sessionStorage.clear();
-        this.$router.push('/');
-      }, () => {
-        // 取消
-      });
+    created() {
+      // 获取用户名
+      this.userName = JSON.parse(getLoginUserInfo()).username;
+      // 初始化获取页头信息
+      this.getWebTop();
     },
-
-    // 获取表头信息
-    getWebTop: function () {
-      let webTopRequestVO = new WebTopRequestVO(this.ProtocolContent.webtop);
-      this.communicateManger.httpCommunicate.getResponseVO(webTopRequestVO, "/webTop/query/list").then((WebTopResponseVO) => {
-        if (WebTopResponseVO.getStatus == 1000) {
-          this.webTopList = WebTopResponseVO.resultList
-          if (Tools.isNull(this.webTopList)) {
-            // 使用默认的logo
-            this.logoUrl = '../../../assets/logo.png';
-          } else {
-            // 默认使用第一条数据的logo
-            this.logoUrl = this.webTopList[0].logoUrl;
+    methods: {
+      // 导航栏选择点击事件
+      handleSelect(key, keyPath) {
+        switch (key) {
+          case 'webSiteHomePage': {
+            this.$router.push('websiteHomePage');
+            break;
           }
-        } else {
-          this.messageBox.error(WebTopResponseVO.getMsg)
+          case 'userManage': {
+            this.$router.push('userManage');
+            break;
+          }
+          case 'myWebSite': {
+            this.$router.push('myWebSite');
+            break;
+          }
+          case 'partsType': {
+            this.$router.push({
+              path: 'systemSet',
+              query: {
+                component: 'partsType'
+              }
+            });
+            break;
+          }
+          default : {
+            this.$router.push('websiteHomePage');
+          }
         }
-      }).catch(() => {
-        this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
-      })
-    },
+      },
+
+      // 退出登录
+      quit: function () {
+        this.messageBox.confirm(this.$t('rs.staticText.30000000003'), this.$t('rs.staticText.30000000008'), () => {
+        }, () => {
+          // 确定
+          // 清除用户信息
+          sessionStorage.clear();
+          this.$router.push('/');
+        }, () => {
+          // 取消
+        });
+      },
+
+      // 获取表头信息
+      getWebTop: function () {
+        let webTopRequestVO = new WebTopRequestVO(this.ProtocolContent.webtop);
+        this.communicateManger.httpCommunicate.getResponseVO(webTopRequestVO, "/webTop/query/list").then((WebTopResponseVO) => {
+          if (WebTopResponseVO.getStatus == 1000) {
+            this.webTopList = WebTopResponseVO.resultList
+            if (Tools.isNull(this.webTopList)) {
+              // 使用默认的logo
+              this.logoUrl = '../../../assets/logo.png';
+            } else {
+              // 默认使用第一条数据的logo
+              this.logoUrl = this.webTopList[0].logoUrl;
+            }
+          } else {
+            this.messageBox.error(WebTopResponseVO.getMsg)
+          }
+        }).catch(() => {
+          this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
+        })
+      },
+    }
   }
-}
 </script>
 
 <style>

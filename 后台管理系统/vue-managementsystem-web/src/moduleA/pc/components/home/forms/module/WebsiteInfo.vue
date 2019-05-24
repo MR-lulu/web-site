@@ -21,8 +21,8 @@
         <el-form-item :label="$t('rs.moduleA.20000000129') /*网站地址*/" prop="webAddress">
           <el-input v-model="formData.webAddress" :placeholder="$t('rs.moduleA.20000000130') /*请输入网站地址*/"></el-input>
         </el-form-item>
-        <el-form-item :label="$t('rs.moduleA.20000000040') /*绑定邮箱*/" prop="mail">
-          <el-input v-model="formData.mail" :placeholder="$t('rs.moduleA.20000000041') /*请输入绑定的邮箱*/"></el-input>
+        <el-form-item :label="$t('rs.moduleA.20000000040') /*绑定邮箱*/" prop="email">
+          <el-input v-model="formData.email" :placeholder="$t('rs.moduleA.20000000041') /*请输入绑定的邮箱*/"></el-input>
         </el-form-item>
         <el-form-item :label="$t('rs.moduleA.20000000131') /*网站简介*/" prop="webShortInfo">
           <el-input v-model="formData.webShortInfo" type="textarea" :placeholder="$t('rs.moduleA.20000000132') /*请输入网站简介*/"></el-input>
@@ -60,6 +60,7 @@
 <script>
   import WebSiteInfoAddOrModifyRequestVO from '@/moduleA/common/js/model/WebSiteInfoAddOrModifyRequestVO.js'
   import Tools from '@/commonjs/util/mall.tools.js'
+  import { mapState } from 'vuex'
 
   export default {
     name: "WebsiteInfo",
@@ -73,7 +74,7 @@
           phone: '',
           application: '',
           webAddress: '',
-          mail: '',
+          email: '',
           webShortInfo: '',
           ownerShortInfo: '',
           remarks: '',
@@ -110,7 +111,7 @@
             {required: true, message: this.$t('rs.moduleA.20000000130'), trigger: 'change'},
             {pattern: /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\*\+,;=.]+$/, message: this.$t('rs.staticText.30000000042')}
           ],
-          mail: [
+          email: [
             {type: 'email', required: true, message: this.$t('rs.staticText.30000000013'), trigger: 'change'}
           ],
           webShortInfo: [
@@ -123,7 +124,23 @@
       }
     },
 
+    computed: {
+      ...mapState(['webModuleTreeClickType']),
+    },
+
     created() {
+      // 初始化formData
+      if (!Tools.isNull(this.webModuleTreeClickType.object)) {
+        this.formData = this.webModuleTreeClickType.object;
+      }
+    },
+
+    watch: {
+      webModuleTreeClickType: function (newValue, oldValue) {
+        if (newValue) {
+          this.formData = this.webModuleTreeClickType.object;
+        }
+      }
     },
 
     methods: {
@@ -153,7 +170,7 @@
         webSiteInfoAddOrModifyRequestVO.application = this.formData.application;
         webSiteInfoAddOrModifyRequestVO.webAddress = this.formData.webAddress;
         webSiteInfoAddOrModifyRequestVO.remarks = this.formData.remarks;
-        webSiteInfoAddOrModifyRequestVO.mail = this.formData.mail;
+        webSiteInfoAddOrModifyRequestVO.email = this.formData.email;
         webSiteInfoAddOrModifyRequestVO.webShortInfo = this.formData.webShortInfo;
         webSiteInfoAddOrModifyRequestVO.ownerShortInfo = this.formData.ownerShortInfo;
         webSiteInfoAddOrModifyRequestVO.status = this.formData.status;
@@ -162,6 +179,8 @@
         this.communicateManger.httpCommunicate.getResponseVO(webSiteInfoAddOrModifyRequestVO, "/webInfo/addOrModify").then((WebSiteInfoAddOrModifyResponseVO) => {
           if (WebSiteInfoAddOrModifyResponseVO.getStatus == 1000 && WebSiteInfoAddOrModifyResponseVO.getResultCode > 0) {
             this.messageBox.success(WebSiteInfoAddOrModifyResponseVO.getMsg);
+            // 通知更新树
+            this.$store.commit('setUpdateWebModuleTreeFlag', Math.ceil(Math.random() * 10000));
           } else {
             this.messageBox.error(WebSiteInfoAddOrModifyResponseVO.getMsg);
           }
