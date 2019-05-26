@@ -107,7 +107,7 @@
 
     watch: {
       webModuleTreeClickType: function (newValue, oldValue) {
-        if (newValue) {
+        if (newValue && !Tools.isNull(newValue)) {
           this.formData = this.webModuleTreeClickType.object;
         }
       }

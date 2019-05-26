@@ -60,8 +60,6 @@
       this.userLevel = JSON.parse(getLoginUserInfo()).level;
       // 获取数据树信息
       this.getWebModuleTree();
-      // 获取公共信息
-      this.getCommonInfo();
     },
 
     watch: {
@@ -108,6 +106,7 @@
             this.webModuleTreeClickType.flag = 'webInfo';
           }else {
             // 点击公共信息
+            return;
           }
         }else if (this.webModuleTreeClickType.level == 3) {
           // 点击第三层树节点文本
@@ -149,6 +148,7 @@
 
       // 获取数据树
       getWebModuleTree: function () {
+        let _that = this;
         let webModuleTreeRequestVO = new WebModuleTreeRequestVO(this.ProtocolContent.webModuleTree);
         this.communicateManger.httpCommunicate.getResponseVO(webModuleTreeRequestVO, "/navigation/query/all").then((WebModuleTreeResponseVO) => {
           if (WebModuleTreeResponseVO.getStatus == 1000) {
@@ -214,6 +214,8 @@
               webInfo.id = -3;
               this.treeData[0].children.push(webInfo);
             }
+            // 获取公共信息
+            _that.getCommonInfo();
           } else {
             this.messageBox.error(WebModuleTreeResponseVO.getMsg);
           }
@@ -234,6 +236,8 @@
                 commonInfo.id = CommonInfoResponseVO.resultList[i].commonInfoId;
                 commonInfo.label = this.$t('rs.moduleA.20000000145'); //背景图片
                 this.commonInfoArray.push(commonInfo);
+                // 此处break的目的是只取第一条数据
+                break;
               }
               if (!Tools.isNull(this.commonInfoArray)) {
                 let object = new Object;

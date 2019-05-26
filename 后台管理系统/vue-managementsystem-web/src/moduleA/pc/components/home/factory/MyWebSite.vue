@@ -30,7 +30,9 @@
           <!--网站信息-->
           <WebsiteInfo v-else-if="isRouterAlive == 'WebsiteInfo'"></WebsiteInfo>
           <!--网站背景图片-->
-          <BackgroundimgAdd v-else="isRouterAlive == 'BackgroundimgAdd'"></BackgroundimgAdd>
+          <BackgroundimgAdd v-else-if="isRouterAlive == 'BackgroundimgAdd'"></BackgroundimgAdd>
+          <!--默认显示说明-->
+          <IndexExplain v-else="isRouterAlive == 'IndexExplain'"></IndexExplain>
         </div>
       </el-main>
     </el-container>
@@ -38,6 +40,7 @@
 </template>
 
 <script>
+  import IndexExplain from '@/moduleA/pc/components/home/forms/module/IndexExplain.vue'
   import WebModuleTree from '@/moduleA/pc/components/home/trees/WebModuleTree.vue'
   import NavigationAdd from '@/moduleA/pc/components/home/forms/module/NavigationAdd.vue'
   import NavigationDetail from '@/moduleA/pc/components/home/forms/module/NavigationDetail.vue'
@@ -54,6 +57,7 @@
   export default {
     name: "MyWebSite",
     components: {
+      IndexExplain,
       WebModuleTree,
       NavigationAdd,
       NavigationDetail,
@@ -68,7 +72,7 @@
     },
     data() {
       return {
-        isRouterAlive: 'BackgroundimgAdd',
+        isRouterAlive: 'IndexExplain',
         webModuleTreeClickTypeNew: null,
         webModuleTree1New: null
       }
@@ -97,7 +101,10 @@
             }
           }else if(this.webModuleTreeClickTypeNew.clickType == 'display') {
             // 点击display查看明细按钮
-            if (this.webModuleTreeClickTypeNew.level == 2) {
+            if (this.webModuleTreeClickTypeNew.level == 1) {
+              // 打开默认页面
+              this.isRouterAlive = 'IndexExplain';
+            } else if (this.webModuleTreeClickTypeNew.level == 2) {
               if (this.webModuleTreeClickTypeNew.flag == 'navigation') {
                 // 查看导航
                 this.isRouterAlive = 'NavigationDetail'

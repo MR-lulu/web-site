@@ -12,7 +12,7 @@
             :on-success="uploadSuccess"
             :on-error="uploadError"
             :before-upload="beforeAvatarUpload">
-            <img v-if="imageUrl" :src="imageUrl" class="avatar">
+            <img v-if="formData.bgUrl" :src="formData.bgUrl" class="avatar">
             <i v-else class="el-icon-plus avatar-uploader-icon"></i>
             <div class="el-upload__tip" slot="tip">{{$t('rs.staticText.30000000032') + 'jpeg, png, gif,ico'}}，{{$t('rs.staticText.30000000033') + uploadImgSize + 'M'}}
             </div>
@@ -31,11 +31,11 @@
             <el-radio :label="2">{{$t('rs.moduleA.20000000060')}}</el-radio>
           </el-radio-group>
         </el-form-item>
-        <el-form-item :label="$t('rs.moduleA.20000000027') /*创建时间*/">
-          <el-input v-model="formData.serverCreateTime" disabled></el-input>
+        <el-form-item :label="$t('rs.moduleA.20000000027') /*创建时间*/" prop="serverCreateTime">
+          <el-date-picker type="date" v-model="formData.serverCreateTime" format="yyyy-MM-dd HH:mm:ss" disabled></el-date-picker>
         </el-form-item>
-        <el-form-item :label="$t('rs.moduleA.20000000050') /*修改时间*/">
-          <el-input v-model="formData.serverUpdateTime" disabled></el-input>
+        <el-form-item :label="$t('rs.moduleA.20000000050') /*修改时间*/" prop="serverUpdateTime">
+          <el-date-picker type="date" v-model="formData.serverUpdateTime" format="yyyy-MM-dd HH:mm:ss" disabled></el-date-picker>
         </el-form-item>
       </el-form>
 
@@ -52,6 +52,8 @@
 <script>
   import Config from '@/framework/common/config/Config.js'
   import BackgroundimgAddOrModifyRequestVO from '@/moduleA/common/js/model/BackgroundimgAddOrModifyRequestVO.js'
+  import Tools from '@/commonjs/util/mall.tools.js'
+  import { mapState } from 'vuex'
 
   export default {
     name: "BackgroundimgAdd",
@@ -64,6 +66,7 @@
         imageUrl: '',
         formData: {
           commonInfoId: '',
+          bgUrl: '',
           remarks: '',
           status: '',
           serverCreateTime: '',
@@ -72,11 +75,27 @@
       }
     },
 
+    computed: {
+      ...mapState(['webModuleTreeClickType']),
+    },
+
     created() {
       // 初始化图片上传地址
       this.uploadImgUrl = Config.uploadImgUrl;
       // 初始化图片上传大小限制
       this.uploadImgSize = Config.uploadImgSize;
+      // 初始化formData
+      if (!Tools.isNull(this.webModuleTreeClickType.object)) {
+        this.formData = this.webModuleTreeClickType.object;
+      }
+    },
+
+    watch: {
+      webModuleTreeClickType: function (newValue, oldValue) {
+        if (newValue && !Tools.isNull(newValue)) {
+          this.formData = this.webModuleTreeClickType.object;
+        }
+      }
     },
 
     methods: {
@@ -91,17 +110,12 @@
       },
       // 上传成功
       uploadSuccess(response, file, fileList) {
-        console.log(response);
-        console.log(file);
-        console.log(fileList);
-        this.imageUrl = URL.createObjectURL(file.raw);
+        this.formData.bgUrl = response.data;
       },
 
       // 上传失败
       uploadError: function (err, file, fileList) {
-        console.log(err);
-        console.log(file);
-        console.log(fileList);
+        this.$message.error(this.$t('rs.staticText.30000000045'));  // 图片上传失败, 请重新上传
       },
 
       // 图片上传之前操作
@@ -120,13 +134,16 @@
       // 修改网站背景图片
       updateBackgroundimg: function () {
         let backgroundimgAddOrModifyRequestVO = new BackgroundimgAddOrModifyRequestVO(this.ProtocolContent.partAddOrModify);
-        backgroundimgAddOrModifyRequestVO.bgUrl = this.imageUrl;
-        backgroundimgAddOrModifyRequestVO.bgUrl = this.imageUrl;
+        backgroundimgAddOrModifyRequestVO.bgUrl = this.formData.bgUrl;
+        backgroundimgAddOrModifyRequestVO.remarks = this.formData.remarks;
+        backgroundimgAddOrModifyRequestVO.status = this.formData.status;
         backgroundimgAddOrModifyRequestVO.commonInfoId = this.formData.commonInfoId;
 
         this.communicateManger.httpCommunicate.getResponseVO(backgroundimgAddOrModifyRequestVO, "/commonInfo/addOrModify").then((BackgroundimgAddOrModifyResponseVO) => {
           if (BackgroundimgAddOrModifyResponseVO.getStatus == 1000 && BackgroundimgAddOrModifyResponseVO.getResultCode > 0) {
             this.messageBox.success(BackgroundimgAddOrModifyResponseVO.getMsg);
+            // 通知更新树
+            this.$store.commit('setUpdateWebModuleTreeFlag', Math.ceil(Math.random() * 10000));
           } else {
             this.messageBox.error(BackgroundimgAddOrModifyResponseVO.getMsg);
           }
@@ -181,5 +198,10 @@
   .backgroundimg-add .el-radio-group {
     float: left;
     padding-top: 10px;
+  }
+
+  .backgroundimg-add .el-date-editor.el-input, .el-date-editor.el-input__inner {
+    /* width: 50%; */
+    float: left;
   }
 </style>
