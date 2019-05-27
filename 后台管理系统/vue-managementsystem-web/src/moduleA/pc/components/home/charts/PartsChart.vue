@@ -6,25 +6,34 @@
 </template>
 
 <script>
+  import PartsRequestVO from '@/moduleA/common/js/model/PartsRequestVO.js'
+  import Tools from '@/commonjs/util/mall.tools.js'
+
   export default {
     name: "PartsChart",
     data() {
       return {
-        screenWidth: document.body.clientWidth,   // 这里是给到了一个默认值,浏览器窗口大小 （这个很重要）
+        screenWidth: document.body.clientWidth, // 这里是给到了一个默认值,浏览器窗口大小 （这个很重要）
         myChart: null,  //图表实例
+        partsChartTimer: '',  // 定时器
+        dataAxis: [],
+        data: []
       }
     },
     created() {
-
+      // 进入先请求一次数据
+      this.getPartsListOne();
+      // 定时获取零件信息
+      this.getPartsList();
     },
     mounted() {
-      // 初始化图表数据
-      this.echartDataInit()
+      // // 初始化图表数据
+      // this.echartDataInit()
       //监听窗口大小改变
-      const that = this
+      const _that = this
       window.onresize = () => {
         return (() => {
-          that.screenWidth = document.body.clientWidth
+          _that.screenWidth = document.body.clientWidth
         })()
       }
     },
@@ -40,12 +49,75 @@
       }
     },
 
+    // 离开页面时，销毁定时器
+    beforeDestroy() {
+      // 页面跳转,销毁定时器
+      clearInterval(this.partsChartTimer);
+    },
+
     methods: {
+      // 进入获取一次零件信息
+      getPartsListOne: function() {
+        let _that = this;
+        let partsRequestVO = new PartsRequestVO(this.ProtocolContent.parts);
+        this.communicateManger.httpCommunicate.getResponseVO(partsRequestVO, "/parts/query/list").then((PartsResponseVO) => {
+          if (PartsResponseVO.getStatus == 1000) {
+            if (!Tools.isNull(PartsResponseVO.resultList) && PartsResponseVO.resultList.length > 0) {
+              // 组装数据
+              this.dataAxis = new Array();
+              this.data = new Array();
+              for (let item of PartsResponseVO.resultList) {
+                this.dataAxis.push(item.name);
+                this.data.push(item.click);
+              }
+              // 初始化图表数据
+              _that.echartDataInit();
+            }
+          } else {
+            this.messageBox.error(PartsResponseVO.getMsg);
+          }
+        }).catch(() => {
+          this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
+        })
+      },
+
+      // 定时获取零件信息
+      getPartsList: function() {
+        // 先清除定时器
+        clearInterval(this.partsChartTimer);
+        //定时器，10s查询一次
+        this.partsChartTimer = setInterval(() => {
+          let _that = this;
+          let partsRequestVO = new PartsRequestVO(this.ProtocolContent.parts);
+          this.communicateManger.httpCommunicate.getResponseVO(partsRequestVO, "/parts/query/list").then((PartsResponseVO) => {
+            if (PartsResponseVO.getStatus == 1000) {
+              if (!Tools.isNull(PartsResponseVO.resultList) && PartsResponseVO.resultList.length > 0) {
+                // 组装数据
+                this.dataAxis = new Array();
+                this.data = new Array();
+                for (let item of PartsResponseVO.resultList) {
+                  this.dataAxis.push(item.name);
+                  this.data.push(item.click);
+                }
+                // 初始化图表数据
+                _that.echartDataInit();
+              }
+            } else {
+              this.messageBox.error(PartsResponseVO.getMsg);
+            }
+          }).catch(() => {
+            this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
+          })
+        }, 1000 * 10)
+      },
+
       //图表数据初始化，格式化
       echartDataInit: function () {
-        let dataAxis = ['点0010101019', '击', '柱', '子', '或', '者', '两', '指', '在', '触', '屏', '上', '滑', '动', '能', '够', '自', '动', '缩', '放'];
-        let data = [220, 182, 191, 234, 290, 330, 310, 123, 442, 321, 90, 149, 210, 122, 133, 334, 198, 123, 125, 220];
-        this.myChart = this.drawLine(dataAxis, data, '零件点击量统计图');
+        // let dataAxis = ['点0010101019', '击', '柱', '子', '或', '者', '两', '指', '在', '触', '屏', '上', '滑', '动', '能', '够', '自', '动', '缩', '放'];
+        // let data = [220, 182, 191, 234, 290, 330, 310, 123, 442, 321, 90, 149, 210, 122, 133, 334, 198, 123, 125, 220];
+        if (!Tools.isNull(this.dataAxis) && !Tools.isNull(this.data)) {
+          this.myChart = this.drawLine(this.dataAxis, this.data, '零件点击量统计图');
+        }
       },
 
       // 绘制图表
@@ -132,8 +204,8 @@
 
         });
         return myChart;
-      }
-    }
+      },
+    },
   }
 </script>
 

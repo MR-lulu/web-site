@@ -24,6 +24,8 @@ import BackgroundimgAddOrModifyResponseVO from "../moduleA/common/js/model/Backg
 import WebModuleTreeResponseVO from "../moduleA/common/js/model/WebModuleTreeResponseVO";
 import ModulesByIdResponseVO from "../moduleA/common/js/model/ModulesByIdResponseVO";
 import CommonInfoResponseVO from "../moduleA/common/js/model/CommonInfoResponseVO";
+import PartsResponseVO from "../moduleA/common/js/model/PartsResponseVO";
+
 
 
 /**
@@ -57,6 +59,7 @@ export const ModuleAProtocolContent = {
   webModuleTree: 'webModuleTree',
   modulesById: 'modulesById',
   commonInfo: 'commonInfo',
+  parts: 'parts',
 
 }
 /**
@@ -90,5 +93,6 @@ export const ModuleAProtocolConfig = {
   'webModuleTree': {name: 'webModuleTree', responseVO: new WebModuleTreeResponseVO()},  // 获取网站组件
   'modulesById': {name: 'modulesById', responseVO: new ModulesByIdResponseVO()},  // 获取模块
   'commonInfo': {name: 'commonInfo', responseVO: new CommonInfoResponseVO()},  // 获取公共信息
+  'parts': {name: 'parts', responseVO: new PartsResponseVO()},  // 获取零件列表
 
 }
