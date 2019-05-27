@@ -42,7 +42,7 @@
       //监听窗口大小改变
       screenWidth(val) {
         this.screenWidth = val
-        // 销毁图标实例
+        // 销毁图表实例
         this.myChart.dispose();
         // 初始化图表数据
         this.echartDataInit()
@@ -53,6 +53,8 @@
     beforeDestroy() {
       // 页面跳转,销毁定时器
       clearInterval(this.partsChartTimer);
+      // 销毁图表实例
+      this.myChart.dispose();
     },
 
     methods: {
