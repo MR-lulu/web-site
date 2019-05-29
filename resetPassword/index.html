@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>重置密码</title>
+
+        <!-- Javascript -->
+        <script src="assets/js/jquery-1.11.1.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery.backstretch.min.js"></script>
+        <script src="assets/js/scripts.js"></script>
+        <script src="assets/js/md5.js"></script>
+        <script src="assets/bootstrap/js/bootstrap-select.min.js"></script>
+        <script src="assets/bootstrap/js/i18n/defaults-zh_CN.min.js"></script>
+        
+        <!--[if lt IE 10]>
+            <script src="assets/js/placeholder.js"></script>
+        <![endif]-->
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="assets/css/form-elements.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link href="assets/bootstrap/css/bootstrap-select.min.css" rel="stylesheet" />
+
+        <style>
+            .top-content .text {
+                color: black;
+            }
+            .bootstrap-select .dropdown-toggle .filter-option-inner-inner {
+                overflow: hidden;
+                color: #888;
+            }
+        </style>
+
+        <script>
+            $(function(){
+                function createJson() {
+                    const json = {
+                        "ptn": "getUserInfoList",
+                    };
+                    return json;
+                }
+
+                // 初始化，获取用户列表信息
+                $.ajax({
+                    type: "POST",
+                    url: "http://114.115.167.76:8085/mall/user/query/list",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(createJson()),  //JSON.stringify()
+                    dataType: "json",
+                    success: function (data) {
+                        for (let item of data.data) {
+                            if (item.level === 1) {
+                                $("#supperAdmin").append("<option value="+item.userId+">"+item.username+"</option>");
+                            }else {
+                                $("#simpleAdmin").append("<option value="+item.userId+">"+item.username+"</option>");                               $("#simple-admin").append("<option value="+item.userId+">"+item.username+"</option>");
+                            }
+                        }
+                    },
+                    error: function (data) {
+                        alert("服务器错误，请求管理员信息失败!");
+                    }
+                });
+
+                // 重置用户密码，发送请求到服务器
+                $("#btn").click(function() {
+                    const json = {
+                        "ptn": "getUserInfoList",
+                    }
+                    const ids = $('.selectpicker').val();
+                    json.ids = ids;
+                    console.log(json);
+
+                    //$.md5()
+                    // $.ajax({
+                    //     type: "POST",
+                    //     url: "http://114.115.167.76:8085/mall/reset/password",
+                    //     contentType: "application/json; charset=utf-8",
+                    //     data: JSON.stringify(json),  //JSON.stringify()
+                    //     dataType: "json",
+                    //     success: function (data) {
+                    //         console.log(data);
+                    //     },
+                    //     error: function (data) {
+                    //         console.log(data);
+                    //         alert("服务器错误，请求管理员信息失败!");
+                    //     }
+                    // });
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <!-- Top content -->
+        <div class="top-content">	
+            <div class="inner-bg">
+                <div class="container">
+                    <div class="row">
+                        <select class="form-control selectpicker" data-live-search="true" multiple data-style="btn-warning">
+                            <optgroup label="超级管理员" id="supperAdmin">
+                            </optgroup>
+                            <optgroup label="普通管理员" id="simpleAdmin">
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3 form-box">
+                        	<div class="form-top">
+                        		<div class="form-top-left">
+                        		</div>
+                            </div>
+                            <div class="form-bottom">
+			                    <form role="form" action="" method="post" class="login-form">
+                                   <!-- 新密码 -->
+                                    <div class="form-group">
+                                        <label class="sr-only" for="form-password">password</label>
+                                        <input type="password" name="form-password" placeholder="请输入新密码..." class="form-password form-control" id="form-password">
+                                    </div>
+
+                                   <!--  重复输入新密码 -->
+                                    <div class="form-group">
+                                        <label class="sr-only" for="form-password">repassword</label>
+                                        <input type="password" name="form-repassword" placeholder="请重复输入新密码..." class="form-password form-control" id="form-repassword">
+                                    </div>
+
+                                    <!-- 隐藏的输入框，可作为一些数据传输 -->
+                                    <div>
+                                        <input type="hidden" name="userID" id="userID" value="赋值">
+                                    </div>
+
+                                    <div class="errorTips">
+                                        <span>两次密码输入不相同，请重新输入!</span>
+                                    </div>
+
+                                    <!-- 修改按钮 -->
+			                        <button id="btn" type="submit" class="sumbitBtn">确认修改</button>
+			                    </form>
+		                    </div>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
