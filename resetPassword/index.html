@@ -10,10 +10,10 @@
         <script src="assets/js/jquery-1.11.1.min.js"></script>
         <script src="assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="assets/js/jquery.backstretch.min.js"></script>
-        <script src="assets/js/scripts.js"></script>
         <script src="assets/js/md5.js"></script>
         <script src="assets/bootstrap/js/bootstrap-select.min.js"></script>
         <script src="assets/bootstrap/js/i18n/defaults-zh_CN.min.js"></script>
+        <script src="assets/js/operator.js"></script>
         
         <!--[if lt IE 10]>
             <script src="assets/js/placeholder.js"></script>
@@ -34,65 +34,17 @@
                 overflow: hidden;
                 color: #888;
             }
+            .col-sm-3 {
+                width: 50%;
+                float: none;
+                margin: 15px auto;
+            }
+            .col-sm-4 {
+                width: 50%;
+                float: none;
+                margin: 0 auto;
+            }
         </style>
-
-        <script>
-            $(function(){
-                function createJson() {
-                    const json = {
-                        "ptn": "getUserInfoList",
-                    };
-                    return json;
-                }
-
-                // 初始化，获取用户列表信息
-                $.ajax({
-                    type: "POST",
-                    url: "http://114.115.167.76:8085/mall/user/query/list",
-                    contentType: "application/json; charset=utf-8",
-                    data: JSON.stringify(createJson()),  //JSON.stringify()
-                    dataType: "json",
-                    success: function (data) {
-                        for (let item of data.data) {
-                            if (item.level === 1) {
-                                $("#supperAdmin").append("<option value="+item.userId+">"+item.username+"</option>");
-                            }else {
-                                $("#simpleAdmin").append("<option value="+item.userId+">"+item.username+"</option>");                               $("#simple-admin").append("<option value="+item.userId+">"+item.username+"</option>");
-                            }
-                        }
-                    },
-                    error: function (data) {
-                        alert("服务器错误，请求管理员信息失败!");
-                    }
-                });
-
-                // 重置用户密码，发送请求到服务器
-                $("#btn").click(function() {
-                    const json = {
-                        "ptn": "getUserInfoList",
-                    }
-                    const ids = $('.selectpicker').val();
-                    json.ids = ids;
-                    console.log(json);
-
-                    //$.md5()
-                    // $.ajax({
-                    //     type: "POST",
-                    //     url: "http://114.115.167.76:8085/mall/reset/password",
-                    //     contentType: "application/json; charset=utf-8",
-                    //     data: JSON.stringify(json),  //JSON.stringify()
-                    //     dataType: "json",
-                    //     success: function (data) {
-                    //         console.log(data);
-                    //     },
-                    //     error: function (data) {
-                    //         console.log(data);
-                    //         alert("服务器错误，请求管理员信息失败!");
-                    //     }
-                    // });
-                });
-            });
-        </script>
     </head>
 
     <body>
@@ -101,12 +53,17 @@
             <div class="inner-bg">
                 <div class="container">
                     <div class="row">
-                        <select class="form-control selectpicker" data-live-search="true" multiple data-style="btn-warning">
-                            <optgroup label="超级管理员" id="supperAdmin">
-                            </optgroup>
-                            <optgroup label="普通管理员" id="simpleAdmin">
-                            </optgroup>
-                        </select>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">管理员列表</label>
+                            <div class="col-sm-4">
+                                <select class="selectpicker show-tick form-control" multiple data-live-search="false" data-selected-text-format="count > 5">
+                                    <optgroup label="超级管理员" id="supperAdmin">
+                                    </optgroup>
+                                    <optgroup label="普通管理员" id="simpleAdmin">
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 form-box">
@@ -126,11 +83,6 @@
                                     <div class="form-group">
                                         <label class="sr-only" for="form-password">repassword</label>
                                         <input type="password" name="form-repassword" placeholder="请重复输入新密码..." class="form-password form-control" id="form-repassword">
-                                    </div>
-
-                                    <!-- 隐藏的输入框，可作为一些数据传输 -->
-                                    <div>
-                                        <input type="hidden" name="userID" id="userID" value="赋值">
                                     </div>
 
                                     <div class="errorTips">
