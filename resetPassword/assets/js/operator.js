@@ -62,6 +62,8 @@ $(function(){
             dataType: "json",
             success: function (data) {
                 alert(data.msg);
+                $('#myform')[0].reset();
+                $('.selectpicker').selectpicker('val', []).trigger("change");
             },
             error: function (data) {
                 alert(data.msg);
