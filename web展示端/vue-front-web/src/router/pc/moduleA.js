@@ -1,7 +1,7 @@
 let Home = resolve => require(['@/moduleA/pc/components/home/Home.vue'], resolve)
 let Header = resolve => require(['@/moduleA/pc/components/header/Header.vue'], resolve)
 
-export const ModuleARouterMap = [
+export const PC_ModuleARouterMap = [
   {
     path: '/home',
     component: Home
