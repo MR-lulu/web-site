@@ -36,8 +36,8 @@
       <div class="btn">
         <!--修改-->
         <el-button type="primary" @click="submitForm('formData')">{{$t('rs.moduleA.20000000044')}}</el-button>
-        <!--重置-->
-        <el-button @click="resetForm('formData')">{{$t('rs.moduleA.20000000045')}}</el-button>
+        <!--清空-->
+        <el-button @click="resetForm('formData')">{{$t('rs.moduleA.20000000149')}}</el-button>
       </div>
     </div>
   </div>

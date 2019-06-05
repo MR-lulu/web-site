@@ -13,6 +13,7 @@
     <div class="user-table">
       <el-table
         :data="tableData"
+        border
         style="width: 100%"
         height="500"
         :row-class-name="tableRowClassName"
@@ -162,6 +163,11 @@
           this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
         })
       },
+
+      // 更新留言状态
+      updateStatus: function () {
+
+      }
     },
   }
 </script>

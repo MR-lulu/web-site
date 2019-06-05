@@ -20,6 +20,9 @@
     mounted() {
       // 放在created里没有效果
       RENDERER.init();
+    },
+    beforeDestory() {
+      RENDERER.jdugeToStopResize();
     }
   }
 </script>

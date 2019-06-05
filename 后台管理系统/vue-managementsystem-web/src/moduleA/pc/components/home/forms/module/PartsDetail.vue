@@ -117,7 +117,8 @@
             {required: true, message: this.$t('rs.moduleA.20000000087'), trigger: 'blur'}
           ],
           priority: [
-            {required: true, message: this.$t('rs.moduleA.20000000089'), trigger: 'blur'}
+            {required: true, message: this.$t('rs.moduleA.20000000089'), trigger: 'blur'},
+            {pattern: /^-?[1-9]\d*$/, message: this.$t('rs.staticText.30000000046')}
           ],
           title: [
             {required: true, message: this.$t('rs.moduleA.20000000091'), trigger: 'blur'}

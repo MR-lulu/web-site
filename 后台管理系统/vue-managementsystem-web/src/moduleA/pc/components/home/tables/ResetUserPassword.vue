@@ -4,8 +4,8 @@
     <div class="top">
       <!--重置密码按钮-->
       <div class="reset-btn">
-        <!--重置密码-->
-        <el-button type="danger" v-on:click="resetUserPasswordList">{{$t('rs.moduleA.20000000046')}}</el-button>
+        <!--批量修改勾选密码-->
+        <el-button type="danger" v-on:click="resetUserPasswordList">{{$t('rs.moduleA.20000000150')}}</el-button>
       </div>
       <!--表名称-->
       <!--管理员信息表-->
@@ -15,6 +15,7 @@
     <div class="user-table">
       <el-table
         :data="tableData"
+        border
         style="width: 100%"
         height="500"
         :row-class-name="tableRowClassName"

@@ -25,6 +25,10 @@ import WebModuleTreeResponseVO from "../moduleA/common/js/model/WebModuleTreeRes
 import ModulesByIdResponseVO from "../moduleA/common/js/model/ModulesByIdResponseVO";
 import CommonInfoResponseVO from "../moduleA/common/js/model/CommonInfoResponseVO";
 import PartsResponseVO from "../moduleA/common/js/model/PartsResponseVO";
+import LeavelMsgAddOrModifyResponseVO from "../moduleA/common/js/model/LeavelMsgAddOrModifyResponseVO";
+import PartsInfoResponseVO from "../moduleA/common/js/model/PartsInfoResponseVO";
+import ModulesListResponseVO from "../moduleA/common/js/model/ModulesListResponseVO";
+import NavigationListResponseVO from "../moduleA/common/js/model/NavigationListResponseVO";
 
 
 
@@ -60,6 +64,10 @@ export const ModuleAProtocolContent = {
   modulesById: 'modulesById',
   commonInfo: 'commonInfo',
   parts: 'parts',
+  leavelMsgAddOrModify: 'leavelMsgAddOrModify',
+  partsInfo: 'partsInfo',
+  modulesList: 'modulesList',
+  navigationList: 'navigationList',
 
 }
 /**
@@ -94,5 +102,9 @@ export const ModuleAProtocolConfig = {
   'modulesById': {name: 'modulesById', responseVO: new ModulesByIdResponseVO()},  // 获取模块
   'commonInfo': {name: 'commonInfo', responseVO: new CommonInfoResponseVO()},  // 获取公共信息
   'parts': {name: 'parts', responseVO: new PartsResponseVO()},  // 获取零件列表
+  'leavelMsgAddOrModify': {name: 'leavelMsgAddOrModify', responseVO: new LeavelMsgAddOrModifyResponseVO()},  // 添加或修改用户留言信息
+  'partsInfo': {name: 'partsInfo', responseVO: new PartsInfoResponseVO()},  // 获取零件信息
+  'modulesList': {name: 'modulesList', responseVO: new ModulesListResponseVO()},  // 获取模块信息
+  'navigationList': {name: 'navigationList', responseVO: new NavigationListResponseVO()},  // 获取导航信息
 
 }

@@ -197,4 +197,12 @@
     margin-left: 5%;
     padding-top: 4%;
   }
+
+  .header .el-menu--horizontal > .el-menu-item {
+    font-size: 18px;
+  }
+
+  .header .el-menu--horizontal > .el-submenu .el-submenu__title {
+    font-size: 18px;
+  }
 </style>

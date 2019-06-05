@@ -35,4 +35,15 @@ export default {
 
 <style lang="less">
   @import url('~@/assets/theme/pc/blue/framework/css/common');
+
+  /*全局设置el-table的滚动条样式*/
+  .el-table__body-wrapper::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .el-table__body-wrapper::-webkit-scrollbar-thumb {
+    background-color: #ddd;
+    border-radius: 3px;
+  }
 </style>

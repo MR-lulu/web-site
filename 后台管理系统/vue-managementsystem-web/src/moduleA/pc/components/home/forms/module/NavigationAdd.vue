@@ -45,14 +45,15 @@
         },
         rules: {
           navigationUrl: [
-            {required: true, message: this.$t('rs.moduleA.20000000064'), trigger: 'blur'},
+            {required: false, message: this.$t('rs.moduleA.20000000064'), trigger: 'blur'},
             {pattern: /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\*\+,;=.]+$/, message: this.$t('rs.staticText.30000000042')}
           ],
           name: [
             {required: true, message: this.$t('rs.moduleA.20000000062'), trigger: 'blur'}
           ],
           priority: [
-            {required: true, message: this.$t('rs.moduleA.20000000066'), trigger: 'blur'}
+            {required: true, message: this.$t('rs.moduleA.20000000066'), trigger: 'blur'},
+            {pattern: /^-?[1-9]\d*$/, message: this.$t('rs.staticText.30000000046')}
           ],
           site: [
             {required: false, message: this.$t('rs.moduleA.20000000072'), trigger: 'blur'}

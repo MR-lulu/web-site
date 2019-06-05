@@ -8,6 +8,7 @@
     <div class="user-table">
       <el-table
         :data="tableData"
+        border
         style="width: 100%"
         height="500"
         :row-class-name="tableRowClassName"
