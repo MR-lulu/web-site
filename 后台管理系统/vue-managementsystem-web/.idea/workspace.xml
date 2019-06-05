@@ -3,27 +3,34 @@
   <component name="ChangeListManager">
     <list default="true" id="492d3b0c-15a7-4f67-a572-0f6fb20c52fc" name="Default" comment="完善页头页尾功能">
       <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles" afterDir="true" />
-      <change afterPath="$PROJECT_DIR$/src/moduleA/common/js/model/ModuleAddOrModifyRequestVO.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/moduleA/common/js/model/ModuleAddOrModifyResponseVO.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/moduleA/common/js/model/NavigationAddOrModifyRequestVO.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/moduleA/common/js/model/NavigationAddOrModifyResponseVO.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/moduleA/common/js/model/NavigationDeleteRequestVO.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/moduleA/common/js/model/NavigationDeleteResponseVO.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/moduleA/common/js/model/PartAddOrModifyRequestVO.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/moduleA/common/js/model/PartAddOrModifyResponseVO.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/moduleA/common/js/model/WebBottomAddOrModifyRequestVO.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/moduleA/common/js/model/WebBottomAddOrModifyResponseVO.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/moduleA/common/js/model/WebTopAddOrModifyRequestVO.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/moduleA/common/js/model/WebTopAddOrModifyResponseVO.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/moduleA/common/js/model/LeavelMsgAddOrModifyRequestVO.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/moduleA/common/js/model/LeavelMsgAddOrModifyResponseVO.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/moduleA/common/js/model/ModulesListRequestVO.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/moduleA/common/js/model/ModulesListResponseVO.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/moduleA/common/js/model/NavigationListRequestVO.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/moduleA/common/js/model/NavigationListResponseVO.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/moduleA/common/js/model/PartsInfoRequestVO.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/moduleA/common/js/model/PartsInfoResponseVO.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/moduleA/pc/components/home/tables/PartsClickCount.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/pc/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/pc/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/locale/lang/zh-CN/moduleA.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/locale/lang/zh-CN/moduleA.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/locale/lang/zh-CN/staticText.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/locale/lang/zh-CN/staticText.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/moduleA/common/js/model/PartsRequestVO.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/moduleA/common/js/model/PartsRequestVO.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/moduleA/common/js/model/PartsResponseVO.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/moduleA/common/js/model/PartsResponseVO.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/moduleA/pc/components/home/factory/MyWebSite.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/moduleA/pc/components/home/factory/MyWebSite.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/moduleA/pc/components/header/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/moduleA/pc/components/header/Header.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/moduleA/pc/components/home/factory/WebsiteHomePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/moduleA/pc/components/home/factory/WebsiteHomePage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/UpdateUserInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/UpdateUserInfo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/IndexExplain.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/IndexExplain.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/ModuleAdd.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/ModuleAdd.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/ModuleDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/ModuleDetail.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/NavigationAdd.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/NavigationAdd.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/NavigationDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/NavigationDetail.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/PartsAdd.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/PartsAdd.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/PartsDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/PartsDetail.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/moduleA/pc/components/home/tables/PartsType.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/moduleA/pc/components/home/tables/PartsType.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/moduleA/pc/components/home/tables/ResetUserPassword.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/moduleA/pc/components/home/tables/ResetUserPassword.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/moduleA/pc/components/home/tables/UserMessages.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/moduleA/pc/components/home/tables/UserMessages.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/moduleA/pc/components/home/tables/UserRegistration.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/moduleA/pc/components/home/tables/UserRegistration.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/moduleA/pc/components/home/trees/WebModuleTree.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/moduleA/pc/components/home/trees/WebModuleTree.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/protocolConfig/moduleA.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/protocolConfig/moduleA.js" afterDir="false" />
     </list>
@@ -40,69 +47,63 @@
     <favorites_list name="vue-front" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/NavigationAdd.vue">
+        <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/tables/PartsClickCount.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="100" column="7" lean-forward="true" selection-start-line="82" selection-start-column="6" selection-end-line="100" selection-end-column="7" />
+            <state relative-caret-position="250">
+              <caret line="206" column="101" selection-start-line="206" selection-start-column="87" selection-end-line="206" selection-end-column="101" />
+              <folding>
+                <element signature="e#2615#2695#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/NavigationDetail.vue">
+        <entry file="file://$PROJECT_DIR$/src/protocolConfig/moduleA.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="65" column="25" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="25" />
+            <state relative-caret-position="115">
+              <caret line="64" selection-start-line="64" selection-end-line="69" />
               <folding>
-                <element signature="e#2496#2600#0" expanded="true" />
+                <element signature="e#0#76#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/NavigationAddOrModifyRequestVO.js">
+        <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/NavigationListRequestVO.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="8" column="21" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="21" />
+            <state relative-caret-position="75">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/locale/lang/zh-CN/moduleA.js">
+        <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/NavigationListResponseVO.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="59" column="22" lean-forward="true" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
+            <state relative-caret-position="350">
+              <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/NavigationDeleteResponseVO.js">
+        <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/ModulesListRequestVO.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/ModulesListResponseVO.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="12" column="41" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/locale/lang/zh-CN/staticText.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="27" column="14" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/NavigationDeleteRequestVO.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="12" column="40" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="40" />
+              <caret line="24" column="25" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -122,36 +123,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>handleAddForward</find>
-      <find>form</find>
-      <find>handleEdit</find>
-      <find>table_index</find>
-      <find>editLoading</find>
-      <find>dialogAddUserVisible</find>
-      <find>dialogModifyUserVisible</find>
-      <find>length</find>
-      <find>register_btn</find>
-      <find>logonType</find>
-      <find>enterHTTPCommunicate</find>
-      <find>index</find>
-      <find>initLanguageInfo</find>
-      <find>communicateManger</find>
-      <find>mengyu</find>
-      <find>enterURL</find>
-      <find>changeLanguage</find>
-      <find>80100000005</find>
-      <find>input-error</find>
-      <find>enterFileName</find>
-      <find>handleSelect</find>
-      <find>imageUrl</find>
-      <find>messageBox</find>
-      <find>formatDate</find>
-      <find>名称</find>
-      <find>导航名称</find>
-      <find>添加</find>
-      <find>;</find>
       <find>获取</find>
       <find>修改时间</find>
+      <find>模块类型</find>
+      <find>修改</find>
+      <find>删除</find>
+      <find>零件种类</find>
+      <find>partsRemark</find>
+      <find>零件状态</find>
+      <find>请输入其它联系方式</find>
+      <find>关于我们</find>
+      <find>自定义信息</find>
+      <find>联系方式</find>
+      <find>联系地址</find>
+      <find>请输入联系地址</find>
+      <find>联系电话</find>
+      <find>应用方向</find>
+      <find>网站邮箱</find>
+      <find>请输入绑定的邮箱</find>
+      <find>customMessage</find>
+      <find>网站备注</find>
+      <find>websiteRemark</find>
+      <find>partsTypeById</find>
+      <find>30000000026</find>
+      <find>output</find>
+      <find>assetsPublicPath</find>
+      <find>extract</find>
+      <find>drawImage</find>
+      <find>RENDERER</find>
+      <find>handleNodeClick</find>
+      <find>getPartsTypeList</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -164,6 +165,8 @@
       <replace>lyl</replace>
       <replace>= value;</replace>
       <replace>设置</replace>
+      <replace>selfInfo</replace>
+      <replace>remarks</replace>
     </replaceStrings>
     <dirStrings>
       <dir>D:\work\vue-front\src\demo\pc</dir>
@@ -181,62 +184,63 @@
       <dir>C:\Users\my\Desktop\VUE前端框架\demo-front</dir>
       <dir>D:\work\meng\pc-demo</dir>
       <dir>E:\我的项目\vue-managementsystem-web\src</dir>
+      <dir>E:\我的项目\vue-managementsystem-web</dir>
     </dirStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/LeaveMsgRequestVO.js" />
-        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/LeaveMsgResponseVO.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/WebSiteInfoAddOrModifyRequestVO.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/WebSiteInfoAddOrModifyResponseVO.js" />
         <option value="$PROJECT_DIR$/src/commonjs/util/mall.tools.js" />
-        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/RegistersInfoDeleteListRequestVO.js" />
-        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/RegistersInfoDeleteListResponseVO.js" />
-        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/LeaveMsgDeleteListRequestVO.js" />
-        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/LeaveMsgDeleteListResponseVO.js" />
-        <option value="$PROJECT_DIR$/src/store/sessionstorage/index.js" />
-        <option value="$PROJECT_DIR$/src/framework/pc/components/login/Login.vue" />
-        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/UpdateUserInfoRequestVO.js" />
-        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/UpdateUserInfoResponseVO.js" />
-        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/tables/UserMessages.vue" />
-        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/tables/UserRegistration.vue" />
-        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/UserInfoRequestVO.js" />
-        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/UserInfoListRequestVO.js" />
-        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/UserInfoListResponseVO.js" />
-        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/UserInfoResponseVO.js" />
-        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/UpdateUserInfo.vue" />
-        <option value="$PROJECT_DIR$/src/commonjs/util/MessageBoxTranslate.js" />
-        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/tables/ResetUserPassword.vue" />
-        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/PartsType.vue" />
-        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/tables/PartsType.vue" />
-        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/factory/UserManage.vue" />
-        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/factory/SystemSet.vue" />
-        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/PartsTypeRequestVO.js" />
-        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/PartsTypeResponseVO.js" />
-        <option value="$PROJECT_DIR$/src/router/pc/moduleA.js" />
-        <option value="$PROJECT_DIR$/src/moduleA/pc/components/header/Header.vue" />
-        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/trees/WebModuleTree.vue" />
-        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/NavigationRequestVO.js" />
-        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/NavigationResponseVO.js" />
-        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/NavigationAddOrModifyResponseVO.js" />
-        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/ModuleAddOrModifyResponseVO.js" />
-        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/WebTopAddOrModifyResponseVO.js" />
-        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/PartAddOrModifyResponseVO.js" />
-        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/WebTopAddOrModifyRequestVO.js" />
-        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/PartAddOrModifyRequestVO.js" />
-        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/ModuleAddOrModifyRequestVO.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/BackgroundimgAddOrModifyRequest.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/BackgroundimgAddOrModifyResponseVO.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/BackgroundimgAddOrModifyRequestVO.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/common/BackgroundimgAdd.vue" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/WebModuleTreeRequestVO.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/WebModuleTreeResponseVO.js" />
+        <option value="$PROJECT_DIR$/src/store/vuex/index.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/WebsiteInfo.vue" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/ModulesByIdRequestVO.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/ModulesByIdResponseVO.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/PartsTypeByIdResponseVO.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/CommonInfoRequestVO.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/CommonInfoResponseVO.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/factory/MyWebSite.vue" />
         <option value="$PROJECT_DIR$/src/moduleA/common/js/model/PartsResponseVO.js" />
         <option value="$PROJECT_DIR$/src/moduleA/common/js/model/PartsRequestVO.js" />
-        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/WebBottomAddOrModifyRequestVO.js" />
-        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/WebBottomAddOrModifyResponseVO.js" />
-        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/NavigationAddOrModifyRequestVO.js" />
-        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/factory/MyWebSite.vue" />
-        <option value="$PROJECT_DIR$/src/locale/lang/zh-CN/moduleA.js" />
-        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/NavigationAdd.vue" />
-        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/NavigationDeleteRequestVO.js" />
-        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/NavigationDeleteResponseVO.js" />
-        <option value="$PROJECT_DIR$/src/protocolConfig/moduleA.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/charts/PartsChart.vue" />
+        <option value="$PROJECT_DIR$/src/framework/pc/index.html" />
+        <option value="$PROJECT_DIR$/build/utils.js" />
+        <option value="$PROJECT_DIR$/config/index.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/LeavelMsgAddOrModifyRequest.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/LeavelMsgAddOrModifyResponseVO.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/UpdateUserInfo.vue" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/tables/UserMessages.vue" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/tables/UserRegistration.vue" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/tables/PartsType.vue" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/tables/ResetUserPassword.vue" />
+        <option value="$PROJECT_DIR$/src/framework/pc/App.vue" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/header/Header.vue" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/trees/WebModuleTree.vue" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/IndexExplain.vue" />
         <option value="$PROJECT_DIR$/src/locale/lang/zh-CN/staticText.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/NavigationAdd.vue" />
         <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/NavigationDetail.vue" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/ModuleAdd.vue" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/ModuleDetail.vue" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/PartsAdd.vue" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/PartsDetail.vue" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/PartsInfoRequestVO.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/PartsInfoResponseVO.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/factory/WebsiteHomePage.vue" />
+        <option value="$PROJECT_DIR$/src/locale/lang/zh-CN/moduleA.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/ModulesListRequestVO.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/NavigationListRequestVO.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/NavigationListResponseVO.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/common/js/model/ModulesListResponseVO.js" />
+        <option value="$PROJECT_DIR$/src/moduleA/pc/components/home/tables/PartsClickCount.vue" />
+        <option value="$PROJECT_DIR$/src/protocolConfig/moduleA.js" />
       </list>
     </option>
   </component>
@@ -250,8 +254,9 @@
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="45" />
-    <option name="width" value="1659" />
+    <option name="x" value="20" />
+    <option name="y" value="9" />
+    <option name="width" value="1713" />
     <option name="height" value="1015" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -545,22 +550,7 @@
               <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="theme" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="theme" type="462c0819:PsiDirectoryNode" />
-              <item name="pc" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
@@ -588,6 +578,14 @@
               <item name="framework" type="462c0819:PsiDirectoryNode" />
               <item name="common" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-managementsystem-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="framework" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="vue-managementsystem-web" type="b2602c69:ProjectViewProjectNode" />
@@ -835,7 +833,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
     <property name="js.buildTools.grunt.grunt-cli.package" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../quote-front-web" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -846,17 +844,17 @@
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.web.browsers" />
     <property name="standardjs.codestyle.accepted" value="true" />
     <property name="ts.external.directory.path" value="D:\WebStorm 2018.3.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\我的项目\vue-managementsystem-web\src\assets\canvas-loading" />
       <recent name="E:\我的项目\vue-managementsystem-web\src\locale\lang\en-US" />
       <recent name="E:\我的项目\vue-managementsystem-web\src\locale\lang\zh-CN" />
       <recent name="E:\我的项目\vue-managementsystem-web\src\commonjs\util" />
       <recent name="E:\我的项目\vue-managementsystem-web\src\assets\css" />
-      <recent name="E:\我的项目\vue-managementsystem-web\src\assets\js" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\我的项目\vue-managementsystem-web\src\assets\images" />
@@ -960,7 +958,11 @@
       <workItem from="1557026404447" duration="26403000" />
       <workItem from="1557134857574" duration="12063000" />
       <workItem from="1557297541117" duration="183185000" />
-      <workItem from="1558156069757" duration="28148000" />
+      <workItem from="1558156069757" duration="28409000" />
+      <workItem from="1558314407581" duration="112352000" />
+      <workItem from="1558919795407" duration="4783000" />
+      <workItem from="1558937429548" duration="9159000" />
+      <workItem from="1559646534864" duration="25779000" />
     </task>
     <task id="LOCAL-00001">
       <created>1557050387256</created>
@@ -1165,11 +1167,95 @@
       <option name="project" value="LOCAL" />
       <updated>1558183083080</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="修改背景色">
+      <created>1558271006935</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1558271006935</updated>
+    </task>
+    <task id="LOCAL-00031" summary="导航添加修改删除开发">
+      <created>1558271191887</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1558271191887</updated>
+    </task>
+    <task id="LOCAL-00032" summary="添加零件功能开发">
+      <created>1558355916620</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1558355916620</updated>
+    </task>
+    <task id="LOCAL-00033">
+      <created>1558356071784</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1558356071784</updated>
+    </task>
+    <task id="LOCAL-00034" summary="页头页尾功能开发">
+      <created>1558442628376</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1558442628376</updated>
+    </task>
+    <task id="LOCAL-00035" summary="数据树功能开发">
+      <created>1558529012551</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1558529012551</updated>
+    </task>
+    <task id="LOCAL-00036" summary="修改图表为只有一个图表显示">
+      <created>1558531095622</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1558531095622</updated>
+    </task>
+    <task id="LOCAL-00037" summary="组件添加功能开发">
+      <created>1558618176509</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1558618176509</updated>
+    </task>
+    <task id="LOCAL-00038" summary="组件展示开发">
+      <created>1558693020152</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1558693020152</updated>
+    </task>
+    <task id="LOCAL-00039" summary="零件统计图表完成">
+      <created>1558940961390</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1558940961390</updated>
+    </task>
+    <task id="LOCAL-00040" summary="零件表">
+      <created>1558941549595</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1558941549595</updated>
+    </task>
+    <task id="LOCAL-00041" summary="第一期修复">
+      <created>1559740618540</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1559740618540</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="629566000" />
+    <option name="totallyTimeSpent" value="781900000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1181,20 +1267,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="45" y="0" width="1659" height="1015" extended-state="0" />
-    <editor active="true" />
+    <frame x="20" y="9" width="1713" height="1015" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4838275" visible="true" weight="0.24922886" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4838275" visible="true" weight="0.24119402" />
       <window_info id="Structure" order="1" weight="0.24973656" />
       <window_info id="npm" order="2" sideWeight="0.5112903" side_tool="true" weight="0.24973656" />
       <window_info id="Favorites" order="3" sideWeight="0.5161725" side_tool="true" weight="0.24973656" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49525815" weight="0.3275463" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49784085" visible="true" weight="0.18346547" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49784085" visible="true" weight="0.33069083" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49578503" weight="0.32841328" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49578503" weight="0.3272933" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5021592" side_tool="true" weight="0.18346547" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3296433" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49638554" weight="0.2797282" />
@@ -1210,7 +1295,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="新增样式文件" />
     <MESSAGE value="删除login.js" />
     <MESSAGE value="新增js 工具类" />
     <MESSAGE value="提交安全码js工具包" />
@@ -1221,11 +1305,22 @@
     <MESSAGE value="新增网站首页" />
     <MESSAGE value="新增我的网页" />
     <MESSAGE value="登陆界面完成" />
-    <MESSAGE value="完善页头页尾功能" />
     <MESSAGE value="完成用户登记表功能" />
     <MESSAGE value="完成首页用户登记和留言模块" />
     <MESSAGE value="左边导航栏开发" />
-    <option name="LAST_COMMIT_MESSAGE" value="左边导航栏开发" />
+    <MESSAGE value="修改背景色" />
+    <MESSAGE value="导航添加修改删除开发" />
+    <MESSAGE value="添加零件功能开发" />
+    <MESSAGE value="页头页尾功能开发" />
+    <MESSAGE value="数据树功能开发" />
+    <MESSAGE value="修改图表为只有一个图表显示" />
+    <MESSAGE value="组件添加功能开发" />
+    <MESSAGE value="组件展示开发" />
+    <MESSAGE value="零件统计图表完成" />
+    <MESSAGE value="零件表" />
+    <MESSAGE value="完善页头页尾功能" />
+    <MESSAGE value="第一期修复" />
+    <option name="LAST_COMMIT_MESSAGE" value="第一期修复" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1239,376 +1334,373 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/tables/UserMessages.vue">
+    <entry file="file://$PROJECT_DIR$/config/dev.env.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/utils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3825">
-          <caret line="153" column="36" lean-forward="true" selection-start-line="153" selection-start-column="36" selection-end-line="153" selection-end-column="36" />
+        <state relative-caret-position="259">
+          <caret line="49" column="44" selection-start-line="49" selection-start-column="44" selection-end-line="49" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/framework/pc/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="10" selection-start-line="10" selection-end-line="10" selection-end-column="22" />
           <folding>
-            <element signature="n#style#0;n#el-table#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#2132#2210#0" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/tables/ResetUserPassword.vue">
+    <entry file="file://$PROJECT_DIR$/config/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1471">
-          <caret line="240" column="24" lean-forward="true" selection-start-line="240" selection-start-column="24" selection-end-line="240" selection-end-column="24" />
-          <folding>
-            <element signature="e#2829#2915#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="353">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/PartsTypeRequestVO.js">
+    <entry file="file://$PROJECT_DIR$/src/framework/pc/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="36" column="33" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
+        <state relative-caret-position="225">
+          <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/LeaveMsgRequestVO.js">
+    <entry file="file://$PROJECT_DIR$/src/store/vuex/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="2" column="23" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/tables/PartsType.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1425">
-          <caret line="58" column="20" selection-start-line="58" selection-start-column="11" selection-end-line="58" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/factory/UserManage.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" column="45" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="45" />
-          <folding>
-            <element signature="e#258#347#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/PartsTypeResponseVO.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="51" column="10" selection-start-line="51" selection-start-column="10" selection-end-line="51" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/router/pc/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="36" column="10" lean-forward="true" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
+        <state relative-caret-position="558">
+          <caret line="52" column="5" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/ModuleAdd.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="31" column="20" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/ModuleDetail.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="41" column="23" selection-start-line="41" selection-start-column="11" selection-end-line="41" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/PartsAdd.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="52" column="19" selection-start-line="52" selection-start-column="11" selection-end-line="52" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/PartsDetail.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="66" column="22" selection-start-line="66" selection-start-column="11" selection-end-line="66" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/IndexPage.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="35" column="20" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/FooterPage.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="46" column="21" selection-start-line="46" selection-start-column="11" selection-end-line="46" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/WebsiteInfo.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="58" column="22" selection-start-line="58" selection-start-column="11" selection-end-line="58" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/factory/SystemSet.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4">
-          <caret line="10" column="18" lean-forward="true" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/router/pc/moduleA.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="875">
-          <caret line="35" column="15" selection-start-line="35" selection-start-column="15" selection-end-line="35" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/header/Header.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3704">
-          <caret line="28" column="27" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/trees/WebModuleTree.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="73" column="42" lean-forward="true" selection-start-line="73" selection-start-column="42" selection-end-line="73" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/Home.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="28" column="19" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="19" />
-          <folding>
-            <element signature="e#225#287#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/common/BackgroundimgAdd.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="625">
-          <caret line="25" column="27" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/UpdateUserInfoRequestVO.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-404">
-          <caret selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/UserInfoResponseVO.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/UserInfoRequestVO.js">
+    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/ModuleAddOrModifyRequestVO.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
-          <caret line="17" column="32" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/WebButtomResponseVO.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="83" selection-start-line="83" selection-end-line="129" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/LeaveMsgResponseVO.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/UpdateUserInfoResponseVO.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="3" selection-start-line="3" selection-end-line="9" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/WebTopRequestVO.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/WebTopResponseVO.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="60" />
+          <caret line="89" column="3" lean-forward="true" selection-start-line="43" selection-start-column="2" selection-end-line="89" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/ModuleAddOrModifyResponseVO.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
+        <state>
+          <caret selection-end-line="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/PartsRequestVO.js">
+    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/LeavelMsgAddOrModifyRequestVO.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="225">
+          <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/PartsResponseVO.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4900">
-          <caret line="196" selection-start-line="196" selection-end-line="196" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/WebBottomAddOrModifyRequestVO.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="2" column="35" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/WebTopAddOrModifyRequestVO.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="43" selection-start-line="43" selection-end-line="89" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/WebTopAddOrModifyResponseVO.js">
+    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/LeavelMsgAddOrModifyResponseVO.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="12" column="42" selection-end-line="13" />
+          <caret line="12" column="45" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/WebBottomAddOrModifyResponseVO.js">
+    <entry file="file://$PROJECT_DIR$/src/framework/pc/components/login/Login.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="12" column="45" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/tables/UserRegistration.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/factory/MyWebSite.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="108" column="24" selection-start-line="108" selection-start-column="24" selection-end-line="108" selection-end-column="24" />
+        <state relative-caret-position="365">
+          <caret line="142" column="21" lean-forward="true" selection-start-line="140" selection-start-column="11" selection-end-line="142" selection-end-column="21" />
+          <folding>
+            <element signature="e#2974#3035#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/UpdateUserInfo.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3825">
-          <caret line="153" column="53" selection-start-line="153" selection-start-column="45" selection-end-line="153" selection-end-column="53" />
+        <state relative-caret-position="300">
+          <caret line="39" column="94" lean-forward="true" selection-start-line="39" selection-start-column="94" selection-end-line="39" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/tables/UserRegistration.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/tables/UserMessages.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/tables/ResetUserPassword.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="249" column="3" selection-start-line="249" selection-start-column="3" selection-end-line="249" selection-end-column="3" />
           <folding>
-            <element signature="e#2178#2324#0" expanded="true" />
+            <element signature="n#style#0;n#el-table#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/NavigationAdd.vue">
+    <entry file="file://$PROJECT_DIR$/src/framework/pc/App.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="100" column="7" lean-forward="true" selection-start-line="82" selection-start-column="6" selection-end-line="100" selection-end-column="7" />
+        <state relative-caret-position="266">
+          <caret line="43" column="52" lean-forward="true" selection-start-line="43" selection-start-column="52" selection-end-line="43" selection-end-column="52" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/protocolConfig/moduleA.js">
+    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/trees/WebModuleTree.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="55" column="102" selection-start-line="55" selection-start-column="102" selection-end-line="55" selection-end-column="102" />
+        <state relative-caret-position="398">
+          <caret line="306" column="20" lean-forward="true" selection-start-line="306" selection-start-column="20" selection-end-line="306" selection-end-column="20" />
           <folding>
-            <element signature="e#0#76#0" expanded="true" />
+            <element signature="e#348#436#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/PartAddOrModifyRequestVO.js">
+    <entry file="file://$PROJECT_DIR$/src/assets/canvas-loading/css/reset.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/canvas-loading/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="56" />
+        <state relative-caret-position="100">
+          <caret line="4" column="47" lean-forward="true" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/NavigationAddOrModifyResponseVO.js">
+    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/header/Header.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="12" column="46" lean-forward="true" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="46" />
+        <state relative-caret-position="441">
+          <caret line="208" lean-forward="true" selection-start-line="208" selection-end-line="208" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/ModuleAddOrModifyRequestVO.js">
+    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/IndexExplain.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="89" column="3" selection-start-line="89" selection-start-column="3" selection-end-line="89" selection-end-column="3" />
+        <state relative-caret-position="450">
+          <caret line="24" column="35" lean-forward="true" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/PartAddOrModifyResponseVO.js">
+    <entry file="file://$PROJECT_DIR$/src/assets/js/horse-animation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="12" column="40" lean-forward="true" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/NavigationDeleteRequestVO.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="12" column="40" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="40" />
+        <state relative-caret-position="-4848">
+          <caret line="92" column="8" selection-start-line="92" selection-start-column="2" selection-end-line="92" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/locale/lang/zh-CN/staticText.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="27" column="14" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="14" />
+        <state relative-caret-position="266">
+          <caret line="45" column="14" selection-start-line="45" selection-start-column="3" selection-end-line="45" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/NavigationDeleteResponseVO.js">
+    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/NavigationAdd.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="12" column="41" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/locale/lang/zh-CN/moduleA.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="59" column="22" lean-forward="true" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/NavigationAddOrModifyRequestVO.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" column="21" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="21" />
+        <state relative-caret-position="315">
+          <caret line="55" column="84" selection-start-line="55" selection-start-column="12" selection-end-line="55" selection-end-column="84" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/NavigationDetail.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="65" column="25" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="25" />
+        <state relative-caret-position="315">
+          <caret line="90" column="84" selection-start-line="90" selection-start-column="84" selection-end-line="90" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/ModuleDetail.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="79" column="84" selection-start-line="79" selection-start-column="84" selection-end-line="79" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/PartsAdd.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="93" column="84" selection-start-line="93" selection-start-column="84" selection-end-line="93" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/PartsDetail.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="120" column="84" selection-start-line="120" selection-start-column="84" selection-end-line="120" selection-end-column="84" />
           <folding>
-            <element signature="e#2496#2600#0" expanded="true" />
+            <element signature="e#4053#4109#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/tables/PartsType.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="160" column="3" lean-forward="true" selection-start-line="137" selection-start-column="2" selection-end-line="160" selection-end-column="3" />
+          <folding>
+            <element signature="e#2589#2669#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/RegistersInfoRequestVO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-234">
+          <caret selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/RegistersInfoResponseVO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="13" column="20" lean-forward="true" selection-end-line="133" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/PartsResponseVO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="193" column="1" lean-forward="true" selection-start-line="18" selection-end-line="193" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/PartsInfoRequestVO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/factory/MyWebSite.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1975">
+          <caret line="91" column="21" selection-start-line="91" selection-start-column="21" selection-end-line="91" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/Home.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/factory/WebsiteHomePage.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+          <folding>
+            <element signature="e#310#385#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/charts/PartsChart.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="120" column="74" selection-start-line="120" selection-start-column="66" selection-end-line="120" selection-end-column="74" />
+          <folding>
+            <element signature="e#138#210#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/locale/lang/zh-CN/moduleA.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="149" column="26" selection-start-line="149" selection-start-column="18" selection-end-line="149" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/forms/module/ModuleAdd.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="32" column="2" lean-forward="true" selection-start-line="32" selection-start-column="2" selection-end-line="32" selection-end-column="90" />
+          <folding>
+            <element signature="e#1534#1622#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/PartsTypeListRequestVO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/PartsTypeListResponseVO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="14" column="21" lean-forward="true" selection-end-line="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/NavigationListRequestVO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/ModulesByIdResponseVO.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/ModulesListRequestVO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/RegistersInfoDeleteListResponseVO.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/UserInfoListResponseVO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-900" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/PartsInfoResponseVO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/NavigationListResponseVO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/common/js/model/ModulesListResponseVO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="24" column="25" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moduleA/pc/components/home/tables/PartsClickCount.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="206" column="101" selection-start-line="206" selection-start-column="87" selection-end-line="206" selection-end-column="101" />
+          <folding>
+            <element signature="e#2615#2695#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/protocolConfig/moduleA.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="64" selection-start-line="64" selection-end-line="69" />
+          <folding>
+            <element signature="e#0#76#0" expanded="true" />
           </folding>
         </state>
       </provider>

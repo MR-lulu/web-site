@@ -9,6 +9,7 @@
       ref="tree"
       :expand-on-click-node="false"
       :default-expanded-keys="[0]"
+      @node-click="handleNodeClick"
       :render-content="renderContent">
     </el-tree>
   </div>
@@ -25,6 +26,7 @@
     name: "WebModuleTree",
     data() {
       return {
+        clickFlag: false,  // 区别点击add和空白处
         userLevel: '',  // 用户等级
         webModuleTreeClickType: {
           clickType: '',  // 点击类型，display为文本点击，add为添加点击
@@ -74,12 +76,30 @@
     methods: {
       // 新增节点
       renderContent(h, {node, data, store}) {
-        if (node.level >= 4 || node.data.id < 0 || node.parent.data.id < 0 || this.userLevel != 1) {
+        // 判断是否显示新增图标按钮
+        if (node.level >= 4 || node.data.id < 0 || node.parent.data.id < 0 || (this.userLevel != 1 && node.level != 3)) {
+          // 判断是否是废弃状态
+          if (data.status == 2) {
+            return (<div class = "ico status"> <span> <span on-click = {()=>this.handleNodeLableClick(data, node)}>{node.label}</span></span> </div>);
+          }
           return (<div class = "ico"> <span> <span on-click = {()=>this.handleNodeLableClick(data, node)}>{node.label}</span></span> </div>);
         }else {
-          return (<div class = "ico"> <span> <span on-click = {()=>this.handleNodeLableClick(data, node)}>{node.label}</span></span> <span on-click = {()=>this.handleNodeAddClick(data, node)}> <i class = "el-icon-circle-plus-outline"> </i> </span> </div>);
+          // 判断是否是废弃状态
+          if (data.status == 2) {
+            return (<div class = "ico status"> <span> <span on-click = {()=>this.handleNodeLableClick(data, node)}>{node.label}</span></span> <span on-click = {()=>this.handleNodeAddClick(data, node)}> <i class = "el-icon-circle-plus-outline"> </i> </span> </div>);
+          }
+          return (<div class = "ico"> <span> <span on-click = {()=>this.handleNodeLableClick(data, node)}>{node.label}</span></span> <span on-click = {()=>this.handleNodeAddClick(data, node)}> <i class = "el-icon-circle-plus-outline" style="color: red;"> </i> </span> </div>);
         }
         //return (<div class = "ico"> <span> <span on-click = {()=>this.handleNodeLableClick(data)}>{node.label}</span></span> <span on-click = {()=>this.handleNodeAddClick(data, node)}> <i class = "el-icon-circle-plus-outline"> </i> </span> </div>);
+      },
+
+      handleNodeClick(data, node) {
+        setTimeout(() => {
+          if (this.clickFlag == false) {
+            this.handleNodeLableClick(data, node);
+          }
+          this.clickFlag = false;
+        }, 100);
       },
 
       // 节点文本点击事件
@@ -126,6 +146,7 @@
       },
       // 节点添加点击事件
       handleNodeAddClick(data, node) {
+        this.clickFlag = true;
         this.$store.commit('setWebModuleTreeClickType', null);
         this.webModuleTreeClickType.clickType = 'add';
         this.webModuleTreeClickType.level = node.level;
@@ -278,24 +299,35 @@
     padding-right: 8px;
   }
 
+  .webModuleTree .status{
+    color: #808080;
+  }
+
   .webModuleTree .ico span {
     margin-left: 1%;
+    font-size: 18px;
   }
 
   .webModuleTree .el-tree--highlight-current .el-tree-node.is-current > .el-tree-node__content {
     background-color: #FFD700;
   }
 
+  .webModuleTree .el-tree-node__content>.el-tree-node__expand-icon {
+    padding: 6px;
+    font-size: 20px;
+  }
+
   .webModuleTree .el-tree-node__content {
-    height: 35px;
+    height: 45px;
   }
 
   .webModuleTree .el-icon-circle-plus-outline:before {
     padding-left: 60%;
+    /*color: red;*/
   }
 
   .webModuleTree .el-icon-caret-right:before {
-    color: #FFD700;
+    /*color: #FFD700;*/
   }
 
   .webModuleTree .el-tree-node__content:hover {
