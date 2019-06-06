@@ -162,19 +162,12 @@
         this.$prompt(this.$t('rs.staticText.30000000018'), this.$t('rs.staticText.30000000008'), {
           confirmButtonText: this.$t('rs.staticText.30000000004'),
           cancelButtonText: this.$t('rs.staticText.30000000005'),
-          inputPattern: /^$|^(\w){6,20}$/,
+          inputPattern: /^[\x21-\x7E]{6,20}$/,
           inputErrorMessage: this.$t('rs.staticText.30000000017'),
           inputPlaceholder: this.$t('rs.staticText.30000000025')
         }).then(({value}) => {
-          // 如果输入为空，则使用默认的密码重置，否则使用输入的
-          if (Tools.isNull(value)) {
-            for (let item of this.subUserList) {
-              item.password = md5.hex(item.password);
-            }
-          } else {
-            for (let item of this.subUserList) {
-              item.password = md5.hex(value);
-            }
+          for (let item of this.subUserList) {
+            item.password = md5.hex(value);
           }
           this.messageBox.confirm(this.$t('rs.staticText.30000000024'), this.$t('rs.staticText.30000000008'), () => {
           }, () => {

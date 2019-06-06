@@ -28,21 +28,24 @@
             <span v-if="scope.row.status==2">{{ $t('rs.moduleA.20000000060') }}</span>
           </template>
         </el-table-column>
-        <el-table-column prop="watch" :label="$t('rs.moduleA.20000000075') /*可选性*/" :show-overflow-tooltip="true">
-          <template slot-scope="scope">
-            <!--可选-->
-            <span v-if="scope.row.watch==1">{{ $t('rs.moduleA.20000000076') }}</span>
-            <!--不可选-->
-            <span v-if="scope.row.watch==2">{{ $t('rs.moduleA.20000000077') }}</span>
-          </template>
-        </el-table-column>
+
+
+        <el-table-column prop="belongModule" :label="$t('rs.moduleA.20000000152')  /*所属模块*/" sortable
+                         :show-overflow-tooltip="true"></el-table-column>
+        <el-table-column prop="belongNavigation" :label="$t('rs.moduleA.20000000153')  /*所属导航*/" sortable
+                         :show-overflow-tooltip="true"></el-table-column>
+        <el-table-column prop="belongPartsType" :label="$t('rs.moduleA.20000000154')  /*所属种类*/" sortable
+                         :show-overflow-tooltip="true"></el-table-column>
+        <el-table-column prop="click" :label="$t('rs.moduleA.20000000155')  /*点击量*/" sortable
+                         :show-overflow-tooltip="true"></el-table-column>
+
         <el-table-column prop="serverCreateTime" :label="$t('rs.moduleA.20000000027') /*创建时间*/" sortable
                          :show-overflow-tooltip="true" :formatter="dateFormat"></el-table-column>
-        <el-table-column prop="" width="100" :label="$t('rs.moduleA.20000000028') /*操作*/">
+        <!--<el-table-column prop="" width="100" :label="$t('rs.moduleA.20000000028') /*操作*/">-->
           <!--<template slot-scope="scope">-->
           <!--<i class="el-icon-edit"></i>-->
           <!--</template>-->
-        </el-table-column>
+        <!--</el-table-column>-->
       </el-table>
     </div>
     <!--分页-->
@@ -75,6 +78,7 @@
         partsTypeMap: {},  // 零件类型
         modulesMap: {},  // 模块
         navigationMap: {},  // 导航
+        modulesToNavigationMap: [],  // 模块-导航
         tableData: [],
         total: 0,  // 总的条数
         page: 0,  // 当前页
@@ -89,10 +93,14 @@
       this.getModules();
       // 获取导航
       this.getNavigation();
-      // 进入先请求一次数据
-      this.getPartsListOne();
-      // 定时获取零件信息
-      this.getPartsList();
+
+      // 延迟获取数据
+      setTimeout(() => {
+        // 进入先请求一次数据
+        this.getPartsListOne();
+        // 定时获取零件信息
+        this.getPartsList();
+      }, 3000);
     },
 
     // 离开页面时，销毁定时器
@@ -133,6 +141,14 @@
         this.communicateManger.httpCommunicate.getResponseVO(partsInfoRequestVO, "/parts/query/page").then((PartsInfoResponseVO) => {
           if (PartsInfoResponseVO.getStatus == 1000) {
             this.tableData = PartsInfoResponseVO.resultList;
+            for (let i = 0; i < this.tableData.length; i++) {
+              // 获取所属模块
+              this.tableData[i].belongModule = this.modulesMap.get(this.tableData[i].modulesId);
+              // 获取所属导航
+              this.tableData[i].belongNavigation = this.navigationMap.get(this.modulesToNavigationMap.get(this.tableData[i].modulesId));
+              // 获取所属模块
+              this.tableData[i].belongPartsType = this.partsTypeMap.get(this.tableData[i].partsTypeId);
+            }
             this.total = PartsInfoResponseVO.getTotal;
             this.page = PartsInfoResponseVO.getPage;
             this.rows = PartsInfoResponseVO.getRows;
@@ -156,6 +172,14 @@
           this.communicateManger.httpCommunicate.getResponseVO(partsInfoRequestVO, "/parts/query/page").then((PartsInfoResponseVO) => {
             if (PartsInfoResponseVO.getStatus == 1000) {
               this.tableData = PartsInfoResponseVO.resultList;
+              for (let i = 0; i < this.tableData.length; i++) {
+                // 获取所属模块
+                this.tableData[i].belongModule = this.modulesMap.get(this.tableData[i].modulesId);
+                // 获取所属导航
+                this.tableData[i].belongNavigation = this.navigationMap.get(this.modulesToNavigationMap.get(this.tableData[i].modulesId));
+                // 获取所属模块
+                this.tableData[i].belongPartsType = this.partsTypeMap.get(this.tableData[i].partsTypeId);
+              }
               this.total = PartsInfoResponseVO.getTotal;
               this.page = PartsInfoResponseVO.getPage;
               this.rows = PartsInfoResponseVO.getRows;
@@ -191,8 +215,10 @@
         this.communicateManger.httpCommunicate.getResponseVO(modulesListRequestVO, "/modules/query/list").then((ModulesListResponseVO) => {
           if (ModulesListResponseVO.getStatus == 1000) {
             this.modulesMap = new Map();
+            this.modulesToNavigationMap = new Map();
             for (let i = 0; i < ModulesListResponseVO.resultList.length; i++) {
               this.modulesMap.set(ModulesListResponseVO.resultList[i].modulesId, ModulesListResponseVO.resultList[i].name);
+              this.modulesToNavigationMap.set(ModulesListResponseVO.resultList[i].modulesId, ModulesListResponseVO.resultList[i].navigationId);
             }
           } else {
             this.messageBox.error(ModulesListResponseVO.getMsg);

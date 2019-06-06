@@ -38,8 +38,8 @@ export default {
 
   /*全局设置el-table的滚动条样式*/
   .el-table__body-wrapper::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    width: 10px;
+    height: 10px;
   }
 
   .el-table__body-wrapper::-webkit-scrollbar-thumb {
