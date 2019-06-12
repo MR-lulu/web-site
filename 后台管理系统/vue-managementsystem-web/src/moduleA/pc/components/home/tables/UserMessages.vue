@@ -7,9 +7,9 @@
         <el-button type="danger" v-on:click="deleteList">{{$t('rs.moduleA.20000000019')}}</el-button>
       </div>
       <!--废弃按钮-->
-      <div class="delete-btn">
-        <el-button type="warning" v-on:click="updateList">{{$t('rs.moduleA.20000000060')}}</el-button>
-      </div>
+      <!--<div class="delete-btn">-->
+      <!--<el-button type="warning" v-on:click="updateList">{{$t('rs.moduleA.20000000060')}}</el-button>-->
+      <!--</div>-->
       <!--表名称:用户留言表-->
       <div class="table-name"><span>{{$t('rs.moduleA.20000000029')}}</span></div>
     </div>
@@ -32,10 +32,10 @@
                          :show-overflow-tooltip="true"></el-table-column>
         <el-table-column prop="serverCreateTime" :label="$t('rs.moduleA.20000000027') /*创建时间*/" sortable
                          :show-overflow-tooltip="true" :formatter="dateFormat"></el-table-column>
-        <el-table-column prop="" width="200" :label="$t('rs.moduleA.20000000028') /*操作*/">
+        <el-table-column prop="" width="100" :label="$t('rs.moduleA.20000000028') /*操作*/">
           <template slot-scope="scope">
             <i class="el-icon-delete" v-on:click="deleteOne(scope.$index, scope.row)"></i>
-            <i class="el-icon-view" v-on:click="updateOne(scope.$index, scope.row)"></i>
+            <!--<i class="el-icon-view" v-on:click="updateOne(scope.$index, scope.row)"></i>-->
           </template>
         </el-table-column>
       </el-table>
@@ -151,37 +151,6 @@
         });
       },
 
-      // 批量删除
-      deleteList: function () {
-        this.ids = new Array();
-        for (let item of this.multipleSelection) {
-          this.ids.push(item.leaveMsgId);
-        }
-        if (Tools.isNull(this.ids)) {
-          return;
-        }
-        this.messageBox.confirm(this.$t('rs.staticText.30000000010'), this.$t('rs.staticText.30000000008'), () => {
-        }, () => {
-          // 确定
-          this.delete();
-        }, () => {
-          // 取消
-        });
-      },
-
-      // 单个删除
-      deleteOne: function (index, row) {
-        this.messageBox.confirm(this.$t('rs.staticText.30000000010'), this.$t('rs.staticText.30000000008'), () => {
-        }, () => {
-          // 确定
-          this.ids = new Array();
-          this.ids.push(row.leaveMsgId);
-          this.delete();
-        }, () => {
-          // 取消
-        });
-      },
-
       // 删除用户信息
       delete: function () {
         let leaveMsgDeleteListRequestVO = new LeaveMsgDeleteListRequestVO(this.ProtocolContent.leaveMsgDelete);
@@ -199,11 +168,6 @@
           this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
         })
       },
-
-      // 更新留言状态
-      updateStatus: function () {
-
-      }
     },
   }
 </script>
@@ -250,9 +214,5 @@
 
   .userMessages .el-table th > .cell {
     text-align: center;
-  }
-
-  .userMessages .el-table .cell i {
-    width: 40%;
   }
 </style>
