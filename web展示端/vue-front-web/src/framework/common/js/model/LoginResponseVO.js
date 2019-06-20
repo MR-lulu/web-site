@@ -7,11 +7,18 @@ import BaseResponseVO from '@/commonjs/model/BaseResponseVO'
 class LoginResponseVO extends BaseResponseVO {
   /**
    * 获取token
+   * @return {*|token|CancelToken}
+   */
+  get getToken() {
+    return this.data.token;
+  }
+
+  /**
+   * 获取用户信息
    * @returns {*}
    */
-  get token() {
-    return this.token;
+  get getUser() {
+    return this.data.user;
   }
 }
-
 export default LoginResponseVO

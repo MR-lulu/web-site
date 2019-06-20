@@ -11,7 +11,10 @@ import SystemInit from '@/framework/common/js/SystemInit.js'
 import $ from 'jquery'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min.js'
-import {isMobile} from '@/framework/common/js/global.js'
+// 引入echarts
+import echarts from 'echarts'
+
+Vue.prototype.$echarts = echarts
 
 // 系统初始化类
 let systemInit = new SystemInit()

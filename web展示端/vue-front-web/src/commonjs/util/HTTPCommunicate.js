@@ -18,7 +18,7 @@ class HttpCommunicate {
     this.axiosObject = axios.create({
       baseURL: url,
       timeout: timeout,
-      headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+      headers: {'Content-Type': 'application/json'}
     })
   }
 
@@ -33,14 +33,12 @@ class HttpCommunicate {
     if (!requestVO) {
       throw new Error('传入的参数不正确，请求包不允许为空')
     }
-
     // 通过配置信息获取请求包协议对应的返回包
     let responseVO = ProtocolConfig[requestVO.ptn].responseVO
     // 如果返回包为空则弹出错误信息
     if (!responseVO) {
       throw new Error('通过请求包协议没有找到相应的返回包')
     }
-
     try {
       // 调用服务端获取数据
       let response = await this.axiosObject.post(url, requestVO.toString())

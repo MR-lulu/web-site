@@ -8,7 +8,7 @@ class BaseResponseVO {
    * 获取协议名称
    * @returns {*}
    */
-  get ptn() {
+  get getPtn() {
     return this.ptn;
   }
 
@@ -16,7 +16,7 @@ class BaseResponseVO {
    * 获取返回消息
    * @return {*}
    */
-  get msg() {
+  get getMsg() {
     return this.msg;
   }
 
@@ -24,7 +24,7 @@ class BaseResponseVO {
    * 获取返回状态
    * @return {*}
    */
-  get status() {
+  get getStatus() {
     return this.status;
   }
 
@@ -32,7 +32,7 @@ class BaseResponseVO {
    * 获取返回消息ID
    * @return {*}
    */
-  get msgId() {
+  get getMsgId() {
     return this.msgId;
   }
 }

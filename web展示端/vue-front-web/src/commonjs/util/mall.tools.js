@@ -423,7 +423,6 @@ tools.format = function (val, stat, pattern) {
   if (val == undefined) {
     return "";
   }
-
   if (stat) {
     stat = stat.toLocaleLowerCase();
     if (stat == "formatnumber") {
@@ -789,6 +788,64 @@ tools.mergeJSON = function (jsonArrays) {
     json = JSON.parse((JSON.stringify(json) + JSON.stringify(jsonArrays[i])).replace(/}{/, ','));
   }
   return json
+}
+
+/**
+ * 手机号验证
+ * @param s
+ * @return {boolean}
+ */
+tools.isPhone = function (s) {
+  if (this.isEmpty(s)) {
+    return false;
+  }
+  var patrn = /^1[3-578]\d{9}$/;
+  if (patrn.exec(s)) {
+    return true;
+  }
+  return false;
+};
+
+/**
+ * 验证固定电话
+ * @param val
+ * @return {boolean}
+ */
+tools.isTelphone = function (val) {
+  if (/^(\(\d{3,4}\)|\d{3,4}-|\s)?\d{7,14}$/.test(val)) {
+    return true;
+  }
+  return false;
+}
+
+/**************************************时间格式化处理************************************/
+/**
+ * 时间格式化函数
+ * @param  {string} fmt    格式
+ */
+
+tools.formatDate = function (date, fmt) {
+  if (/(y+)/.test(fmt)) {
+    fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length));
+  }
+  let o = {
+    'M+': date.getMonth() + 1,
+    'd+': date.getDate(),
+    'H+': date.getHours(),
+    'm+': date.getMinutes(),
+    's+': date.getSeconds()
+  };
+  for (let k in o) {
+    if (new RegExp(`(${k})`).test(fmt)) {
+      let str = o[k] + '';
+      fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? str : padLeftZero(str));
+    }
+  }
+  return fmt;
+};
+
+function padLeftZero(str) {
+  return ('00' + str).substr(str.length);
 }
 
 export default tools;
