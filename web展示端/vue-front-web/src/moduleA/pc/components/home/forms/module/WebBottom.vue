@@ -15,8 +15,8 @@
             :before-upload="beforeAvatarUpload">
             <img v-if="formData.bottomUrl" :src="formData.bottomUrl" class="avatar">
             <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-            <div class="el-upload__tip" slot="tip">{{$t('rs.staticText.30000000032') + 'jpeg, png, gif,
-              ico'}}，{{$t('rs.staticText.30000000033') + uploadImgSize + 'M'}}
+            <div class="el-upload__tip" slot="tip">{{$t('rs.staticText.30000000032') + 'jpeg, png, gif,ico'}},
+              {{$t('rs.staticText.30000000033') + uploadImgSize + 'M'}}
             </div>
           </el-upload>
         </el-form-item>
