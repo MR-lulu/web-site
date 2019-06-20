@@ -22,24 +22,10 @@
         </el-submenu>
       </el-menu>
     </div>
-    <!--账号-->
-    <div class="account-display">
-      <div class="round_png"><img src="../../../../assets/images/administrator.png"></div>
-
-      <div class="account">
-        <span class="user-name">{{userName}}</span>
-      </div>
-
-    </div>
-    <!--退出按钮-->
-    <div class="quit">
-      <el-button type="danger" round v-on:click="quit">{{$t('rs.moduleA.20000000013')}}</el-button>
-    </div>
   </div>
 </template>
 
 <script>
-  import {getToken, getLoginUserInfo, setToken, setLoginUserInfo, setUserID} from '@/store/sessionstorage/index.js'
   import WebTopRequestVO from '@/moduleA/common/js/model/WebTopRequestVO.js'
   import Tools from '@/commonjs/util/mall.tools.js'
 
@@ -48,14 +34,11 @@
     data() {
       return {
         activeIndex: '1',
-        userName: '',
         webTopList: [],
         logoUrl: ''
       }
     },
     created() {
-      // 获取用户名
-      this.userName = JSON.parse(getLoginUserInfo()).username;
       // 初始化获取页头信息
       this.getWebTop();
     },
@@ -88,19 +71,6 @@
             this.$router.push('websiteHomePage');
           }
         }
-      },
-
-      // 退出登录
-      quit: function () {
-        this.messageBox.confirm(this.$t('rs.staticText.30000000003'), this.$t('rs.staticText.30000000008'), () => {
-        }, () => {
-          // 确定
-          // 清除用户信息
-          sessionStorage.clear();
-          this.$router.push('/');
-        }, () => {
-          // 取消
-        });
       },
 
       // 获取表头信息
@@ -143,20 +113,10 @@
     height: 80px;
   }
 
-  .header .account-display .user-name {
-    margin-left: 5px;
-  }
-
   .header .navigation-bar {
     float: left;
     height: 80px;
     width: 50%;
-  }
-
-  .header .quit {
-    float: left;
-    height: 80px;
-    width: 10%;
   }
 
   .header .el-menu--horizontal {
@@ -171,31 +131,6 @@
 
   .header .el-menu--horizontal > .el-menu-item.is-active {
     color: #4169E1;
-  }
-
-  .header .account-display {
-    float: left;
-    height: 80px;
-    width: 20%;
-    line-height: 80px;
-  }
-
-  .header .account-display .round_png {
-    width: 34px;
-    height: 34px;
-    display: flex;
-    border-radius: 50%;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    float: left;
-    margin-top: 8%;
-  }
-
-  .header .account-display .account {
-    float: left;
-    margin-left: 5%;
-    padding-top: 4%;
   }
 
   .header .el-menu--horizontal > .el-menu-item {
