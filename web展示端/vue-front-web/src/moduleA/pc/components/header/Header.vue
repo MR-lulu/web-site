@@ -2,97 +2,155 @@
   <div class="header">
     <!--logo 图片-->
     <div class="logo">
-      <img :src="logoUrl">
+      <img :src="webTopInfo.logoUrl">
     </div>
     <!--导航栏-->
-    <div class="navigation-bar">
-      <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-        <!--网站首页-->
-        <el-menu-item index="webSiteHomePage">{{$t('rs.moduleA.20000000008')}}</el-menu-item>
-        <!--用户管理-->
-        <el-menu-item index="userManage">{{$t('rs.moduleA.20000000009')}}</el-menu-item>
-        <!--我的网页-->
-        <el-menu-item index="myWebSite">{{$t('rs.moduleA.20000000010')}}</el-menu-item>
-        <!--系统设置-->
-        <!--<el-menu-item index="systemSet">{{$t('rs.moduleA.20000000011')}}</el-menu-item>-->
-        <el-submenu index="systemSet">
-          <template slot="title">{{$t('rs.moduleA.20000000011')}}</template>
-          <!--零件种类-->
-          <el-menu-item index="partsType">{{$t('rs.moduleA.20000000054')}}</el-menu-item>
-        </el-submenu>
-      </el-menu>
+    <div class="navigation-bar" id="navigation-bar" ref="element" v-bind:class="{hide2: isActiveNavigation}">
+      <div v-for="(item, index) in navigationListInfo" :tabindex="index" :id="item.navigationId" class="cell"
+           :key="index" v-on:click="handleSelect(item.navigationId, index)">
+        <label class="name ellipsis">{{item.name}}</label>
+      </div>
     </div>
+
+    <div v-if="navigationListInfo != null && navigationListInfo.length > 6">
+      <div class="icon-down" v-on:click="iconDown(1)" v-if="iconDownFlag == false">
+        <span><i class="el-icon-arrow-down"></i></span>
+      </div>
+      <div class="icon-down" v-on:click="iconDown(2)" v-else>
+        <span><i class="el-icon-arrow-up"></i></span>
+      </div>
+    </div>
+    <div class="clear"></div>
   </div>
 </template>
 
 <script>
-  import WebTopRequestVO from '@/moduleA/common/js/model/WebTopRequestVO.js'
+  import WebModuleTreeRequestVO from '@/moduleA/common/js/model/WebModuleTreeRequestVO.js'
+  import CommonInfoRequestVO from '@/moduleA/common/js/model/CommonInfoRequestVO.js'
+  import {mapState} from 'vuex'
   import Tools from '@/commonjs/util/mall.tools.js'
 
   export default {
     name: 'Header',
     data() {
       return {
-        activeIndex: '1',
-        webTopList: [],
-        logoUrl: ''
+        initDataTimer: null,  // 定时器
+        webTopInfo: {   // 页头信息
+          logoUrl: ''
+        },
+        webBottomInfo: null,  // 页尾信息
+        webInfo: null,  // 网站信息
+        commonInfo: null,  // 公共信息
+        navigationListInfo: null,  // 导航信息
+        isActiveNavigation: false,
+        clickFlag: null,  // 点击的菜单
+        iconDownFlag: false,
       }
     },
+    computed: {
+      // ...mapState(['webTopInfo']),
+    },
     created() {
-      // 初始化获取页头信息
-      this.getWebTop();
+      // 初始化数据
+      this.initData();
+      // 获取公共信息
+      this.getCommonInfo();
+
+      clearInterval(this.initDataTimer);
+      //定时器，60s查询一次
+      this.initDataTimer = setInterval(() => {
+        // 初始化数据
+        this.initData();
+        // 获取公共信息
+        this.getCommonInfo();
+      }, 1000 * 60)
+    },
+    watch: {
+      navigationListInfo: function (newValue, oldValue) {
+        if (newValue) {
+          if (newValue.length > 6) {
+            this.isActiveNavigation = true;
+          }
+        }
+      }
     },
     methods: {
       // 导航栏选择点击事件
-      handleSelect(key, keyPath) {
-        switch (key) {
-          case 'webSiteHomePage': {
-            this.$router.push('websiteHomePage');
-            break;
-          }
-          case 'userManage': {
-            this.$router.push('userManage');
-            break;
-          }
-          case 'myWebSite': {
-            this.$router.push('myWebSite');
-            break;
-          }
-          case 'partsType': {
-            this.$router.push({
-              path: 'systemSet',
-              query: {
-                component: 'partsType'
-              }
-            });
-            break;
-          }
-          default : {
-            this.$router.push('websiteHomePage');
-          }
+      handleSelect(key, index) {
+      },
+
+      // 下拉图标点击事件
+      iconDown: function (flag) {
+        if (flag == 1) {
+          // 展开
+          this.iconDownFlag = true;
+          this.isActiveNavigation = false;
+          $("#navigation-bar").css("height", "auto");
+        } else {
+          // 收起
+          this.iconDownFlag = false;
+          this.isActiveNavigation = true;
+          $("#navigation-bar").css("height", "80px");
         }
       },
 
-      // 获取表头信息
-      getWebTop: function () {
-        let webTopRequestVO = new WebTopRequestVO(this.ProtocolContent.webtop);
-        this.communicateManger.httpCommunicate.getResponseVO(webTopRequestVO, "/webTop/query/list").then((WebTopResponseVO) => {
-          if (WebTopResponseVO.getStatus == 1000) {
-            this.webTopList = WebTopResponseVO.resultList
-            if (Tools.isNull(this.webTopList)) {
-              // 使用默认的logo
-              this.logoUrl = '../../../assets/logo.png';
-            } else {
-              // 默认使用第一条数据的logo
-              this.logoUrl = this.webTopList[0].logoUrl;
+      // 初始化数据，并且定时刷新
+      initData: function () {
+        let webModuleTreeRequestVO = new WebModuleTreeRequestVO(this.ProtocolContent.webModuleTree);
+        this.communicateManger.httpCommunicate.getResponseVO(webModuleTreeRequestVO, "/navigation/query/all").then((WebModuleTreeResponseVO) => {
+          if (WebModuleTreeResponseVO.getStatus == 1000) {
+            if (!Tools.isNull(WebModuleTreeResponseVO.getNavigationDtoList)) {
+              this.navigationListInfo = WebModuleTreeResponseVO.getNavigationDtoList;
+              this.$store.commit('changeNavigationListInfo', this.navigationListInfo);
             }
-          } else {
-            this.messageBox.error(WebTopResponseVO.getMsg)
+            if (!Tools.isNull(WebModuleTreeResponseVO.getWebTop)) {
+              // 添加页头
+              this.webTopInfo = WebModuleTreeResponseVO.getWebTop;
+              this.$store.commit('changeWebTopInfo', this.webTopInfo);
+            }
+            if (!Tools.isNull(WebModuleTreeResponseVO.getWebBottom)) {
+              // 添加页尾
+              this.webBottomInfo = WebModuleTreeResponseVO.getWebBottom;
+              this.$store.commit('changeWebBottomInfo', this.webBottomInfo);
+            }
+            if (!Tools.isNull(WebModuleTreeResponseVO.getWebInfo)) {
+              // 添加网站信息
+              this.webInfo = WebModuleTreeResponseVO.getWebInfo;
+              this.$store.commit('changeWebInfo', this.webInfo);
+              }
+            } else {
+            this.messageBox.error(WebModuleTreeResponseVO.getMsg);
           }
         }).catch(() => {
           this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
         })
       },
+
+      // 获取公共信息
+      getCommonInfo: function () {
+        let commonInfoRequestVO = new CommonInfoRequestVO(this.ProtocolContent.commonInfo);
+        this.communicateManger.httpCommunicate.getResponseVO(commonInfoRequestVO, "/commonInfo/query/list").then((CommonInfoResponseVO) => {
+          if (CommonInfoResponseVO.getStatus == 1000) {
+            if (!Tools.isNull(CommonInfoResponseVO.resultList)) {
+              for (let i = 0; i < CommonInfoResponseVO.resultList.length; i++) {
+                this.commonInfo = CommonInfoResponseVO.resultList[i];
+                this.$store.commit('changeCommonInfo', this.commonInfo);
+                // 此处break的目的是只取第一条数据
+                break;
+              }
+            }
+          } else {
+            this.messageBox.error(CommonInfoResponseVO.getMsg);
+          }
+        }).catch(() => {
+          this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
+        })
+      },
+    },
+
+    beforeDestroy() {
+      // 清除定时器
+      clearInterval(this.initDataTimer);
     }
   }
 </script>
@@ -101,10 +159,10 @@
   .header {
     margin-top: 00px;
     width: 100%;
-    height: 80px;
     font-size: 14px;
-    background-color: #F5F5F5;
-    border-bottom: 1px solid #91bfff;
+    border-bottom: 1px solid #fee974;
+    min-height: 80px;
+    height: auto;
   }
 
   .header .logo {
@@ -116,28 +174,54 @@
   .header .navigation-bar {
     float: left;
     height: 80px;
-    width: 50%;
+    width: 70%;
   }
 
-  .header .el-menu--horizontal {
-    background-color: #F5F5F5;
-    border-bottom: solid 0px #e6e6e6;
-    margin-top: 19px;
+  .header .navigation-bar .cell {
+    background-color: #373d41;
+    float: left;
+    margin-left: 1%;
+    width: 15%;
+    margin-top: 16px;
+    font-size: 16px;
+    height: 60px;
+    line-height: 60px;
   }
 
-  .header .el-button--medium.is-round {
-    margin-top: 20px;
+  .header .navigation-bar :hover {
+    background-color: #2fff74;
+    color: #0f0f0f;
   }
 
-  .header .el-menu--horizontal > .el-menu-item.is-active {
-    color: #4169E1;
+  .header .navigation-bar :focus {
+    background-color: #fee974;
+    color: #0f0f0f;
   }
 
-  .header .el-menu--horizontal > .el-menu-item {
-    font-size: 18px;
+  .header .navigation-bar .name {
+
   }
 
-  .header .el-menu--horizontal > .el-submenu .el-submenu__title {
-    font-size: 18px;
+  .header .icon-down {
+    float: left;
+    height: 80px;
+    width: 10%;
+    line-height: 80px;
+    text-align: left;
+    color: #fee974;
+    font-size: 30px;
+  }
+
+  .header .show {
+    height: auto;
+    border-bottom: 1px solid #ebebeb;
+  }
+
+  .header .hide2 {
+    overflow: hidden;
+  }
+
+  .header .clear {
+    clear: both
   }
 </style>

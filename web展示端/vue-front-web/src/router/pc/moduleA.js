@@ -29,7 +29,7 @@ export const PC_ModuleARouterMap = [
 
 
   {
-    path: '/home',
+    path: '/',
     component: Home,
     children: [
       {
