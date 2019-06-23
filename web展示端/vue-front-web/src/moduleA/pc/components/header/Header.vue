@@ -42,9 +42,13 @@
         webInfo: null,  // 网站信息
         commonInfo: null,  // 公共信息
         navigationListInfo: null,  // 导航信息
+        navigationMapInfo: null,  // 导航信息
         isActiveNavigation: false,
         clickFlag: null,  // 点击的菜单
         iconDownFlag: false,
+        navigationID: '',  // 选中的导航ID
+
+        oldClickNavigationIndex: 0,  // 上一次点击导航的索引
       }
     },
     computed: {
@@ -77,6 +81,13 @@
     methods: {
       // 导航栏选择点击事件
       handleSelect(key, index) {
+        this.navigationID = key;
+        this.$store.commit('changeNavigationID', this.navigationID);
+        if (this.oldClickNavigationIndex != key) {
+          $("#" + key).addClass("active");
+          $("#" + this.oldClickNavigationIndex).removeClass("active");
+          this.oldClickNavigationIndex = key;
+        }
       },
 
       // 下拉图标点击事件
@@ -94,7 +105,7 @@
         }
       },
 
-      // 初始化数据，并且定时刷新
+      // 初始化数据
       initData: function () {
         let webModuleTreeRequestVO = new WebModuleTreeRequestVO(this.ProtocolContent.webModuleTree);
         this.communicateManger.httpCommunicate.getResponseVO(webModuleTreeRequestVO, "/navigation/query/all").then((WebModuleTreeResponseVO) => {
@@ -102,6 +113,13 @@
             if (!Tools.isNull(WebModuleTreeResponseVO.getNavigationDtoList)) {
               this.navigationListInfo = WebModuleTreeResponseVO.getNavigationDtoList;
               this.$store.commit('changeNavigationListInfo', this.navigationListInfo);
+              this.navigationMapInfo = new Map();
+              for (let item of this.navigationListInfo) {
+                this.navigationMapInfo.set(item.navigationId, item);
+              }
+              this.$store.commit('changeNavigationMapInfo', this.navigationMapInfo);
+              // 默认展开第一个导航的数据
+              this.$store.commit('changeNavigationID', this.navigationListInfo[0].navigationId);
             }
             if (!Tools.isNull(WebModuleTreeResponseVO.getWebTop)) {
               // 添加页头
@@ -194,6 +212,11 @@
   }
 
   .header .navigation-bar :focus {
+    background-color: #fee974;
+    color: #0f0f0f;
+  }
+
+  .header .navigation-bar .active {
     background-color: #fee974;
     color: #0f0f0f;
   }
