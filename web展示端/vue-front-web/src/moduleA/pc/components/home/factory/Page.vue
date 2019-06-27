@@ -9,23 +9,26 @@
     <div v-if="currentNavigationInfo != null && currentNavigationInfo.modulesDtoList != null">
       <div v-for="(item, index) in currentNavigationInfo.modulesDtoList" :key="index">
         <!--轮播图-->
-        <div v-if="item.partsTypeId == 13">
+        <div class="cell" v-if="item.partsTypeId == 13">
           <!--因为不确定会有多少个轮播图模块，所以采用父组件传值给子组件，而不是vux.-->
           <SlideShow v-bind:partsDtoList="item.partsDtoList"></SlideShow>
         </div>
         <!--文字文章（居中对齐）-->
-        <div v-else-if="item.partsTypeId == 14">
+        <div class="cell" v-else-if="item.partsTypeId == 14">
+          <DocumentCenter v-bind:partsDtoList="item.partsDtoList"></DocumentCenter>
         </div>
         <!--商品展示-->
-        <div v-else-if="item.partsTypeId == 15">
+        <div class="cell" v-else-if="item.partsTypeId == 15">
+          <Display v-bind:partsDtoList="item.partsDtoList"></Display>
         </div>
         <!--图标按钮-->
-        <div v-else-if="item.partsTypeId == 16">
+        <div class="cell" v-else-if="item.partsTypeId == 16">
         </div>
         <!--文字文章（左对齐）-->
-        <div v-else-if="item.partsTypeId == 17">
+        <div class="cell" v-else-if="item.partsTypeId == 17">
+          <Document v-bind:partsDtoList="item.partsDtoList"></Document>
         </div>
-        <div v-else>
+        <div class="cell" v-else>
           <span>加载失败</span>
         </div>
       </div>
@@ -81,5 +84,12 @@
 <style>
   .page {
     margin-top: 30px;
+    margin-left: 1%;
+    margin-right: 1%;
   }
+
+  .page .cell {
+    margin-top: 50px;
+  }
+
 </style>

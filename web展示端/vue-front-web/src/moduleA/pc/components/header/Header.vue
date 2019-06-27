@@ -119,7 +119,9 @@
               }
               this.$store.commit('changeNavigationMapInfo', this.navigationMapInfo);
               // 默认展开第一个导航的数据
-              this.$store.commit('changeNavigationID', this.navigationListInfo[0].navigationId);
+              if (this.navigationID == '') {
+                this.$store.commit('changeNavigationID', this.navigationListInfo[0].navigationId);
+              }
             }
             if (!Tools.isNull(WebModuleTreeResponseVO.getWebTop)) {
               // 添加页头
