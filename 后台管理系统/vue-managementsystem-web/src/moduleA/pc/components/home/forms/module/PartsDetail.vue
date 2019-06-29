@@ -8,13 +8,18 @@
           <el-upload
             class="avatar-uploader"
             :action="uploadImgUrl"
-            accept="image/png,image/gif,image/jpg,image/jpeg,image/ico"
+            accept="image/png,image/gif,image/jpg,image/jpeg,image/x-icon"
             :show-file-list="false"
             :on-success="uploadSuccess"
             :on-error="uploadError"
             :before-upload="beforeAvatarUpload">
             <img v-if="formData.imageUrl" :src="formData.imageUrl" class="avatar">
             <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+
+            <!--删除图片-->
+            <div v-if="formData.logoUrl" class="delete-img" slot="tip" v-on:click="deleteImg">
+              <i class="el-icon-delete"></i>
+            </div>
             <div class="el-upload__tip" slot="tip">{{$t('rs.staticText.30000000032') + 'jpeg, png, gif, ico'}}，{{$t('rs.staticText.30000000033') + uploadImgSize + 'M'}}</div>
           </el-upload>
         </el-form-item>
@@ -201,7 +206,7 @@
 
       // 图片上传之前操作
       beforeAvatarUpload(file) {
-        const isJPG = (file.type === 'image/png' || file.type === 'image/gif' || file.type === 'image/jpg' || file.type === 'image/jpeg' || file.type === 'image/ico');
+        const isJPG = (file.type === 'image/png' || file.type === 'image/gif' || file.type === 'image/jpg' || file.type === 'image/jpeg' || file.type === 'image/x-icon');
         const isLt2M = (file.size / 1024 / 1024) < Config.uploadImgSize;
         if (!isJPG) {
           this.$message.error(this.$t('rs.staticText.30000000032') + 'jpeg, png, gif, ico');  //上传图片的格式只能是:
@@ -237,6 +242,31 @@
         }).catch(() => {
           this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
         })
+      },
+
+      // 删除图片
+      deleteImg: function() {
+        this.messageBox.confirm(this.$t('rs.staticText.30000000047'), this.$t('rs.staticText.30000000008'), () => {  // 您确认要删除图片吗？ 提示
+        }, () => {
+          // 删除图片
+          let partAddOrModifyRequestVO = new PartAddOrModifyRequestVO(this.ProtocolContent.partAddOrModify);
+          partAddOrModifyRequestVO.imageUrl = '';
+          partAddOrModifyRequestVO.partsId = this.formData.partsId;
+          this.communicateManger.httpCommunicate.getResponseVO(partAddOrModifyRequestVO, "/parts/addOrModify").then((PartAddOrModifyResponseVO) => {
+            if (PartAddOrModifyResponseVO.getStatus == 1000 && PartAddOrModifyResponseVO.getResultCode > 0) {
+              this.messageBox.success(PartAddOrModifyResponseVO.getMsg);
+              this.formData.imageUrl = '';
+              // 通知更新树
+              this.$store.commit('setUpdateWebModuleTreeFlag', Math.ceil(Math.random() * 10000));
+            } else {
+              this.messageBox.error(PartAddOrModifyResponseVO.getMsg);
+            }
+          }).catch(() => {
+            this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
+          })
+        }, () => {
+          // 取消
+        });
       },
 
       // 删除零件
@@ -280,6 +310,12 @@
     overflow: hidden;
     width: 200px;
     height: 200px;
+  }
+
+  .partsDetail .form-1 .delete-img {
+    font-size: 25px;
+    width: 100px;
+    margin-left: 45%;
   }
 
   .partsDetail .avatar-uploader .el-upload:hover {

@@ -1,6 +1,33 @@
 <template>
   <div class="index-explain">
-    <div id="jsi-fountain-container" class="container"></div>
+    <div class="ele-container">
+      <div class="ele-wrapper">
+        <div class="ele-tail"></div>
+        <div class="ele-body">
+          <div class="ele-head">
+            <div class="ele-eyebrows"></div>
+            <div class="ele-eyes"></div>
+            <div class="ele-mouth"></div>
+            <div class="ele-fang-front"></div>
+            <div class="ele-fang-back"></div>
+            <div class="ele-ear"></div>
+          </div>
+        </div>
+        <div class="ele-leg-1 ele-leg-back">
+          <div class="ele-foot"></div>
+        </div>
+        <div class="ele-leg-2 ele-leg-front">
+          <div class="ele-foot"></div>
+        </div>
+        <div class="ele-leg-3 ele-leg-back">
+          <div class="ele-foot"></div>
+        </div>
+        <div class="ele-leg-4 ele-leg-front">
+          <div class="ele-foot"></div>
+        </div>
+      </div>
+    </div>
+
     <div class="explain">
       <!--请按照相关文档的要求，来完成网站的创建与编辑，祝您工作愉快！-->
       <span>{{$t('rs.moduleA.20000000148')}}</span>
@@ -9,20 +36,12 @@
 </template>
 
 <script>
-  import RENDERER from '@/assets/js/horse-animation.js'
-
   export default {
     name: "IndexExplain",
     data() {
       return {
+        object: null,
       }
-    },
-    mounted() {
-      // 放在created里没有效果
-      RENDERER.init();
-    },
-    beforeDestory() {
-      RENDERER.jdugeToStopResize();
     }
   }
 </script>
@@ -31,14 +50,9 @@
   .index-explain {
   }
 
-  .index-explain .container{
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background-color: #000000;
+  .index-explain  .ele-container {
+    height: -webkit-fill-available;
   }
-
   .index-explain .explain {
     margin-top: 5%;
     font-size: 20px;
