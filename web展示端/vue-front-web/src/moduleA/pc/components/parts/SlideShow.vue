@@ -3,11 +3,11 @@
     <el-carousel :interval="4000" type="card" height="400px" :autoplay="false" @change="change">
       <el-carousel-item v-for="(item, index) in partsDtoList" :key="index" v-if="item.status == 1">
         <!--不带有超链接-->
-        <div class="img" v-if="item.hyperlinks== ''">
+        <div class="img" v-if="item.hyperlinks== ''" v-on:click="onclickParts(item)">
           <img :src="item.imageUrl">
         </div>
         <!--带有超链接-->
-        <div class="img" v-else>
+        <div class="img" v-else v-on:click="onclickParts(item)">
           <a :href="item.hyperlinks" target="_blank">
             <img :src="item.imageUrl">
           </a>
@@ -25,6 +25,8 @@
 </template>
 
 <script>
+  import {onclickParts} from '@/framework/common/js/global.js'
+
   export default {
     name: "SlideShow",
     props: {
@@ -50,7 +52,12 @@
       change: function (index) {
         this.title = this.partsDtoList[index].title;
         this.txt = this.partsDtoList[index].txt;
-      }
+      },
+
+      // 点击零件事件
+      onclickParts: function (item) {
+        onclickParts(item, this.ProtocolContent, this.communicateManger.httpCommunicate);
+      },
     }
   }
 </script>

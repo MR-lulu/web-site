@@ -2,7 +2,7 @@
   <div class="document">
     <el-collapse accordion v-model="activeNames" @change="handleChange">
       <el-collapse-item v-for="(item, index) in partsDtoList" :key="index" :title="(index + 1)+'. '+ item.title"
-                        :name="index" v-if="item.status == 1">
+                        :name="index" v-if="item.status == 1" v-on:click="onclickParts(item)">
         {{item.txt}}
       </el-collapse-item>
     </el-collapse>
@@ -10,6 +10,8 @@
 </template>
 
 <script>
+  import {onclickParts} from '@/framework/common/js/global.js'
+
   export default {
     name: "Document",
     props: {
@@ -33,7 +35,11 @@
       },
       handleChange(val) {
         console.log(val);
-      }
+      },
+      // 点击零件事件
+      onclickParts: function (item) {
+        onclickParts(item, this.ProtocolContent, this.communicateManger.httpCommunicate);
+      },
     }
   }
 </script>

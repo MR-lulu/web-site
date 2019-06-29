@@ -1,7 +1,8 @@
 <template>
   <div class="icon-button">
     <div class="block">
-      <div class="cell" v-for="(item, index) in partsDtoList" :key="index" v-if="item.status == 1">
+      <div class="cell" v-for="(item, index) in partsDtoList" :key="index" v-if="item.status == 1"
+           v-on:click="onclickParts(item)">
         <!--不带有超链接-->
         <div v-if="item.hyperlinks== ''">
           <el-image
@@ -49,6 +50,7 @@
 </template>
 
 <script>
+  import {onclickParts} from '@/framework/common/js/global.js'
 
   export default {
     name: "IconButton",
@@ -69,7 +71,11 @@
 
     methods: {
       initData: function () {
-      }
+      },
+      // 点击零件事件
+      onclickParts: function (item) {
+        onclickParts(item, this.ProtocolContent, this.communicateManger.httpCommunicate);
+      },
     }
   }
 </script>
