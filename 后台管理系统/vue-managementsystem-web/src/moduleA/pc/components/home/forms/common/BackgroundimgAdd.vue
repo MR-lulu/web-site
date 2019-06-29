@@ -16,7 +16,7 @@
             <i v-else class="el-icon-plus avatar-uploader-icon"></i>
 
             <!--删除图片-->
-            <div v-if="formData.logoUrl" class="delete-img" slot="tip" v-on:click="deleteImg">
+            <div v-if="formData.bgUrl" class="delete-img" slot="tip" v-on:click="deleteImg">
               <i class="el-icon-delete"></i>
             </div>
             <div class="el-upload__tip" slot="tip">{{$t('rs.staticText.30000000032') + 'jpeg, png, gif,ico'}}，{{$t('rs.staticText.30000000033') + uploadImgSize + 'M'}}
