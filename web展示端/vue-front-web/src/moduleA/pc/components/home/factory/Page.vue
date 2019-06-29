@@ -9,27 +9,29 @@
     <div v-if="currentNavigationInfo != null && currentNavigationInfo.modulesDtoList != null">
       <div v-for="(item, index) in currentNavigationInfo.modulesDtoList" :key="index">
         <!--轮播图-->
-        <div class="cell" v-if="item.partsTypeId == 13">
+        <div class="cell" v-if="item.partsTypeId == 13 && item.partsDtoList != null && item.partsDtoList.length != 0">
           <!--因为不确定会有多少个轮播图模块，所以采用父组件传值给子组件，而不是vux.-->
           <SlideShow v-bind:partsDtoList="item.partsDtoList"></SlideShow>
         </div>
         <!--文字文章（居中对齐）-->
-        <div class="cell" v-else-if="item.partsTypeId == 14">
+        <div class="cell"
+             v-else-if="item.partsTypeId == 14 && item.partsDtoList != null && item.partsDtoList.length != 0">
           <DocumentCenter v-bind:partsDtoList="item.partsDtoList"></DocumentCenter>
         </div>
         <!--商品展示-->
-        <div class="cell" v-else-if="item.partsTypeId == 15">
+        <div class="cell"
+             v-else-if="item.partsTypeId == 15 && item.partsDtoList != null && item.partsDtoList.length != 0">
           <Display v-bind:partsDtoList="item.partsDtoList"></Display>
         </div>
         <!--图标按钮-->
-        <div class="cell" v-else-if="item.partsTypeId == 16">
+        <div class="cell"
+             v-else-if="item.partsTypeId == 16 && item.partsDtoList != null && item.partsDtoList.length != 0">
+          <IconButton v-bind:partsDtoList="item.partsDtoList"></IconButton>
         </div>
         <!--文字文章（左对齐）-->
-        <div class="cell" v-else-if="item.partsTypeId == 17">
+        <div class="cell"
+             v-else-if="item.partsTypeId == 17 && item.partsDtoList != null && item.partsDtoList.length != 0">
           <Document v-bind:partsDtoList="item.partsDtoList"></Document>
-        </div>
-        <div class="cell" v-else>
-          <span>加载失败</span>
         </div>
       </div>
     </div>

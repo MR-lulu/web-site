@@ -1,6 +1,6 @@
 <template>
   <div class="display-commodity">
-    <div>
+    <div class="block">
       <div class="cell" v-for="(item, index) in partsDtoList" :key="index" v-if="item.status == 1">
         <!--不带有超链接-->
         <div v-if="item.hyperlinks== ''">
@@ -63,8 +63,6 @@
     },
     data() {
       return {
-        url: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
-        displays: null
       }
     },
 
@@ -74,13 +72,6 @@
 
     methods: {
       initData: function () {
-        this.displays = new Array();
-        for (let i = 0; i < 12; i++) {
-          let object = new Object();
-          object.title = "标题" + i;
-          object.content = "中国国际金融股份有限公司（中金或“公司”，3908.HK）是中国首家中外合资投资银行。";
-          this.displays.push(object);
-        }
       }
     }
   }
@@ -89,20 +80,26 @@
 <style>
   .display-commodity {
     overflow: auto;
-    background-color: #0d0d0d;
+    background-color: #373d41;
+  }
+
+  .display-commodity .block {
+    margin-top: 2%;
+    margin-bottom: 2%;
   }
 
   .display-commodity .cell {
-    float: left;
+    /*float: left;*/
     margin: 20px 20px 20px 20px;
     background-color: rgba(255, 255, 255, 0.8);
     width: 450px;
     /*height: 500px;*/
     overflow: auto;
+    display: inline-grid;
   }
 
   .display-commodity .cell .content {
-    background-color: #373d41;
+    background-color: #040404;
     padding-top: 15px;
     padding-bottom: 15px;
   }
@@ -130,5 +127,10 @@
   .display-commodity .txt span {
     color: rgba(255, 255, 255, 0.8);
     line-height: 25px;
+  }
+
+  .display-commodity .image-slot {
+    padding-top: 30%;
+    font-size: 50px;
   }
 </style>
