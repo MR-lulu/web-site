@@ -1,0 +1,724 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  background-color: #040404;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a.ie6:hover {
+  zoom: 1
+}
+
+a:focus,
+a:hover,
+a:active {
+  outline: none;
+  text-decoration: none;
+}
+
+a.btn,
+a.btn:hover,
+a.btn:active {
+  color: #fff;
+}
+
+sub, sup {
+  vertical-align: baseline
+}
+
+textarea {
+  resize: none;
+}
+
+a {
+  color: #333333;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-user-select: none;
+  -moz-user-focus: none;
+  -moz-user-select: none;
+}
+
+body, div, span, header, footer, nav, section, aside, article, ul, dl, dt, dd, li, a, p, h1, h2, h3, h4, h5, h6, i, b, textarea, button, input, select, figure, figcaption {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-style: normal;
+  text-decoration: none;
+  border: none;
+  font-family: "Microsoft Yahei", sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+
+  &:focus {
+    outline: none;
+  }
+
+  color: #ffffff;
+}
+
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  background-color: #F5F5F5;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  background-color: #555;
+}
+
+input[type="button"], input[type="submit"], input[type="search"], input[type="reset"] {
+  -webkit-appearance: none;
+}
+
+textarea {
+  -webkit-appearance: none;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  // background-color: #F5F5F5;
+}
+
+.fillcontain {
+  height: 100%;
+  width: 100%;
+}
+
+.clear:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.clear {
+  zoom: 1;
+}
+
+.back_img {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.margin {
+  margin: 0 auto;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/**/
+.trade-menu {
+  width: 100%;
+  border-bottom: 0.02rem solid #e6e6e6;
+  background-color: #ffffff;
+  // margin-top: 10px;
+}
+
+.trade-menu:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+.trade-menu .trade-menu-item {
+  width: 25%;
+  float: left;
+  height: 1.22rem;
+  overflow: hidden;
+  text-align: center;
+}
+
+.trade-menu .trade-menu-item .menu-item-link {
+  display: inline-block;
+  width: 1.1rem;
+  height: 1.22rem;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  padding: 0 0.1rem;
+}
+
+.trade-menu .trade-menu-item .menu-item-link.active {
+  border-bottom: 0.06rem solid #2b84ff;
+}
+
+.trade-menu .trade-menu-item .menu-item-link.active .item-link-txt {
+  color: #2b84ff;
+}
+
+.trade-menu .trade-menu-item .menu-item-link .link-img-box {
+  width: 0.56rem;
+  height: 0.56rem;
+  font-size: 0;
+  line-height: 0;
+  margin: 0.1rem auto 0.04rem auto;
+}
+
+.trade-menu .trade-menu-item .menu-item-link .link-img-box img {
+  width: 0.56rem;
+  height: 0.56rem;
+}
+
+.trade-menu .trade-menu-item .menu-item-link .item-link-txt {
+  font-size: 0.24rem;
+  line-height: 0.4rem;
+  color: #333333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search-menu-list {
+  overflow: hidden;
+  background-color: #ffffff;
+  font-size: 0.28rem;
+}
+
+.search-menu-list li {
+  padding: 0 0.2rem;
+  height: 0.92rem;
+  line-height: 0.92rem;
+}
+
+.search-menu-list li .menu-list-item {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  line-height: 0.92rem;
+  height: 0.92rem;
+  width: 100%;
+  padding: 0 0.92rem;
+  background-color: #ffffff;
+  color: #333333;
+  border-bottom: 0.02rem solid #e6e6e6;
+}
+
+.search-menu-list li .menu-list-item .item-left-icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 0.92rem;
+  height: 0.9rem;
+  line-height: 0.92rem;
+  background-color: transparent;
+  text-align: center;
+  font-size: 0.36rem;
+  color: #ff8533;
+}
+
+.search-menu-list li .menu-list-item .item-right-icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+  width: 0.92rem;
+  height: 0.9rem;
+  line-height: 0.92rem;
+  background-color: transparent;
+  text-align: center;
+}
+
+.trade-member {
+  display: inherit !important;
+  margin: 0.1rem 0.1rem 0rem 0.2rem;
+  width: 98%;
+  height: 0.8rem;
+  font-size: 0.32rem;
+  font-variant: initial;
+  padding-top: 0.1rem;
+}
+
+.trade-member-div {
+  width: 100%;
+  height: 0.8rem;
+  background-color: #fefefe;
+  margin-top: 0.1rem;
+  margin-bottom: 0.1rem;
+  line-height: 0.8rem;
+}
+
+.trade-member-div-span {
+  width: 98%;
+  line-height: .8rem;
+  // position: absolute;
+  font-size: .36rem;
+  // left: 2%;
+  background-color: #fff;
+  padding-left: 2%;
+}
+
+.trade-contract-container {
+  width: 100%;
+  font-size: 0.24rem;
+  padding: 0.12rem 0rem 0rem 0rem;
+  background-color: #fefefe;
+  margin: 0.06rem 0rem 0.12rem 0rem;
+  border-bottom: 0.04rem solid #efefef;
+  height: 2rem;
+}
+
+.trade-grid-item-detail,
+.trade-trust-apply-detail {
+  height: 1.12rem;
+  margin-top: 0.1rem;
+  font-size: 0.28rem;
+}
+
+.trade-contract-div-nobd {
+  width: 33%;
+  float: left;
+  text-align: center;
+  position: relative;
+}
+
+.trade-contract-separated {
+  width: 92%;
+  height: 0.02rem;
+  border-bottom: 0.02rem solid #eee;
+  margin: 0rem 0.1rem 0.06rem 0.3rem;
+  display: flex;
+}
+
+.trade-contract-div-inner {
+  height: 0.46rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.inner-title {
+  color: #999999;
+}
+
+.inner-context {
+  color: #333;
+  font-size: 0.24rem;
+}
+
+.font-weight-bold {
+  font-weight: 600;
+}
+
+.font-size-15rem {
+  font-size: 0.3rem;
+}
+
+.trade-contract-div-inner-bs {
+  position: absolute;
+  left: 0.1rem;
+  top: 0.05rem;
+  border-radius: 0.4rem;
+  width: 0.4rem;
+  height: 0.4rem;
+  border: 0rem solid;
+  line-height: 0.4rem;
+}
+
+.bs_s {
+  background-color: #dff6e1;
+}
+
+.bs_b {
+  background-color: #fddfdf;
+}
+
+.trade-contract-div-inner-span-bs {
+  font-size: 0.24rem;
+  top: -0.1rem;
+}
+
+.span-bs-b {
+  color: #ee2626;
+}
+
+.span-bs-s {
+  color: #25be34;
+}
+
+.i-godetail {
+  position: absolute;
+  font-size: 0.36rem;
+  right: 0.1rem;
+}
+
+.cpdialog {
+  background: #ffffff;
+  width: 7.5rem;
+  font-size: 0.24rem;
+  padding-left: 0.8rem;
+}
+
+.cpdialog .el-input--medium .el-input__inner {
+  height: 0.7rem;
+  width: 6rem;
+  line-height: 0.5rem;
+  font-size: 0.2rem;
+}
+
+.close {
+  display: inline-block;
+  font-size: 0.6rem;
+}
+
+.buysell-commdity-select-option {
+  width: 6rem;
+  height: 0.6rem;
+  background-color: white;
+  border: 0.012rem solid #cccccc;
+  border-radius: 0.06rem;
+  font-size: 0.24rem;
+  margin-top: 0.12rem;
+}
+
+.font-size-14 {
+  font-size: 0.24rem;
+  width: 48%;
+  display: inline-block;
+}
+
+.buysell-commdity-select-div {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.icon {
+  font-size: 0.4rem;
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-top: 0.1rem;
+  border-radius: 0.4rem;
+  border: 0.012rem solid #a4b5c9;
+  display: inline-block;
+  text-align: center;
+  line-height: 0.36rem;
+  margin-left: 0.42rem;
+}
+
+.dialog-sub-btn {
+  width: 6.6rem;
+  height: 0.6rem;
+  background-color: #abceff;
+  color: #ffffff;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  text-align: center;
+  border-radius: 0.1rem;
+  padding-top: 0.2rem;
+  font-size: 0.3rem;
+}
+
+
+.jia {
+  width: 0.5rem;
+  height: 0.42rem;
+  font-size: 0.24rem;
+  color: white;
+  background-color: #ED9D9D;
+  position: absolute;
+  text-align: center;
+  padding-top: 0.08rem;
+
+}
+
+.jian {
+  width: 0.5rem;
+  position: absolute;
+  height: 0.42rem;
+  font-size: 0.24rem;
+  color: white;
+  background-color: #ED9D9D;
+  text-align: center;
+  padding-top: 0.08rem;
+}
+
+.pnum {
+  position: relative;
+  height: 0.5rem;
+  width: 1.4rem;
+  background-color: #f5f9fe;
+  text-align: center;
+  color: black;
+  margin-left: 0.6rem;
+  margin-right: 0.1rem;
+  font-size: 0.24rem;
+}
+
+.pad-b-t-10 {
+  padding-top: 0.2rem;
+  padding-left: 0.4rem;
+  padding-bottom: 0.2rem;
+}
+
+.buysell-commdity-trade-list {
+  padding-top: 0.1rem;
+  width: 6.51rem;
+  height: 0.71rem;
+  border-bottom: 0.01rem solid #cccccc;
+}
+
+.mode-message {
+  width: 2rem;
+  display: table-cell;
+  text-align: right;
+  font-size: 0.18rem;
+  color: #999999;
+}
+
+.mode-inputdiv {
+  width: 2.8rem;
+  height: auto;
+  display: table-cell;
+}
+
+.mode-name {
+  width: 1.8rem;
+  display: table-cell;
+}
+
+.msg-number {
+  display: inline-block;
+}
+
+.font-size-16 {
+  font-size: 0.32rem;
+}
+
+.color-red {
+  color: #ee2828;
+}
+
+.color-green {
+  color: #29be38;
+}
+
+.pricewave {
+  width: 2.62rem;
+  height: 0.5rem;
+  background-color: #f5f9fe;
+}
+
+.mode-name .el-checkbox {
+  color: #333333;
+  font-size: 0.24rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.jc {
+  width: 0.8rem;
+}
+
+.inprice {
+  width: 5rem;
+}
+
+.inprice-input {
+  width: 1.2rem;
+  height: 0.5rem;
+  background-color: #f5f9fe;
+  margin-left: 0.1rem;
+  margin-right: 0.1rem;
+}
+
+.inputbox {
+  text-align: center;
+  font-size: 0.24rem;
+}
+
+.cp {
+  background-color: #f6f6f6;
+}
+
+.cell-inner {
+  background-color: #ffffff;
+  width: 97%;
+  margin: 0 auto 0.2rem;
+  padding-top: 0.14rem;
+  border-radius: 0.06rem;
+  padding-bottom: 0.2rem;
+}
+
+.button-font {
+  font-size: 0.2rem;
+}
+
+.cell-inner-top {
+  width: 100%;
+  height: 2rem;
+}
+
+.inner-btn {
+  text-align: center;
+  position: relative;
+  padding-top: 0;
+}
+
+.inner-btn .mint-button--normal, .mint-button--small {
+  width: 27%;
+  height: auto;
+  background-color: transparent;
+  color: #60a3ff;
+  padding: 0;
+  display: inline-block;
+  border-radius: 0;
+  box-shadow: none;
+  padding-bottom: 0.2rem;
+}
+
+.btn-border {
+  vertical-align: bottom;
+  display: inline-block;
+  width: 0.02rem;
+  height: 0.84rem;
+  background-color: #dff0f9;
+}
+
+.cut-line {
+  height: 0.02rem;
+  width: 100%;
+  background-color: #dff0f9;
+  position: relative;
+}
+
+.cell-inner-top-left {
+  display: inline-block;
+  vertical-align: top;
+  width: 11%;
+}
+
+.cell-inner-top-right {
+  display: inline-block;
+  vertical-align: top;
+  width: 84%;
+}
+
+.left-content {
+  font-size: 0.24rem;
+  height: 0.4rem;
+  text-align: center;
+  width: 0.4rem;
+  margin: 0.08rem auto 0;
+  border-radius: 1.4rem;
+  background: #fddfdf;
+  color: #ef4e4e;
+  line-height: 0.4rem;
+}
+
+.cell-inner-top-table {
+  display: table;
+  width: 100%;
+  height: 1.72rem;
+}
+
+.cell-inner-top-tr {
+  display: table-row;
+}
+
+.cell-inner-top-td {
+  display: table-cell;
+  width: 30%;
+  height: 0.4rem;
+}
+
+.td-top {
+  padding-top: 0.02rem;
+  padding-bottom: 0.02rem;
+  font-size: 0.24rem;
+  color: #333333;
+}
+
+.td-bottom {
+  font-size: 0.2rem;
+  color: #666666;
+}
+
+.inner-btn-cell {
+  margin-top: -0.52rem;
+}
+
+.toDetail {
+  font-size: 0.24rem;
+}
+
+.toholdd {
+  font-size: 0.24rem;
+}
+
+.linkbutton {
+  text-align: right;
+}
+
+.inewfont {
+  font-family: "inewfont" !important;
+  font-size: 0.32rem;
+}
+
+.childrenCss {
+  // position: absolute;
+  // top: 15%;
+  width: 100%;
+}
+
+.nodataDiv {
+  text-align: center;
+}
+
+.nodataPic {
+  font-size: 0.4rem;
+  color: #666666;
+  margin: 5% auto 0;
+}
