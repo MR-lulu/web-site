@@ -34,5 +34,5 @@
 </script>
 
 <style lang="less">
-  @import url('~@/assets/theme/pc/blue/framework/css/common');
+  @import url("~@/assets/theme/mobile/default/framework/css/common");
 </style>
