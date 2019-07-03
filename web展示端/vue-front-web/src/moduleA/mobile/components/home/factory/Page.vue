@@ -13,26 +13,26 @@
           <!--因为不确定会有多少个轮播图模块，所以采用父组件传值给子组件，而不是vux.-->
           <SlideShow v-bind:partsDtoList="item.partsDtoList"></SlideShow>
         </div>
-        <!--文字文章（居中对齐）-->
-        <div class="cell"
-             v-else-if="item.partsTypeId == 14 && item.partsDtoList != null && item.partsDtoList.length != 0">
-          <DocumentCenter v-bind:partsDtoList="item.partsDtoList"></DocumentCenter>
-        </div>
-        <!--商品展示-->
-        <div class="cell"
-             v-else-if="item.partsTypeId == 15 && item.partsDtoList != null && item.partsDtoList.length != 0">
-          <Display v-bind:partsDtoList="item.partsDtoList"></Display>
-        </div>
-        <!--图标按钮-->
-        <div class="cell"
-             v-else-if="item.partsTypeId == 16 && item.partsDtoList != null && item.partsDtoList.length != 0">
-          <IconButton v-bind:partsDtoList="item.partsDtoList"></IconButton>
-        </div>
-        <!--文字文章（左对齐）-->
-        <div class="cell"
-             v-else-if="item.partsTypeId == 17 && item.partsDtoList != null && item.partsDtoList.length != 0">
-          <Document v-bind:partsDtoList="item.partsDtoList"></Document>
-        </div>
+        <!--&lt;!&ndash;文字文章（居中对齐）&ndash;&gt;-->
+        <!--<div class="cell"-->
+        <!--v-else-if="item.partsTypeId == 14 && item.partsDtoList != null && item.partsDtoList.length != 0">-->
+        <!--<DocumentCenter v-bind:partsDtoList="item.partsDtoList"></DocumentCenter>-->
+        <!--</div>-->
+        <!--&lt;!&ndash;商品展示&ndash;&gt;-->
+        <!--<div class="cell"-->
+        <!--v-else-if="item.partsTypeId == 15 && item.partsDtoList != null && item.partsDtoList.length != 0">-->
+        <!--<Display v-bind:partsDtoList="item.partsDtoList"></Display>-->
+        <!--</div>-->
+        <!--&lt;!&ndash;图标按钮&ndash;&gt;-->
+        <!--<div class="cell"-->
+        <!--v-else-if="item.partsTypeId == 16 && item.partsDtoList != null && item.partsDtoList.length != 0">-->
+        <!--<IconButton v-bind:partsDtoList="item.partsDtoList"></IconButton>-->
+        <!--</div>-->
+        <!--&lt;!&ndash;文字文章（左对齐）&ndash;&gt;-->
+        <!--<div class="cell"-->
+        <!--v-else-if="item.partsTypeId == 17 && item.partsDtoList != null && item.partsDtoList.length != 0">-->
+        <!--<Document v-bind:partsDtoList="item.partsDtoList"></Document>-->
+        <!--</div>-->
       </div>
     </div>
   </div>
@@ -40,11 +40,11 @@
 
 <script>
   import {mapState} from 'vuex'
-  import Display from '@/moduleA/pc/components/parts/Display.vue'
-  import Document from '@/moduleA/pc/components/parts/Document.vue'
-  import IconButton from '@/moduleA/pc/components/parts/IconButton.vue'
-  import SlideShow from '@/moduleA/pc/components/parts/SlideShow.vue'
-  import DocumentCenter from '@/moduleA/pc/components/parts/DocumentCenter.vue'
+  import Display from '@/moduleA/mobile/components/parts/Display.vue'
+  import Document from '@/moduleA/mobile/components/parts/Document.vue'
+  import IconButton from '@/moduleA/mobile/components/parts/IconButton.vue'
+  import SlideShow from '@/moduleA/mobile/components/parts/SlideShow.vue'
+  import DocumentCenter from '@/moduleA/mobile/components/parts/DocumentCenter.vue'
   import Tools from '@/commonjs/util/mall.tools.js'
 
   export default {
@@ -85,13 +85,9 @@
 
 <style>
   .page {
-    margin-top: 30px;
-    margin-left: 1%;
-    margin-right: 1%;
   }
 
   .page .cell {
-    margin-top: 50px;
   }
 
 </style>
