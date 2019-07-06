@@ -68,7 +68,7 @@
 
 <style>
   .slide-show {
-    height: 5rem;
+    height: 6rem;
   }
 
   .slide-show .img {
@@ -84,6 +84,12 @@
   .slide-show .img img {
     width: 100%;
     height: 100%;
+  }
+
+  .slide-show .mint-swipe, .mint-swipe-items-wrap {
+    overflow: hidden;
+    position: relative;
+    height: 5rem;
   }
 
   .slide-show .content {

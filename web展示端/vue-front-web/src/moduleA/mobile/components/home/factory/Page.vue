@@ -13,26 +13,21 @@
           <!--因为不确定会有多少个轮播图模块，所以采用父组件传值给子组件，而不是vux.-->
           <SlideShow v-bind:partsDtoList="item.partsDtoList"></SlideShow>
         </div>
-        <!--&lt;!&ndash;文字文章（居中对齐）&ndash;&gt;-->
-        <!--<div class="cell"-->
-        <!--v-else-if="item.partsTypeId == 14 && item.partsDtoList != null && item.partsDtoList.length != 0">-->
-        <!--<DocumentCenter v-bind:partsDtoList="item.partsDtoList"></DocumentCenter>-->
-        <!--</div>-->
-        <!--&lt;!&ndash;商品展示&ndash;&gt;-->
-        <!--<div class="cell"-->
-        <!--v-else-if="item.partsTypeId == 15 && item.partsDtoList != null && item.partsDtoList.length != 0">-->
-        <!--<Display v-bind:partsDtoList="item.partsDtoList"></Display>-->
-        <!--</div>-->
-        <!--&lt;!&ndash;图标按钮&ndash;&gt;-->
-        <!--<div class="cell"-->
-        <!--v-else-if="item.partsTypeId == 16 && item.partsDtoList != null && item.partsDtoList.length != 0">-->
-        <!--<IconButton v-bind:partsDtoList="item.partsDtoList"></IconButton>-->
-        <!--</div>-->
-        <!--&lt;!&ndash;文字文章（左对齐）&ndash;&gt;-->
-        <!--<div class="cell"-->
-        <!--v-else-if="item.partsTypeId == 17 && item.partsDtoList != null && item.partsDtoList.length != 0">-->
-        <!--<Document v-bind:partsDtoList="item.partsDtoList"></Document>-->
-        <!--</div>-->
+        <!--文字文章-->
+        <div class="cell"
+             v-else-if="(item.partsTypeId == 14 ||  item.partsTypeId == 17) && item.partsDtoList != null && item.partsDtoList.length != 0">
+          <Document v-bind:partsDtoList="item.partsDtoList" v-bind:flag="item.partsTypeId"></Document>
+        </div>
+        <!--商品展示-->
+        <div class="cell"
+             v-else-if="item.partsTypeId == 15 && item.partsDtoList != null && item.partsDtoList.length != 0">
+          <Display v-bind:partsDtoList="item.partsDtoList"></Display>
+        </div>
+        <!--图标按钮-->
+        <div class="cell"
+             v-else-if="item.partsTypeId == 16 && item.partsDtoList != null && item.partsDtoList.length != 0">
+          <IconButton v-bind:partsDtoList="item.partsDtoList"></IconButton>
+        </div>
       </div>
     </div>
   </div>
@@ -44,7 +39,6 @@
   import Document from '@/moduleA/mobile/components/parts/Document.vue'
   import IconButton from '@/moduleA/mobile/components/parts/IconButton.vue'
   import SlideShow from '@/moduleA/mobile/components/parts/SlideShow.vue'
-  import DocumentCenter from '@/moduleA/mobile/components/parts/DocumentCenter.vue'
   import Tools from '@/commonjs/util/mall.tools.js'
 
   export default {
@@ -53,8 +47,7 @@
       Display,
       Document,
       IconButton,
-      SlideShow,
-      DocumentCenter
+      SlideShow
     },
     data() {
       return {

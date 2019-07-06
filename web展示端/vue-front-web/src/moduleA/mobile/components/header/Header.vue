@@ -244,8 +244,7 @@
     width: 100%;
     height: auto;
     overflow: hidden;
-    position: absolute;
-    background: #111;
+    /*position: absolute;*/
   }
 
   .header div.screen {
@@ -431,7 +430,7 @@
 
   .header div.menu ul {
     position: absolute;
-    height: 10rem;
+    height: 100%;
     overflow: scroll;
   }
 

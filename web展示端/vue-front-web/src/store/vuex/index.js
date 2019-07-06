@@ -18,6 +18,7 @@ const store = new Vuex.Store({
     navigationMapInfo: null,  // 导航信息
     loginInfo: null, //登录信息
     navigationID: null, // 选中的导航ID
+    documentInfo: null,  // 选中的文档信息
   },
   // 定义改变store中属性的方法
   mutations: {
@@ -56,6 +57,10 @@ const store = new Vuex.Store({
     // 修改选中的导航ID
     changeNavigationID: (state, navigationID) => {
       state.navigationID = navigationID
+    },
+    // 修改选中的文档
+    changeDocumentInfo: (state, documentInfo) => {
+      state.documentInfo = documentInfo
     },
   },
   modules: {

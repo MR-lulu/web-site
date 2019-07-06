@@ -1,36 +1,22 @@
 <template>
   <div class="icon-button">
-    <div class="block">
-      <div class="cell" v-for="(item, index) in partsDtoList" :key="index" v-if="item.status == 1"
-           v-on:click="onclickParts(item)">
+    <ul>
+      <li v-for="(item, index) in partsDtoList" :key="index" v-if="item.status == 1" v-on:click="onclickParts(item)">
         <!--不带有超链接-->
-        <div v-if="item.hyperlinks== ''">
-          <el-image
-            style="width: auto; height: 127px;;"
-            :src="item.imageUrl"
-            fit="contain">
-            <!--图片加载失败显示内容-->
-            <div slot="error" class="image-slot">
-              <i class="el-icon-picture-outline"></i>
-            </div>
-          </el-image>
+        <div class="cell" v-if="item.hyperlinks== ''">
+          <img class="load" v-if="item.imageUrl == null || item.imageUrl == ''" src="@/assets/images/load.gif">
+          <img v-else v-lazy="item.imageUrl">
         </div>
         <!--带有超链接-->
-        <div v-else>
+        <div class="cell" v-else>
           <a :href="item.hyperlinks" target="_blank">
-            <el-image
-              style="width: auto; height: 127px;"
-              :src="item.imageUrl"
-              fit="contain">
-              <!--图片加载失败显示内容-->
-              <div slot="error" class="image-slot">
-                <i class="el-icon-picture-outline"></i>
-              </div>
-            </el-image>
+            <img class="load" v-if="item.imageUrl == null || item.imageUrl == ''" src="@/assets/images/load.gif">
+            <img v-else v-lazy="item.imageUrl">
           </a>
         </div>
 
-        <div class="content ellipsis">
+        <!--文本内容-->
+        <div class="content">
           <div class="title ellipsis">
             <!--不带有超链接-->
             <div v-if="item.hyperlinks== ''">
@@ -44,8 +30,8 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -81,43 +67,57 @@
 
 <style>
   .icon-button {
-    overflow: auto;
     background-color: #373d41;
+    margin-left: 0.1rem;
+    margin-right: 0.1rem;
+    margin-top: 0.5rem;
   }
 
-  .icon-button .block {
-    margin-top: 2%;
-    margin-bottom: 2%;
+  .icon-button image[lazy=loading] {
+    width: 40px;
+    height: 300px;
+    margin: auto;
   }
 
   .icon-button .cell {
-    /*float: left;*/
-    margin: 20px 20px 20px 20px;
-    background-color: rgba(255, 255, 255, 0.8);
-    width: 200px;
-    /*height: 500px;*/
-    overflow: auto;
-    display: inline-grid;
+    background-color: hsla(0, 0%, 100%, .8);
+    margin: 0.2rem;
   }
 
-  .icon-button .cell .content {
+  .icon-button ul {
+  }
+
+  .icon-button ul li {
+    width: 25%;
+    float: left;
+  }
+
+  .icon-button ul li img {
+    width: 100%;
+  }
+
+  .icon-button ul li .load {
+    width: 0.8rem;
+    height: 0.8rem;
+    margin-left: 22%;
+  }
+
+  .icon-button .content {
+    font-size: 0.3rem;
     background-color: #040404;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-bottom: 0.5rem;
   }
 
-  .icon-button .title {
+  .icon-button .content .title {
     margin-left: 10%;
     margin-right: 10%;
+    text-align: center;
+    overflow: scroll;
   }
 
-  .icon-button .title span {
-    font-size: 16px;
+  .icon-button .content .title span {
+    font-size: 0.1rem;
     color: #fee86f;
   }
 
-  .icon-button .image-slot {
-    padding-top: 45%;
-    font-size: 50px;
-  }
 </style>

@@ -1,11 +1,11 @@
 <template>
   <div class="document">
-    <el-collapse accordion v-model="activeNames" @change="handleChange">
-      <el-collapse-item v-for="(item, index) in partsDtoList" :key="index" :title="(index + 1)+'. '+ item.title"
-                        :name="index" v-if="item.status == 1" v-on:click="onclickParts(item)">
-        {{item.txt}}
-      </el-collapse-item>
-    </el-collapse>
+    <div v-for="(item, index) in partsDtoList" :key="index" v-on:click="onclickParts(item)">
+      <mt-cell is-link :value="item" :title="item.title">
+        <span>详情</span>
+        <img slot="icon" src="@/assets/images/readdocument.png" width="24" height="24">
+      </mt-cell>
+    </div>
   </div>
 </template>
 
@@ -18,11 +18,14 @@
       partsDtoList: {
         type: Array,
         required: true
+      },
+      flag: {
+        type: Number,
+        required: true
       }
     },
     data() {
       return {
-        activeNames: ['1']
       }
     },
 
@@ -33,12 +36,17 @@
     methods: {
       initData: function () {
       },
-      handleChange(val) {
-        console.log(val);
-      },
       // 点击零件事件
       onclickParts: function (item) {
         onclickParts(item, this.ProtocolContent, this.communicateManger.httpCommunicate);
+        //  跳转到显示文档页面
+        this.$store.commit('changeDocumentInfo', item);
+        // 居中显示
+        if (this.flag == 14) {
+          this.$router.push('/documentCenter');
+        } else if (this.flag == 17) {  //  左对齐显示
+          this.$router.push('/documentLeft');
+        }
       },
     }
   }
@@ -46,21 +54,24 @@
 
 <style>
   .document {
+    margin-left: 0.1rem;
+    margin-right: 0.1rem;
+    margin-top: 0.5rem;
   }
 
-  .document .el-collapse-item__header {
+  .document .mint-cell {
     padding-left: 1%;
     background-color: #373d41;
-    font-size: 16px;
+    min-height: 0.8rem;
+  }
+
+  .document .mint-cell-text {
     color: #fee86f;
   }
 
-  .document .el-collapse-item__content {
-    padding-left: 5%;
-    padding-right: 5%;
-    background-color: #373d41;
-    color: rgba(255, 255, 255, 0.8);
-    text-align: left;
-    text-indent: 2em;
+  .document .mint-cell-value.is-link {
+    margin-right: 0.5rem;
+    font-size: 0.2rem;
   }
+
 </style>
