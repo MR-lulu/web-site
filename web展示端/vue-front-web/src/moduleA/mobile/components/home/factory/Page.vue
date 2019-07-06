@@ -78,6 +78,8 @@
 
 <style>
   .page {
+    height: 12rem;
+    overflow: scroll;
   }
 
   .page .cell {

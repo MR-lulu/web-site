@@ -9,7 +9,8 @@
           <ul>
             <li v-for="(item, index) in navigationListInfo" :tabindex="index" :id="item.navigationId" class="cell"
                 :key="index" v-on:click="handleSelect(item.navigationId, index)">
-              <label class="name">{{item.name}}</label>
+              <div class="image" v-if="index == selectIndex"><img src="@/assets/images/selected.png"></div>
+              <div class="title"><label class="name">{{item.name}}</label></div>
             </li>
           </ul>
         </div>
@@ -47,6 +48,7 @@
     },
     data() {
       return {
+        selectIndex: 0,  // 选中导航的索引
         initDataTimer: null,  // 定时器
         webTopInfo: {   // 页头信息
           logoUrl: ''
@@ -78,8 +80,9 @@
           closeMenu();
         }
       });
-      $('div.menu ul li a').on(click, function (e) {
-        e.preventDefault();
+      $('div.menu ul li').on(click, function (e) {
+        //e.preventDefault();
+        alert(1)
         closeMenu();
       });
 
@@ -145,25 +148,13 @@
       handleSelect(key, index) {
         this.navigationID = key;
         this.$store.commit('changeNavigationID', this.navigationID);
+
+        this.selectIndex = index;
+
         if (this.oldClickNavigationIndex != key) {
           $("#" + key).addClass("active");
           $("#" + this.oldClickNavigationIndex).removeClass("active");
           this.oldClickNavigationIndex = key;
-        }
-      },
-
-      // 下拉图标点击事件
-      iconDown: function (flag) {
-        if (flag == 1) {
-          // 展开
-          this.iconDownFlag = true;
-          this.isActiveNavigation = false;
-          $("#navigation-bar").css("height", "auto");
-        } else {
-          // 收起
-          this.iconDownFlag = false;
-          this.isActiveNavigation = true;
-          $("#navigation-bar").css("height", "80px");
         }
       },
 
@@ -244,7 +235,20 @@
     width: 100%;
     height: auto;
     overflow: hidden;
-    /*position: absolute;*/
+    position: absolute;
+  }
+
+  .header #wrapper .menu .image {
+    float: left;
+  }
+
+  .header #wrapper .menu .image img {
+    width: 0.5rem;
+    height: 0.5rem;
+    margin-left: -1rem;
+  }
+
+  .header #wrapper .menu .title {
   }
 
   .header div.screen {
@@ -441,11 +445,6 @@
     text-align: left;
     padding-left: 1.85rem;
     font-size: 0.5rem;
-  }
-
-  .header div.menu ul li a {
-    text-decoration: none;
-    letter-spacing: 1px;
   }
 
   .header div.menu.animate ul li {
