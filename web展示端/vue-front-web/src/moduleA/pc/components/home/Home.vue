@@ -3,7 +3,7 @@
   <!--头部-->
   <Header v-if="isRouterAlive"></Header>
   <!--中间-->
-  <router-view v-if="isRouterAlive"></router-view>
+  <Page v-if="isRouterAlive"></Page>
   <!--底部-->
   <Footer v-if="isRouterAlive"></Footer>
 </div>
@@ -12,6 +12,7 @@
 <script>
 import Header from '@/moduleA/pc/components/header/Header.vue'
 import Footer from '@/moduleA/pc/components/footer/Footer.vue'
+import Page from '@/moduleA/pc/components/home/factory/Page.vue'
 
 export default {
   name: 'Home',
@@ -22,7 +23,8 @@ export default {
   },
   components: {
     Header,
-    Footer
+    Footer,
+    Page
   },
   data () {
     return {
