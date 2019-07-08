@@ -3,22 +3,22 @@
     <!--因为底部导航栏的数据比较少，所以重新使用盒子来包装，目的是显示居中-->
     <div class="footer-box">
       <!--自定义图片-->
-      <el-row v-if="isNull(webBottomInfo.bottomUrl)">
+      <el-row v-if="isNull(webBottomInfoNew.bottomUrl)">
         <el-col :span="24">
           <div class="grid-content bg-purple-dark">
-            <div class="box-img"><img :src="webBottomInfo.bottomUrl"></div>
+            <div class="box-img"><img :src="webBottomInfoNew.bottomUrl"></div>
           </div>
         </el-col>
       </el-row>
 
       <!--关于我们-->
-      <el-row v-if="isNull(webBottomInfo.about)">
+      <el-row v-if="isNull(webBottomInfoNew.about)">
         <el-col :span="24">
           <div class="grid-content bg-purple-dark">
             <div class="about-us">
               <span>关于我们:</span>
               <div class="about">
-                <span class="txt">&nbsp;&nbsp;{{webBottomInfo.about}}</span>
+                <span class="txt">&nbsp;&nbsp;{{webBottomInfoNew.about}}</span>
               </div>
             </div>
           </div>
@@ -27,7 +27,7 @@
 
       <!--联系方式-->
       <el-row class="contact"
-              v-if="isNull(webBottomInfo.phone) || isNull(webBottomInfo.address) || isNull(webBottomInfo.contact)">
+              v-if="isNull(webBottomInfoNew.phone) || isNull(webBottomInfoNew.address) || isNull(webBottomInfoNew.contact)">
         <el-col :span="8">
           <div class="grid-content bg-purple">
             <div class="phone-cell">
@@ -38,10 +38,11 @@
               <!--显示电话信息-->
               <div class="call-phone-txt">
                 <!--联系电话-->
-                <div><span>{{$t('rs.moduleA.20000000014')}}: </span> <span class="txt">{{webBottomInfo.phone}}</span>
+                <div><span>{{$t('rs.moduleA.20000000014')}}: </span> <span class="txt">{{webBottomInfoNew.phone}}</span>
                 </div>
                 <!--联系地址-->
-                <div><span>{{$t('rs.moduleA.20000000015')}}:</span> <span class="txt">{{webBottomInfo.address}}</span>
+                <div><span>{{$t('rs.moduleA.20000000015')}}:</span> <span
+                  class="txt">{{webBottomInfoNew.address}}</span>
                 </div>
               </div>
             </div>
@@ -52,20 +53,20 @@
             <!--其它联系方式-->
             <div class="other">
               <span>{{$t('rs.moduleA.20000000018')}}: </span>
-              <span class="txt">{{webBottomInfo.contact}}</span>
+              <span class="txt">{{webBottomInfoNew.contact}}</span>
             </div>
           </div>
         </el-col>
       </el-row>
 
       <!--自定义信息栏-->
-      <el-row v-if="isNull(webBottomInfo.selfInfo)">
+      <el-row v-if="isNull(webBottomInfoNew.selfInfo)">
         <el-col :span="24">
           <div class="grid-content bg-purple-dark">
             <div class="about-us">
               <span>相关信息:</span>
               <div class="about">
-                <span class="txt">&nbsp;&nbsp;{{webBottomInfo.selfInfo}}</span>
+                <span class="txt">&nbsp;&nbsp;{{webBottomInfoNew.selfInfo}}</span>
               </div>
             </div>
           </div>
@@ -73,12 +74,12 @@
       </el-row>
 
       <!--备案信息-->
-      <el-row v-if="isNull(webBottomInfo.record)">
+      <el-row v-if="isNull(webBottomInfoNew.record)">
         <el-col :span="24">
           <div class="grid-content bg-purple-dark">
             <div class="record">
               <img src="@/assets/images/beian.png">
-              <span class="txt">{{webBottomInfo.record}}</span>
+              <span class="txt">{{webBottomInfoNew.record}}</span>
             </div>
           </div>
         </el-col>
@@ -90,23 +91,32 @@
 <script>
   import WebButtomRequestVO from '@/moduleA/common/js/model/WebButtomRequestVO.js'
   import Tools from '@/commonjs/util/mall.tools.js'
+  import {mapState} from 'vuex'
 
   export default {
     name: "Footer",
     data() {
       return {
-        phone: '',
-        address: '',
-        contact: '',
-        about: '',
-        record: '',
-        webBottomInfo: '',  // 页尾信息
+        webBottomInfoNew: '',  // 页尾信息
       }
     },
     created() {
       // 初始化获取页尾信息
       this.getWebButtom();
     },
+
+    computed: {
+      ...mapState(['webBottomInfo']),
+    },
+
+    watch: {
+      webBottomInfo: function (newValue, oldValue) {
+        if (newValue && !Tools.isNull(this.navigationID)) {
+          this.webBottomInfoNew = newValue;
+        }
+      }
+    },
+
     methods: {
       // 判断空
       isNull: function (value) {
@@ -117,8 +127,8 @@
         let webButtomRequestVO = new WebButtomRequestVO(this.ProtocolContent.webbuttom);
         this.communicateManger.httpCommunicate.getResponseVO(webButtomRequestVO, "/webBottom/query/list").then((WebButtomResponseVO) => {
           if (WebButtomResponseVO.getStatus == 1000) {
-            this.webBottomInfo = WebButtomResponseVO.resultList[0];
-            // this.webBottomInfo = null;
+            this.webBottomInfoNew = WebButtomResponseVO.resultList[0];
+            // this.webBottomInfoNew = null;
           } else {
             this.messageBox.error(WebButtomResponseVO.getMsg)
           }

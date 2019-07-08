@@ -9,22 +9,23 @@
     <div v-if="currentNavigationInfo != null && currentNavigationInfo.modulesDtoList != null">
       <div v-for="(item, index) in currentNavigationInfo.modulesDtoList" :key="index">
         <!--轮播图-->
-        <div class="cell" v-if="item.partsTypeId == 13 && item.partsDtoList != null && item.partsDtoList.length != 0">
+        <div class="cell-index"
+             v-if="item.partsTypeId == 13 && item.partsDtoList != null && item.partsDtoList.length != 0">
           <!--因为不确定会有多少个轮播图模块，所以采用父组件传值给子组件，而不是vux.-->
           <SlideShow v-bind:partsDtoList="item.partsDtoList"></SlideShow>
         </div>
         <!--文字文章-->
-        <div class="cell"
+        <div class="cell-index"
              v-else-if="(item.partsTypeId == 14 ||  item.partsTypeId == 17) && item.partsDtoList != null && item.partsDtoList.length != 0">
           <Document v-bind:partsDtoList="item.partsDtoList" v-bind:flag="item.partsTypeId"></Document>
         </div>
         <!--商品展示-->
-        <div class="cell"
+        <div class="cell-index"
              v-else-if="item.partsTypeId == 15 && item.partsDtoList != null && item.partsDtoList.length != 0">
           <Display v-bind:partsDtoList="item.partsDtoList"></Display>
         </div>
         <!--图标按钮-->
-        <div class="cell"
+        <div class="cell-index"
              v-else-if="item.partsTypeId == 16 && item.partsDtoList != null && item.partsDtoList.length != 0">
           <IconButton v-bind:partsDtoList="item.partsDtoList"></IconButton>
         </div>
@@ -82,7 +83,8 @@
     overflow: scroll;
   }
 
-  .page .cell {
+  .page .cell-index {
+    margin-bottom: 1rem;
   }
 
 </style>

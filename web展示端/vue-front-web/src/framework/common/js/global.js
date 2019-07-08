@@ -17,11 +17,7 @@ export function isMobile() {
 export function onclickParts(item, protocolContent, communicateManger) {
   let partAddOrModifyRequestVO = new PartAddOrModifyRequestVO(protocolContent.partAddOrModify);
   partAddOrModifyRequestVO.partsId = item.partsId;
-  partAddOrModifyRequestVO.click = item.click + 1;
-
-  console.log(partAddOrModifyRequestVO.click);
-
-  communicateManger.getResponseVO(partAddOrModifyRequestVO, "/parts/addOrModify").then((PartAddOrModifyResponseVO) => {
+  communicateManger.getResponseVO(partAddOrModifyRequestVO, "/parts/add/click").then((PartAddOrModifyResponseVO) => {
     if (PartAddOrModifyResponseVO.getStatus == 1000 && PartAddOrModifyResponseVO.getResultCode > 0) {
       //this.messageBox.success(PartAddOrModifyResponseVO.getMsg);
     } else {

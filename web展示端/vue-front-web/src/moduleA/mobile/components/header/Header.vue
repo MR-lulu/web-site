@@ -38,13 +38,11 @@
   import CommonInfoRequestVO from '@/moduleA/common/js/model/CommonInfoRequestVO.js'
   import Tools from '@/commonjs/util/mall.tools.js'
   import Page from '@/moduleA/mobile/components/home/factory/Page.vue'
-  import Footer from '@/moduleA/mobile/components/footer/Footer.vue'
 
   export default {
     name: "Header",
     components: {
-      Page,
-      Footer
+      Page
     },
     data() {
       return {
@@ -82,7 +80,6 @@
       });
       $('div.menu ul li').on(click, function (e) {
         //e.preventDefault();
-        alert(1)
         closeMenu();
       });
 
@@ -148,9 +145,7 @@
       handleSelect(key, index) {
         this.navigationID = key;
         this.$store.commit('changeNavigationID', this.navigationID);
-
         this.selectIndex = index;
-
         if (this.oldClickNavigationIndex != key) {
           $("#" + key).addClass("active");
           $("#" + this.oldClickNavigationIndex).removeClass("active");
@@ -235,7 +230,7 @@
     width: 100%;
     height: auto;
     overflow: hidden;
-    position: absolute;
+    /*position: absolute;*/
   }
 
   .header #wrapper .menu .image {
@@ -386,7 +381,10 @@
 
   .header div.navbar {
     height: 1.2rem;
-    background: #385e97;
+    background: linear-gradient(left, red 0%, orange 10%, yellow 90%, violet 100%);
+    background: -ms-linear-gradient(left, red 0%, orange 10%, yellow 90%, violet 100%);
+    background: -webkit-linear-gradient(left, red 0%, orange 10%, yellow 90%, violet 100%);
+    background: -moz-linear-gradient(left, red 0%, orange 10%, yellow 90%, violet 100%);
   }
 
   .header div.menu {
