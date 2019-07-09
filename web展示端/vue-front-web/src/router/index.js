@@ -22,7 +22,7 @@ function useType() {
  * @type {VueRouter}
  */
 const router = new Router({
-  mode: 'history',  //去掉地址前的#号
+  //mode: 'history',  //去掉地址前的#号
   routes: useType(),
   linkActiveClass: 'active',
 })
