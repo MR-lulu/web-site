@@ -1,5 +1,5 @@
 <template>
-  <div class="display-commodity">
+  <div class="m-display-commodity">
     <ul>
       <li v-for="(item, index) in partsDtoList" :key="index" v-if="item.status == 1" v-on:click="onclickParts(item)">
         <!--不带有超链接-->
@@ -69,7 +69,7 @@
 </script>
 
 <style>
-  .display-commodity {
+  .m-display-commodity {
     overflow: auto;
     background-color: #373d41;
     margin-left: 0.1rem;
@@ -77,57 +77,57 @@
     margin-top: 0.5rem;
   }
 
-  .display-commodity image[lazy=loading] {
+  .m-display-commodity image[lazy=loading] {
     width: 40px;
     height: 300px;
     margin: auto;
   }
 
-  .display-commodity .cell {
+  .m-display-commodity .cell {
     background-color: hsla(0, 0%, 100%, .8);
     min-height: 4rem;
   }
 
-  .display-commodity ul {
+  .m-display-commodity ul {
   }
 
-  .display-commodity ul li {
+  .m-display-commodity ul li {
     width: 100%;
     min-height: 2rem;
     /*border: 1px solid;*/
   }
 
-  .display-commodity ul li img {
+  .m-display-commodity ul li img {
     width: 100%;
   }
 
-  .display-commodity ul li .load {
+  .m-display-commodity ul li .load {
     width: 1rem;
     height: 1rem;
     margin-left: 45%;
     margin-top: 20%;
   }
 
-  .display-commodity .content {
+  .m-display-commodity .content {
     font-size: 0.3rem;
     background-color: rgba(0, 0, 0, 0.3);
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
   }
 
-  .display-commodity .content .title {
+  .m-display-commodity .content .title {
     margin-left: 10%;
     margin-right: 10%;
     text-align: center;
     overflow: scroll;
   }
 
-  .display-commodity .content .title span {
+  .m-display-commodity .content .title span {
     font-size: 0.4rem;
     color: #fee86f;
   }
 
-  .display-commodity .content .txt {
+  .m-display-commodity .content .txt {
     margin-top: 0.2rem;
     margin-left: 5%;
     margin-right: 5%;
@@ -137,7 +137,7 @@
     text-indent: 2em;
   }
 
-  .display-commodity .content .txt span {
+  .m-display-commodity .content .txt span {
     color: hsla(0, 0%, 100%, .8);
     line-height: 25px;
   }

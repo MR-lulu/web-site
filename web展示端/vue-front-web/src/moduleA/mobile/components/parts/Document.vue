@@ -1,5 +1,5 @@
 <template>
-  <div class="document">
+  <div class="m-document">
     <div v-for="(item, index) in partsDtoList" :key="index" v-on:click="onclickParts(item)">
       <mt-cell is-link :value="item" :title="item.title">
         <span>详情</span>
@@ -53,23 +53,23 @@
 </script>
 
 <style>
-  .document {
+  .m-document {
     margin-left: 0.1rem;
     margin-right: 0.1rem;
     margin-top: 0.5rem;
   }
 
-  .document .mint-cell {
+  .m-document .mint-cell {
     padding-left: 1%;
     background-color: #373d41;
     min-height: 0.8rem;
   }
 
-  .document .mint-cell-text {
+  .m-document .mint-cell-text {
     color: #fee86f;
   }
 
-  .document .mint-cell-value.is-link {
+  .m-document .mint-cell-value.is-link {
     margin-right: 0.5rem;
     font-size: 0.2rem;
   }

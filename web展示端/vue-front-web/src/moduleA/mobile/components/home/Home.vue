@@ -1,5 +1,5 @@
 <template>
-  <div id="home">
+  <div class="m-home">
     <!--头部-->
     <Header v-if="isRouterAlive"></Header>
     <!--底部-->
@@ -39,7 +39,7 @@
 </script>
 
 <style scoped>
-  #home {
+  .m-home {
     width: 100%;
     height: 100%;
   }

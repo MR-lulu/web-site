@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">
+  <div class="m-footer">
     <!--自定义图片-->
     <div class="footer-cell" v-if="isNull(webBottomInfoNew.bottomUrl)">
       <div class="image">
@@ -115,7 +115,7 @@
 </script>
 
 <style>
-  .footer {
+  .m-footer {
     margin-top: 1rem;
     background-color: #373d41;
     min-height: 2rem;
@@ -124,34 +124,34 @@
     font-size: 0.3rem;
   }
 
-  .footer .txt {
+  .m-footer .txt {
     color: #9b9ea0;
   }
 
-  .footer .footer-cell {
+  .m-footer .footer-cell {
     width: 100%;
     height: auto;
   }
 
-  .footer .footer-cell .image {
+  .m-footer .footer-cell .image {
   }
 
-  .footer .footer-cell .image img {
+  .m-footer .footer-cell .image img {
     width: 100%;
     height: auto;
   }
 
-  .footer .footer-cell .about-us {
+  .m-footer .footer-cell .about-us {
     border-top: 1px solid #000;
   }
 
-  .footer .footer-cell .about-us .us {
+  .m-footer .footer-cell .about-us .us {
     margin-left: 0.1rem;
     color: #fee86f;
     line-height: 1rem;
   }
 
-  .footer .footer-cell .about-us .about {
+  .m-footer .footer-cell .about-us .about {
     width: 100%;
     height: auto;
     color: gray;
@@ -169,22 +169,22 @@
     text-indent: 2em;
   }
 
-  .footer .footer-cell .about-us .about .txt {
+  .m-footer .footer-cell .about-us .about .txt {
     color: #9b9ea0;
   }
 
-  .footer .footer-cell .phone-cell .call-phone-txt {
+  .m-footer .footer-cell .phone-cell .call-phone-txt {
     padding-left: 0.2rem;
   }
 
-  .footer .footer-cell .call-phone-img {
+  .m-footer .footer-cell .call-phone-img {
     width: 1rem;
     min-height: 1.5rem;
     float: left;
     position: relative;
   }
 
-  .footer .footer-cell .call-phone-img img {
+  .m-footer .footer-cell .call-phone-img img {
     width: 1rem;
     height: 0.7rem;
     position: absolute;
@@ -194,16 +194,16 @@
     margin-left: -25px;
   }
 
-  .footer .footer-cell .phone-cell .call-phone-txt span {
+  .m-footer .footer-cell .phone-cell .call-phone-txt span {
     line-height: 35px;
   }
 
-  .footer .footer-cell .record {
+  .m-footer .footer-cell .record {
     text-align: center;
     line-height: 0.8rem;
   }
 
-  .footer .footer-cell .record img {
+  .m-footer .footer-cell .record img {
     width: 0.5rem;
     height: 0.5rem;
   }

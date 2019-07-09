@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <div class="m-page">
     <!--隐患，假如数据库的零件种类ID发生变化，那么将不会匹配到组件。-->
     <!--预计解决方法：不以零件种类ID作为零件种类的唯一标识，因为（自增ID）会变。-->
     <!--应该使用不会改变的编号来证明零件种类的唯一性。零件种类表新增-->
@@ -78,12 +78,12 @@
 </script>
 
 <style>
-  .page {
+  .m-page {
     height: 12rem;
     overflow: scroll;
   }
 
-  .page .cell-index {
+  .m-page .cell-index {
     margin-bottom: 1rem;
   }
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div class="m-header">
     <div class="htmleaf-container">
       <div id="wrapper">
         <div class="menu">
@@ -223,30 +223,30 @@
 </script>
 
 <style>
-  .header {
+  .m-header {
   }
 
-  .header #wrapper {
+  .m-header #wrapper {
     width: 100%;
     height: auto;
     overflow: hidden;
     /*position: absolute;*/
   }
 
-  .header #wrapper .menu .image {
+  .m-header #wrapper .menu .image {
     float: left;
   }
 
-  .header #wrapper .menu .image img {
+  .m-header #wrapper .menu .image img {
     width: 0.5rem;
     height: 0.5rem;
     margin-left: -1rem;
   }
 
-  .header #wrapper .menu .title {
+  .m-header #wrapper .menu .title {
   }
 
-  .header div.screen {
+  .m-header div.screen {
     width: 100%;
     height: auto;
     overflow: hidden;
@@ -261,7 +261,7 @@
     transition: all 500ms cubic-bezier(0.000, 0.995, 0.990, 1.000);
   }
 
-  .header div.screen.animate {
+  .m-header div.screen.animate {
     left: 5rem;
     -webkit-transition: all 500ms cubic-bezier(0.000, 0.995, 0.990, 1.000);
     -moz-transition: all 500ms cubic-bezier(0.000, 0.995, 0.990, 1.000);
@@ -270,11 +270,11 @@
     transition: all 500ms cubic-bezier(0.000, 0.995, 0.990, 1.000);
   }
 
-  .header .list {
+  .m-header .list {
     text-align: left;
   }
 
-  .header div.burger {
+  .m-header div.burger {
     height: 0.5rem;
     width: 1rem;
     position: absolute;
@@ -379,7 +379,7 @@
     transition: all 100ms ease-out;
   }
 
-  .header div.navbar {
+  .m-header div.navbar {
     height: 1.2rem;
     background: linear-gradient(left, red 0%, orange 10%, yellow 90%, violet 100%);
     background: -ms-linear-gradient(left, red 0%, orange 10%, yellow 90%, violet 100%);
@@ -387,7 +387,7 @@
     background: -moz-linear-gradient(left, red 0%, orange 10%, yellow 90%, violet 100%);
   }
 
-  .header div.menu {
+  .m-header div.menu {
     overflow: scroll;
     height: 12rem;
     width: 100%;
@@ -400,9 +400,9 @@
     transition: all 500ms cubic-bezier(0.000, 0.995, 0.990, 1.000);
   }
 
-  .header #menu-bg {
+  .m-header #menu-bg {
     position: absolute;
-    left: -10px;
+    /*left: -10px;*/
     opacity: 0.3;
     -webkit-transition: all 500ms cubic-bezier(0.000, 0.995, 0.990, 1.000);
     -moz-transition: all 500ms cubic-bezier(0.000, 0.995, 0.990, 1.000);
@@ -411,7 +411,7 @@
     transition: all 500ms cubic-bezier(0.000, 0.995, 0.990, 1.000);
   }
 
-  .header div.menu.animate #menu-bg {
+  .m-header div.menu.animate #menu-bg {
     left: -0.5rem;
     -webkit-transition: all 500ms cubic-bezier(0.000, 0.995, 0.990, 1.000);
     -moz-transition: all 500ms cubic-bezier(0.000, 0.995, 0.990, 1.000);
@@ -420,7 +420,7 @@
     transition: all 500ms cubic-bezier(0.000, 0.995, 0.990, 1.000);
   }
 
-  .header div.menu.animate {
+  .m-header div.menu.animate {
     margin-left: -1.5rem;
     opacity: 1;
     -webkit-transition: all 500ms cubic-bezier(0.000, 0.995, 0.990, 1.000);
@@ -430,13 +430,13 @@
     transition: all 500ms cubic-bezier(0.000, 0.995, 0.990, 1.000);
   }
 
-  .header div.menu ul {
+  .m-header div.menu ul {
     position: absolute;
     height: 100%;
     overflow: scroll;
   }
 
-  .header div.menu ul li {
+  .m-header div.menu ul li {
     list-style: none;
     width: 5rem;
     margin-top: 0.6rem;
@@ -445,7 +445,7 @@
     font-size: 0.5rem;
   }
 
-  .header div.menu.animate ul li {
+  .m-header div.menu.animate ul li {
     margin-left: 1rem;
     -webkit-transition: all 800ms cubic-bezier(0.000, 0.995, 0.990, 1.000);
     -moz-transition: all 800ms cubic-bezier(0.000, 0.995, 0.990, 1.000);
@@ -454,23 +454,23 @@
     transition: all 800ms cubic-bezier(0.000, 0.995, 0.990, 1.000);
   }
 
-  .header div.menu.animate li:nth-of-type(1) {
+  .m-header div.menu.animate li:nth-of-type(1) {
     transition-delay: 0.0s;
   }
 
-  .header div.menu.animate li:nth-of-type(2) {
+  .m-header div.menu.animate li:nth-of-type(2) {
     transition-delay: 0.06s;
   }
 
-  .header div.menu.animate li:nth-of-type(3) {
+  .m-header div.menu.animate li:nth-of-type(3) {
     transition-delay: 0.12s;
   }
 
-  .header div.menu.animate li:nth-of-type(4) {
+  .m-header div.menu.animate li:nth-of-type(4) {
     transition-delay: 0.18s;
   }
 
-  .header div.menu.animate li:nth-of-type(5) {
+  .m-header div.menu.animate li:nth-of-type(5) {
     transition-delay: 0.24s;
   }
 </style>

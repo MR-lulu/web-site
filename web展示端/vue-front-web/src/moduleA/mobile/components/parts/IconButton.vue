@@ -1,5 +1,5 @@
 <template>
-  <div class="icon-button">
+  <div class="m-icon-button">
     <ul>
       <li v-for="(item, index) in partsDtoList" :key="index" v-if="item.status == 1" v-on:click="onclickParts(item)">
         <!--不带有超链接-->
@@ -66,56 +66,56 @@
 </script>
 
 <style>
-  .icon-button {
+  .m-icon-button {
     background-color: #373d41;
     margin-left: 0.1rem;
     margin-right: 0.1rem;
     margin-top: 0.5rem;
   }
 
-  .icon-button image[lazy=loading] {
+  .m-icon-button image[lazy=loading] {
     width: 40px;
     height: 300px;
     margin: auto;
   }
 
-  .icon-button .cell {
+  .m-icon-button .cell {
     background-color: hsla(0, 0%, 100%, .8);
     margin: 0.2rem;
   }
 
-  .icon-button ul {
+  .m-icon-button ul {
   }
 
-  .icon-button ul li {
+  .m-icon-button ul li {
     width: 25%;
     float: left;
   }
 
-  .icon-button ul li img {
+  .m-icon-button ul li img {
     width: 100%;
   }
 
-  .icon-button ul li .load {
+  .m-icon-button ul li .load {
     width: 0.8rem;
     height: 0.8rem;
     margin-left: 22%;
   }
 
-  .icon-button .content {
+  .m-icon-button .content {
     font-size: 0.3rem;
     background-color: #040404;
     padding-bottom: 0.5rem;
   }
 
-  .icon-button .content .title {
+  .m-icon-button .content .title {
     margin-left: 10%;
     margin-right: 10%;
     text-align: center;
     overflow: scroll;
   }
 
-  .icon-button .content .title span {
+  .m-icon-button .content .title span {
     font-size: 0.1rem;
     color: #fee86f;
   }

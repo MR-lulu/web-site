@@ -9,8 +9,8 @@ import router from '@/router/index.js'
 import store from '@/store/vuex/index.js'
 import SystemInit from '@/framework/common/js/SystemInit.js'
 import $ from 'jquery'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/dist/js/bootstrap.min.js'
+// import 'bootstrap/dist/css/bootstrap.min.css'
+// import 'bootstrap/dist/js/bootstrap.min.js'
 // 引入echarts
 import echarts from 'echarts'
 

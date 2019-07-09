@@ -1,5 +1,5 @@
 <template>
-  <div class="document-center">
+  <div class="m-document-center">
     <!--标题-->
     <div class="title">
       <span>{{documentInfo.title}}</span>
@@ -53,13 +53,13 @@
 </script>
 
 <style>
-  .document-center {
+  .m-document-center {
     color: hsla(0, 0%, 100%, .8);
     font-size: 0.3rem;
     text-align: center;
   }
 
-  .document-center .title {
+  .m-document-center .title {
     min-height: 1rem;
     line-height: 1rem;
     font-size: 0.4rem;
@@ -70,14 +70,14 @@
     letter-spacing: 0.1rem;
   }
 
-  .document-center .title span {
+  .m-document-center .title span {
     color: #fee86f;
   }
 
-  .document-center .line {
+  .m-document-center .line {
   }
 
-  .document-center .line hr {
+  .m-document-center .line hr {
     margin-top: 0rem;
     margin-bottom: 0rem;
     border: 0;
@@ -85,7 +85,7 @@
     opacity: 0.5;
   }
 
-  .document-center .time {
+  .m-document-center .time {
     text-align: right;
     padding-right: 10%;
     height: 1rem;
@@ -95,11 +95,11 @@
     background-color: #373d41;
   }
 
-  .document-center .time span {
+  .m-document-center .time span {
     color: #9b9ea0;
   }
 
-  .document-center .txt {
+  .m-document-center .txt {
     min-height: 10rem;
     line-height: 0.5rem;
     margin-top: 0.1rem;

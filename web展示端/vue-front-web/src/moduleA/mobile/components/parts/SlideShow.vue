@@ -1,5 +1,5 @@
 <template>
-  <div class="slide-show">
+  <div class="m-slide-show">
 
     <mt-swipe :auto="4000" @change="change">
       <mt-swipe-item v-for="(item, index) in partsDtoList" :key="index" v-if="item.status == 1">
@@ -67,49 +67,49 @@
 </script>
 
 <style>
-  .slide-show {
+  .m-slide-show {
     height: 6rem;
   }
 
-  .slide-show .img {
+  .m-slide-show .img {
     width: 100%;
     height: 100%;
   }
 
-  .slide-show .img a {
+  .m-slide-show .img a {
     width: 100%;
     height: 100%;
   }
 
-  .slide-show .img img {
+  .m-slide-show .img img {
     width: 100%;
     height: 100%;
   }
 
-  .slide-show .mint-swipe, .mint-swipe-items-wrap {
+  .m-slide-show .mint-swipe, .mint-swipe-items-wrap {
     overflow: hidden;
     position: relative;
     height: 5rem;
   }
 
-  .slide-show .content {
+  .m-slide-show .content {
     width: 90%;
     height: 1rem;
     background-color: #373d41;
     margin: 0 auto;
   }
 
-  .slide-show .content .ellipsis-2 {
+  .m-slide-show .content .ellipsis-2 {
     overflow: hidden;
     /*text-overflow: ellipsis;*/
     white-space: nowrap;
   }
 
-  .slide-show .content span {
+  .m-slide-show .content span {
     color: #9b9ea0;
   }
 
-  .slide-show .content .title {
+  .m-slide-show .content .title {
     font-size: 0.3rem;
     width: 20%;
     float: left;
@@ -117,7 +117,7 @@
     text-align: center;
   }
 
-  .slide-show .content .txt {
+  .m-slide-show .content .txt {
     height: 100%;
     float: left;
     border-left: 1px dashed #fee974;
