@@ -122,6 +122,8 @@
     color: #d7d8d9;
     text-align: left;
     font-size: 0.3rem;
+    padding-bottom: 0.2rem;
+    position: relative;
   }
 
   .m-footer .txt {
@@ -158,8 +160,6 @@
     text-align: center;
     min-height: 2rem;
     background-color: #000;
-    padding-left: 1%;
-    padding-right: 1%;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-pack: center;
@@ -200,7 +200,7 @@
 
   .m-footer .footer-cell .record {
     text-align: center;
-    line-height: 0.8rem;
+    line-height: 0.5rem;
   }
 
   .m-footer .footer-cell .record img {

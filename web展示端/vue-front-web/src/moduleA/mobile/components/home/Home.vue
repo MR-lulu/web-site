@@ -2,14 +2,13 @@
   <div class="m-home">
     <!--头部-->
     <Header v-if="isRouterAlive"></Header>
-    <!--底部-->
-    <Footer v-if="isRouterAlive"></Footer>
+    <!--&lt;!&ndash;底部&ndash;&gt;-->
+    <!--<Footer v-if="isRouterAlive"></Footer>-->
   </div>
 </template>
 
 <script>
   import Header from '@/moduleA/mobile/components/header/Header.vue'
-  import Footer from '@/moduleA/mobile/components/footer/Footer.vue'
 
   export default {
     name: 'Home',
@@ -19,8 +18,7 @@
       }
     },
     components: {
-      Header,
-      Footer
+      Header
     },
     data() {
       return {

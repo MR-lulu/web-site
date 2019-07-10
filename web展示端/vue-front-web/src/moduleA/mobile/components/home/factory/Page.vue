@@ -79,7 +79,6 @@
 
 <style>
   .m-page {
-    height: 12rem;
     overflow: scroll;
   }
 

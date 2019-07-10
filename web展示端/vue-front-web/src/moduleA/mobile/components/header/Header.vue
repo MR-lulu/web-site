@@ -20,6 +20,8 @@
           <div class="list">
             <!--数据信息主体-->
             <Page></Page>
+            <!--底部-->
+            <Footer></Footer>
           </div>
 
           <div class="burger">
@@ -38,11 +40,13 @@
   import CommonInfoRequestVO from '@/moduleA/common/js/model/CommonInfoRequestVO.js'
   import Tools from '@/commonjs/util/mall.tools.js'
   import Page from '@/moduleA/mobile/components/home/factory/Page.vue'
+  import Footer from '@/moduleA/mobile/components/footer/Footer.vue'
 
   export default {
     name: "Header",
     components: {
-      Page
+      Page,
+      Footer
     },
     data() {
       return {
@@ -228,9 +232,11 @@
 
   .m-header #wrapper {
     width: 100%;
-    height: auto;
+    height: 100%;
     overflow: hidden;
-    /*position: absolute;*/
+    position: absolute;
+    left: 50%;
+    margin-left: -3.75rem;
   }
 
   .m-header #wrapper .menu .image {
@@ -244,11 +250,12 @@
   }
 
   .m-header #wrapper .menu .title {
+    /*width: 3.5rem;*/
   }
 
   .m-header div.screen {
     width: 100%;
-    height: auto;
+    height: 100%;
     overflow: hidden;
     position: absolute;
     top: 0rem;
@@ -272,6 +279,8 @@
 
   .m-header .list {
     text-align: left;
+    height: 91%;
+    overflow: scroll;
   }
 
   .m-header div.burger {
@@ -380,19 +389,19 @@
   }
 
   .m-header div.navbar {
-    height: 1.2rem;
-    background: linear-gradient(left, red 0%, orange 10%, yellow 90%, violet 100%);
-    background: -ms-linear-gradient(left, red 0%, orange 10%, yellow 90%, violet 100%);
+    height: 9%;
     background: -webkit-linear-gradient(left, red 0%, orange 10%, yellow 90%, violet 100%);
+    background: -ms-linear-gradient(left, red 0%, orange 10%, yellow 90%, violet 100%);
     background: -moz-linear-gradient(left, red 0%, orange 10%, yellow 90%, violet 100%);
+    background: linear-gradient(left, red 0%, orange 10%, yellow 90%, violet 100%);
   }
 
   .m-header div.menu {
-    overflow: scroll;
     height: 12rem;
+    margin-bottom: 1rem;
     width: 100%;
-    margin-left: -190px;
     opacity: 0;
+    position: relative;
     -webkit-transition: all 500ms cubic-bezier(0.000, 0.995, 0.990, 1.000);
     -moz-transition: all 500ms cubic-bezier(0.000, 0.995, 0.990, 1.000);
     -ms-transition: all 500ms cubic-bezier(0.000, 0.995, 0.990, 1.000);

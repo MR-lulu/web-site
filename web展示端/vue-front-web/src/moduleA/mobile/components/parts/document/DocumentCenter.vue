@@ -107,5 +107,6 @@
     padding-right: 5%;
     background-color: #373d41;
     text-indent: 2em;
+    padding-bottom: 1rem;
   }
 </style>

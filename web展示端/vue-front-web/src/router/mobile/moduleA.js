@@ -4,7 +4,7 @@ let DocumentCenter = resolve => require(['@/moduleA/mobile/components/parts/docu
 
 export const M_ModuleARouterMap = [
   {
-    path: '/m_index.html',
+    path: '/m_index',
     component: Home
   },
   {

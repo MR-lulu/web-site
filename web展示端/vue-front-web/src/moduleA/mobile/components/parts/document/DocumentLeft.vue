@@ -108,5 +108,6 @@
     background-color: #373d41;
     text-indent: 2em;
     text-align: left;
+    padding-bottom: 1rem;
   }
 </style>
