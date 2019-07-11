@@ -29,6 +29,7 @@
   import CommonInfoRequestVO from '@/moduleA/common/js/model/CommonInfoRequestVO.js'
   import {mapState} from 'vuex'
   import Tools from '@/commonjs/util/mall.tools.js'
+  import Config from '../../../../assets/Config.js'
 
   export default {
     name: 'Header',
@@ -61,13 +62,13 @@
       this.getCommonInfo();
 
       clearInterval(this.initDataTimer);
-      //定时器，60s查询一次
+      //定时器
       this.initDataTimer = setInterval(() => {
         // 初始化数据
         this.initData();
         // 获取公共信息
         this.getCommonInfo();
-      }, 1000 * 60)
+      }, Config.Timer)
     },
     watch: {
       navigationListInfo: function (newValue, oldValue) {

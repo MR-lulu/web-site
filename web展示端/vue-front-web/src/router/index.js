@@ -5,6 +5,7 @@ import {PC_FrameworkRouterMap} from './pc/framework.js'
 import {M_ModuleARouterMap} from './mobile/moduleA.js'
 import {M_FrameworkRouterMap} from './mobile/framework.js'
 import {isMobile} from '@/framework/common/js/global.js'
+import Config from "../assets/Config";
 
 
 Vue.use(Router)
@@ -25,6 +26,11 @@ const router = new Router({
   //mode: 'history',  //去掉地址前的#号
   routes: useType(),
   linkActiveClass: 'active',
+})
+
+router.beforeEach((to, from, next) => {
+  document.getElementById('web-title').innerHTML = Config.webTitle;
+  next()
 })
 
 export default router

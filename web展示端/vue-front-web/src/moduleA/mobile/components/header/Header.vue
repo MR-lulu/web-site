@@ -41,6 +41,7 @@
   import Tools from '@/commonjs/util/mall.tools.js'
   import Page from '@/moduleA/mobile/components/home/factory/Page.vue'
   import Footer from '@/moduleA/mobile/components/footer/Footer.vue'
+  import Config from '../../../../assets/Config.js'
 
   export default {
     name: "Header",
@@ -131,7 +132,7 @@
         this.initData();
         // 获取公共信息
         this.getCommonInfo();
-      }, 1000 * 60)
+      }, Config.Timer)
     },
 
     watch: {
