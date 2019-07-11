@@ -57,7 +57,7 @@
 </template>
 
 <script>
-  import Config from '@/framework/common/config/Config.js'
+  import Config from '../../../../../../assets/Config.js'
   import PartAddOrModifyRequestVO from '@/moduleA/common/js/model/PartAddOrModifyRequestVO.js'
   import PartsTypeByIdRequestVO from '@/moduleA/common/js/model/PartsTypeByIdRequestVO.js'
   import ModulesByIdRequestVO from '@/moduleA/common/js/model/ModulesByIdRequestVO.js'

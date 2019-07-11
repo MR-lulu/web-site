@@ -15,7 +15,7 @@
         @selection-change="handleSelectionChange"
         :default-sort="{prop: 'serverCreateTime', order: 'descending'}">
         <el-table-column type="selection"></el-table-column>
-        <el-table-column prop="partsTypeId" width="100" :label="$t('rs.moduleA.20000000021')  /*编号*/" sortable
+        <el-table-column prop="partsId" width="100" :label="$t('rs.moduleA.20000000021')  /*编号*/" sortable
                          :show-overflow-tooltip="true"></el-table-column>
         <el-table-column prop="name" :label="$t('rs.moduleA.20000000057')  /*名称*/"
                          :show-overflow-tooltip="true"></el-table-column>
@@ -69,6 +69,7 @@
   import PartsTypeListRequestVO from '@/moduleA/common/js/model/PartsTypeListRequestVO.js'
   import ModulesListRequestVO from '@/moduleA/common/js/model/ModulesListRequestVO.js'
   import NavigationListRequestVO from '@/moduleA/common/js/model/NavigationListRequestVO.js'
+  import Config from '../../../../../assets/Config.js'
 
   export default {
     name: "PartsClickCount",
@@ -123,14 +124,15 @@
       },
       handleSizeChange(val) {
         this.rows = val;
-        this.getPartsList();
+        this.getPartsListOne();
       },
       handleSelectionChange(val) {
         this.multipleSelection = val;
+        this.getPartsListOne();
       },
       handleCurrentChange(val) {
         this.page = val;
-        this.getPartsList();
+        this.getPartsListOne();
       },
 
       // 进入获取一次零件信息
@@ -146,7 +148,7 @@
               this.tableData[i].belongModule = this.modulesMap.get(this.tableData[i].modulesId);
               // 获取所属导航
               this.tableData[i].belongNavigation = this.navigationMap.get(this.modulesToNavigationMap.get(this.tableData[i].modulesId));
-              // 获取所属模块
+              // 获取所属种类
               this.tableData[i].belongPartsType = this.partsTypeMap.get(this.tableData[i].partsTypeId);
             }
             this.total = PartsInfoResponseVO.getTotal;
@@ -164,7 +166,7 @@
       getPartsList: function () {
         // 先清除定时器
         clearInterval(this.partsChartTimer);
-        //定时器，10s查询一次
+        //定时器
         this.partsChartTimer = setInterval(() => {
           let partsInfoRequestVO = new PartsInfoRequestVO(this.ProtocolContent.partsInfo);
           partsInfoRequestVO.page = this.page;
@@ -189,7 +191,7 @@
           }).catch(() => {
             this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
           })
-        }, 1000 * 10)
+        }, Config.partsClickTimer)
       },
 
       // 获取零件类型Map

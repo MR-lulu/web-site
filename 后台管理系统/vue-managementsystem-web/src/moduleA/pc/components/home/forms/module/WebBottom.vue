@@ -70,7 +70,7 @@
 </template>
 
 <script>
-  import Config from '@/framework/common/config/Config.js'
+  import Config from '../../../../../../assets/Config.js'
   import WebBottomAddOrModifyRequestVO from '@/moduleA/common/js/model/WebBottomAddOrModifyRequestVO.js'
   import Tools from '@/commonjs/util/mall.tools.js'
   import { mapState } from 'vuex'

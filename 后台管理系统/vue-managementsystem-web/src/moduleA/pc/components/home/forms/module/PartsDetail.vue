@@ -78,7 +78,7 @@
 </template>
 
 <script>
-  import Config from '@/framework/common/config/Config.js'
+  import Config from '../../../../../../assets/Config.js'
   import PartAddOrModifyRequestVO from '@/moduleA/common/js/model/PartAddOrModifyRequestVO.js'
   import PartsDeleteRequestVO from '@/moduleA/common/js/model/PartsDeleteRequestVO.js'
   import Tools from '@/commonjs/util/mall.tools.js'

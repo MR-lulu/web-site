@@ -5,10 +5,16 @@ class Config {
 }
 
 /**
+ * 零件点击量定时器，定时查询，暂定1分钟查询一次
+ * @type {number}
+ */
+Config.partsClickTimer = 60*1000
+
+/**
  * 网站标题
  * @type {string}
  */
-Config.pcTitle = '后台管理系统'
+Config.webTitle = '后台管理系统'
 
 /**
  * 上传图片大小不能超过2M

@@ -3,7 +3,7 @@
  */
 import Vue from 'vue'
 import LocalStorage from '@/store/localstorage/index.js'
-import Config from '@/framework/common/config/Config.js'
+import Config from '../../assets/Config.js'
 
 // 存放已经加载的语言类型
 const loadedLanguages = ['']

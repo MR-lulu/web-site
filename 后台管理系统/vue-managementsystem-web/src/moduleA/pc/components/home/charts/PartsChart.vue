@@ -8,6 +8,7 @@
 <script>
   import PartsRequestVO from '@/moduleA/common/js/model/PartsRequestVO.js'
   import Tools from '@/commonjs/util/mall.tools.js'
+  import Config from '../../../../../assets/Config.js'
 
   export default {
     name: "PartsChart",
@@ -87,7 +88,7 @@
       getPartsList: function() {
         // 先清除定时器
         clearInterval(this.partsChartTimer);
-        //定时器，10s查询一次
+        //定时器
         this.partsChartTimer = setInterval(() => {
           let _that = this;
           let partsRequestVO = new PartsRequestVO(this.ProtocolContent.parts);
@@ -110,7 +111,7 @@
           }).catch(() => {
             this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
           })
-        }, 1000 * 10)
+        }, Config.partsClickTimer)
       },
 
       //图表数据初始化，格式化

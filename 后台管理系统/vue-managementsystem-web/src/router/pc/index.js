@@ -5,6 +5,7 @@ import {FrameworkRouterMap} from './framework.js'
 import {getUserID} from '@/store/sessionstorage/index.js'
 import Tools from '@/commonjs/util/mall.tools.js'
 import {MessageBox} from 'element-ui'
+import Config from "../../assets/Config";
 
 Vue.use(Router)
 
@@ -20,6 +21,8 @@ const router = new Router({
  * 权限校验
  */
 router.beforeEach((to, from, next) => {
+  document.getElementById('web-title').innerHTML = Config.webTitle;
+
   if (to.meta.title) {
     document.title = to.meta.title
   }

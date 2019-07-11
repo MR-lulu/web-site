@@ -55,7 +55,7 @@
 </template>
 
 <script>
-  import Config from '@/framework/common/config/Config.js'
+  import Config from '../../../../../../assets/Config.js'
   import BackgroundimgAddOrModifyRequestVO from '@/moduleA/common/js/model/BackgroundimgAddOrModifyRequestVO.js'
   import Tools from '@/commonjs/util/mall.tools.js'
   import { mapState } from 'vuex'

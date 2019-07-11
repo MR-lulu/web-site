@@ -61,7 +61,7 @@
 </template>
 
 <script>
-  import Config from '@/framework/common/config/Config.js'
+  import Config from '../../../../../../assets/Config.js'
   import WebTopAddOrModifyRequestVO from '@/moduleA/common/js/model/WebTopAddOrModifyRequestVO.js'
   import Tools from '@/commonjs/util/mall.tools.js'
   import { mapState } from 'vuex'
