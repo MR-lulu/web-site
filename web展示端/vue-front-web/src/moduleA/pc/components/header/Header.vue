@@ -1,5 +1,10 @@
 <template>
   <div class="header">
+    <!--背景图片-->
+    <!--<div id="background-img" style="position:fixed; left:0px; top:0px; width:100%; height:100%; z-index: -10000;" v-if="commonInfo != null && commonInfo.bgUrl != null && commonInfo.bgUrl != ''">-->
+    <!--<img :src="commonInfo.bgUrl" width="100%" height="100%">-->
+    <!--</div>-->
+
     <!--logo 图片-->
     <div class="logo">
       <img :src="webTopInfo.logoUrl">
@@ -76,6 +81,12 @@
           if (newValue.length > 6) {
             this.isActiveNavigation = true;
           }
+        }
+      },
+      commonInfo: function (newValue, oldValue) {
+        if (newValue) {
+          // 修改网站背景
+          //document.querySelector('body').setAttribute('style', 'width:100%; height:auto; background-color: rgb(255,255,255,0);');
         }
       }
     },
@@ -177,6 +188,10 @@
 </script>
 
 <style>
+  /*body {*/
+  /*background:#fff url('http://114.115.167.76:8085/mall/file/show/4f243e12-1198-4fc8-ac30-7c7e619f5c5f.jpg') no-repeat left top;*/
+  /*background-size:100%;*/
+  /*}*/
   .header {
     margin-top: 00px;
     width: 100%;
