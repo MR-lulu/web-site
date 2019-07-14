@@ -5,6 +5,22 @@ class Config {
 }
 
 /**
+ * pc 端地址（正式环境）
+ * @type {string}
+ */
+Config.pcUrl = 'http://114.115.167.76:8080/vue-front-web/index.html#/index';
+// 本地调试使用地址
+// Config.pcUrl = 'http://localhost:8080/#/index';
+
+/**
+ * 手机端地址（正式环境）
+ * @type {string}
+ */
+Config.mobileUrl = 'http://114.115.167.76:8080/vue-front-web/m_index.html#/m_index';
+// 本地调试使用地址
+// Config.pcUrl = 'http://localhost:8080/m_index.html#/m_index';
+
+/**
  * 定时器，定时查询新消息，暂定1分钟查询一次
  * @type {number}
  */

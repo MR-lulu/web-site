@@ -392,9 +392,9 @@
   .m-header div.navbar {
     height: 9%;
     background: -webkit-linear-gradient(left, red 0%, orange 10%, yellow 90%, violet 100%);
-    background: -ms-linear-gradient(left, red 0%, orange 10%, yellow 90%, violet 100%);
-    background: -moz-linear-gradient(left, red 0%, orange 10%, yellow 90%, violet 100%);
-    background: linear-gradient(left, red 0%, orange 10%, yellow 90%, violet 100%);
+    /*background: -ms-linear-gradient(left, red 0%, orange 10%, yellow 90%, violet 100%);*/
+    /*background: -moz-linear-gradient(left, red 0%, orange 10%, yellow 90%, violet 100%);*/
+    /*background: linear-gradient(left, red 0%, orange 10%, yellow 90%, violet 100%);*/
   }
 
   .m-header div.menu {

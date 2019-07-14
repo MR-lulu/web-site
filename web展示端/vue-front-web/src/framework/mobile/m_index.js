@@ -13,40 +13,48 @@ import $ from 'jquery'
 // import 'bootstrap/dist/js/bootstrap.min.js'
 import '@/commonjs/util/font-size.js'
 import {isMobile} from '@/framework/common/js/global.js'
+import Config from "../../assets/Config"
+
+/**
+ * 如果是电脑端打开的地址，那么久跳转到电脑端
+ */
+if (!isMobile()) {
+  window.location.href = Config.pcUrl;
+} else {
 
 // 系统初始化类
-let systemInit = new SystemInit()
+  let systemInit = new SystemInit()
 
 // 初始化
-init()
+  init()
 
-/**
- *  初始化
- */
-function init() {
-  initAsync()
-
-}
-
-/**
- * 异步初始化
- */
-async function initAsync() {
-  await systemInit.initAsync()
-
-  let i18n = systemInit.i18n
   /**
-   * 初始化Vue对象
+   *  初始化
    */
-  new Vue({
-    el: '#app',
-    router,
-    store,
-    i18n,
-    components: {App},
-    template: '<App/>'
-  })
+  function init() {
+    initAsync()
 
-  Vue.use(MintUI)
+  }
+
+  /**
+   * 异步初始化
+   */
+  async function initAsync() {
+    await systemInit.initAsync()
+
+    let i18n = systemInit.i18n
+    /**
+     * 初始化Vue对象
+     */
+    new Vue({
+      el: '#app',
+      router,
+      store,
+      i18n,
+      components: {App},
+      template: '<App/>'
+    })
+
+    Vue.use(MintUI)
+  }
 }
-
