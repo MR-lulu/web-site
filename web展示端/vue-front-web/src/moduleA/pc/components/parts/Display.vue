@@ -101,6 +101,7 @@
     width: 450px;
     /*height: 500px;*/
     overflow: auto;
+    display: inline-table;
     display: inline-grid;
   }
 
