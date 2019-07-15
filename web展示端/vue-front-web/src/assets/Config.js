@@ -21,10 +21,10 @@ Config.mobileUrl = 'http://114.115.167.76:8080/vue-front-web/m_index.html#/m_ind
 // Config.pcUrl = 'http://localhost:8080/m_index.html#/m_index';
 
 /**
- * 定时器，定时查询新消息，暂定1分钟查询一次
+ * 定时器，定时查询新消息，暂定1小时查询一次
  * @type {number}
  */
-Config.Timer = 60 * 1000;
+Config.Timer = 60 * 60 * 1000;
 
 /**
  * 网站标题
