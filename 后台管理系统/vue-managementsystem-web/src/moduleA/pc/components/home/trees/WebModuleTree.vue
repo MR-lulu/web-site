@@ -331,6 +331,6 @@
   }
 
   .webModuleTree .el-tree-node__content:hover {
-    background-color: #ccc;
+    background-color: #007cff;
   }
 </style>

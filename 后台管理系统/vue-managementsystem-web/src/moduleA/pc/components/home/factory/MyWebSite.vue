@@ -8,7 +8,24 @@
           <WebModuleTree></WebModuleTree>
         </div>
       </el-aside>
+
       <el-main>
+
+        <div class="title">
+          <!--添加导航-->
+          <el-button type="success" icon="el-icon-location-information"  v-if="isRouterAlive == 'NavigationAdd'">{{$t('rs.moduleA.20000000156')}}</el-button>
+          <!--添加模块-->
+          <el-button type="success" icon="el-icon-location-information"  v-if="isRouterAlive == 'ModuleAdd'">{{$t('rs.moduleA.20000000157')}}</el-button>
+          <!--添加零件-->
+          <el-button type="success" icon="el-icon-location-information"  v-if="isRouterAlive == 'PartsAdd'">{{$t('rs.moduleA.20000000158')}}</el-button>
+          <!--修改导航-->
+          <el-button type="success" icon="el-icon-location-information"  v-if="isRouterAlive == 'NavigationDetail'">{{$t('rs.moduleA.20000000159')}}</el-button>
+          <!--修改模块-->
+          <el-button type="success" icon="el-icon-location-information"  v-if="isRouterAlive == 'ModuleDetail'">{{$t('rs.moduleA.20000000160')}}</el-button>
+          <!--修改零件-->
+          <el-button type="success" icon="el-icon-location-information"  v-if="isRouterAlive == 'PartsDetail'">{{$t('rs.moduleA.20000000161')}}</el-button>
+        </div>
+
         <!--右边展示组件-->
         <div class="box-right">
           <!--导航添加-->

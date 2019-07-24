@@ -25,6 +25,9 @@
         </el-form-item>
 
         <el-form-item :label="$t('rs.moduleA.20000000054') /*零件种类*/" prop="partsTypeId">
+          <el-input v-model="partsTypeName" disabled></el-input>
+        </el-form-item>
+        <el-form-item :label="$t('rs.moduleA.20000000054') /*零件种类*/" prop="partsTypeId" style="display: none">
           <el-input v-model="formData.partsTypeId" disabled></el-input>
         </el-form-item>
         <el-form-item :label="$t('rs.moduleA.20000000086') /*零件名称*/" prop="name">
@@ -81,6 +84,7 @@
   import Config from '../../../../../../assets/Config.js'
   import PartAddOrModifyRequestVO from '@/moduleA/common/js/model/PartAddOrModifyRequestVO.js'
   import PartsDeleteRequestVO from '@/moduleA/common/js/model/PartsDeleteRequestVO.js'
+  import PartsTypeByIdRequestVO from '@/moduleA/common/js/model/PartsTypeByIdRequestVO.js'
   import Tools from '@/commonjs/util/mall.tools.js'
   import { mapState } from 'vuex'
 
@@ -101,6 +105,8 @@
         uploadImgUrl: '',
         // 图片上传大小限制
         uploadImgSize: '',
+        // 零件类型名称
+        partsTypeName: '',
         formData: {
           partsTypeId: '',
           modulesId: '',
@@ -163,11 +169,28 @@
       webModuleTreeClickType: function (newValue, oldValue) {
         if (newValue) {
           this.formData = this.webModuleTreeClickType.object;
+          // 根据id获取零件明细，最终是为了获取零件类型名称
+          this.getPartsTypeById(this.formData.partsTypeId);
         }
       }
     },
 
     methods: {
+      // 根据id获取零件明细
+      getPartsTypeById: function (id) {
+        let partsTypeByIdRequestVO = new PartsTypeByIdRequestVO(this.ProtocolContent.partsTypeById);
+        partsTypeByIdRequestVO.id = id
+        this.communicateManger.httpCommunicate.getResponseVO(partsTypeByIdRequestVO, "/partsType/query/detail/" + partsTypeByIdRequestVO.id).then((PartsTypeByIdResponseVO) => {
+          if (PartsTypeByIdResponseVO.getStatus == 1000) {
+            this.partsTypeName = PartsTypeByIdResponseVO.data.name;
+          } else {
+            this.messageBox.error(PartsTypeByIdResponseVO.getMsg);
+          }
+        }).catch(() => {
+          this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
+        })
+      },
+
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
