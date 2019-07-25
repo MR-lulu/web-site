@@ -1,20 +1,26 @@
 <template>
   <div class="header">
-    <!--背景图片-->
-    <!--<div id="background-img" style="position:fixed; left:0px; top:0px; width:100%; height:100%; z-index: -10000;" v-if="commonInfo != null && commonInfo.bgUrl != null && commonInfo.bgUrl != ''">-->
-    <!--<img :src="commonInfo.bgUrl" width="100%" height="100%">-->
-    <!--</div>-->
-
     <!--logo 图片-->
     <div class="logo">
       <img :src="webTopInfo.logoUrl">
     </div>
     <!--导航栏-->
     <div class="navigation-bar" id="navigation-bar" ref="element" v-bind:class="{hide2: isActiveNavigation}">
-      <div v-for="(item, index) in navigationListInfo" :tabindex="index" :id="item.navigationId" class="cell"
-           :key="index" v-on:click="handleSelect(item.navigationId, index)">
+      <!-- <div v-for="(item, index) in navigationListInfo" :tabindex="index" :id="item.navigationId" class="cell"
+            :key="index" v-on:click="handleSelect(item.navigationId, index)">
+         <label class="name ellipsis">{{item.name}}</label>
+       </div>-->
+
+      <a v-for="(item, index) in navigationListInfo" :tabindex="index" :id="item.navigationId" class="cell"
+         :key="index" v-on:click="handleSelect(item.navigationId, index)"
+         :href="(item.navigationUrl==null || item.navigationUrl=='') ? 'javascript:void(0);' : item.navigationUrl"
+         target="_blank">
         <label class="name ellipsis">{{item.name}}</label>
-      </div>
+        <span class="line line_top"></span>
+        <span class="line line_right"></span>
+        <span class="line line_bottom"></span>
+        <span class="line line_left"></span>
+      </a>
     </div>
 
     <div v-if="navigationListInfo != null && navigationListInfo.length > 6">
@@ -188,17 +194,18 @@
 </script>
 
 <style>
-  /*body {*/
-  /*background:#fff url('http://114.115.167.76:8085/mall/file/show/4f243e12-1198-4fc8-ac30-7c7e619f5c5f.jpg') no-repeat left top;*/
-  /*background-size:100%;*/
-  /*}*/
+
   .header {
-    margin-top: 00px;
     width: 100%;
     font-size: 14px;
     border-bottom: 1px solid #fee974;
     min-height: 80px;
     height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #040404;
+    z-index: 1000;
   }
 
   .header .logo {
@@ -214,14 +221,14 @@
   }
 
   .header .navigation-bar .cell {
-    background-color: #373d41;
+    /*background-color: #373d41;*/
     float: left;
     margin-left: 1%;
     width: 15%;
     margin-top: 16px;
     font-size: 16px;
     height: 60px;
-    line-height: 60px;
+    /*line-height: 60px;*/
   }
 
   .header .navigation-bar :hover {
@@ -264,5 +271,91 @@
 
   .header .clear {
     clear: both
+  }
+
+
+  .header .cell {
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    font-size: 15px; /*color:#33ab6a;*/
+    font-weight: bold;
+    width: 255px;
+    text-align: center;
+    height: 100px; /*border:2px solid rgba(255,255,255,.8);*/
+    margin: 20px 45px;
+    padding: 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: 0.4s;
+    -o-transition: 0.4s;
+    transition: 0.4s;
+  }
+
+  .header .cell:hover {
+    border: 2px solid rgba(255, 255, 255, 1);
+  }
+
+  .header .cell .line {
+    display: inline-block;
+    background-color: #FFF;
+    position: absolute;
+    -webkit-transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+    transition: 0.5s ease;
+  }
+
+  .header .cell .line_top {
+    height: 2px;
+    width: 0;
+    left: -50%;
+    top: -2px;
+  }
+
+  .header .cell:hover .line_top {
+    width: 100%;
+    left: -2px;
+  }
+
+  .header .cell .line_right {
+    height: 0;
+    width: 2px;
+    top: -50%;
+    right: -2px;
+  }
+
+  .header .cell:hover .line_right {
+    height: 100%;
+    top: -2px;
+  }
+
+  .header .cell .line_bottom {
+    width: 2px;
+    height: 0;
+    bottom: -50%;
+    left: -2px;
+  }
+
+  .header .cell:hover .line_bottom {
+    height: 100%;
+    bottom: -2px;
+  }
+
+  .header .cell .line_left {
+    height: 2px;
+    width: 0;
+    right: -50%;
+    bottom: -2px;
+  }
+
+  .header .cell:hover .line_left {
+    width: 100%;
+    right: -2px;
+  }
+
+
+  .el-message-box__message p {
+    color: #000;
   }
 </style>

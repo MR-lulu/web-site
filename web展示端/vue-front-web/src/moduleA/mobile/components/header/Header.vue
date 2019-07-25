@@ -483,4 +483,8 @@
   .m-header div.menu.animate li:nth-of-type(5) {
     transition-delay: 0.24s;
   }
+
+  .el-message-box__message p {
+    color: #000;
+  }
 </style>

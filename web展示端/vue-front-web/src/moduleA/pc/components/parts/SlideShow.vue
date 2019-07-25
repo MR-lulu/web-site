@@ -1,6 +1,6 @@
 <template>
   <div class="slide-show">
-    <el-carousel :interval="4000" type="card" height="400px" :autoplay="false" @change="change">
+    <el-carousel :interval="4000" height="600px" :autoplay="false" @change="change">
       <el-carousel-item v-for="(item, index) in partsDtoList" :key="index" v-if="item.status == 1">
         <!--不带有超链接-->
         <div class="img" v-if="item.hyperlinks== ''" v-on:click="onclickParts(item)">

@@ -85,9 +85,9 @@
 
 <style>
   .page {
-    margin-top: 30px;
-    margin-left: 1%;
-    margin-right: 1%;
+    margin-top: 120px;
+    margin-left: 2%;
+    margin-right: 2%;
   }
 
   .page .cell {
