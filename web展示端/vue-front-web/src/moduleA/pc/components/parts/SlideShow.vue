@@ -33,6 +33,10 @@
       partsDtoList: {
         type: Array,
         required: true
+      },
+      moduleName: {
+        type: String,
+        required: true
       }
     },
     data() {
@@ -109,12 +113,12 @@
     display: flex;
     justify-content: left;
     align-items: Center;
-    background-color: #373d41;
+    background-color: rgb(55, 61, 65, 0.8);
     margin-left: 25%;
   }
 
   .slide-show .content span {
-    color: #9b9ea0;
+    color: #F8F8FF;
   }
 
   .slide-show .content .title {

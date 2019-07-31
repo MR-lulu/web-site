@@ -16,44 +16,10 @@
         <el-col :span="24">
           <div class="grid-content bg-purple-dark">
             <div class="about-us">
-              <span>关于我们:</span>
+              <span class="us"><h2 class="h-h2-white">关于我们</h2></span>
               <div class="about">
                 <span class="txt">&nbsp;&nbsp;{{webBottomInfoNew.about}}</span>
               </div>
-            </div>
-          </div>
-        </el-col>
-      </el-row>
-
-      <!--联系方式-->
-      <el-row class="contact"
-              v-if="isNull(webBottomInfoNew.phone) || isNull(webBottomInfoNew.address) || isNull(webBottomInfoNew.contact)">
-        <el-col :span="8">
-          <div class="grid-content bg-purple">
-            <div class="phone-cell">
-              <!--显示电话图标-->
-              <div class="call-phone-img">
-                <img src="@/assets/images/callphone.png">
-              </div>
-              <!--显示电话信息-->
-              <div class="call-phone-txt">
-                <!--联系电话-->
-                <div><span>{{$t('rs.moduleA.20000000014')}}: </span> <span class="txt">{{webBottomInfoNew.phone}}</span>
-                </div>
-                <!--联系地址-->
-                <div><span>{{$t('rs.moduleA.20000000015')}}:</span> <span
-                  class="txt">{{webBottomInfoNew.address}}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </el-col>
-        <el-col :span="16">
-          <div class="grid-content bg-purple-light">
-            <!--其它联系方式-->
-            <div class="other">
-              <span>{{$t('rs.moduleA.20000000018')}}: </span>
-              <span class="txt">{{webBottomInfoNew.contact}}</span>
             </div>
           </div>
         </el-col>
@@ -64,7 +30,7 @@
         <el-col :span="24">
           <div class="grid-content bg-purple-dark">
             <div class="about-us">
-              <span>相关信息:</span>
+              <span class="us"><h2 class="h-h2-white">相关信息</h2></span>
               <div class="about">
                 <span class="txt">&nbsp;&nbsp;{{webBottomInfoNew.selfInfo}}</span>
               </div>
@@ -72,6 +38,89 @@
           </div>
         </el-col>
       </el-row>
+
+      <div class="contact-style"
+           v-if="isNull(webBottomInfoNew.phone) || isNull(webBottomInfoNew.address) || isNull(webBottomInfoNew.contact)">
+        <el-row>
+          <el-col :span="8">
+            <div class="grid-content bg-purple">
+              <!--显示地址图标-->
+              <div class="contact-style-icon">
+                <i class="el-icon-location"></i>
+              </div>
+              <!--联系地址-->
+              <div class="contact-style-txt"><span>{{$t('rs.moduleA.20000000015')}}</span></div>
+              <!--联系地址-->
+              <div class="contact-style-content"><span class="txt">{{webBottomInfoNew.address}}</span></div>
+            </div>
+          </el-col>
+
+          <el-col :span="8">
+            <div class="grid-content bg-purple contact-style-border">
+              <!--显示电话图标-->
+              <div class="contact-style-icon">
+                <i class="el-icon-phone-outline"></i>
+              </div>
+              <!--联系电话-->
+              <div class="contact-style-txt"><span>{{$t('rs.moduleA.20000000014')}}</span></div>
+              <!--联系地址-->
+              <div class="contact-style-content"><span class="txt">{{webBottomInfoNew.phone}}</span></div>
+            </div>
+          </el-col>
+
+          <el-col :span="8">
+            <div class="grid-content bg-purple">
+              <!--显示地址图标-->
+              <div class="contact-style-icon">
+                <i class="el-icon-view"></i>
+              </div>
+              <!--其它联系方式-->
+              <div class="contact-style-txt"><span>{{$t('rs.moduleA.20000000018')}}</span></div>
+              <!--联系地址-->
+              <div class="contact-style-content"><span class="txt">{{webBottomInfoNew.contact}}</span></div>
+            </div>
+          </el-col>
+        </el-row>
+      </div>
+
+
+      <!--&lt;!&ndash;联系方式&ndash;&gt;-->
+      <!--<div class="contact-style">-->
+      <!--<el-row class="contact"-->
+      <!--v-if="isNull(webBottomInfoNew.phone) || isNull(webBottomInfoNew.address) || isNull(webBottomInfoNew.contact)">-->
+      <!--<el-col :span="8">-->
+      <!--<div class="grid-content bg-purple">-->
+      <!--<div class="phone-cell">-->
+      <!--&lt;!&ndash;显示电话图标&ndash;&gt;-->
+      <!--<div class="call-phone-img">-->
+      <!--<img src="@/assets/images/callphone.png">-->
+      <!--</div>-->
+      <!--&lt;!&ndash;显示电话信息&ndash;&gt;-->
+      <!--<div class="call-phone-txt">-->
+      <!--&lt;!&ndash;联系电话&ndash;&gt;-->
+      <!--<div><span>{{$t('rs.moduleA.20000000014')}}: </span> <span class="txt">{{webBottomInfoNew.phone}}</span>-->
+      <!--</div>-->
+      <!--&lt;!&ndash;联系地址&ndash;&gt;-->
+      <!--<div><span>{{$t('rs.moduleA.20000000015')}}:</span> <span-->
+      <!--class="txt">{{webBottomInfoNew.address}}</span>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</el-col>-->
+      <!--<el-col :span="16">-->
+      <!--<div class="grid-content bg-purple-light">-->
+      <!--&lt;!&ndash;其它联系方式&ndash;&gt;-->
+      <!--<div class="other">-->
+      <!--<span>{{$t('rs.moduleA.20000000018')}}: </span>-->
+      <!--<span class="txt">{{webBottomInfoNew.contact}}</span>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</el-col>-->
+      <!--</el-row>-->
+      <!--</div>-->
+
+
 
       <!--备案信息-->
       <el-row v-if="isNull(webBottomInfoNew.record)">
@@ -149,6 +198,7 @@
     text-align: left;
     margin-top: 5%;
     font-size: 16px;
+    background-color: rgb(0, 0, 0, 0.8);
   }
 
   .footer .el-row {
@@ -179,21 +229,32 @@
 
   .footer .footer-box .about-us {
     margin-top: 10px;
+    text-align: center;
+  }
+
+  .footer .footer-box .about-us .us {
+
   }
 
   .footer .footer-box .about-us .about {
-    margin-top: 10px;
     width: 100%;
     height: auto;
     color: #808080;
     text-align: center;
     min-height: 100px;
-    background-color: #000;
     padding-left: 1%;
     padding-right: 1%;
-    display: flex;
-    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    /* display: flex; */
+    /* -webkit-box-pack: center; */
+    -ms-flex-pack: center;
+    /* justify-content: center; */
+    /* -webkit-box-align: Center; */
+    -ms-flex-align: Center;
     align-items: Center;
+    line-height: 25px;
+    margin-top: 5%;
   }
 
   .footer .footer-box .contact {
@@ -236,18 +297,69 @@
   }
 
   .footer .footer-box .el-col-8 {
-    border-right: 1px solid #4b5054;
+    /*border-right: 1px solid #4b5054;*/
   }
 
   .footer .footer-box .record {
     text-align: center;
     height: 50px;
     line-height: 36px;
+    font-size: 14px;
   }
 
   .footer .footer-box .record img {
     width: 20px;
     height: 20px;
+  }
+
+  .footer .footer-box .record span {
+    margin-left: 1%;
+  }
+
+  .footer .h-h2-white {
+    font-size: 24px;
+    color: #fff;
+    line-height: 150%;
+    margin: 0;
+    padding: 0 20px;
+  }
+
+  .footer .h-h2-white:after, .h-h2-white:before {
+    display: inline-block;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.30);
+    padding: 0;
+    content: "";
+    width: 100px;
+    margin: 10px 15px;
+  }
+
+  .footer .contact-style {
+    margin-top: 10%;
+    margin-bottom: 5%;
+  }
+
+  .footer .contact-style .contact-style-icon {
+    float: left;
+    margin-left: 5%;
+    font-size: 25px;
+  }
+
+  .footer .contact-style .contact-style-txt {
+    margin-left: 15%;
+    padding-top: 5px;
+  }
+
+  .footer .contact-style .contact-style-content {
+    margin-left: 15%;
+    margin-top: 3%;
+    margin-right: 5%;
+    line-height: 25px;
+  }
+
+  .footer .contact-style .contact-style-border {
+    border-right: 1px solid #4b5054;
+    border-left: 1px solid #4b5054;
   }
 
 

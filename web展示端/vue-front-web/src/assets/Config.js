@@ -25,7 +25,7 @@ Config.mobileUrl = 'http://114.115.167.76:8080/vue-front-web/m_index.html#/m_ind
  * @type {number}
  */
 // Config.Timer = 60 * 60 * 1000;
-Config.Timer = 1000;
+Config.Timer = 1000 * 60;
 
 /**
  * 网站标题

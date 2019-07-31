@@ -1,0 +1,6 @@
+1.将打包的dist文件放到目录vue-managementsystem-web 下；
+
+2.进入dist目录，修改index.html文件。把  ../  改为 ./。
+
+例如：<link rel=stylesheet href=../assets/css/bootstrap/css/bootstrap.min.css>
+修改为：<link rel=stylesheet href=./assets/css/bootstrap/css/bootstrap.min.css>

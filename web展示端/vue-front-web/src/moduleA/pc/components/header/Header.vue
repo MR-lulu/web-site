@@ -14,7 +14,8 @@
       <a v-for="(item, index) in navigationListInfo" :tabindex="index" :id="item.navigationId" class="cell"
          :key="index" v-on:click="handleSelect(item.navigationId, index)"
          :href="(item.navigationUrl==null || item.navigationUrl=='') ? 'javascript:void(0);' : item.navigationUrl"
-         target="_blank">
+         target="_blank"
+         v-if="item.status == 1">
         <label class="name ellipsis">{{item.name}}</label>
         <span class="line line_top"></span>
         <span class="line line_right"></span>

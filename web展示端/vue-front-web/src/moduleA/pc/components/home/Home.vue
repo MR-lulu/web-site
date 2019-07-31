@@ -43,9 +43,11 @@ export default {
   },
   watch: {
     commonInfo: function (newValue, oldValue) {
-      if (newValue) {
-        // 修改网站背景
-        //document.querySelector('body').setAttribute('style', 'width:100%; height:auto; background-color: rgb(255,255,255,0);');
+      if (newValue != null && newValue.bgUrl != null && newValue.bgUrl != '') {
+        // 如果存在背景图片，则删除网站背景颜色
+        document.querySelector('body').setAttribute('style', 'width:100%; height:auto; background-color: rgb(255,255,255,0);');
+      } else {
+        document.querySelector('body').setAttribute('style', 'width:100%; height:auto; background-color: #040404;');
       }
     }
   },
