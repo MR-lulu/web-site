@@ -149,8 +149,6 @@
           array.push(this.partsDtoList[index]);
           this.partsDtoListNew.push(array);
         }
-
-        console.log(this.partsDtoListNew);
       },
 
       // 点击零件事件
