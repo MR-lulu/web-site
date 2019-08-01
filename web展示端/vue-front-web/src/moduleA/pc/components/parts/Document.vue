@@ -178,7 +178,7 @@
     padding-right: 10%;
     /*background-color: #373d41;*/
     text-indent: 2em;
-    padding-bottom: 10px;
+    padding-bottom: 3%;
     border-top: 2px solid #000;
     padding-top: 10px;
     text-align: left;

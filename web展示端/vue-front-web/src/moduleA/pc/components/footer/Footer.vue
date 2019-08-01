@@ -12,34 +12,64 @@
       </el-row>
 
       <!--关于我们-->
-      <el-row v-if="isNull(webBottomInfoNew.about)">
-        <el-col :span="24">
-          <div class="grid-content bg-purple-dark">
-            <div class="about-us">
-              <span class="us"><h2 class="h-h2-white">关于我们</h2></span>
-              <div class="about">
-                <span class="txt">&nbsp;&nbsp;{{webBottomInfoNew.about}}</span>
+      <div class="contact-style"
+           data-aos="fade-left"
+           data-aos-offset="200"
+           data-aos-delay="10"
+           data-aos-duration="1000"
+           data-aos-easing="ease-in-out"
+           data-aos-mirror="true"
+           data-aos-once="false"
+           data-aos-anchor-placement="top-bottom">
+        <el-row v-if="isNull(webBottomInfoNew.about)">
+          <el-col :span="24">
+            <div class="grid-content bg-purple-dark">
+              <div class="about-us">
+                <span class="us"><h2 class="h-h2-white">关于我们</h2></span>
+                <div class="about">
+                  <span class="txt">&nbsp;&nbsp;{{webBottomInfoNew.about}}</span>
+                </div>
               </div>
             </div>
-          </div>
-        </el-col>
-      </el-row>
+          </el-col>
+        </el-row>
+      </div>
+
 
       <!--自定义信息栏-->
-      <el-row v-if="isNull(webBottomInfoNew.selfInfo)">
-        <el-col :span="24">
-          <div class="grid-content bg-purple-dark">
-            <div class="about-us">
-              <span class="us"><h2 class="h-h2-white">相关信息</h2></span>
-              <div class="about">
-                <span class="txt">&nbsp;&nbsp;{{webBottomInfoNew.selfInfo}}</span>
+      <div class="contact-style"
+           data-aos="fade-right"
+           data-aos-offset="200"
+           data-aos-delay="10"
+           data-aos-duration="1000"
+           data-aos-easing="ease-in-out"
+           data-aos-mirror="true"
+           data-aos-once="false"
+           data-aos-anchor-placement="top-bottom">
+
+        <el-row v-if="isNull(webBottomInfoNew.selfInfo)">
+          <el-col :span="24">
+            <div class="grid-content bg-purple-dark">
+              <div class="about-us">
+                <span class="us"><h2 class="h-h2-white">相关信息</h2></span>
+                <div class="about">
+                  <span class="txt">&nbsp;&nbsp;{{webBottomInfoNew.selfInfo}}</span>
+                </div>
               </div>
             </div>
-          </div>
-        </el-col>
-      </el-row>
+          </el-col>
+        </el-row>
+      </div>
 
       <div class="contact-style"
+           data-aos="fade-up"
+           data-aos-offset="200"
+           data-aos-delay="10"
+           data-aos-duration="1000"
+           data-aos-easing="ease-in-out"
+           data-aos-mirror="true"
+           data-aos-once="false"
+           data-aos-anchor-placement="top-bottom"
            v-if="isNull(webBottomInfoNew.phone) || isNull(webBottomInfoNew.address) || isNull(webBottomInfoNew.contact)">
         <el-row>
           <el-col :span="8">

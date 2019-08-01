@@ -15,6 +15,8 @@ import $ from 'jquery'
 import echarts from 'echarts'
 import {isMobile} from '@/framework/common/js/global.js'
 import Config from "../../assets/Config"
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 /**
  * 如果是手机端打开的地址，那么久跳转到手机端
@@ -22,6 +24,9 @@ import Config from "../../assets/Config"
 if (isMobile()) {
   window.location.href = Config.mobileUrl;
 } else {
+
+  AOS.init();
+
   Vue.prototype.$echarts = echarts
 
 // 系统初始化类

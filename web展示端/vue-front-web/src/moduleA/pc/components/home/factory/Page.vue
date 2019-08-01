@@ -8,31 +8,44 @@
     <!--循环模块-->
     <div v-if="currentNavigationInfo != null && currentNavigationInfo.modulesDtoList != null">
       <div v-for="(item, index) in currentNavigationInfo.modulesDtoList" :key="index" v-if="item.status == 1">
-        <!--轮播图-->
-        <div class="cell" v-if="item.partsTypeId == 13 && item.partsDtoList != null && item.partsDtoList.length != 0">
-          <!--因为不确定会有多少个轮播图模块，所以采用父组件传值给子组件，而不是vux.-->
-          <SlideShow v-bind:partsDtoList="item.partsDtoList" v-bind:moduleName="item.name"></SlideShow>
+
+        <!--aos 动画-->
+        <div data-aos="fade-up"
+             data-aos-offset="200"
+             data-aos-delay="10"
+             data-aos-duration="1000"
+             data-aos-easing="ease-in-out"
+             data-aos-mirror="true"
+             data-aos-once="false"
+             data-aos-anchor-placement="top-bottom">
+
+          <!--轮播图-->
+          <div class="cell" v-if="item.partsTypeId == 13 && item.partsDtoList != null && item.partsDtoList.length != 0">
+            <!--因为不确定会有多少个轮播图模块，所以采用父组件传值给子组件，而不是vux.-->
+            <SlideShow v-bind:partsDtoList="item.partsDtoList" v-bind:moduleName="item.name"></SlideShow>
+          </div>
+          <!--文字文章（居中对齐）-->
+          <div class="cell"
+               v-else-if="item.partsTypeId == 14 && item.partsDtoList != null && item.partsDtoList.length != 0">
+            <DocumentCenter v-bind:partsDtoList="item.partsDtoList" v-bind:moduleName="item.name"></DocumentCenter>
+          </div>
+          <!--文字文章（左对齐）-->
+          <div class="cell"
+               v-else-if="item.partsTypeId == 17 && item.partsDtoList != null && item.partsDtoList.length != 0">
+            <Document v-bind:partsDtoList="item.partsDtoList" v-bind:moduleName="item.name"></Document>
+          </div>
+          <!--商品展示-->
+          <div class="cell"
+               v-else-if="item.partsTypeId == 15 && item.partsDtoList != null && item.partsDtoList.length != 0">
+            <Display v-bind:partsDtoList="item.partsDtoList" v-bind:moduleName="item.name"></Display>
+          </div>
+          <!--图标按钮-->
+          <div class="cell"
+               v-else-if="item.partsTypeId == 16 && item.partsDtoList != null && item.partsDtoList.length != 0">
+            <IconButton v-bind:partsDtoList="item.partsDtoList" v-bind:moduleName="item.name"></IconButton>
+          </div>
         </div>
-        <!--文字文章（居中对齐）-->
-        <div class="cell"
-             v-else-if="item.partsTypeId == 14 && item.partsDtoList != null && item.partsDtoList.length != 0">
-          <DocumentCenter v-bind:partsDtoList="item.partsDtoList" v-bind:moduleName="item.name"></DocumentCenter>
-        </div>
-        <!--商品展示-->
-        <div class="cell"
-             v-else-if="item.partsTypeId == 15 && item.partsDtoList != null && item.partsDtoList.length != 0">
-          <Display v-bind:partsDtoList="item.partsDtoList" v-bind:moduleName="item.name"></Display>
-        </div>
-        <!--图标按钮-->
-        <div class="cell"
-             v-else-if="item.partsTypeId == 16 && item.partsDtoList != null && item.partsDtoList.length != 0">
-          <IconButton v-bind:partsDtoList="item.partsDtoList" v-bind:moduleName="item.name"></IconButton>
-        </div>
-        <!--文字文章（左对齐）-->
-        <div class="cell"
-             v-else-if="item.partsTypeId == 17 && item.partsDtoList != null && item.partsDtoList.length != 0">
-          <Document v-bind:partsDtoList="item.partsDtoList" v-bind:moduleName="item.name"></Document>
-        </div>
+
       </div>
     </div>
   </div>

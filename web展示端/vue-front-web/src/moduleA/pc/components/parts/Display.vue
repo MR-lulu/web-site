@@ -9,33 +9,46 @@
       <el-row :gutter="50">
         <el-col :span="8" v-for="(item2, index2) in item" :key="index2" v-if="item2.status == 1"
                 v-on:click="onclickParts(item2)">
-          <div class="grid-content bg-purple">
-            <a :href="(item2.hyperlinks== '' || item2.hyperlinks == null) ? 'javascript:void(0);' : item2.hyperlinks"
-               target="_blank">
-              <el-image
-                style="width: 100%; height: 280px; background-color: #000;"
-                :src="item2.imageUrl"
-                fit="contain">
-                <!--图片加载失败显示内容-->
-                <div slot="error" class="image-slot">
-                  <i class="el-icon-picture-outline"></i>
-                </div>
-              </el-image>
-            </a>
+          <div class="grid-content bg-purple cell-block-scale cell-block-background">
 
-            <div class="content">
-              <div class="title ellipsis">
-                <a
-                  :href="(item2.hyperlinks== '' || item2.hyperlinks == null) ? 'javascript:void(0);' : item2.hyperlinks"
-                  target="_blank">
-                  <span>{{item2.title}}</span>
-                </a>
-              </div>
-              <div class="txt">
-                <span>{{item2.txt}}</span>
+            <!--aos 动画-->
+            <div data-aos="fade-up"
+                 data-aos-offset="200"
+                 data-aos-delay="10"
+                 data-aos-duration="1000"
+                 data-aos-easing="ease-in-out"
+                 data-aos-mirror="true"
+                 data-aos-once="false"
+                 data-aos-anchor-placement="top-bottom">
+
+              <a :href="(item2.hyperlinks== '' || item2.hyperlinks == null) ? 'javascript:void(0);' : item2.hyperlinks"
+                 target="_blank">
+                <el-image
+                  style="width: 100%; height: 280px; background-color: #000;"
+                  :src="item2.imageUrl"
+                  fit="contain">
+                  <!--图片加载失败显示内容-->
+                  <div slot="error" class="image-slot">
+                    <i class="el-icon-picture-outline"></i>
+                  </div>
+                </el-image>
+              </a>
+
+              <div class="content">
+                <div class="title ellipsis">
+                  <a
+                    :href="(item2.hyperlinks== '' || item2.hyperlinks == null) ? 'javascript:void(0);' : item2.hyperlinks"
+                    target="_blank">
+                    <span>{{item2.title}}</span>
+                  </a>
+                </div>
+                <div class="txt">
+                  <span>{{item2.txt}}</span>
+                </div>
               </div>
             </div>
           </div>
+
         </el-col>
       </el-row>
     </div>
@@ -240,7 +253,7 @@
   }
 
   .display-commodity .content {
-    background-color: #333;
+    /*background-color: #333;*/
     margin-top: -4px;
   }
 
@@ -249,5 +262,39 @@
     margin-right: 10%;
     margin-top: 2%;
     margin-bottom: 2%;
+  }
+
+  /*效果：放大 修改scale(放大的值)*/
+  .display-commodity .cell-block-scale {
+    transition: All 0.4s ease-in-out;
+    -webkit-transition: All 0.4s ease-in-out;
+    -moz-transition: All 0.4s ease-in-out;
+    -o-transition: All 0.4s ease-in-out;
+  }
+
+  .display-commodity .cell-block-scale:hover {
+    background-color: #fee86f;
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+  }
+
+  .display-commodity .cell-block-background {
+    background-color: #333;
+  }
+
+  /*效果：颜色改变*/
+  .display-commodity .cell-block-background {
+    transition: All 0.4s ease-in-out;
+    -webkit-transition: All 0.4s ease-in-out;
+    -moz-transition: All 0.4s ease-in-out;
+    -o-transition: All 0.4s ease-in-out;
+  }
+
+  .display-commodity .cell-block-background:hover {
+    background-color: #c96;
+    color: #fff;
   }
 </style>
