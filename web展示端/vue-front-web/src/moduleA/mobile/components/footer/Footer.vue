@@ -10,9 +10,19 @@
     <!--关于我们-->
     <div class="footer-cell" v-if="isNull(webBottomInfoNew.about)">
       <div class="about-us">
-        <span class="us">关于我们:</span>
+        <span class="us">关于我们</span>
         <div class="about">
           <span class="txt">{{webBottomInfoNew.about}}</span>
+        </div>
+      </div>
+    </div>
+
+    <!--自定义信息栏-->
+    <div class="footer-cell" v-if="isNull(webBottomInfoNew.selfInfo)">
+      <div class="about-us">
+        <span class="us">相关信息</span>
+        <div class="about">
+          <span class="txt">{{webBottomInfoNew.selfInfo}}</span>
         </div>
       </div>
     </div>
@@ -20,33 +30,40 @@
     <!--联系方式-->
     <div class="footer-cell"
          v-if="isNull(webBottomInfoNew.phone) || isNull(webBottomInfoNew.address) || isNull(webBottomInfoNew.contact)">
-      <div class="phone-cell">
-        <!--显示电话图标-->
-        <!--<div class="call-phone-img">-->
-        <!--<img src="@/assets/images/callphone.png">-->
-        <!--</div>-->
-        <!--显示电话信息-->
-        <div class="call-phone-txt">
+      <div class="contact-style">
+        <!--联系电话-->
+        <div class="contact-style-cell" v-if="isNull(webBottomInfoNew.phone)">
+          <!--显示电话图标-->
+          <div class="contact-style-icon">
+            <i class="el-icon-phone-outline"></i>
+          </div>
           <!--联系电话-->
-          <div><span>{{$t('rs.moduleA.20000000014')}}: </span> <span class="txt">{{webBottomInfoNew.phone}}</span>
+          <div class="contact-style-txt"><span>{{$t('rs.moduleA.20000000014')}}</span></div>
+          <!--联系电话-->
+          <div class="contact-style-content"><span class="txt">{{webBottomInfoNew.phone}}</span></div>
+        </div>
+
+        <!--联系地址-->
+        <div class="contact-style-cell"  v-if="isNull(webBottomInfoNew.address)">
+          <!--显示地址图标-->
+          <div class="contact-style-icon">
+            <i class="el-icon-location"></i>
           </div>
           <!--联系地址-->
-          <div><span>{{$t('rs.moduleA.20000000015')}}:</span> <span class="txt">{{webBottomInfoNew.address}}</span>
+          <div class="contact-style-txt"><span>{{$t('rs.moduleA.20000000015')}}</span></div>
+          <!--联系地址-->
+          <div class="contact-style-content"><span class="txt">{{webBottomInfoNew.address}}</span></div>
+        </div>
+
+        <div class="contact-style-cell" v-if="isNull(webBottomInfoNew.contact)">
+          <!--显示眼睛图标-->
+          <div class="contact-style-icon">
+            <i class="el-icon-view"></i>
           </div>
           <!--其它联系方式-->
-          <div><span>{{$t('rs.moduleA.20000000018')}}: </span> <span class="txt">{{webBottomInfoNew.contact}}</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <!--自定义信息栏-->
-    <div class="footer-cell" v-if="isNull(webBottomInfoNew.selfInfo)">
-      <div class="about-us">
-        <span class="us">相关信息:</span>
-        <div class="about">
-          <span class="txt">{{webBottomInfoNew.selfInfo}}</span>
+          <div class="contact-style-txt"><span>{{$t('rs.moduleA.20000000018')}}</span></div>
+          <!--其它联系方式-->
+          <div class="contact-style-content"><span class="txt">{{webBottomInfoNew.contact}}</span></div>
         </div>
       </div>
     </div>
@@ -145,6 +162,7 @@
 
   .m-footer .footer-cell .about-us {
     border-top: 1px solid #000;
+    text-align: center;
   }
 
   .m-footer .footer-cell .about-us .us {
@@ -157,7 +175,7 @@
     width: 100%;
     height: auto;
     color: gray;
-    text-align: center;
+    text-align: left;
     min-height: 2rem;
     background-color: #000;
     display: -ms-flexbox;
@@ -171,31 +189,8 @@
 
   .m-footer .footer-cell .about-us .about .txt {
     color: #9b9ea0;
-  }
-
-  .m-footer .footer-cell .phone-cell .call-phone-txt {
-    padding-left: 0.2rem;
-  }
-
-  .m-footer .footer-cell .call-phone-img {
-    width: 1rem;
-    min-height: 1.5rem;
-    float: left;
-    position: relative;
-  }
-
-  .m-footer .footer-cell .call-phone-img img {
-    width: 1rem;
-    height: 0.7rem;
-    position: absolute;
-    top: 50%;
-    left: 40%;
-    margin-top: -25px;
-    margin-left: -25px;
-  }
-
-  .m-footer .footer-cell .phone-cell .call-phone-txt span {
-    line-height: 35px;
+    margin-left: 2%;
+    margin-right: 2%;
   }
 
   .m-footer .footer-cell .record {
@@ -207,4 +202,31 @@
     width: 0.5rem;
     height: 0.5rem;
   }
+
+  .m-footer .footer-cell .contact-style {
+    margin-top: 5%;
+  }
+
+  .m-footer .footer-cell .contact-style .contact-style-cell {
+    border-bottom: 1px solid #000;
+  }
+
+  .m-footer .footer-cell .contact-style .contact-style-icon {
+    float: left;
+    margin-left: 5%;
+    font-size: 0.4rem;
+  }
+
+  .m-footer .footer-cell .contact-style .contact-style-txt {
+    margin-left: 15%;
+    padding-top: 5px;
+  }
+
+  .m-footer .footer-cell .contact-style .contact-style-content {
+    margin-left: 15%;
+    margin-top: 3%;
+    margin-right: 5%;
+    line-height: 25px;
+  }
+
 </style>

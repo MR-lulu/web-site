@@ -4,6 +4,8 @@
 import Vue from 'vue'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.min.css'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 import App from './App'
 import router from '@/router/index.js'
 import store from '@/store/vuex/index.js'
@@ -56,5 +58,10 @@ if (!isMobile()) {
     })
 
     Vue.use(MintUI)
+
+    Vue.use(ElementUI, {
+      size: 'medium',
+      i18n: (key, value) => i18n.t(`rs.element.${key}`, value)
+    })
   }
 }

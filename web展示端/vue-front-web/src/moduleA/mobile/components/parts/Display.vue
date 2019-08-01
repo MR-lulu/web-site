@@ -85,7 +85,7 @@
 
   .m-display-commodity .cell {
     background-color: hsla(0, 0%, 100%, .8);
-    min-height: 4rem;
+    min-height: 5rem;
   }
 
   .m-display-commodity ul {
@@ -99,13 +99,14 @@
 
   .m-display-commodity ul li img {
     width: 100%;
+    max-height: 5rem;
   }
 
   .m-display-commodity ul li .load {
     width: 1rem;
     height: 1rem;
     margin-left: 45%;
-    margin-top: 20%;
+    margin-top: 30%;
   }
 
   .m-display-commodity .content {

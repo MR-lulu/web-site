@@ -8,7 +8,7 @@
           <!--导航栏-->
           <ul>
             <li v-for="(item, index) in navigationListInfo" :tabindex="index" :id="item.navigationId" class="cell"
-                :key="index" v-on:click="handleSelect(item.navigationId, index)">
+                :key="index" v-if="item.status == 1" v-on:click="handleSelect(item.navigationId, index)">
               <div class="image" v-if="index == selectIndex"><img src="@/assets/images/selected.png"></div>
               <div class="title"><label class="name">{{item.name}}</label></div>
             </li>
@@ -28,6 +28,8 @@
             <div class="x"></div>
             <div class="y"></div>
             <div class="z"></div>
+
+            <span>导航</span>
           </div>
         </div>
       </div>
@@ -192,10 +194,12 @@
               this.$store.commit('changeWebInfo', this.webInfo);
             }
           } else {
-            this.messageBox.error(WebModuleTreeResponseVO.getMsg);
+            //this.messageBox.error(WebModuleTreeResponseVO.getMsg);
+            this.messageBox.alertMobile(WebModuleTreeResponseVO.getMsg, this.$t('rs.staticText.30000000022'));//错误
           }
         }).catch(() => {
-          this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
+          //this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
+          this.messageBox.alertMobile(this.$t('rs.staticText.30000000001'), this.$t('rs.staticText.30000000022'));//错误
         })
       },
 
@@ -213,10 +217,12 @@
               }
             }
           } else {
-            this.messageBox.error(CommonInfoResponseVO.getMsg);
+            //this.messageBox.error(CommonInfoResponseVO.getMsg);
+            this.messageBox.alertMobile(CommonInfoResponseVO.getMsg, this.$t('rs.staticText.30000000022'));//错误
           }
         }).catch(() => {
-          this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
+          //this.messageBox.error(this.$t('rs.staticText.30000000001'));  //对不起，未知异常，请联系客服
+          this.messageBox.alertMobile(this.$t('rs.staticText.30000000001'), this.$t('rs.staticText.30000000022'));//错误
         })
       }
     },
@@ -286,7 +292,7 @@
 
   .m-header div.burger {
     height: 0.5rem;
-    width: 1rem;
+    width: 100%;
     position: absolute;
     top: 0.2rem;
     left: 0.3rem;
@@ -391,10 +397,19 @@
 
   .m-header div.navbar {
     height: 9%;
-    background: -webkit-linear-gradient(left, red 0%, orange 10%, yellow 90%, violet 100%);
+    background: url('~@/assets/images/navbar.jpg') center center no-repeat;
+
+    /*background: -webkit-linear-gradient(left, red 0%, orange 10%, yellow 90%, violet 100%);*/
     /*background: -ms-linear-gradient(left, red 0%, orange 10%, yellow 90%, violet 100%);*/
     /*background: -moz-linear-gradient(left, red 0%, orange 10%, yellow 90%, violet 100%);*/
     /*background: linear-gradient(left, red 0%, orange 10%, yellow 90%, violet 100%);*/
+  }
+
+  .m-header div.burger span {
+    font-size: 22px;
+    float: left;
+    margin-left: 40%;
+    margin-top: 1%;
   }
 
   .m-header div.menu {

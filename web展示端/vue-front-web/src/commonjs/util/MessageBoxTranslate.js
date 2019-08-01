@@ -1,5 +1,6 @@
 import { translate } from './translateUtil'
 import { MessageBox } from 'element-ui'
+import { MessageBox as MessageBoxMobile } from 'mint-ui';
 
 /**
  * 翻译支持国际化的弹出框封装类
@@ -102,6 +103,86 @@ class MessageBoxTranslate {
       callback: callbackFunc
     }
     )
+  }
+
+
+  //
+  /************************************************ 手机端弹出框****************************************************************/
+  //
+
+  /**
+   * 弹出提示框(手机端)
+   * @param messageID 信息编号
+   * @param title 标题
+   * @param args2 标题占位符对应的变量数组
+   * @param confirmCallback 确认按钮回调方法
+   * @param args1 信息编号占位符对应的变量数组
+   */
+  alertMobile(messageID, title, args2, confirmCallback, args1) {
+    let alertMessage = translate(messageID, args1)
+    let alertTitil = translate(title, args2)
+    MessageBoxMobile.alert('', {
+      message: alertMessage,
+      title: alertTitil,
+      confirmButtonText: translate('rs.staticText.30000000004'),
+      cancelButtonText: translate('rs.staticText.30000000005'),
+      closeOnClickModal: false
+    }).then(confirmCallback);
+  }
+
+  /**
+   * 弹出对话框(手机端)
+   * @param title 标题
+   * @param args1 标题占位符对应的变量数组
+   * @param confirmMessage 对话框提示信息
+   * @param args2 对话框占位符对应的变量数组
+   * @param confirmCallback 确认按钮回调方法
+   * @param cancelCallback 取消按钮回调方法
+   */
+  confirmMobile(title, args1, confirmMessage, args2, confirmCallback, cancelCallback) {
+    let alertTitil = translate(title, args1)
+    let alertConfirmMessage = translate(confirmMessage, args2)
+    //如果没有传入取消按钮回调方法,则默认给个空方法
+    if (!cancelCallback) {
+      cancelCallback = () => { }
+    }
+    MessageBoxMobile.confirm('', {
+      message: alertConfirmMessage,
+      title: alertTitil,
+      confirmButtonText: translate('rs.staticText.30000000004'),
+      cancelButtonText: translate('rs.staticText.30000000005'),
+    }).then(
+      confirmCallback
+    ).catch(
+      cancelCallback
+    );
+  }
+
+
+  /**
+   * 弹出对话框(手机端)
+   * @param confirmMessage 信息
+   * @param title 标题
+   * @param confirmCallback 确认按钮回调方法
+   * @param cancelCallback 取消按钮回调方法
+   * @param showCancelButton 是否显示取消按钮
+   */
+  promptMobile(title, confirmMessage, confirmCallback, cancelCallback, showCancelButton) {
+    let alertTitil = translate(title)
+    MessageBoxMobile.prompt('', {
+      message: confirmMessage,
+      title: alertTitil,
+      showInput: true,
+      closeOnClickModal: false,
+      confirmButtonText: translate('rs.staticText.30000000004'),
+      cancelButtonText: translate('rs.staticText.30000000005'),
+      showCancelButton: showCancelButton
+
+    }).then(
+      confirmCallback
+    ).catch(
+      cancelCallback
+    );
   }
 }
 

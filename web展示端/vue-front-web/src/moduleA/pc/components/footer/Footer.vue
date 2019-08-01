@@ -61,16 +61,7 @@
         </el-row>
       </div>
 
-      <div class="contact-style"
-           data-aos="fade-up"
-           data-aos-offset="200"
-           data-aos-delay="10"
-           data-aos-duration="1000"
-           data-aos-easing="ease-in-out"
-           data-aos-mirror="true"
-           data-aos-once="false"
-           data-aos-anchor-placement="top-bottom"
-           v-if="isNull(webBottomInfoNew.phone) || isNull(webBottomInfoNew.address) || isNull(webBottomInfoNew.contact)">
+      <div v-if="isNull(webBottomInfoNew.phone) || isNull(webBottomInfoNew.address) || isNull(webBottomInfoNew.contact)">
         <el-row>
           <el-col :span="8">
             <div class="grid-content bg-purple">

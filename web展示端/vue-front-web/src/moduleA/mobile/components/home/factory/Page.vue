@@ -7,7 +7,7 @@
 
     <!--循环模块-->
     <div v-if="currentNavigationInfo != null && currentNavigationInfo.modulesDtoList != null">
-      <div v-for="(item, index) in currentNavigationInfo.modulesDtoList" :key="index">
+      <div v-for="(item, index) in currentNavigationInfo.modulesDtoList" :key="index" v-if="item.status == 1">
         <!--轮播图-->
         <div class="cell-index"
              v-if="item.partsTypeId == 13 && item.partsDtoList != null && item.partsDtoList.length != 0">

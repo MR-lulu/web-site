@@ -18,7 +18,7 @@
 
     <div class="content">
       <!--标题-->
-      <div class="title ellipsis-2"><span>{{title}}</span></div>
+      <div class="title"><span>{{title}}</span></div>
       <!--简介-->
       <div class="txt"><span>{{txt}}</span></div>
     </div>
@@ -90,44 +90,40 @@
     overflow: hidden;
     position: relative;
     height: 5rem;
+    width: 100%;
   }
 
   .m-slide-show .content {
-    width: 90%;
-    height: 1rem;
+    float: left;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    overflow: auto;
+    -ms-flex-align: Center;
+    align-items: Center;
     background-color: #373d41;
-    margin: 0 auto;
-  }
-
-  .m-slide-show .content .ellipsis-2 {
-    overflow: hidden;
-    /*text-overflow: ellipsis;*/
-    white-space: nowrap;
-  }
-
-  .m-slide-show .content span {
-    color: #9b9ea0;
+    margin-bottom: 1rem;
   }
 
   .m-slide-show .content .title {
     font-size: 0.3rem;
-    width: 20%;
-    float: left;
-    line-height: 1rem;
-    text-align: center;
+    line-height: 0.45rem;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .m-slide-show .content .title span{
+    color: #fee86f;
   }
 
   .m-slide-show .content .txt {
-    height: 100%;
-    float: left;
-    border-left: 1px dashed #fee974;
-    overflow: hidden;
-    width: 70%;
-    font-size: 0.1rem;
-    padding-left: 0.2rem;
-    justify-content: center;
-    display: grid;
-    align-items: Center;
-    overflow: scroll;
+    font-size: 0.25rem;
+    line-height: 0.45rem;
+    margin: 5%;
+  }
+
+  .m-slide-show .content .txt span{
+    color: #fff;
   }
 </style>

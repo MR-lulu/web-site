@@ -1,6 +1,6 @@
 <template>
   <div class="m-document">
-    <div v-for="(item, index) in partsDtoList" :key="index" v-on:click="onclickParts(item)">
+    <div v-for="(item, index) in partsDtoList" :key="index" v-on:click="onclickParts(item)" v-if="item.status == 1">
       <mt-cell is-link :value="item" :title="item.title">
         <span>详情</span>
         <img slot="icon" src="@/assets/images/readdocument.png" width="24" height="24">
@@ -63,6 +63,7 @@
     padding-left: 1%;
     background-color: #373d41;
     min-height: 0.8rem;
+    width: 100%;
   }
 
   .m-document .mint-cell-text {
