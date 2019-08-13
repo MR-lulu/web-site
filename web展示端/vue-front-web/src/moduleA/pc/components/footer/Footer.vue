@@ -324,7 +324,7 @@
   .footer .footer-box .record {
     text-align: center;
     height: 50px;
-    line-height: 36px;
+    line-height: 50px;
     font-size: 14px;
   }
 
@@ -360,25 +360,25 @@
     margin-bottom: 5%;
   }
 
-  .footer .contact-style .contact-style-icon {
+  .footer .contact-style-icon {
     float: left;
     margin-left: 5%;
     font-size: 25px;
   }
 
-  .footer .contact-style .contact-style-txt {
+  .footer .contact-style-txt {
     margin-left: 15%;
     padding-top: 5px;
   }
 
-  .footer .contact-style .contact-style-content {
+  .footer .contact-style-content {
     margin-left: 15%;
     margin-top: 3%;
     margin-right: 5%;
     line-height: 25px;
   }
 
-  .footer .contact-style .contact-style-border {
+  .footer .contact-style-border {
     border-right: 1px solid #4b5054;
     border-left: 1px solid #4b5054;
   }

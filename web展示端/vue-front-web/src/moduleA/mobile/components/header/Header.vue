@@ -8,9 +8,14 @@
           <!--导航栏-->
           <ul>
             <li v-for="(item, index) in navigationListInfo" :tabindex="index" :id="item.navigationId" class="cell"
-                :key="index" v-if="item.status == 1" v-on:click="handleSelect(item.navigationId, index)">
-              <div class="image" v-if="index == selectIndex"><img src="@/assets/images/selected.png"></div>
-              <div class="title"><label class="name">{{item.name}}</label></div>
+                :key="index" v-on:click="handleSelect(item.navigationId, index)"
+                v-if="item.status == 1">
+              <a
+                :href="(item.navigationUrl==null || item.navigationUrl=='') ? 'javascript:void(0);' : item.navigationUrl"
+                :target="(item.navigationUrl==null || item.navigationUrl=='') ? '_self' : '_blank'">
+                <div class="image" v-if="index == selectIndex"><img src="@/assets/images/selected.png"></div>
+                <div class="title"><label class="name">{{item.name}}</label></div>
+              </a>
             </li>
           </ul>
         </div>

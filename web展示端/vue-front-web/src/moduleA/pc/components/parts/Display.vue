@@ -22,7 +22,7 @@
                  data-aos-anchor-placement="top-bottom">
 
               <a :href="(item2.hyperlinks== '' || item2.hyperlinks == null) ? 'javascript:void(0);' : item2.hyperlinks"
-                 target="_blank">
+                 :target="(item2.hyperlinks==null || item2.hyperlinks=='') ? '_self' : '_blank'">
                 <el-image
                   style="width: 100%; height: 280px; background-color: #000;"
                   :src="item2.imageUrl"
@@ -38,7 +38,7 @@
                 <div class="title ellipsis">
                   <a
                     :href="(item2.hyperlinks== '' || item2.hyperlinks == null) ? 'javascript:void(0);' : item2.hyperlinks"
-                    target="_blank">
+                    :target="(item2.hyperlinks==null || item2.hyperlinks=='') ? '_self' : '_blank'">
                     <span>{{item2.title}}</span>
                   </a>
                 </div>
